@@ -59,7 +59,7 @@ export default function BlogPost() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-violet-600 hover:text-violet-700 transition-colors">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to all posts
           </Link>
         </motion.div>
@@ -72,7 +72,7 @@ export default function BlogPost() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex items-center gap-4 mb-6"
           >
-            <span className="px-3 py-1 rounded-full bg-violet-100 text-violet-700 text-xs font-bold uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-bold uppercase tracking-wider">
               {post.category}
             </span>
           </motion.div>
@@ -140,13 +140,13 @@ export default function BlogPost() {
           <div className="flex items-center gap-3">
             <span className="text-sm font-bold text-gray-900 uppercase tracking-wider">Share this article</span>
             <div className="flex items-center gap-2">
-              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-violet-50 hover:text-violet-600 transition-colors">
+              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition-colors">
                 <Twitter className="w-4 h-4" />
               </button>
-              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-violet-50 hover:text-violet-600 transition-colors">
+              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition-colors">
                 <Linkedin className="w-4 h-4" />
               </button>
-              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-violet-50 hover:text-violet-600 transition-colors">
+              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition-colors">
                 <LinkIcon className="w-4 h-4" />
               </button>
             </div>
@@ -168,7 +168,7 @@ export default function BlogPost() {
             <p className="text-gray-600 mb-4">
               {post.author.bio}
             </p>
-            <button className="text-violet-600 font-bold text-sm uppercase tracking-wider hover:text-violet-700 transition-colors">
+            <button className="text-teal-600 font-bold text-sm uppercase tracking-wider hover:text-teal-700 transition-colors">
               Follow on LinkedIn →
             </button>
           </div>

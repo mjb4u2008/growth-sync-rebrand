@@ -55,11 +55,11 @@ export const blogPosts = [
           Every single one of those steps represents a drop-off point. Industry averages show that you lose up to <strong>40% of your intent-driven traffic</strong> at each click. By the time they reach the checkout page, only a fraction of the original audience remains.
         </p>
 
-        <blockquote className="border-l-4 border-violet-600 bg-violet-50 p-6 md:p-8 rounded-r-2xl my-12">
-          <p className="text-xl md:text-2xl font-display font-medium text-violet-950 leading-snug mb-4">
+        <blockquote className="border-l-4 border-teal-600 bg-teal-50 p-6 md:p-8 rounded-r-2xl my-12">
+          <p className="text-xl md:text-2xl font-display font-medium text-teal-950 leading-snug mb-4">
             "When we moved our primary CTA from 'Link in Bio' to 'DM us the word VIP', our conversion rate from social traffic quadrupled overnight."
           </p>
-          <footer className="text-violet-700 font-bold text-sm uppercase tracking-wider">
+          <footer className="text-teal-700 font-bold text-sm uppercase tracking-wider">
             — Marcus Chen, Head of Growth at Lumina
           </footer>
         </blockquote>
@@ -159,11 +159,11 @@ export const blogPosts = [
           The future of e-commerce is "zero-click" or "one-click" commerce. This means leveraging stored payment methods (like Apple Pay, Google Pay, or Shop Pay) directly within the social app's native browser or chat interface.
         </p>
 
-        <blockquote className="border-l-4 border-violet-600 bg-violet-50 p-6 md:p-8 rounded-r-2xl my-12">
-          <p className="text-xl md:text-2xl font-display font-medium text-violet-950 leading-snug mb-4">
+        <blockquote className="border-l-4 border-teal-600 bg-teal-50 p-6 md:p-8 rounded-r-2xl my-12">
+          <p className="text-xl md:text-2xl font-display font-medium text-teal-950 leading-snug mb-4">
             "By allowing customers to check out directly inside their Instagram DMs, we saw a 60% reduction in cart abandonment compared to our traditional mobile website."
           </p>
-          <footer className="text-violet-700 font-bold text-sm uppercase tracking-wider">
+          <footer className="text-teal-700 font-bold text-sm uppercase tracking-wider">
             — Elena Rodriguez, E-commerce Director
           </footer>
         </blockquote>
@@ -222,15 +222,15 @@ export const blogPosts = [
 
         <ul className="space-y-4 mb-8">
           <li className="flex items-start gap-3 text-lg">
-            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-sm font-bold mt-0.5">1</span>
+            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-sm font-bold mt-0.5">1</span>
             <span><strong>Monitor Engagement:</strong> Track when users comment on posts, reply to Stories, or mention your brand.</span>
           </li>
           <li className="flex items-start gap-3 text-lg">
-            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-sm font-bold mt-0.5">2</span>
+            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-sm font-bold mt-0.5">2</span>
             <span><strong>Proactive Outreach:</strong> Have the AI initiate a DM conversation offering a VIP discount or early access to a new drop.</span>
           </li>
           <li className="flex items-start gap-3 text-lg">
-            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-sm font-bold mt-0.5">3</span>
+            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-sm font-bold mt-0.5">3</span>
             <span><strong>Personalized Recommendations:</strong> Use the customer's past purchase history or browsing behavior to suggest the perfect product.</span>
           </li>
         </ul>

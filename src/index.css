@@ -29,6 +29,22 @@ h1, h2, h3, h4, h5, h6, .font-display {
   background-image: linear-gradient(to right, var(--color-brand-primary), var(--color-brand-secondary));
 }
 
+.text-gradient-teal {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #14b8a6, #06b6d4);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .dark-card {
   background-color: #0a0a0a;
   background-image: 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { 
   MessageCircle, 
   Instagram, 
@@ -43,13 +43,15 @@ import {
   Layers,
   ChevronRight,
   BrainCircuit,
-  LineChart
+  LineChart,
+  Menu
 } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import SphereImageGrid, { ImageData } from './components/ui/img-sphere';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import BookDemo from './pages/BookDemo';
+import Careers from './pages/Careers';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -63,6 +65,11 @@ const ScrollToTop = () => {
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const darkHeroPages: string[] = [];
+  const hasDarkHero = darkHeroPages.includes(location.pathname);
+  const isLight = !scrolled && hasDarkHero;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -70,37 +77,72 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-200 py-4' : 'bg-transparent py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gray-950 flex items-center justify-center">
-            <Zap className="w-5 h-5 text-white" />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight text-gray-950">GrowthSync</span>
-        </Link>
-        
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-          <Link to="/" className="hover:text-gray-950 transition-colors">Platform</Link>
-          <a href="/#pricing" className="hover:text-gray-950 transition-colors">Pricing</a>
-          <Link to="/blog" className="hover:text-gray-950 transition-colors">Blog</Link>
-          <Link to="/demo" className="hover:text-gray-950 transition-colors">Book a demo</Link>
-        </div>
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
-        <div className="flex items-center gap-4">
-          <button className="hidden sm:block text-sm font-medium text-gray-600 hover:text-gray-950 transition-colors">
-            Sign in
-          </button>
-          <Link to="/demo" className="px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-gray-950 text-white font-semibold text-sm hover:bg-gray-800 transition-colors">
-            Try free
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-200 py-4' : 'bg-transparent py-6'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-2">
+            <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isLight ? 'bg-white' : 'bg-gray-950'}`}>
+              <Zap className={`w-5 h-5 transition-colors ${isLight ? 'text-gray-950' : 'text-white'}`} />
+            </div>
+            <span className={`font-display font-bold text-xl tracking-tight transition-colors ${isLight ? 'text-white' : 'text-gray-950'}`}>GrowthSync</span>
           </Link>
+
+          <div className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors ${isLight ? 'text-gray-300' : 'text-gray-600'}`}>
+            <Link to="/" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Platform</Link>
+            <Link to="/blog" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Blog</Link>
+              <Link to="/careers" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Careers</Link>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <button className={`hidden sm:block text-sm font-medium transition-colors ${isLight ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-950'}`}>
+              Sign in
+            </button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className={`md:hidden p-2 transition-colors ${isLight ? 'text-white' : 'text-gray-950'}`}
+            >
+              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+            <Link to="/demo" className={`hidden sm:inline-flex px-4 py-2 md:px-5 md:py-2.5 rounded-full font-semibold text-sm transition-colors ${isLight ? 'bg-white text-gray-950 hover:bg-gray-100' : 'bg-gray-950 text-white hover:bg-gray-800'}`}>
+              Get started
+            </Link>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-[64px] left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-lg md:hidden"
+          >
+            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
+              <Link to="/" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Platform</Link>
+              <Link to="/blog" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Blog</Link>
+              <Link to="/careers" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Careers</Link>
+              <div className="border-t border-gray-100 mt-2 pt-3 flex flex-col gap-2">
+                <button className="py-3 text-gray-600 font-medium text-left">Sign in</button>
+                <Link to="/demo" onClick={() => setMenuOpen(false)} className="py-3 px-6 rounded-full bg-gray-950 text-white font-semibold text-center">
+                  Get started
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
@@ -137,7 +179,7 @@ const DashboardPeekClassic = () => {
           </div>
           <div className="flex flex-col gap-6 text-gray-400">
             <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><LayoutDashboard className="w-5 h-5" /></button>
-            <button className="p-2 rounded-xl bg-violet-50 text-violet-600 transition-colors"><Users className="w-5 h-5" /></button>
+            <button className="p-2 rounded-xl bg-teal-50 text-teal-600 transition-colors"><Users className="w-5 h-5" /></button>
             <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><MessageSquare className="w-5 h-5" /></button>
             <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><TrendingUp className="w-5 h-5" /></button>
           </div>
@@ -152,7 +194,7 @@ const DashboardPeekClassic = () => {
           <div className="h-16 md:h-20 border-b border-gray-100 flex items-center justify-between px-4 md:px-8 shrink-0">
             <div className="flex items-center gap-2 md:gap-3">
               <h2 className="text-lg md:text-xl font-bold text-gray-900">Live Signals</h2>
-              <span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-violet-100 text-violet-700 text-[10px] md:text-xs font-semibold">12 Active</span>
+              <span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-teal-100 text-teal-700 text-[10px] md:text-xs font-semibold">12 Active</span>
             </div>
             <div className="flex items-center gap-2 md:gap-4">
               <button className="p-1.5 md:p-2 text-gray-400 hover:text-gray-900 border border-gray-200 rounded-lg"><Search className="w-4 h-4" /></button>
@@ -193,7 +235,7 @@ const DashboardPeekClassic = () => {
                     </td>
                     <td className="py-4 border-b border-gray-50 text-gray-900">{row.intent}</td>
                     <td className="py-4 border-b border-gray-50">
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-violet-50 text-violet-700 text-xs font-medium border border-violet-100">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-teal-50 text-teal-700 text-xs font-medium border border-teal-100">
                         <Bot className="w-3 h-3" /> {row.aiAction}
                       </div>
                     </td>
@@ -249,7 +291,7 @@ const DashboardPeek = () => {
           </div>
           <div className="flex flex-col gap-6 text-gray-400">
             <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><LayoutDashboard className="w-5 h-5" /></button>
-            <button className="p-2 rounded-xl bg-violet-50 text-violet-600 transition-colors"><Users className="w-5 h-5" /></button>
+            <button className="p-2 rounded-xl bg-teal-50 text-teal-600 transition-colors"><Users className="w-5 h-5" /></button>
             <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><MessageSquare className="w-5 h-5" /></button>
             <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><TrendingUp className="w-5 h-5" /></button>
           </div>
@@ -285,7 +327,7 @@ const DashboardPeek = () => {
               </div>
               <div className="text-right hidden sm:block">
                 <p className="text-xs text-gray-500 mb-0.5">Segment</p>
-                <span className="inline-flex px-2 py-0.5 rounded-full bg-violet-100 text-violet-700 text-[10px] md:text-xs font-bold">VIP</span>
+                <span className="inline-flex px-2 py-0.5 rounded-full bg-teal-100 text-teal-700 text-[10px] md:text-xs font-bold">VIP</span>
               </div>
             </div>
           </div>
@@ -359,10 +401,10 @@ const DashboardPeek = () => {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <Target className="w-4 h-4 text-blue-500" />
+                      <Target className="w-4 h-4 text-teal-500" />
                       <h4 className="font-bold text-sm text-gray-900">Channel Selection</h4>
                     </div>
-                    <span className="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-1 rounded-md border border-blue-100">94% Match</span>
+                    <span className="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-1 rounded-md border border-teal-100">94% Match</span>
                   </div>
                   <p className="text-sm text-gray-700">Chose <strong className="text-gray-900">IG DM</strong> over TikTok DM for first outreach.</p>
                 </motion.div>
@@ -412,10 +454,10 @@ const DashboardPeek = () => {
                     <div>
                       <div className="flex justify-between text-xs mb-1.5">
                         <span className="text-gray-600">Sentiment Score</span>
-                        <span className="font-bold text-blue-600">Highly Positive</span>
+                        <span className="font-bold text-teal-600">Highly Positive</span>
                       </div>
                       <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-blue-500 rounded-full" style={{ width: '90%' }}></div>
+                        <div className="h-full bg-teal-500 rounded-full" style={{ width: '90%' }}></div>
                       </div>
                     </div>
 
@@ -465,7 +507,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-base md:text-xl text-gray-500 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          Turn millions of social interactions into a retargeted revenue stream. Find intent in DMs, personalize outreach, launch campaigns, and close deals directly on social channels.
+          Your audience is already telling you what they want to buy — in DMs, comments, and live streams. GrowthSync captures that intent and closes deals before they scroll past.
         </motion.p>
         
         <motion.div 
@@ -478,7 +520,7 @@ const Hero = () => {
             Start generating revenue <ArrowRight className="w-5 h-5" />
           </Link>
           <a href="#pricing" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-gray-900 border border-gray-200 font-semibold text-lg hover:bg-gray-50 transition-colors flex items-center justify-center">
-            See pricing
+            It's free — here's how
           </a>
         </motion.div>
         <p className="mt-4 text-sm text-gray-400">No credit card required</p>
@@ -519,7 +561,7 @@ const InteractiveDemo = () => {
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Text Content */}
           <div className="text-center lg:text-left">
-            <p className="text-xs md:text-sm font-bold text-violet-600 tracking-widest uppercase mb-3 md:mb-4">The Magic</p>
+            <p className="text-xs md:text-sm font-bold text-teal-600 tracking-widest uppercase mb-3 md:mb-4">DM Automation</p>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-4 md:mb-6">
               Turn missed comments into VIP sales
             </h2>
@@ -748,10 +790,10 @@ const FeatureThree = () => {
           <div className="text-center lg:text-left">
             <p className="text-xs md:text-sm font-bold text-pink-600 tracking-widest uppercase mb-3 md:mb-4">Retention Engine</p>
             <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-4 md:mb-6">
-              Build loyalty with your community
+              Turn every mention into a customer relationship
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6 md:mb-8">
-              Simply conversing with your followers turns into opportunities to know more about them, identify them, and turn them into sales down the line.
+              When someone tags you in a story or replies to a post, GrowthSync opens a conversation — collecting zero-party data, building VIP lists, and teeing up the next sale automatically.
             </p>
             <ul className="space-y-3 md:space-y-4 text-left inline-block lg:block">
               {['Reward story mentions instantly', 'Build VIP lists via DMs', 'Gather zero-party data naturally'].map((item, i) => (
@@ -879,7 +921,7 @@ const ROICalculator = () => {
     <section className="py-20 md:py-32 bg-white relative overflow-hidden text-gray-950 border-t border-gray-100">
       <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
       <div className="max-w-4xl mx-auto px-4 md:px-12 relative z-10 text-center">
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -906,7 +948,7 @@ const ROICalculator = () => {
           transition={{ delay: 0.2 }}
           className="text-lg md:text-xl text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto"
         >
-          Drag the slider to see your social listening score and untapped revenue potential.
+          Drag the slider to see how many social interactions you're leaving on the table — and what they're worth.
         </motion.p>
 
         <motion.div 
@@ -914,7 +956,7 @@ const ROICalculator = () => {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
-          className="bg-white border border-gray-200 shadow-2xl shadow-gray-200/50 rounded-2xl md:rounded-3xl p-6 md:p-12 relative max-w-3xl mx-auto hover:shadow-violet-500/10 transition-shadow duration-500"
+          className="bg-white border border-gray-200 shadow-2xl shadow-gray-200/50 rounded-2xl md:rounded-3xl p-6 md:p-12 relative max-w-3xl mx-auto hover:shadow-teal-500/10 transition-shadow duration-500"
         >
           <div className="mb-8 md:mb-12">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-4 md:mb-6 gap-2">
@@ -931,7 +973,7 @@ const ROICalculator = () => {
             <div className="relative h-3 md:h-4 flex items-center">
               <div className="absolute inset-0 bg-gray-100 rounded-full pointer-events-none"></div>
               <div 
-                className="absolute top-0 left-0 h-full bg-violet-600 rounded-full pointer-events-none"
+                className="absolute top-0 left-0 h-full bg-teal-600 rounded-full pointer-events-none"
                 style={{ width: `calc(${sliderValue}% + ${12 - sliderValue * 0.24}px)` }}
               ></div>
               <input 
@@ -941,7 +983,7 @@ const ROICalculator = () => {
                 step="1"
                 value={sliderValue} 
                 onChange={(e) => setSliderValue(parseInt(e.target.value))}
-                className="absolute inset-0 w-full h-full appearance-none bg-transparent cursor-pointer z-10 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:md:w-6 [&::-webkit-slider-thumb]:md:h-6 [&::-webkit-slider-thumb]:bg-violet-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:md:w-6 [&::-moz-range-thumb]:md:h-6 [&::-moz-range-thumb]:bg-violet-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform"
+                className="absolute inset-0 w-full h-full appearance-none bg-transparent cursor-pointer z-10 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:md:w-6 [&::-webkit-slider-thumb]:md:h-6 [&::-webkit-slider-thumb]:bg-teal-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:md:w-6 [&::-moz-range-thumb]:md:h-6 [&::-moz-range-thumb]:bg-teal-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform"
               />
             </div>
           </div>
@@ -958,10 +1000,10 @@ const ROICalculator = () => {
                 {interactions.toLocaleString()}
               </motion.p>
             </div>
-            <div className="bg-violet-600 rounded-xl md:rounded-2xl p-6 md:p-8 border border-violet-500 text-left shadow-lg shadow-violet-600/20 transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-violet-600 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="bg-teal-600 rounded-xl md:rounded-2xl p-6 md:p-8 border border-teal-500 text-left shadow-lg shadow-teal-600/20 transition-transform hover:-translate-y-1 duration-300 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-teal-600 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <p className="text-xs md:text-sm text-violet-200 font-bold uppercase tracking-wider mb-2 md:mb-3">Untapped Revenue / Mo</p>
+                <p className="text-xs md:text-sm text-teal-200 font-bold uppercase tracking-wider mb-2 md:mb-3">Untapped Revenue / Mo</p>
                 <motion.p 
                   key={untappedRevenue}
                   initial={{ opacity: 0.5, scale: 0.95 }}
@@ -1039,7 +1081,7 @@ const SegmentOfOne = () => {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-xl text-gray-400 leading-relaxed mb-6 md:mb-8"
             >
-              Our proprietary engine ingests millions of interaction points to build a living, breathing neural network of every single customer. You don't talk to segments anymore. You talk to Jessica.
+              GrowthSync builds a complete profile of every person who interacts with your brand — across every channel, every touchpoint. You don't talk to segments anymore. You talk to Jessica.
             </motion.p>
             
             <motion.ul 
@@ -1067,11 +1109,21 @@ const SegmentOfOne = () => {
             <SphereImageGrid images={CUSTOMERS} {...SPHERE_CONFIG} />
           </div>
 
-          {/* Mobile List View */}
+          {/* Mobile Profile Cards */}
           <div className="md:hidden flex flex-col gap-4 relative z-20 mt-12">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-              <p className="text-gray-400">Interactive data sphere is optimized for desktop viewing. Please view on a larger screen to explore the neural profiles.</p>
-            </div>
+            {CUSTOMERS.slice(0, 3).map((customer, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center gap-4">
+                <img src={customer.src} alt={customer.name} className="w-12 h-12 rounded-full object-cover shrink-0" referrerPolicy="no-referrer" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-bold text-sm truncate">{customer.name}</p>
+                  <p className="text-gray-400 text-xs">{customer.channel} · {customer.lastInteraction}</p>
+                </div>
+                <div className="text-right shrink-0">
+                  <p className="text-white font-bold text-sm">{customer.aov}</p>
+                  <p className="text-gray-500 text-xs">AOV</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -1124,19 +1176,16 @@ const Integrations = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Content */}
-          <div className="max-w-xl relative z-20">
+          <div className="max-w-2xl relative z-20">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold mb-6">
               <Layers className="w-4 h-4" /> Integrations
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-950 mb-6 leading-[1.1]">
-              Integrates with<br />your favorite tools
+              Every channel,<br />already connected
             </h2>
             <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-              Seamless social listening and commerce integration across every medium where you interact with your audience.
+              Connect the platforms where conversations happen to the systems where deals close — in a few clicks.
             </p>
-            <Link to="/integrations" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 text-gray-900 font-bold hover:bg-gray-50 transition-colors">
-              Explore integrations <ChevronRight className="w-4 h-4" />
-            </Link>
           </div>
 
           {/* Right Content - Diagonal Scrolling Grid */}
@@ -1196,51 +1245,39 @@ const Integrations = () => {
 const Pricing = () => {
   return (
     <section id="pricing" className="py-20 md:py-32 bg-white relative">
-      <div className="max-w-4xl mx-auto px-4 md:px-12 text-center">
-        <h2 className="text-3xl md:text-6xl font-display font-bold mb-4 md:mb-6 text-gray-950">
-          Free to play. <br className="hidden md:block"/>
-          <span className="text-gradient">We win when you win.</span>
+      <div className="max-w-5xl mx-auto px-4 md:px-12 text-center">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold mb-6 md:mb-8 text-gray-950 tracking-tight whitespace-nowrap">
+          GrowthSync is free.
         </h2>
-        <p className="text-lg md:text-xl text-gray-500 mb-10 md:mb-16 max-w-2xl mx-auto">
-          No monthly retainers. No seat limits. No hidden fees. We only charge a percentage of the revenue we directly generate for you.
+        <p className="text-3xl md:text-5xl font-display font-bold mb-8 md:mb-10">
+          <span className="text-gradient-teal">We only make money when you do.</span>
+        </p>
+        <p className="text-lg md:text-xl text-gray-500 mb-10 md:mb-14 max-w-2xl mx-auto">
+          We earn 15% of the revenue we generate for you. If we don't perform, you don't pay.
         </p>
 
-        <div className="bg-white border border-gray-200 shadow-2xl rounded-3xl md:rounded-[2.5rem] p-6 md:p-12 relative overflow-hidden max-w-2xl mx-auto">
-          <div className="flex flex-col items-center relative z-10">
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-violet-50 flex items-center justify-center mb-4 md:mb-6">
-              <TrendingUp className="w-8 h-8 md:w-10 md:h-10 text-violet-600" />
-            </div>
-            
-            <div className="flex items-baseline gap-2 mb-1 md:mb-2">
-              <span className="text-5xl md:text-8xl font-display font-bold text-gray-950">15%</span>
-            </div>
-            <p className="text-violet-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-6 md:mb-8">Of Attributed Revenue</p>
-            
-            <div className="w-full h-px bg-gray-100 mb-6 md:mb-8"></div>
-            
-            <div className="grid sm:grid-cols-2 gap-3 md:gap-4 w-full text-left mb-8 md:mb-10">
-              <div className="flex items-center gap-2 md:gap-3">
-                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-gray-900 shrink-0" />
-                <span className="text-sm md:text-base text-gray-600 font-medium">0 Platform Fee</span>
-              </div>
-              <div className="flex items-center gap-2 md:gap-3">
-                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-gray-900 shrink-0" />
-                <span className="text-sm md:text-base text-gray-600 font-medium">Unlimited Contacts</span>
-              </div>
-              <div className="flex items-center gap-2 md:gap-3">
-                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-gray-900 shrink-0" />
-                <span className="text-sm md:text-base text-gray-600 font-medium">All Integrations</span>
-              </div>
-              <div className="flex items-center gap-2 md:gap-3">
-                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-gray-900 shrink-0" />
-                <span className="text-sm md:text-base text-gray-600 font-medium">White-glove Onboarding</span>
-              </div>
-            </div>
+        <div className="text-center">
+          <motion.div
+            animate={{
+              rotate: [0, -2, 2, -2, 2, 0],
+            }}
+            transition={{
+              duration: 0.5,
+              repeat: Infinity,
+              repeatDelay: 4,
+              ease: "easeInOut"
+            }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-600 text-xs md:text-sm font-bold mb-6 border border-red-100 uppercase tracking-wider"
+          >
+            <Zap className="w-3.5 h-3.5" />
+            Your social signals are expiring
+          </motion.div>
+        </div>
 
-            <Link to="/demo" className="w-full py-4 md:py-5 rounded-xl md:rounded-2xl bg-gray-950 text-white font-bold text-base md:text-lg hover:bg-gray-800 transition-colors flex items-center justify-center">
-              Start Generating Revenue
-            </Link>
-          </div>
+        <div className="text-center">
+          <Link to="/demo" className="inline-flex items-center justify-center px-10 py-4 md:py-5 rounded-full bg-gray-950 text-white font-bold text-base md:text-lg hover:bg-gray-800 transition-colors gap-2">
+            Start generating revenue <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </section>
@@ -1260,27 +1297,23 @@ const Footer = () => {
               <span className="font-display font-bold text-xl tracking-tight text-gray-950">GrowthSync</span>
             </div>
             <p className="text-gray-500 max-w-sm text-sm md:text-base">
-              The all-in-one conversational AI platform turning social noise into attributed revenue for modern brands.
+              Conversational AI that turns social engagement into revenue for modern brands.
             </p>
           </div>
           
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Platform</h4>
             <ul className="space-y-3 text-gray-500 text-sm font-medium">
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Features</a></li>
-              <li><Link to="/integrations" className="hover:text-gray-900 transition-colors">Integrations</Link></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Changelog</a></li>
+              <li className="py-1"><a href="/#pricing" className="hover:text-gray-900 transition-colors">Pricing</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Company</h4>
             <ul className="space-y-3 text-gray-500 text-sm font-medium">
-              <li><a href="#" className="hover:text-gray-900 transition-colors">About</a></li>
-              <li><Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-gray-900 transition-colors">Contact</a></li>
+              <li className="py-1"><Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link></li>
+              <li className="py-1"><Link to="/careers" className="hover:text-gray-900 transition-colors">Careers</Link></li>
+              <li className="py-1"><a href="mailto:hello@growthsync.com" className="hover:text-gray-900 transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -1351,7 +1384,7 @@ export default function App() {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-violet-100 selection:text-violet-900">
+        <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-teal-100 selection:text-teal-900">
           <Navbar />
           <Routes>
             <Route path="/" element={
@@ -1373,7 +1406,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/demo" element={<BookDemo />} />
-            <Route path="/integrations" element={<IntegrationsPage />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
           <Footer />
         </div>

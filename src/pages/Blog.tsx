@@ -7,7 +7,7 @@ import { blogPosts } from '../data/blogPosts';
 
 export default function Blog() {
   return (
-    <div className="pt-32 pb-20 bg-gray-50 min-h-screen">
+    <div className="pt-32 pb-20 bg-white min-h-screen">
       <Helmet>
         <title>Blog & Resources | GrowthSync</title>
         <meta name="description" content="Insights for the modern growth team. Strategies, playbooks, and trends on social commerce, AI automation, and turning engagement into revenue." />
@@ -15,28 +15,20 @@ export default function Blog() {
       <div className="max-w-7xl mx-auto px-4 md:px-12">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <motion.div 
+        <div className="max-w-5xl mb-16 md:mb-20">
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-100 text-violet-700 text-xs md:text-sm font-medium mb-6"
+            className="text-4xl md:text-6xl font-display font-bold text-gray-950 mb-4 leading-tight"
           >
-            GrowthSync Resources
-          </motion.div>
-          <motion.h1 
+            Blog
+          </motion.h1>
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-6xl font-display font-bold text-gray-950 mb-6 leading-tight"
-          >
-            Insights for the modern <span className="text-gradient">growth team.</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-600"
+            className="text-lg md:text-xl text-gray-500 max-w-2xl"
           >
             Strategies, playbooks, and trends on social commerce, AI automation, and turning engagement into revenue.
           </motion.p>
@@ -67,7 +59,7 @@ export default function Blog() {
                   <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {blogPosts[0].date}</span>
                   <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {blogPosts[0].readTime}</span>
                 </div>
-                <h2 className="text-2xl md:text-4xl font-display font-bold text-gray-950 mb-4 group-hover:text-violet-600 transition-colors">
+                <h2 className="text-2xl md:text-4xl font-display font-bold text-gray-950 mb-4 group-hover:text-teal-600 transition-colors">
                   {blogPosts[0].title}
                 </h2>
                 <p className="text-gray-600 mb-8 text-lg leading-relaxed">
@@ -84,8 +76,8 @@ export default function Blog() {
                     </div>
                     <span className="font-medium text-gray-900">{blogPosts[0].author.name}</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-violet-50 transition-colors">
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-violet-600" />
+                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-teal-50 transition-colors">
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-teal-600" />
                   </div>
                 </div>
               </div>
@@ -121,7 +113,7 @@ export default function Blog() {
                       <span>•</span>
                       <span>{post.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-display font-bold text-gray-950 mb-3 group-hover:text-violet-600 transition-colors line-clamp-2">
+                    <h3 className="text-xl font-display font-bold text-gray-950 mb-3 group-hover:text-teal-600 transition-colors line-clamp-2">
                       {post.title}
                     </h3>
                     <p className="text-gray-600 mb-6 text-sm leading-relaxed line-clamp-3">
@@ -129,7 +121,7 @@ export default function Blog() {
                     </p>
                     <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
                       <span className="text-sm font-medium text-gray-900">{post.author.name}</span>
-                      <span className="text-sm font-medium text-violet-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+                      <span className="text-sm font-medium text-teal-600 flex items-center gap-1 group-hover:gap-2 transition-all">
                         Read more <ChevronRight className="w-4 h-4" />
                       </span>
                     </div>
