@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Star, MessageSquare, Zap, ArrowRight, Building2, User, Mail, Globe } from 'lucide-react';
+import { CheckCircle2, Star, MessageSquare, Zap, ArrowRight, Building2, User, Mail, Globe, AlertCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function BookDemo() {
   const [formState, setFormState] = useState({
@@ -13,10 +14,14 @@ export default function BookDemo() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setIsSubmitting(true);
+    setIsError(false);
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
@@ -29,6 +34,14 @@ export default function BookDemo() {
       ...formState,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    setTouched({ ...touched, [e.target.name]: true });
+  };
+
+  const showFieldError = (field: string) => {
+    return touched[field] && !formState[field as keyof typeof formState]?.trim();
   };
 
   return (
@@ -114,16 +127,16 @@ export default function BookDemo() {
                   <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle2 className="w-10 h-10 text-emerald-600" />
                   </div>
-                  <h3 className="text-3xl font-display font-bold text-gray-950 mb-4">Demo request received</h3>
+                  <h3 className="text-3xl font-display font-bold text-gray-950 mb-4">You're in! We'll reach out within 24 hours.</h3>
                   <p className="text-gray-600 text-lg mb-8 max-w-sm mx-auto">
-                    A growth specialist will reach out within 24 hours to schedule a walkthrough tailored to your brand.
+                    Check your inbox for a calendar invite from the GrowthSync team.
                   </p>
-                  <button 
-                    onClick={() => setIsSuccess(false)}
-                    className="px-6 py-3 rounded-full bg-gray-100 text-gray-900 font-medium hover:bg-gray-200 transition-colors"
+                  <Link
+                    to="/blog"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-950 text-white font-semibold hover:bg-gray-800 transition-colors mb-4"
                   >
-                    Submit another request
-                  </button>
+                    While you wait, explore our latest insights <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               ) : (
                 <>
@@ -138,30 +151,34 @@ export default function BookDemo() {
                           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <User className="h-4 w-4 text-gray-400" />
                           </div>
-                          <input 
-                            type="text" 
-                            id="firstName" 
-                            name="firstName" 
+                          <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
                             required
                             value={formState.firstName}
                             onChange={handleChange}
-                            className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors"
+                            onBlur={handleBlur}
+                            className={`block w-full pl-10 pr-3 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors ${showFieldError('firstName') ? 'border-red-300' : 'border-gray-200'}`}
                             placeholder="Jane"
                           />
+                          {showFieldError('firstName') && <p className="text-red-500 text-xs mt-1">First name is required</p>}
                         </div>
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last name</label>
-                        <input 
-                          type="text" 
-                          id="lastName" 
-                          name="lastName" 
+                        <input
+                          type="text"
+                          id="lastName"
+                          name="lastName"
                           required
                           value={formState.lastName}
                           onChange={handleChange}
-                          className="block w-full px-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors"
+                          onBlur={handleBlur}
+                          className={`block w-full px-3 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors ${showFieldError('lastName') ? 'border-red-300' : 'border-gray-200'}`}
                           placeholder="Doe"
                         />
+                        {showFieldError('lastName') && <p className="text-red-500 text-xs mt-1">Last name is required</p>}
                       </div>
                     </div>
 
@@ -171,16 +188,18 @@ export default function BookDemo() {
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <Mail className="h-4 w-4 text-gray-400" />
                         </div>
-                        <input 
-                          type="email" 
-                          id="email" 
-                          name="email" 
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
                           required
                           value={formState.email}
                           onChange={handleChange}
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors"
+                          onBlur={handleBlur}
+                          className={`block w-full pl-10 pr-3 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors ${showFieldError('email') ? 'border-red-300' : 'border-gray-200'}`}
                           placeholder="jane@company.com"
                         />
+                        {showFieldError('email') && <p className="text-red-500 text-xs mt-1">Email is required</p>}
                       </div>
                     </div>
 
@@ -190,16 +209,18 @@ export default function BookDemo() {
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <Building2 className="h-4 w-4 text-gray-400" />
                         </div>
-                        <input 
-                          type="text" 
-                          id="company" 
-                          name="company" 
+                        <input
+                          type="text"
+                          id="company"
+                          name="company"
                           required
                           value={formState.company}
                           onChange={handleChange}
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors"
+                          onBlur={handleBlur}
+                          className={`block w-full pl-10 pr-3 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors ${showFieldError('company') ? 'border-red-300' : 'border-gray-200'}`}
                           placeholder="Acme Corp"
                         />
+                        {showFieldError('company') && <p className="text-red-500 text-xs mt-1">Company name is required</p>}
                       </div>
                     </div>
 
@@ -209,16 +230,18 @@ export default function BookDemo() {
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <Globe className="h-4 w-4 text-gray-400" />
                         </div>
-                        <input 
-                          type="url" 
-                          id="website" 
-                          name="website" 
+                        <input
+                          type="url"
+                          id="website"
+                          name="website"
                           required
                           value={formState.website}
                           onChange={handleChange}
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors"
+                          onBlur={handleBlur}
+                          className={`block w-full pl-10 pr-3 py-3 border rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-gray-50 text-gray-900 transition-colors ${showFieldError('website') ? 'border-red-300' : 'border-gray-200'}`}
                           placeholder="https://acme.com"
                         />
+                        {showFieldError('website') && <p className="text-red-500 text-xs mt-1">Website is required</p>}
                       </div>
                     </div>
 
@@ -246,8 +269,24 @@ export default function BookDemo() {
                       </div>
                     </div>
 
-                    <button 
-                      type="submit" 
+                    {isError && (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-red-800 font-medium text-sm">Something went wrong. Please try again, or email us at hello@growthsync.com</p>
+                          <button
+                            type="button"
+                            onClick={() => setIsError(false)}
+                            className="text-red-600 text-sm font-medium mt-1 hover:text-red-700 transition-colors"
+                          >
+                            Try again
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
                       disabled={isSubmitting}
                       className="w-full py-4 rounded-xl bg-gray-950 text-white font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
                     >

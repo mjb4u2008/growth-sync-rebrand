@@ -81,9 +81,46 @@ const Navbar = () => {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+
+  // Focus trap + Escape handler for mobile nav
+  useEffect(() => {
+    if (!menuOpen) return;
+    const panel = mobileNavRef.current;
+    if (!panel) return;
+
+    const focusableEls = panel.querySelectorAll<HTMLElement>('a, button');
+    if (focusableEls.length > 0) focusableEls[0].focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        hamburgerRef.current?.focus();
+        return;
+      }
+      if (e.key === 'Tab' && focusableEls.length > 0) {
+        const first = focusableEls[0];
+        const last = focusableEls[focusableEls.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [menuOpen]);
+
   return (
     <>
       <nav
+        role="navigation"
+        aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-200 py-4' : 'bg-transparent py-6'
         }`}
@@ -97,22 +134,23 @@ const Navbar = () => {
           </Link>
 
           <div className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors ${isLight ? 'text-gray-300' : 'text-gray-600'}`}>
-            <Link to="/" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Platform</Link>
             <Link to="/blog" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Blog</Link>
-              <Link to="/careers" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Careers</Link>
+            <a href="/#integrations" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Integrations</a>
+            <Link to="/careers" className={`py-3 transition-colors ${isLight ? 'hover:text-white' : 'hover:text-gray-950'}`}>Careers</Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <button className={`hidden sm:block text-sm font-medium transition-colors ${isLight ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-950'}`}>
-              Sign in
-            </button>
             <button
+              ref={hamburgerRef}
               onClick={() => setMenuOpen(!menuOpen)}
               className={`md:hidden p-2 transition-colors ${isLight ? 'text-white' : 'text-gray-950'}`}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav"
+              aria-label="Toggle navigation menu"
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-            <Link to="/demo" className={`hidden sm:inline-flex px-4 py-2 md:px-5 md:py-2.5 rounded-full font-semibold text-sm transition-colors ${isLight ? 'bg-white text-gray-950 hover:bg-gray-100' : 'bg-gray-950 text-white hover:bg-gray-800'}`}>
+            <Link to="/demo" className={`inline-flex px-4 py-2 md:px-5 md:py-2.5 rounded-full font-semibold text-sm transition-colors ${isLight ? 'bg-white text-gray-950 hover:bg-gray-100' : 'bg-gray-950 text-white hover:bg-gray-800'}`}>
               Get started
             </Link>
           </div>
@@ -122,6 +160,10 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            id="mobile-nav"
+            role="navigation"
+            aria-label="Mobile navigation"
+            ref={mobileNavRef}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -129,12 +171,11 @@ const Navbar = () => {
             className="fixed top-[64px] left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-lg md:hidden"
           >
             <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
-              <Link to="/" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Platform</Link>
               <Link to="/blog" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Blog</Link>
+              <a href="/#integrations" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Integrations</a>
               <Link to="/careers" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Careers</Link>
-              <div className="border-t border-gray-100 mt-2 pt-3 flex flex-col gap-2">
-                <button className="py-3 text-gray-600 font-medium text-left">Sign in</button>
-                <Link to="/demo" onClick={() => setMenuOpen(false)} className="py-3 px-6 rounded-full bg-gray-950 text-white font-semibold text-center">
+              <div className="border-t border-gray-100 mt-2 pt-3">
+                <Link to="/demo" onClick={() => setMenuOpen(false)} className="py-3 px-6 rounded-full bg-gray-950 text-white font-semibold text-center block">
                   Get started
                 </Link>
               </div>
@@ -146,118 +187,6 @@ const Navbar = () => {
   );
 };
 
-const DashboardPeekClassic = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Subtle scroll animations to make it feel like it's revealing itself
-  const y = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.95, 1]);
-  const rotateX = useTransform(scrollYProgress, [0, 0.5], [5, 0]);
-
-  const mockData = [
-    { id: 1, name: "Sarah Styles", handle: "@sarah_styles", source: "Instagram DM", intent: "Product Inquiry", aiAction: "Sent Checkout Link", status: "Converted", rev: "$129.00" },
-    { id: 2, name: "Mike Runner", handle: "@mike_runner", source: "Story Mention", intent: "Brand Love", aiAction: "Offered 10% VIP", status: "Pending", rev: "-" },
-    { id: 3, name: "Elena K.", handle: "@elena_k", source: "Live Q&A", intent: "Sizing Question", aiAction: "Answered + Linked", status: "Converted", rev: "$85.50" },
-    { id: 4, name: "James W.", handle: "@james_w", source: "Comment", intent: "Restock Request", aiAction: "Added to Waitlist", status: "Nurturing", rev: "-" },
-    { id: 5, name: "Chloe T.", handle: "@chloe_t", source: "Instagram DM", intent: "Shipping Issue", aiAction: "Resolved via Zendesk", status: "Retained", rev: "-" },
-  ];
-
-  return (
-    <div ref={containerRef} className="w-full max-w-6xl mx-auto px-4 mt-12 md:mt-16" style={{ perspective: '1000px' }}>
-      <motion.div 
-        style={{ y, scale, rotateX, transformOrigin: "top center" }}
-        className="bg-white rounded-t-2xl md:rounded-t-3xl border border-gray-200 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden h-[400px] md:h-[600px] flex"
-      >
-        {/* Sidebar */}
-        <div className="hidden md:flex w-16 md:w-20 border-r border-gray-100 flex-col items-center py-6 gap-8 bg-gray-50/50">
-          <div className="w-8 h-8 rounded-lg bg-gray-950 flex items-center justify-center mb-4">
-            <Zap className="w-4 h-4 text-white" />
-          </div>
-          <div className="flex flex-col gap-6 text-gray-400">
-            <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><LayoutDashboard className="w-5 h-5" /></button>
-            <button className="p-2 rounded-xl bg-teal-50 text-teal-600 transition-colors"><Users className="w-5 h-5" /></button>
-            <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><MessageSquare className="w-5 h-5" /></button>
-            <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><TrendingUp className="w-5 h-5" /></button>
-          </div>
-          <div className="mt-auto">
-            <button className="p-2 rounded-xl hover:bg-gray-100 hover:text-gray-900 transition-colors"><Settings className="w-5 h-5" /></button>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="flex-1 flex flex-col bg-white relative w-full overflow-hidden">
-          {/* Topbar */}
-          <div className="h-16 md:h-20 border-b border-gray-100 flex items-center justify-between px-4 md:px-8 shrink-0">
-            <div className="flex items-center gap-2 md:gap-3">
-              <h2 className="text-lg md:text-xl font-bold text-gray-900">Live Signals</h2>
-              <span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-teal-100 text-teal-700 text-[10px] md:text-xs font-semibold">12 Active</span>
-            </div>
-            <div className="flex items-center gap-2 md:gap-4">
-              <button className="p-1.5 md:p-2 text-gray-400 hover:text-gray-900 border border-gray-200 rounded-lg"><Search className="w-4 h-4" /></button>
-              <button className="p-1.5 md:p-2 text-gray-400 hover:text-gray-900 border border-gray-200 rounded-lg"><Filter className="w-4 h-4" /></button>
-              <button className="hidden sm:flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-gray-950 text-white rounded-lg text-sm font-medium hover:bg-gray-800">
-                <Sparkles className="w-4 h-4" /> Deploy AI
-              </button>
-            </div>
-          </div>
-
-          {/* Table */}
-          <div className="flex-1 overflow-auto mock-scrollbar p-4 md:p-8">
-            <table className="w-full text-left text-sm min-w-[600px]">
-              <thead>
-                <tr>
-                  <th className="pb-4 font-medium text-gray-500 border-b border-gray-100">User</th>
-                  <th className="pb-4 font-medium text-gray-500 border-b border-gray-100">Source</th>
-                  <th className="pb-4 font-medium text-gray-500 border-b border-gray-100">Intent</th>
-                  <th className="pb-4 font-medium text-gray-500 border-b border-gray-100">AI Action</th>
-                  <th className="pb-4 font-medium text-gray-500 border-b border-gray-100 text-right">Revenue</th>
-                </tr>
-              </thead>
-              <tbody>
-                {mockData.map((row, i) => (
-                  <tr key={row.id} className="group hover:bg-gray-50/50 transition-colors">
-                    <td className="py-4 border-b border-gray-50">
-                      <div className="flex items-center gap-3">
-                        <img src={`https://picsum.photos/seed/user${row.id}/100/100`} alt={row.name} className="w-8 h-8 rounded-full" referrerPolicy="no-referrer" />
-                        <div>
-                          <p className="font-medium text-gray-900">{row.name}</p>
-                          <p className="text-xs text-gray-500">{row.handle}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="py-4 border-b border-gray-50 text-gray-600 flex items-center gap-2 mt-2">
-                      {row.source.includes('Instagram') && <Instagram className="w-4 h-4 text-pink-500" />}
-                      {row.source}
-                    </td>
-                    <td className="py-4 border-b border-gray-50 text-gray-900">{row.intent}</td>
-                    <td className="py-4 border-b border-gray-50">
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-teal-50 text-teal-700 text-xs font-medium border border-teal-100">
-                        <Bot className="w-3 h-3" /> {row.aiAction}
-                      </div>
-                    </td>
-                    <td className="py-4 border-b border-gray-50 text-right font-medium text-gray-900">
-                      {row.status === 'Converted' ? (
-                        <span className="text-emerald-600 flex items-center justify-end gap-1">
-                          <CheckCircle2 className="w-4 h-4" /> {row.rev}
-                        </span>
-                      ) : (
-                        <span className="text-gray-400">{row.status}</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
 
 const DashboardPeek = () => {
   const containerRef = useRef(null);
@@ -1111,6 +1040,9 @@ const SegmentOfOne = () => {
 
           {/* Mobile Profile Cards */}
           <div className="md:hidden flex flex-col gap-4 relative z-20 mt-12">
+            <p className="text-white/60 text-sm font-medium mb-1">
+              <span className="animate-pulse">1,247</span> customers tracked today
+            </p>
             {CUSTOMERS.slice(0, 3).map((customer, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center gap-4">
                 <img src={customer.src} alt={customer.name} className="w-12 h-12 rounded-full object-cover shrink-0" referrerPolicy="no-referrer" />
@@ -1171,10 +1103,10 @@ const IntegrationCard: React.FC<{ url: string }> = ({ url }) => {
 
 const Integrations = () => {
   return (
-    <section className="py-24 md:py-32 bg-white overflow-hidden border-t border-gray-100">
+    <section id="integrations" className="py-24 md:py-32 bg-white overflow-hidden border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Left Content */}
           <div className="max-w-2xl relative z-20">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold mb-6">
