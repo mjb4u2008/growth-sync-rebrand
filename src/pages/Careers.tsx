@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 const departments = [
@@ -101,23 +100,27 @@ export default function Careers() {
                 </div>
 
                 <div className="divide-y divide-gray-100">
-                  {dept.roles.map((role, roleIndex) => (
-                    <Link
-                      key={roleIndex}
-                      to="/demo"
-                      className="group flex items-center justify-between py-5 md:py-6"
-                    >
-                      <span className="text-base md:text-lg font-medium text-gray-900 group-hover:text-gray-600 transition-colors">
-                        {role.title}
-                      </span>
-                      <div className="flex items-center gap-4 shrink-0">
-                        <span className="hidden sm:flex items-center gap-1.5 text-sm text-gray-400">
-                          <MapPin className="w-3.5 h-3.5" /> {role.location}
+                  {dept.roles.map((role, roleIndex) => {
+                    const subject = encodeURIComponent(`GrowthSync — ${role.title}`);
+                    const body = encodeURIComponent(`Hi GrowthSync team,\n\nI'm interested in the ${role.title} role (${role.location}).\n\nPlease submit your resume and a brief blurb about yourself here.\n\nThank you!`);
+                    return (
+                      <a
+                        key={roleIndex}
+                        href={`mailto:mike@rmgrowth.com?subject=${subject}&body=${body}`}
+                        className="group flex items-center justify-between py-5 md:py-6"
+                      >
+                        <span className="text-base md:text-lg font-medium text-gray-900 group-hover:text-gray-600 transition-colors">
+                          {role.title}
                         </span>
-                        <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gray-900 group-hover:translate-x-0.5 transition-all" />
-                      </div>
-                    </Link>
-                  ))}
+                        <div className="flex items-center gap-4 shrink-0">
+                          <span className="hidden sm:flex items-center gap-1.5 text-sm text-gray-400">
+                            <MapPin className="w-3.5 h-3.5" /> {role.location}
+                          </span>
+                          <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gray-900 group-hover:translate-x-0.5 transition-all" />
+                        </div>
+                      </a>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}
@@ -126,7 +129,7 @@ export default function Careers() {
           {/* Bottom note */}
           <div className="mt-16 md:mt-20 pt-8 border-t border-gray-100">
             <p className="text-gray-500">
-              Don't see your role? Email <a href="mailto:careers@growthsync.com" className="text-gray-900 font-medium hover:underline">careers@growthsync.com</a>
+              Don't see your role? Email <a href="mailto:mike@rmgrowth.com?subject=GrowthSync%20%E2%80%94%20General%20Interest" className="text-gray-900 font-medium hover:underline">mike@rmgrowth.com</a>
             </p>
           </div>
         </div>
