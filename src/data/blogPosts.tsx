@@ -60,7 +60,7 @@ export const blogPosts = [
             "When we moved our primary CTA from 'Link in Bio' to 'DM us the word VIP', our conversion rate from social traffic quadrupled overnight."
           </p>
           <footer className="text-teal-700 font-bold text-sm uppercase tracking-wider">
-            — Marcus Chen, Head of Growth at Lumina
+            Marcus Chen, Head of Growth at Lumina
           </footer>
         </blockquote>
 
@@ -136,7 +136,7 @@ export const blogPosts = [
         </p>
 
         <p className="text-lg leading-relaxed mb-8">
-          Customer acquisition costs (CAC) are skyrocketing, and attention spans are shorter than ever. If a page takes more than 3 seconds to load, you've lost the sale. The solution isn't a faster landing page—it's eliminating the landing page entirely.
+          Customer acquisition costs (CAC) are skyrocketing, and attention spans are shorter than ever. If a page takes more than 3 seconds to load, you've lost the sale. The solution isn't a faster landing page. It's eliminating the landing page entirely.
         </p>
 
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">
@@ -148,7 +148,7 @@ export const blogPosts = [
         </p>
 
         <p className="text-lg leading-relaxed mb-8">
-          By integrating checkout directly into the social platform—whether through Instagram Shops, TikTok Shop, or conversational AI in DMs—you meet the customer exactly where they are.
+          By integrating checkout directly into the social platform, whether through Instagram Shops, TikTok Shop, or conversational AI in DMs, you meet the customer exactly where they are.
         </p>
 
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">
@@ -164,7 +164,7 @@ export const blogPosts = [
             "By allowing customers to check out directly inside their Instagram DMs, we saw a 60% reduction in cart abandonment compared to our traditional mobile website."
           </p>
           <footer className="text-teal-700 font-bold text-sm uppercase tracking-wider">
-            — Elena Rodriguez, E-commerce Director
+            Elena Rodriguez, E-commerce Director
           </footer>
         </blockquote>
 
@@ -237,6 +237,99 @@ export const blogPosts = [
 
         <p className="text-lg leading-relaxed mb-8">
           By treating your AI as a proactive sales associate rather than a reactive support rep, you can unlock an entirely new revenue channel for your brand.
+        </p>
+      </>
+    )
+  },
+  {
+    id: 4,
+    title: "Introducing GrowthSync",
+    excerpt: "Today we announce GrowthSync and our $1.6M raise to build the conversational AI platform that turns social interactions into revenue.",
+    category: "Company",
+    author: {
+      name: "Mike Broughton",
+      role: "CEO & Co-Founder of GrowthSync",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop",
+      bio: "Mike is the CEO and Co-Founder of GrowthSync. Before GrowthSync, he spent years in the trenches of social commerce, watching brands leave millions on the table in their DMs. He started GrowthSync to fix that."
+    },
+    date: "Mar 24, 2026",
+    dateISO: "2026-03-24T08:00:00Z",
+    readTime: "4 min read",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2000&auto=format&fit=crop",
+    tags: ['Company', 'Announcement', 'Fundraise'],
+    content: (
+      <>
+        <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
+          Today we announce GrowthSync. We raised $1.6 million to build the conversational AI platform that turns social interactions into revenue.
+        </p>
+
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">
+          The beginning
+        </h2>
+
+        <p className="text-lg leading-relaxed mb-8">
+          Every day, millions of people comment on posts, reply to stories, and send DMs to brands they love. Every one of those interactions is a signal. A hand raised. Intent expressed in plain language. And almost all of it goes unanswered.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          We started GrowthSync because we watched it happen over and over. A customer comments "how much?" on a live stream. A follower replies to a story with "I need this." A DM comes in asking about sizing. By the time someone on the brand's team gets around to responding, the moment has passed. The customer has scrolled on. The sale is gone.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          The brands that win in social commerce are the ones that respond instantly, personally, and at scale. That's what GrowthSync does.
+        </p>
+
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">
+          What we're building
+        </h2>
+
+        <p className="text-lg leading-relaxed mb-8">
+          GrowthSync is a conversational AI platform purpose-built for social commerce. We sit on top of Instagram, TikTok, and the platforms where your customers already spend their time. When someone interacts with your brand, GrowthSync picks up the conversation in real time.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          It responds to comments with personalized DMs. It follows up with viewers who engaged during live streams. It turns story mentions into VIP lists. It bundles products, generates one-time checkout links, and closes deals directly inside the chat. No landing pages. No link in bio. No friction.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          We built GrowthSync to feel like the best salesperson on your team, one who knows every customer by name, never sleeps, and works every channel simultaneously.
+        </p>
+
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">
+          The raise
+        </h2>
+
+        <p className="text-lg leading-relaxed mb-8">
+          We raised $1.6 million from investors who understand where commerce is headed. Social platforms are becoming the storefront. DMs are becoming the checkout. The brands that figure this out first will own the next decade of e-commerce.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          This capital lets us go deep on the product, onboard our first partners, and prove what we already know: that the revenue sitting inside your social interactions is massive, and almost no one is capturing it.
+        </p>
+
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">
+          What's next
+        </h2>
+
+        <p className="text-lg leading-relaxed mb-8">
+          We're going to market with our first partners now. The brands we're working with are already seeing what happens when you stop treating social as a top-of-funnel awareness play and start treating it as a direct revenue channel. The results speak for themselves.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          If you're a brand doing real volume on social and you're tired of watching engagement metrics go up while revenue stays flat, we should talk. We're onboarding partners who want to be first movers.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          And if you want to help build this, we're hiring across engineering, design, and go-to-market. Check out our open roles at <a href="/careers" className="text-teal-600 hover:text-teal-700 font-medium">/careers</a>.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-8">
+          There's a lot to build. We're just getting started.
+        </p>
+
+        <p className="text-lg leading-relaxed font-medium text-gray-950">
+          Mike Broughton<br />
+          <span className="text-gray-500 font-normal">CEO & Co-Founder, GrowthSync</span>
         </p>
       </>
     )

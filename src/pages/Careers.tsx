@@ -55,7 +55,7 @@ export default function Careers() {
     <div className="bg-white min-h-screen">
       <Helmet>
         <title>Careers | GrowthSync</title>
-        <meta name="description" content="Join GrowthSync — we're building the future of social commerce. See open roles in engineering, design, go-to-market, and content." />
+        <meta name="description" content="Join GrowthSync. We're building the future of social commerce. See open roles in engineering, design, go-to-market, and content." />
       </Helmet>
 
       {/* Hero — minimal, left-aligned, typographic */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Star, MessageSquare, Zap, ArrowRight, Building2, User, Mail, Globe, AlertCircle } from 'lucide-react';
+import { CheckCircle2, MessageSquare, Zap, ArrowRight, Building2, User, Mail, Globe, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function BookDemo() {
@@ -56,9 +56,9 @@ export default function BookDemo() {
             transition={{ duration: 0.5 }}
             className=""
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs md:text-sm font-medium mb-6 border border-emerald-100">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-              Live Demo Available
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-950/5 text-gray-600 text-xs md:text-sm font-medium mb-6 border border-gray-200/50">
+              <Zap className="w-3.5 h-3.5 text-teal-600" />
+              Talk to us. 24hr response time.
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-950 mb-6 leading-tight">
@@ -77,38 +77,14 @@ export default function BookDemo() {
                 "Pricing and implementation timeline"
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                  </div>
+                  <span className="w-6 h-6 rounded-lg bg-gray-950 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                    {i + 1}
+                  </span>
                   <p className="text-gray-700 font-medium">{item}</p>
                 </div>
               ))}
             </div>
 
-            <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-100">
-              <div className="flex items-center gap-2 mb-4">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <p className="text-gray-900 font-medium text-lg mb-6 italic">
-                "GrowthSync paid for itself in the first 48 hours. We automated our entire DM funnel and saw a 34% lift in conversion rate from social traffic."
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" 
-                    alt="Sarah Jenkins"
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-950">Sarah Jenkins</p>
-                  <p className="text-sm text-gray-500">VP of Growth, Glossier</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Column: Form */}
@@ -298,7 +274,7 @@ export default function BookDemo() {
                     </button>
                     
                     <p className="text-xs text-center text-gray-500 mt-4">
-                      By submitting this form, you agree to our Privacy Policy and Terms of Service.
+                      By submitting this form, you agree to our <Link to="/privacy" className="underline hover:text-gray-700">Privacy Policy</Link> and <Link to="/terms-of-service" className="underline hover:text-gray-700">Terms of Service</Link>.
                     </p>
                   </form>
                 </>
