@@ -21,9 +21,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Company</h4>
             <ul className="space-y-3 text-gray-500 text-sm font-medium">
-              <li className="py-1"><Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link></li>
-              <li className="py-1"><Link to="/careers" className="hover:text-gray-900 transition-colors">Careers</Link></li>
-              <li className="py-1"><a href="mailto:hello@growthsync.com" className="hover:text-gray-900 transition-colors">Contact</a></li>
+              <li className="py-2 md:py-1"><Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link></li>
+              <li className="py-2 md:py-1"><Link to="/careers" className="hover:text-gray-900 transition-colors">Careers</Link></li>
+              <li className="py-2 md:py-1"><a href="mailto:hello@growthsync.com" className="hover:text-gray-900 transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -31,8 +31,8 @@ const Footer = () => {
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium text-gray-400">
           <p>© {new Date().getFullYear()} GrowthSync Inc. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-gray-900 transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-gray-900 transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="py-2 hover:text-gray-900 transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="py-2 hover:text-gray-900 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

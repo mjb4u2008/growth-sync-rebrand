@@ -120,7 +120,7 @@ export default function BookDemo() {
                   <p className="text-gray-500 mb-8">Takes 30 seconds. We'll follow up within 24 hours.</p>
                   
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-medium text-gray-700">First name</label>
                         <div className="relative">

@@ -7,7 +7,7 @@ const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="pt-24 md:pt-32 pb-0 bg-white text-gray-950 overflow-hidden relative grain">
+    <section className="pt-28 md:pt-32 pb-0 bg-white text-gray-950 overflow-hidden relative grain">
       {/* Gradient mesh background */}
       <div className="absolute inset-0 gradient-mesh pointer-events-none"></div>
       <div className="max-w-5xl mx-auto px-4 md:px-6 text-center relative z-10">

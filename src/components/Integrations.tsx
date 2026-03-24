@@ -51,7 +51,7 @@ const Integrations = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-bold mb-6">
               <Layers className="w-4 h-4" /> Integrations
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-950 mb-6 leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-950 mb-6 leading-[1.1]">
               Every channel,<br />already connected
             </h2>
             <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
@@ -60,7 +60,7 @@ const Integrations = () => {
           </div>
 
           {/* Right Content - Diagonal Scrolling Grid */}
-          <div className="relative h-[500px] md:h-[650px] w-full flex justify-center lg:justify-end overflow-hidden rounded-3xl">
+          <div className="relative h-[380px] sm:h-[500px] md:h-[650px] w-full flex justify-center lg:justify-end overflow-hidden rounded-3xl">
 
             {/* Stronger Gradient Masks for fading effect */}
             <div className="absolute inset-y-0 left-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>

@@ -79,14 +79,14 @@ const Navbar = () => {
             <button
               ref={hamburgerRef}
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`md:hidden p-2 transition-colors text-gray-950`}
+              className={`md:hidden p-3 transition-colors text-gray-950`}
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
               aria-label="Toggle navigation menu"
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-            <Link to="/demo" className={`inline-flex px-4 py-2 md:px-5 md:py-2.5 rounded-full font-semibold text-sm transition-colors bg-gray-950 text-white hover:bg-gray-800`}>
+            <Link to="/demo" className={`inline-flex px-5 py-2.5 md:px-5 md:py-2.5 rounded-full font-semibold text-sm transition-colors bg-gray-950 text-white hover:bg-gray-800`}>
               Get started
             </Link>
           </div>

@@ -94,7 +94,7 @@ const DashboardPeek = () => {
           <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
 
             {/* Left Col: Timeline */}
-            <div className="flex-1 p-6 md:p-8 border-r border-gray-100 overflow-hidden flex flex-col">
+            <div className="flex-1 p-4 md:p-8 border-r border-gray-100 overflow-hidden flex flex-col">
               <div className="flex items-center gap-2 mb-6 shrink-0">
                 <Sparkles className="w-5 h-5 text-emerald-500" />
                 <h3 className="font-bold text-lg text-gray-900">Relationship Timeline</h3>
@@ -104,7 +104,7 @@ const DashboardPeek = () => {
                 {/* Connecting Line */}
                 <div className="absolute left-[15px] top-4 bottom-4 w-[2px] bg-gray-100"></div>
 
-                <div className="space-y-5 relative">
+                <div className="space-y-3 md:space-y-5 relative">
                   {timeline.map((node, i) => (
                     <motion.div
                       key={node.id}
@@ -142,7 +142,7 @@ const DashboardPeek = () => {
             </div>
 
             {/* Right Col: AI Reasoning */}
-            <div className="w-full lg:w-[380px] p-6 md:p-8 bg-gray-50/50 overflow-hidden flex flex-col shrink-0">
+            <div className="w-full lg:w-[380px] p-4 md:p-8 bg-gray-50/50 overflow-hidden flex flex-col shrink-0">
               <div className="flex items-center gap-2 mb-6 shrink-0">
                 <BrainCircuit className="w-5 h-5 text-gray-700" />
                 <h3 className="font-bold text-lg text-gray-900">AI Reasoning</h3>

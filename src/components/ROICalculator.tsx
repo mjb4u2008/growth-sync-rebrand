@@ -13,7 +13,7 @@ const ROICalculator = () => {
   const interactions = Math.floor(audience * 0.15); // 15% interaction rate
 
   return (
-    <section className="py-20 md:py-32 bg-white relative overflow-hidden text-gray-950">
+    <section className="py-16 md:py-32 bg-white relative overflow-hidden text-gray-950">
       <div className="absolute inset-0 dot-grid opacity-[0.03] pointer-events-none"></div>
       <div className="max-w-4xl mx-auto px-4 md:px-12 relative z-10 text-center">
 
@@ -22,7 +22,7 @@ const ROICalculator = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 120, damping: 20 }}
-          className="text-3xl md:text-6xl font-display font-bold mb-4 md:mb-6 tracking-tight"
+          className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-4 md:mb-6 tracking-tight"
         >
           How much revenue are you ignoring?
         </motion.h2>
@@ -55,7 +55,7 @@ const ROICalculator = () => {
                 {audience >= 5000000 ? "5,000,000+" : audience.toLocaleString()}
               </motion.span>
             </div>
-            <div className="relative h-3 md:h-4 flex items-center">
+            <div className="relative h-4 md:h-4 flex items-center">
               <div className="absolute inset-0 bg-gray-100 rounded-full pointer-events-none"></div>
               <div
                 className="absolute top-0 left-0 h-full bg-teal-600 rounded-full pointer-events-none"
@@ -72,7 +72,7 @@ const ROICalculator = () => {
                 aria-valuemin={25000}
                 aria-valuemax={5000000}
                 aria-valuenow={audience}
-                className="absolute inset-0 w-full h-full appearance-none bg-transparent cursor-pointer z-10 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:md:w-6 [&::-webkit-slider-thumb]:md:h-6 [&::-webkit-slider-thumb]:bg-teal-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:md:w-6 [&::-moz-range-thumb]:md:h-6 [&::-moz-range-thumb]:bg-teal-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform"
+                className="absolute inset-0 w-full h-full appearance-none bg-transparent cursor-pointer z-10 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 [&::-webkit-slider-thumb]:md:w-6 [&::-webkit-slider-thumb]:md:h-6 [&::-webkit-slider-thumb]:bg-teal-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:md:w-6 [&::-moz-range-thumb]:md:h-6 [&::-moz-range-thumb]:bg-teal-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform"
               />
             </div>
           </div>

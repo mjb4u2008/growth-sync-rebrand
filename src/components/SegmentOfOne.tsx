@@ -53,7 +53,7 @@ const SegmentOfOne = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1, type: 'spring', stiffness: 100, damping: 20 }}
-              className="text-3xl md:text-6xl font-display font-bold mb-4 md:mb-6 text-white leading-tight"
+              className="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-4 md:mb-6 text-white leading-tight"
             >
               The Segment of <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400">One.</span>
             </motion.h2>

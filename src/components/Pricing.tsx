@@ -3,13 +3,15 @@ import { Zap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Pricing = () => {
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+
   return (
-    <section id="pricing" className="py-20 md:py-32 bg-white relative">
+    <section id="pricing" className="py-16 md:py-32 bg-white relative">
       <div className="max-w-5xl mx-auto px-4 md:px-12 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold mb-6 md:mb-8 text-gray-950 tracking-tight whitespace-nowrap">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-display font-bold mb-6 md:mb-8 text-gray-950 tracking-tight sm:whitespace-nowrap">
           GrowthSync is free.
         </h2>
-        <p className="text-3xl md:text-5xl font-display font-bold mb-8 md:mb-10">
+        <p className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-8 md:mb-10">
           <span className="text-gradient-teal">We only make money when you do.</span>
         </p>
         <p className="text-lg md:text-xl text-gray-500 mb-10 md:mb-14 max-w-2xl mx-auto">
@@ -23,7 +25,7 @@ const Pricing = () => {
             }}
             transition={{
               duration: 0.5,
-              repeat: Infinity,
+              repeat: isMobile ? 3 : Infinity,
               repeatDelay: 4,
               ease: "easeInOut"
             }}

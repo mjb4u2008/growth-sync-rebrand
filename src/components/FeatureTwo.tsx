@@ -3,7 +3,7 @@ import { Bot, PlayCircle, Eye, Heart, X, MessageSquare, ShoppingCart, Users } fr
 
 const FeatureTwo = () => {
   return (
-    <section className="py-20 md:py-32 bg-[#0a0a0a] overflow-hidden relative">
+    <section className="py-16 md:py-32 bg-[#0a0a0a] overflow-hidden relative">
       {/* Subtle glow */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -13,7 +13,7 @@ const FeatureTwo = () => {
           {/* Text on left */}
           <div className="order-1 text-center lg:text-left">
             <p className="text-xs md:text-sm font-bold text-emerald-400 tracking-widest uppercase mb-3 md:mb-4">Live Commerce</p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white leading-tight mb-4 md:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-4 md:mb-6">
               Turn live viewers into live buyers
             </h2>
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-6 md:mb-8">
@@ -35,7 +35,7 @@ const FeatureTwo = () => {
 
           {/* Phone mock on right */}
           <div className="relative order-2">
-            <div className="relative bg-[#0a0a0a] border border-gray-800 shadow-2xl rounded-3xl md:rounded-[2rem] overflow-hidden max-w-sm mx-auto flex flex-col h-[450px] md:h-[550px]">
+            <div className="relative bg-[#0a0a0a] border border-gray-800 shadow-2xl rounded-3xl md:rounded-[2rem] overflow-hidden max-w-sm mx-auto flex flex-col h-[380px] sm:h-[450px] md:h-[550px]">
               {/* Live Video Mock */}
               <div className="absolute inset-0">
                 <img src="https://picsum.photos/seed/live/400/800" className="w-full h-full object-cover opacity-60" alt="Live Stream" referrerPolicy="no-referrer" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
@@ -98,7 +98,7 @@ const FeatureTwo = () => {
                       delay: i * 0.4 + Math.random() * 0.3,
                       ease: 'easeOut',
                     }}
-                    className="absolute right-4 bottom-24"
+                    className={`absolute right-4 bottom-24${i >= 4 ? ' hidden md:block' : ''}`}
                     style={{ right: `${12 + Math.random() * 24}px` }}
                   >
                     <Heart className={`${i % 3 === 0 ? 'w-5 h-5' : i % 3 === 1 ? 'w-6 h-6' : 'w-4 h-4'} text-pink-500 fill-pink-500`} />

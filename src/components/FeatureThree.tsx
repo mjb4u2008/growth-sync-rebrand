@@ -3,7 +3,7 @@ import { Bot } from 'lucide-react';
 
 const FeatureThree = () => {
   return (
-    <section className="py-20 md:py-32 bg-white overflow-hidden relative">
+    <section className="py-16 md:py-32 bg-white overflow-hidden relative">
       {/* Dot grid overlay */}
       <div className="absolute inset-0 dot-grid opacity-[0.04] pointer-events-none"></div>
 
@@ -13,7 +13,7 @@ const FeatureThree = () => {
           {/* Text column */}
           <div className="text-center lg:text-left">
             <p className="text-xs md:text-sm font-bold text-pink-600 tracking-widest uppercase mb-3 md:mb-4">Retention Engine</p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-4 md:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-4 md:mb-6">
               Turn every mention into a customer relationship
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6 md:mb-8">
@@ -33,7 +33,7 @@ const FeatureThree = () => {
           <div className="relative">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-pink-100 to-orange-100 rounded-full blur-3xl opacity-50"></div>
 
-            <div className="relative bg-white border border-gray-200 shadow-2xl rounded-3xl md:rounded-[2rem] overflow-hidden max-w-md mx-auto flex flex-col h-[450px] md:h-[500px]">
+            <div className="relative bg-white border border-gray-200 shadow-2xl rounded-3xl md:rounded-[2rem] overflow-hidden max-w-md mx-auto flex flex-col h-[380px] sm:h-[450px] md:h-[500px]">
               {/* Story Header */}
               <div className="bg-white border-b border-gray-100 p-4 flex items-center gap-3 shrink-0 z-10">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 p-[2px]">
