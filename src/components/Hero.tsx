@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DashboardPeek from './DashboardPeek';
+import HeroMascot from './HeroMascots';
 
 const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -23,14 +24,26 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        <motion.h1
-          initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, filter: 'blur(8px)' }}
-          animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 0.7, delay: 0.1, type: 'spring', stiffness: 100, damping: 20 }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6 md:mb-8 leading-[1.05]"
-        >
-          Turn social noise into <span className="text-gradient">revenue.</span>
-        </motion.h1>
+        <div className="mb-6 md:mb-8">
+          <motion.h1
+            initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95, filter: 'blur(8px)' }}
+            animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1, filter: 'blur(0px)' }}
+            transition={{ duration: 0.7, delay: 0.1, type: 'spring', stiffness: 100, damping: 20 }}
+            className="relative text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.02]"
+          >
+            <span className="block">
+              <span className="relative inline-block align-top pr-[0.05em]">
+                <HeroMascot
+                  variant="sitter"
+                  className="left-[-0.11em] top-[-0.5em] z-20 w-[0.78em]"
+                />
+                <span className="relative z-10 inline-block">T</span>
+              </span>
+              <span>urn social noise into</span>
+            </span>
+            <span className="block text-gradient">revenue.</span>
+          </motion.h1>
+        </div>
 
         <motion.p
           initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, filter: 'blur(6px)' }}
@@ -50,13 +63,19 @@ const Hero = () => {
           <Link to="/demo" className="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-950 text-white font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
             Start generating revenue <ArrowRight className="w-5 h-5" />
           </Link>
-          <button
-            onClick={() => document.getElementById('interactive-demo')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-gray-900 border border-gray-200 font-semibold text-lg hover:bg-gray-50 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2"
-          >
-            See how it works
-            <ArrowRight className="w-4 h-4 rotate-90" />
-          </button>
+          <div className="relative w-full sm:w-auto text-lg">
+            <HeroMascot
+              variant="peer"
+              className="right-[1.15em] bottom-[calc(100%-0.08em)] w-[2.15em] sm:right-[1.35em] sm:w-[2.5em]"
+            />
+            <button
+              onClick={() => document.getElementById('interactive-demo')?.scrollIntoView({ behavior: 'smooth' })}
+              className="relative z-10 w-full sm:w-auto px-8 py-4 rounded-full bg-white text-gray-900 border border-gray-200 font-semibold text-lg hover:bg-gray-50 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            >
+              See how it works
+              <ArrowRight className="w-4 h-4 rotate-90" />
+            </button>
+          </div>
         </motion.div>
         <p className="mt-4 text-sm text-gray-400 tracking-wide">No credit card required</p>
 
