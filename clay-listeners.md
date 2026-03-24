@@ -23,6 +23,33 @@ Every `Clay Listener` should keep these traits unless a prompt explicitly change
 - Background for isolated assets: pure white seamless studio background
 - Output use: sticker-like PNG asset with lots of clean space around the figure
 
+## Character Lock
+
+If Gemini starts drifting, preserve these exact proportion rules:
+
+- Head: dominant smooth oval or round head, noticeably larger than the torso
+- Torso: slim, lightly tapered, never barrel-shaped or wide
+- Arms: narrow and simple, with soft stubby hands rather than detailed fingers
+- Legs: narrow rounded legs with soft feet, not chunky or plush
+- Surface: matte clay, never glossy, plastic, rubbery, or overly polished
+
+Avoid these failure modes:
+
+- chubby
+- squat
+- babyish
+- plush toy
+- inflated limbs
+- mascot costume energy
+- overly cute or expressive poses
+
+The safest reference set in this repo is:
+
+- `/public/mascots/hero-sitter.png`
+- `/public/mascots/hero-peer.png`
+
+When generating a new pose, tell Gemini to match those mascot references exactly and only change the pose.
+
 ## Style Name
 
 Use this exact style family name in prompts:
@@ -39,6 +66,12 @@ Use this structure when generating a new mascot:
 Create one "Clay Listeners" mascot. [CHARACTER DESCRIPTION]. [POSE DESCRIPTION]. [MOOD DESCRIPTION].
 Style: miniature tactile 3D maquette, matte clay and ceramic finish, simplified social-commerce listener character, oversized round head, tiny arms and legs, no facial details, subtle teal rim light, clean silhouette.
 Composition: isolated full-body character, centered, generous whitespace, pure white seamless studio background, no text, no props unless explicitly requested, no border, no busy environment, sticker-like website asset.
+```
+
+For stricter consistency, prepend this line:
+
+```text
+Match the provided mascot references exactly as the canonical character design. Do not redesign the character. Only change the pose.
 ```
 
 ## Prompt Tokens
@@ -92,16 +125,31 @@ Include these when Gemini starts drifting:
 
 ## Best Practice: Use a Reference Image
 
-The best current reference in this repo is:
+The best current mascot references in this repo are:
 
-`/public/blog/live-commerce.png`
+- `/public/mascots/hero-sitter.png`
+- `/public/mascots/hero-peer.png`
 
-Use that image to keep the material language consistent with the existing blog art.
+Use those images to lock the mascot identity.
+
+`/public/blog/live-commerce.png` is still useful, but only for the broader material language from the blog world.
 
 When you want Gemini to stay close to the current GrowthSync figures, tell it:
 
 ```text
-Use the provided reference image only for the material language and shape language of the tiny audience figures.
+Use the provided mascot references as the canonical character sheet. Preserve the same proportions, silhouette, material finish, and mood.
+```
+
+## Reusable Prompt
+
+Use this when you want a new mascot quickly without rethinking the structure:
+
+```text
+Match the provided Clay Listeners mascot references exactly as the canonical character design. Do not redesign the character. Only change the pose.
+Create one isolated "Clay Listeners" mascot in a [POSE DESCRIPTION] pose.
+Keep the same oversized smooth head, slim tapered torso, narrow arms, narrow rounded legs, matte gray clay material, subtle teal rim light, and quiet observant mood.
+Composition: pure white seamless background, centered, generous whitespace, no props, no platform, no environment, sticker-like PNG asset for website use.
+Negative constraints: no chubby body, no wide torso, no plush toy proportions, no glossy plastic, no facial features, no clothes, no accessories.
 ```
 
 ## Example Prompts

@@ -41,10 +41,10 @@ const mascotSpecs: MascotSpec[] = [
   },
 ];
 
-const apiKey = process.env.GEMINI_API_KEY;
+const apiKey = process.env.GEMINI_API_KEY ?? process.env.Google_Gemini_Key ?? process.env.Gemini_API_KEY;
 
 if (!apiKey) {
-  throw new Error('Missing GEMINI_API_KEY. Run with GEMINI_API_KEY=... npm run generate:mascots');
+  throw new Error('Missing Gemini API key. Set GEMINI_API_KEY, Google_Gemini_Key, or Gemini_API_KEY before running generate:mascots.');
 }
 
 mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -73,7 +73,7 @@ const getImagePart = (response: Awaited<ReturnType<typeof ai.models.generateCont
 
 const generateMascot = async ({ slug, seed, prompt }: MascotSpec) => {
   const response = await ai.models.generateContent({
-    model: 'gemini-3.1-flash-image-preview',
+    model: 'gemini-2.5-flash-image',
     contents: [
       {
         role: 'user',
