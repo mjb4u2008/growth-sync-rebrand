@@ -60,36 +60,32 @@ const Hero = () => {
         </motion.div>
         <p className="mt-4 text-sm text-gray-400 tracking-wide">No credit card required</p>
 
+        {/* Brand marquee — right in the hero */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-10 md:mt-14"
+        >
+          <div className="overflow-hidden mask-edges max-w-3xl mx-auto">
+            <div className="flex w-max animate-marquee gap-12 md:gap-20">
+              {[
+                'Von Dutch', 'Comf', 'Homme Femme', 'Ed Hardy', 'NDA', 'Dripglosss',
+                'The Genuine Club', 'Klean By Ky', 'Markia', 'Canvas Beauty', 'The Hoop Gang', 'Barcode',
+                'Von Dutch', 'Comf', 'Homme Femme', 'Ed Hardy', 'NDA', 'Dripglosss',
+                'The Genuine Club', 'Klean By Ky', 'Markia', 'Canvas Beauty', 'The Hoop Gang', 'Barcode'
+              ].map((brand, i) => (
+                <span key={i} className="text-lg md:text-2xl font-display font-bold text-gray-300 tracking-widest uppercase shrink-0">
+                  {brand}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
       </div>
 
       <DashboardPeek />
-
-      {/* Social proof strip — bridges hero into feature sections */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mt-12 md:mt-16 border-t border-gray-100 bg-gray-50/60 py-10 md:py-12"
-      >
-        <p className="text-base md:text-lg font-display font-semibold text-gray-400 tracking-wide text-center mb-10">
-          Working with some of the biggest brands in social commerce
-        </p>
-        <div className="overflow-hidden mask-edges max-w-6xl mx-auto">
-          <div className="flex w-max animate-marquee gap-16 md:gap-24">
-            {[
-              'Von Dutch', 'Comf', 'Homme Femme', 'Ed Hardy', 'NDA', 'Dripglosss',
-              'The Genuine Club', 'Klean By Ky', 'Markia', 'Canvas Beauty', 'The Hoop Gang', 'Barcode',
-              'Von Dutch', 'Comf', 'Homme Femme', 'Ed Hardy', 'NDA', 'Dripglosss',
-              'The Genuine Club', 'Klean By Ky', 'Markia', 'Canvas Beauty', 'The Hoop Gang', 'Barcode'
-            ].map((brand, i) => (
-              <span key={i} className="text-lg md:text-xl font-display font-bold text-gray-300 tracking-widest uppercase shrink-0">
-                {brand}
-              </span>
-            ))}
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 };
