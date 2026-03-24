@@ -64,10 +64,6 @@ const Hero = () => {
             Start generating revenue <ArrowRight className="w-5 h-5" />
           </Link>
           <div className="relative w-full sm:w-auto text-lg">
-            <HeroMascot
-              variant="peer"
-              className="right-[1.15em] bottom-[calc(100%-0.08em)] w-[2.15em] sm:right-[1.35em] sm:w-[2.5em]"
-            />
             <button
               onClick={() => document.getElementById('interactive-demo')?.scrollIntoView({ behavior: 'smooth' })}
               className="relative z-10 w-full sm:w-auto px-8 py-4 rounded-full bg-white text-gray-900 border border-gray-200 font-semibold text-lg hover:bg-gray-50 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2"
