@@ -29,56 +29,56 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          I just got back from the Million Dollar Seller Summit in Las Vegas. Hundreds of eight- and nine-figure e-commerce sellers in one room, talking about what's working right now. And the most interesting thing I heard all weekend wasn't about TikTok revenue.
+          I just got back from the Million Dollar Seller Summit in Las Vegas. Hundreds of eight- and nine-figure e-commerce sellers, all in one room, comparing notes on what's actually working. The most surprising thing I heard all weekend had nothing to do with TikTok revenue.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          It was about brands that are losing money on TikTok — on purpose.
+          It was about brands that are losing money on TikTok. On purpose.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          Seller after seller described the same thing. They'd invested months building their TikTok presence — recruiting creators, scaling affiliate programs, going live, producing hundreds of shoppable videos. And when they looked at TikTok Shop in isolation, the margins were thin. Some were breaking even. Some were going negative.
+          I kept hearing the same story from different sellers. They'd spent months building out their TikTok presence. Recruiting creators, scaling affiliate programs, going live multiple times a week, producing hundreds of shoppable videos. When they pulled up TikTok Shop by itself, the margins were thin. Some were breaking even. A few were actually going negative.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          But then they looked at everything else. Amazon branded search was climbing. Shopify was up. Wholesale inquiries were coming in. Not from ads. Not from cross-platform campaigns. From TikTok content creating a wave of discovery that was lifting every other channel they operate.
+          But then they looked at everything else. Amazon branded search was climbing. Shopify was up. Wholesale inquiries were rolling in from buyers who'd first discovered the brand through a TikTok video. Not from ads. Not from some coordinated cross-platform campaign. Just from TikTok content doing its thing and lifting every other sales channel along with it.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          They call it the halo effect. And the brands that understand it are playing a completely different game than the ones still measuring TikTok as a standalone P&L.
+          People at the summit were calling it the halo effect. The brands who understand it are playing a completely different game than the ones still looking at TikTok as its own P&L.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The numbers behind the TikTok halo effect</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What the numbers actually look like</h2>
         <p className="text-lg leading-relaxed mb-8">
-          TikTok Shop did nearly $100 billion in global GMV in 2025. In the US alone, it hit $15.1 billion, up 68% year-over-year. But those numbers only tell you what happened on TikTok. The real story is what happened everywhere else.
-        </p>
-        <p className="text-lg leading-relaxed mb-8">
-          Micro Ingredients, a supplement brand, had multiple TikTok videos hit over 20 million views each. Their Amazon sales didn't just tick up — they went 4 to 5 times higher than the previous year, with over 60,000 units sold in a single month. That revenue never showed up in a TikTok dashboard. It showed up on Amazon.
+          TikTok Shop did close to $100 billion in global GMV in 2025. The US alone hit $15.1 billion, up 68% year over year. Those are massive numbers. But they only capture what happened on TikTok. The more interesting story is what happened on Amazon, Shopify, and DTC sites at the same time.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          A case study from Emplicit tracked a brand spending $8,000 per month on TikTok content. Direct TikTok Shop sales were $12,000 per month. But during the same period, Amazon branded search revenue increased by $35,000 per month. TikTok was driving nearly three times as much revenue on Amazon as it was on TikTok itself.
+          Take Micro Ingredients, a supplement brand. Multiple TikTok videos cracked 20 million views each. Their Amazon sales didn't just bump up. They went 4 to 5x higher than the year before, with over 60,000 units moving in a single month. None of that revenue showed up in a TikTok dashboard. All of it showed up on Amazon.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          The pattern is consistent. TikTok is the front door. Amazon, Shopify, and your website are the cash register. And the halo effect is where the real money lives.
-        </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The $7.50 per customer advantage</h2>
-        <p className="text-lg leading-relaxed mb-8">
-          One of the MDS presentations broke down a simple example that changed how I think about this. A brand does $100,000 in TikTok revenue. They break even or go slightly negative. But an estimated 30% of that revenue spills over to Amazon — $30,000 in sales they wouldn't have had. At a 25% profit margin, that's $7,500 in pure profit created by TikTok activity that looked like a loss on paper.
+          Emplicit published a case study on a brand spending $8,000 a month on TikTok content. Direct TikTok Shop sales were about $12,000 a month. Fine, solid return. But during that same window, Amazon branded search revenue jumped by $35,000 a month. TikTok was driving almost three times more revenue on Amazon than it was generating on its own platform.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          If that TikTok activity brought in 1,000 customers, you now have $7.50 more per customer to spend on acquisition than any competitor who only measures TikTok ROI in isolation. The brands that win are the ones who can spend the most to acquire customers. And the ones who can spend the most are the ones who account for the full halo effect.
+          The more you look at this, the clearer it gets. TikTok is the front door. Amazon, Shopify, and your own site are where the sale actually closes. The halo is where the real money is.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The question nobody in that room was asking</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why losing money on TikTok can be a strategy</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Every brand at the summit understood the halo effect. But as I sat there listening, I kept thinking about one question nobody was asking: what happens to all the people TikTok sends you?
-        </p>
-        <p className="text-lg leading-relaxed mb-8">
-          A live stream pulls 3 million impressions. Tens of thousands of people engage. They comment, they DM, they ask questions. Every single one of those interactions is a buying signal — and it's also the starting point of a potential relationship that drives the halo effect further.
+          One presenter at MDS laid out a simple example that changed how I think about all of this. Say a brand does $100,000 in TikTok revenue and breaks even, maybe goes slightly negative. But roughly 30% of that revenue spills over to Amazon. That's $30,000 in sales they wouldn't have had otherwise. At a 25% profit margin, that's $7,500 in pure profit from TikTok activity that looked like a loss on paper.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          The entire summit was focused on how to generate more reach. Nobody was asking how to get more value out of the reach they already have. That's the real opportunity. Not more impressions. More from your impressions.
+          If that TikTok push brought in 1,000 new customers, you now have $7.50 more per customer to spend on acquisition than any competitor who's only measuring TikTok ROI in isolation. The brands that win are always the ones who can afford to spend the most to acquire a customer. And the ones who can afford it are the ones who account for the full halo.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is what we're building at GrowthSync</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The question I couldn't stop thinking about</h2>
         <p className="text-lg leading-relaxed mb-8">
-          GrowthSync makes that possible. Every interaction gets an instant, personalized response with a direct path to purchase. Not a generic auto-reply — a real conversation that understands what the customer wants, recommends the right products, and closes the sale inside the platform they're already using.
+          Everyone at the summit understood the halo effect. What kept nagging at me was a question nobody seemed to be asking: what happens to all the people TikTok sends your way?
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          The halo effect is already making these brands millions. The question is: how much more would it be worth if every customer interaction actually went somewhere?
+          A live stream pulls 3 million impressions. Tens of thousands of people engage. They comment, they DM, they ask questions about sizing and pricing and availability. Every one of those interactions is a buying signal. It's also the beginning of a relationship that could push the halo even further.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          The whole summit was focused on generating more reach. More impressions, more views, more content. Nobody was talking about how to squeeze more value out of the reach they already have. That felt like the bigger opportunity to me. Not more impressions. More from your impressions.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Where GrowthSync fits in</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          That's what we're working on at GrowthSync. When someone interacts with a brand on social, they get an instant, personalized response with a real path to purchase. Not a canned auto-reply. An actual conversation that understands what the customer is looking for, recommends the right product, and closes the sale right there in the platform.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          The halo effect is already generating millions for brands that understand it. I keep wondering how much bigger it would be if every customer interaction actually turned into something.
         </p>
       </>
     )
@@ -148,42 +148,42 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          I was sitting in a session at the Million Dollar Seller Summit when someone on the panel said something that stuck with me. They were talking about a new TikTok initiative — a program specifically designed to recruit brands doing over $10 million in annual revenue on other platforms.
+          I was at the Million Dollar Seller Summit when someone on a panel mentioned a new TikTok initiative. A program designed to recruit brands doing over $10 million in annual revenue on other platforms. Nobody in the room seemed to think twice about it.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          The room didn't react much. But I couldn't stop thinking about it. Because if you step back and look at what TikTok is actually doing right now, you start to see a very deliberate play. And it's not about selling more units. It's about changing what people think of when they hear "TikTok Shop."
+          I haven't been able to stop thinking about it since. When you zoom out and look at what TikTok has been doing over the past year, there's a very clear pattern. It's not about selling more units. It's about changing what people picture when they hear "TikTok Shop."
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">TikTok Shop's perception problem</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The reputation tax on TikTok Shop</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Let's be honest. TikTok Shop has a perception problem on both sides. Consumers think of it as the place where you can get steals — viral products at prices that feel too good to be true. And brands, especially premium ones, look at that and ask: am I cheapening my brand by being on here?
-        </p>
-        <p className="text-lg leading-relaxed mb-8">
-          The platform built its commerce engine on viral, impulse-driven products. It worked. TikTok Shop did nearly 100 billion in global GMV in 2025 and 15.1 billion in the US alone. But that growth came with a perception tax.
-        </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Inside Project Horizon</h2>
-        <p className="text-lg leading-relaxed mb-8">
-          Earlier this year, TikTok quietly launched a program called Project Horizon. The concept is simple but aggressive: they're paying agencies to recruit big brands onto TikTok Shop. Not just any brands — brands doing $10 million or more in annual revenue. The target is at least 30 major brands per agency, with a collective GMV goal of $50 million on TikTok Shop by year-end.
+          TikTok Shop has a brand problem, and it runs both directions. Consumers see it as the place to score cheap viral products at prices that feel almost suspicious. Premium brands look at that dynamic and wonder if showing up on the platform cheapens what they've spent years building.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          And it's already working. Samsung, Ralph Lauren, and Disney all joined TikTok Shop in 2025. Average unit prices across the platform are climbing.
+          TikTok built its commerce engine on impulse-driven, viral products. It worked incredibly well. Nearly $100 billion in global GMV in 2025. $15.1 billion in the US alone. But all that growth came with a reputation cost that TikTok is now scrambling to fix.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why premium brands are finally paying attention</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What Project Horizon actually is</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Social commerce in the US is projected to hit $80 billion by 2027. Premium brands that sat out the first wave of TikTok Shop are now watching their competitors show up and take share.
-        </p>
-        <p className="text-lg leading-relaxed mb-8">
-          TikTok's algorithm doesn't care about your brand's heritage. It shows people what they want to see based on behavior, not loyalty. If your competitor is on TikTok and you're not, the algorithm is introducing your potential customers to someone else. Every single day.
-        </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The customer experience gap nobody's talking about</h2>
-        <p className="text-lg leading-relaxed mb-8">
-          Premium customers expect a premium experience. And right now, the experience after someone engages with your content on TikTok is the same whether you're selling a $12 face roller or a $200 jacket. Someone comments on your live. Someone DMs you about sizing. And in most cases, nothing happens.
+          Earlier this year, TikTok quietly launched something called Project Horizon. The idea is straightforward but aggressive. They're paying agencies to recruit large brands onto TikTok Shop. Not small sellers. Brands doing $10 million or more in annual revenue. Each agency has a target of at least 30 major brands, with a collective GMV goal of $50 million on TikTok Shop by year-end.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          TikTok can recruit all the premium brands it wants. But if those brands can't deliver a premium experience inside the platform, the reputation problem doesn't go away. It just shifts from "TikTok sells cheap products" to "TikTok is where premium brands give you a cheap experience."
+          It's working. Samsung, Ralph Lauren, and Disney all joined TikTok Shop in 2025. Average unit prices across the platform have been ticking up.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is what we're building at GrowthSync</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Premium brands are running out of reasons to wait</h2>
         <p className="text-lg leading-relaxed mb-8">
-          This is the problem GrowthSync solves. As premium brands move onto TikTok, they need the customer experience to match the brand. Every comment, every DM, every story reply — handled instantly, personally, with a direct path to purchase.
+          US social commerce is projected to hit $80 billion by 2027. The premium brands that skipped the first wave of TikTok Shop are watching their competitors show up and grab market share in real time.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          TikTok's algorithm doesn't know or care about your brand's heritage. It shows people content based on behavior, not loyalty. If your competitor is on TikTok and you're sitting it out, the algorithm is introducing your potential customers to somebody else. Every day. That math gets harder to ignore the longer you wait.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The experience gap that could undo all of this</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          Here's what worries me about this whole push. Premium customers expect a premium experience. Right now, the experience after someone engages with your content on TikTok is basically the same whether you're a $12 face roller or a $200 jacket. Someone comments on your live asking about sizing. Someone DMs you about availability. And in most cases, nobody gets back to them.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          TikTok can recruit every premium brand on the planet. But if those brands can't deliver an experience that matches the price tag, the reputation problem doesn't actually go away. It just evolves. Instead of "TikTok sells cheap stuff," it becomes "TikTok is where good brands give you a bad experience." That might be worse.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Where GrowthSync comes in</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          This is exactly the gap we're focused on at GrowthSync. As premium brands move onto TikTok, they need the post-engagement experience to match the brand. Every comment, every DM, every story reply getting a real response, instantly, with a natural path to purchase. That's the piece that turns Project Horizon from a recruitment play into actual long-term revenue for these brands.
         </p>
       </>
     )
