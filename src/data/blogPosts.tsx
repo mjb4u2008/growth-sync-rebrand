@@ -4,14 +4,14 @@ const author = {
   name: "Michael Broughton",
   role: "Founder of GrowthSync",
   avatar: "/michael-broughton.png",
-  bio: "Michael is the founder of GrowthSync. He's spent years working with brands in social commerce and started GrowthSync to solve the biggest problem he kept seeing: millions of high-intent social interactions going completely unanswered."
+  bio: "Second-time consumer tech founder. Built ALTRO, raising $22M to reinvent credit access before exiting in 2024. Forbes 30 Under 30, Thiel Fellow, and YC alum. Started GrowthSync after seeing the same problem everywhere: millions of high-intent social interactions going completely unanswered."
 };
 
 const rodAuthor = {
   name: "Rod Henley",
   role: "Co-Founder of GrowthSync",
   avatar: "/rod-henley.jpg",
-  bio: "Rod is the co-founder of GrowthSync. He works directly with brands in social commerce and recently attended the Million Dollar Seller Summit in Las Vegas, where the biggest e-commerce brands in the world confirmed what he's been building toward: the future of commerce is conversational."
+  bio: "Rod spent years in media and entertainment, from managing global campaigns at Roc Nation to building one of LA's largest cultural events. He co-founded GrowthSync because he saw firsthand how creator relationships drive commerce, and that brands needed a better way to turn those conversations into revenue."
 };
 
 export const blogPosts = [
@@ -1209,35 +1209,35 @@ export const blogPosts = [
   },
   {
     id: 8,
-    title: "After 10 Years in E-Commerce I'm Convinced Social Is Where It's All Going",
-    excerpt: "After a decade in e-commerce, I've watched channels rise and fall. Social commerce isn't just the next channel. It's the one that changes everything.",
+    title: "I Came from Entertainment. Here's Why I Went All In on Social Commerce.",
+    excerpt: "After years managing creator campaigns at Roc Nation and building cultural events in LA, I realized the same forces driving entertainment are about to reshape how people buy.",
     category: "Social Commerce",
     author: rodAuthor,
     date: "May 19, 2025",
     dateISO: "2025-05-19T08:00:00Z",
     readTime: "5 min read",
     image: "/blog/decade-in-ecommerce.png",
-    tags: ['E-Commerce', 'Social Commerce', 'Personal', 'Strategy'],
+    tags: ['Social Commerce', 'Creator Economy', 'Personal', 'Strategy'],
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          I've been in e-commerce for over a decade now. I've watched the Amazon boom. I've seen brands build and scale on Shopify. I've lived through the iOS 14 apocalypse that destroyed paid social ROI for half the DTC industry. I've watched channels that seemed permanent become irrelevant, and new channels that seemed like toys become dominant. And after all of that, I'm more certain about social commerce than I've been about anything in this industry.
+          My background isn't in e-commerce. I spent years in media and entertainment. I managed global campaigns at Roc Nation. I helped build Scoreboard Sundays into one of the biggest cultural events in LA. My world was creators, artists, community, and figuring out how to get the right people in the right room. So when people ask me how I ended up co-founding a social commerce company, the honest answer is that I didn't make as big a leap as it sounds.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What the last decade taught me</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What entertainment taught me about selling</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The one constant in e-commerce is that commerce follows attention. When consumer attention shifted to the web, e-commerce took off. When it shifted to mobile, mobile commerce exploded. When it shifted to marketplaces, Amazon became the default. Right now, consumer attention is on social media. People spend hours every day on Instagram, TikTok, and YouTube. The commerce layer is being built on top of that attention. It always follows. It's following now.
+          In entertainment, everything runs on relationships. You don't close a deal by sending a cold deck. You close it because you've been in the room, you've built trust, and people know what you bring. The creators I've worked with understand this instinctively. Their audience buys from them because of the relationship, not because of a product listing. That's the same dynamic that's now driving social commerce, and most e-commerce companies have no idea how to replicate it.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why social commerce is different</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Creators are the new storefront</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Every previous e-commerce channel was transactional. You list a product, someone finds it, they buy it. Social commerce is relational. Every purchase starts with a conversation, a comment, a DM, a live stream interaction. The relationship comes first. The transaction follows. This is fundamentally different from anything we've seen in e-commerce, and it favors brands that know how to build genuine connections with their customers.
+          The creators I know don't think of themselves as salespeople. But when they recommend a product on a live stream and thousands of people buy it in an hour, that's exactly what they are. The difference is that their selling power comes from authenticity and community, not ad spend. I watched this happen over and over in the creator world before most brands caught on. A single TikTok from the right creator moves more product than a six-figure paid campaign. And it happens because the audience trusts the person, not the brand.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What I'm seeing on the ground</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The gap I kept seeing</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The brands I work with that are leaning into social commerce are growing faster than the ones that aren't. Not a little faster. Dramatically faster. They're building direct customer relationships that Amazon can't replicate. They're generating revenue from conversations that would otherwise go unanswered. They're creating brand loyalty through authentic engagement that paid media can't buy.
+          Here's what frustrated me. A creator would go live, drive massive engagement, and send thousands of potential customers toward a brand. Then nothing. The brand didn't respond to the DMs. They didn't follow up with the people who commented asking about sizing. All that energy and intent just evaporated. I saw it happen with brands I was connected to, and it drove me crazy. The demand generation was working. The capture was completely broken.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Where I'm putting my energy</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why I co-founded GrowthSync</h2>
         <p className="text-lg leading-relaxed mb-8">
-          After a decade in this industry, I'm betting everything on social commerce. Not because it's trendy. Because the convergence of consumer attention, platform investment, and technology readiness makes it inevitable. The question isn't whether social commerce will reshape e-commerce. It's which brands will be positioned to capture it when it does.
+          Mike and I met at USC years ago. We stayed in touch and eventually started talking about this exact problem over dinner at Cheesecake Factory. He had the tech background and the startup experience. I had the creator relationships and the ground-level view of how social engagement actually turns into purchases. We both saw the same thing: social commerce is going to be massive, and the brands that win will be the ones that can turn every interaction into a real conversation. That's what we're building.
         </p>
       </>
     )
