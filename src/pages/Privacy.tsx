@@ -6,6 +6,10 @@ export default function Privacy() {
       <Helmet>
         <title>Privacy Policy | GrowthSync</title>
         <meta name="description" content="GrowthSync privacy policy. Learn how we collect, use, and protect your data." />
+        <link rel="canonical" href="https://growthsync.com/privacy" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://growthsync.com/privacy" />
+        <meta property="og:title" content="Privacy Policy | GrowthSync" />
       </Helmet>
       <div className="max-w-3xl mx-auto px-4 md:px-12">
         <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-950 mb-4">Privacy Policy</h1>

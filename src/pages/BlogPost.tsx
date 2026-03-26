@@ -16,12 +16,41 @@ export default function BlogPost() {
     return <Navigate to="/blog" replace />;
   }
 
+  const siteUrl = 'https://growthsync.com';
+  const postUrl = `${siteUrl}/blog/${post.id}`;
+  const imageUrl = post.image.startsWith('http') ? post.image : `${siteUrl}${post.image}`;
+
+  // BreadcrumbList for rich results
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${siteUrl}/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title
+      }
+    ]
+  };
+
   // Structured Data (JSON-LD) for SEO
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
-    "image": [post.image],
+    "image": [imageUrl],
     "datePublished": post.dateISO,
     "dateModified": post.dateISO,
     "author": [{
@@ -29,7 +58,20 @@ export default function BlogPost() {
       "name": post.author.name,
       "jobTitle": post.author.role
     }],
-    "description": post.excerpt
+    "description": post.excerpt,
+    "url": postUrl,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "GrowthSync",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/growthsync-logo.png`
+      }
+    }
   };
 
   return (
@@ -37,16 +79,24 @@ export default function BlogPost() {
       <Helmet>
         <title>{post.title} | GrowthSync Blog</title>
         <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={postUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={postUrl} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content={post.image} />
-        <meta property="og:type" content="article" />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:site_name" content="GrowthSync" />
+        <meta property="article:published_time" content={post.dateISO} />
+        <meta property="article:author" content={post.author.name} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.image} />
+        <meta name="twitter:image" content={imageUrl} />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbData)}
         </script>
       </Helmet>
 

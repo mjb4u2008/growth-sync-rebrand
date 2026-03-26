@@ -11,6 +11,13 @@ export default function Blog() {
       <Helmet>
         <title>Blog & Resources | GrowthSync</title>
         <meta name="description" content="Insights for the modern growth team. Strategies, playbooks, and trends on social commerce, AI automation, and turning engagement into revenue." />
+        <link rel="canonical" href="https://growthsync.com/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://growthsync.com/blog" />
+        <meta property="og:title" content="Blog & Resources | GrowthSync" />
+        <meta property="og:description" content="Insights for the modern growth team. Strategies, playbooks, and trends on social commerce, AI automation, and turning engagement into revenue." />
+        <meta property="og:image" content="https://growthsync.com/growthsync-logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 md:px-12">
         

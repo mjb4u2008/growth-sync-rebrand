@@ -18,6 +18,7 @@ import BookDemo from './pages/BookDemo';
 import Careers from './pages/Careers';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -32,6 +33,16 @@ export default function App() {
                 <Helmet>
                   <title>GrowthSync | Conversational AI for Social Commerce</title>
                   <meta name="description" content="Turn social noise into attributed revenue. GrowthSync is the all-in-one conversational AI platform for modern brands." />
+                  <link rel="canonical" href="https://growthsync.com" />
+                  <meta property="og:type" content="website" />
+                  <meta property="og:url" content="https://growthsync.com" />
+                  <meta property="og:title" content="GrowthSync | Conversational AI for Social Commerce" />
+                  <meta property="og:description" content="Turn social noise into attributed revenue. GrowthSync is the all-in-one conversational AI platform for modern brands." />
+                  <meta property="og:image" content="https://growthsync.com/growthsync-logo.png" />
+                  <meta name="twitter:card" content="summary_large_image" />
+                  <meta name="twitter:title" content="GrowthSync | Conversational AI for Social Commerce" />
+                  <meta name="twitter:description" content="Turn social noise into attributed revenue. GrowthSync is the all-in-one conversational AI platform for modern brands." />
+                  <meta name="twitter:image" content="https://growthsync.com/growthsync-logo.png" />
                 </Helmet>
                 <Hero />
                 <FeatureThree />
@@ -51,6 +62,7 @@ export default function App() {
             <Route path="/careers" element={<Careers />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms-of-service" element={<Terms />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </div>

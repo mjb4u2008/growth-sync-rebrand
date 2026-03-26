@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, MessageSquare, Zap, ArrowRight, Building2, User, Mail, Globe, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function BookDemo() {
   const [formState, setFormState] = useState({
@@ -46,6 +47,17 @@ export default function BookDemo() {
 
   return (
     <div className="min-h-screen bg-white pt-24 md:pt-32 pb-20">
+      <Helmet>
+        <title>Book a Demo | GrowthSync</title>
+        <meta name="description" content="See how top brands automate social revenue with GrowthSync. Get a personalized walkthrough of our conversational AI platform." />
+        <link rel="canonical" href="https://growthsync.com/demo" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://growthsync.com/demo" />
+        <meta property="og:title" content="Book a Demo | GrowthSync" />
+        <meta property="og:description" content="See how top brands automate social revenue with GrowthSync. Get a personalized walkthrough of our conversational AI platform." />
+        <meta property="og:image" content="https://growthsync.com/growthsync-logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           

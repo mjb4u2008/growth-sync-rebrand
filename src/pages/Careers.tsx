@@ -56,6 +56,13 @@ export default function Careers() {
       <Helmet>
         <title>Careers | GrowthSync</title>
         <meta name="description" content="Join GrowthSync. We're building the future of social commerce. See open roles in engineering, design, go-to-market, and content." />
+        <link rel="canonical" href="https://growthsync.com/careers" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://growthsync.com/careers" />
+        <meta property="og:title" content="Careers | GrowthSync" />
+        <meta property="og:description" content="Join GrowthSync. We're building the future of social commerce. See open roles in engineering, design, go-to-market, and content." />
+        <meta property="og:image" content="https://growthsync.com/growthsync-logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
       {/* Hero — minimal, left-aligned, typographic */}
