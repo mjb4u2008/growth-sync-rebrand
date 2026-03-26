@@ -17,7 +17,7 @@ const rodAuthor = {
 export const blogPosts = [
   {
     id: 6,
-    title: "The TikTok Halo Effect Is Real — And Most Brands Aren't Maximizing It",
+    title: "The TikTok Halo Effect Is Real, and Most Brands Aren't Maximizing It",
     excerpt: "Brands at the Million Dollar Seller Summit are losing money on TikTok on purpose — because the revenue it drives on Amazon, Shopify, and wholesale is worth multiples more.",
     category: "Social Commerce",
     author: rodAuthor,
@@ -136,7 +136,7 @@ export const blogPosts = [
   },
   {
     id: 5,
-    title: "TikTok Has a Reputation Problem — And They're Spending Millions to Fix It",
+    title: "TikTok Has a Reputation Problem. They're Spending Millions to Fix It.",
     excerpt: "TikTok's Project Horizon is paying agencies to recruit $10M+ brands onto TikTok Shop. Premium brands are showing up — but the customer experience isn't ready.",
     category: "Social Commerce",
     author: rodAuthor,
@@ -736,7 +736,7 @@ export const blogPosts = [
   },
   {
     id: 22,
-    title: "Intent Signals Are Everywhere — Brands Just Aren't Listening",
+    title: "Intent Signals Are Everywhere but Brands Aren't Listening",
     excerpt: "Every comment, DM, and story reply is a buying signal hiding in plain sight. Most brands treat them as engagement metrics instead of revenue opportunities.",
     category: "Social Listening",
     author,
@@ -771,7 +771,7 @@ export const blogPosts = [
   },
   {
     id: 21,
-    title: "Amazon Sellers Are Moving to Social — Here's Why",
+    title: "Amazon Sellers Are Moving to Social and It Makes Perfect Sense",
     excerpt: "Rising fees, margin pressure, and zero customer relationships. Amazon sellers are diversifying to social commerce — and finding something Amazon never offered.",
     category: "Social Commerce",
     author: rodAuthor,
@@ -876,7 +876,7 @@ export const blogPosts = [
   },
   {
     id: 18,
-    title: "TikTok Shop Did $33 Billion Last Year — What Happens Next",
+    title: "TikTok Shop Did $33 Billion Last Year. What Happens Next?",
     excerpt: "TikTok Shop's global GMV hit $33 billion in 2024 with the US as its fastest-growing market. The platform is just getting started — here's what's coming.",
     category: "TikTok",
     author,
@@ -942,7 +942,7 @@ export const blogPosts = [
   },
   {
     id: 16,
-    title: "Small Brands Are Beating Enterprise on Social — Here's How",
+    title: "How Small Brands Are Beating Enterprise on Social",
     excerpt: "The biggest brands have the biggest budgets. But on social, nimble DTC brands are outperforming them on conversion, engagement, and revenue per follower.",
     category: "Strategy",
     author: rodAuthor,
@@ -977,7 +977,7 @@ export const blogPosts = [
   },
   {
     id: 15,
-    title: "Conversational AI Isn't a Chatbot — Here's the Difference",
+    title: "Conversational AI Isn't a Chatbot and the Difference Matters",
     excerpt: "Chatbots follow scripts and break when customers go off-path. Conversational AI understands context, maintains natural dialogue, and actually sells. Here's why it matters.",
     category: "AI",
     author,
@@ -1143,7 +1143,7 @@ export const blogPosts = [
   },
   {
     id: 10,
-    title: "Social Listening Isn't Just Analytics — It's Your Best Sales Channel",
+    title: "Social Listening Is Your Best Sales Channel, Not Just Analytics",
     excerpt: "Most brands use social listening to monitor brand mentions. The real opportunity is using it to identify and act on buying signals in real time.",
     category: "Social Listening",
     author: rodAuthor,
@@ -1209,7 +1209,7 @@ export const blogPosts = [
   },
   {
     id: 8,
-    title: "I've Spent 10 Years in E-Commerce — Social Is Where It's All Going",
+    title: "After 10 Years in E-Commerce I'm Convinced Social Is Where It's All Going",
     excerpt: "After a decade in e-commerce, I've watched channels rise and fall. Social commerce isn't just the next channel. It's the one that changes everything.",
     category: "Social Commerce",
     author: rodAuthor,
