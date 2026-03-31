@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GrowthSync — Investor Deck Q1 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Outfit', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+    body { -webkit-font-smoothing: antialiased; }
+
+    .slide {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(to right, #8B5CF6, #EC4899);
+    }
+
+    .text-gradient-teal {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(to right, #14b8a6, #06b6d4);
+    }
+
+    .grain { position: relative; }
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .dot-grid {
+      background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    @property --gradient-angle {
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes gradient-rotate {
+      0% { --gradient-angle: 0deg; }
+      100% { --gradient-angle: 360deg; }
+    }
+
+    .gradient-mesh {
+      background:
+        conic-gradient(from var(--gradient-angle) at 30% 40%, rgba(20, 184, 166, 0.03), transparent 60%),
+        conic-gradient(from calc(var(--gradient-angle) + 120deg) at 70% 60%, rgba(139, 92, 246, 0.025), transparent 60%),
+        conic-gradient(from calc(var(--gradient-angle) + 240deg) at 50% 30%, rgba(236, 72, 153, 0.02), transparent 60%);
+      animation: gradient-rotate 30s linear infinite;
+    }
+
+    .dash-line {
+      stroke-dasharray: 6 4;
+    }
+
+    /* Slide counter */
+    .slide-num {
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(156, 163, 175, 0.6);
+      font-weight: 500;
+      z-index: 10;
+    }
+    .slide-num-dark {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Print styles */
+    @media print {
+      html { scroll-snap-type: none; }
+      .slide {
+        page-break-after: always;
+        min-height: 100vh;
+        height: 100vh;
+        overflow: hidden;
+      }
+      @page {
+        size: landscape;
+        margin: 0;
+      }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 1 — TITLE
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-white grain">
+    <div class="absolute inset-0 gradient-mesh pointer-events-none"></div>
+
+    <div class="flex-1 flex flex-col relative z-10">
+      <!-- Top bar -->
+      <div class="flex justify-between items-center px-12 md:px-16 pt-10 md:pt-12">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-gray-950 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <span class="font-display font-bold text-xl tracking-tight text-gray-950">GrowthSync</span>
+        </div>
+        <span class="text-sm font-medium text-gray-400 tracking-wide">Q1 2026</span>
+      </div>
+
+      <!-- Center content -->
+      <div class="flex-1 flex flex-col items-center justify-center px-12 md:px-16 text-center -mt-8">
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-display font-bold tracking-tight leading-[1.02] mb-6">
+          <span class="block text-gray-950">Turn social noise into</span>
+          <span class="block text-gradient">revenue.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-400 font-medium max-w-2xl">
+          Conversational AI for Social Commerce
+        </p>
+      </div>
+
+      <!-- Mascot + footer -->
+      <div class="flex justify-between items-end px-12 md:px-16 pb-10 md:pb-12">
+        <p class="text-sm text-gray-300 font-medium">Confidential</p>
+        <img src="./public/mascots/clay/wave.png" alt="" class="w-16 md:w-20 opacity-80 drop-shadow-lg" />
+      </div>
+    </div>
+    <span class="slide-num">01</span>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 2 — THE PROBLEM
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-[#030712]">
+    <div class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-6xl mx-auto px-12 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Platform icons -->
+        <div class="flex justify-center">
+          <div class="relative w-72 h-72 md:w-80 md:h-80">
+            <!-- Connection lines -->
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 320 320" fill="none">
+              <line x1="90" y1="90" x2="230" y2="90" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" class="dash-line"/>
+              <line x1="90" y1="90" x2="90" y2="230" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" class="dash-line"/>
+              <line x1="230" y1="90" x2="230" y2="230" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" class="dash-line"/>
+              <line x1="90" y1="230" x2="230" y2="230" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" class="dash-line"/>
+              <path d="M 90 230 Q 30 160 90 90" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" fill="none" class="dash-line"/>
+            </svg>
+            <!-- Icons (inline SVG for PDF reliability) -->
+            <div class="absolute top-8 left-8 w-20 h-20 rounded-2xl bg-white/[0.12] border border-white/[0.15] flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.56a8.23 8.23 0 0 0 4.81 1.54V6.69c-.35 0-.7-.03-1.05-.09z"/></svg>
+            </div>
+            <div class="absolute top-8 right-8 w-20 h-20 rounded-2xl bg-white/[0.12] border border-white/[0.15] flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <div class="absolute bottom-8 left-8 w-20 h-20 rounded-2xl bg-white/[0.12] border border-white/[0.15] flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </div>
+            <div class="absolute bottom-8 right-8 w-20 h-20 rounded-2xl bg-white/[0.12] border border-white/[0.15] flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div>
+          <p class="text-xs font-bold text-teal-400 tracking-[0.2em] uppercase mb-5">The Problem</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white leading-tight mb-6">
+            There is no unified way to sell on social commerce
+          </h2>
+          <p class="text-lg text-gray-400 leading-relaxed">
+            Social commerce is fragmented across several large and emerging platforms with no shared operating system for sellers. Every platform has its own storefronts, messaging, and workflows.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center px-12 md:px-16 pb-8">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-teal-500"></div>
+        <span class="text-xs font-medium text-white/40">GrowthSync</span>
+      </div>
+    </div>
+    <span class="slide-num slide-num-dark">02</span>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 3 — THE MARKET
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-white relative">
+    <div class="absolute inset-0 dot-grid opacity-[0.04] pointer-events-none"></div>
+
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-6xl mx-auto px-12 md:px-16 w-full grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+
+        <!-- Left: Text (3 cols) -->
+        <div class="lg:col-span-3">
+          <p class="text-xs font-bold text-teal-600 tracking-[0.2em] uppercase mb-5">The Market</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-8">
+            Why This Matters
+          </h2>
+
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4">
+              <div class="w-2 h-2 rounded-full bg-teal-500 mt-2.5 shrink-0"></div>
+              <p class="text-lg text-gray-600 leading-relaxed">Social commerce is the <strong class="text-gray-950 font-bold">fastest-growing consumer channel in history</strong>, scaling toward $22T by 2035.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-2 h-2 rounded-full bg-teal-500 mt-2.5 shrink-0"></div>
+              <p class="text-lg text-gray-600 leading-relaxed">With no unified permission layer, sellers must manually operate each platform, making operational stacks <strong class="text-gray-950 font-bold">costly & headcount dependent</strong>.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="w-2 h-2 rounded-full bg-teal-500 mt-2.5 shrink-0"></div>
+              <p class="text-lg text-gray-600 leading-relaxed">Distribution is performance-gated &mdash; <strong class="text-gray-950 font-bold">incentivizing sellers to optimize single channels</strong> instead of scaling multi-channel.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Shop Score Card (2 cols) -->
+        <div class="lg:col-span-2 flex justify-center">
+          <div class="w-full max-w-xs">
+            <p class="text-xs text-gray-400 font-medium text-center mb-3">TikTok Shop Seller Account Scoring</p>
+            <div class="bg-white border border-gray-200 rounded-2xl shadow-xl p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-8 h-8 rounded-full bg-gray-950 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                </div>
+                <h3 class="font-bold text-lg text-gray-900">Shop performance</h3>
+              </div>
+              <div class="mb-3">
+                <span class="text-4xl font-display font-bold text-gray-950">2.9</span>
+                <span class="text-2xl font-display text-gray-300">/5.0</span>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed mb-5">New scoring rules. Check your latest performance.</p>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Impact</p>
+                <p class="text-sm text-gray-700 font-medium">Higher Shop Score = More Views & GMV</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center px-12 md:px-16 pb-8">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-teal-500"></div>
+        <span class="text-xs font-medium text-gray-400">GrowthSync</span>
+      </div>
+    </div>
+    <span class="slide-num">03</span>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 4 — THE SOLUTION
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-white grain">
+    <div class="absolute inset-0 gradient-mesh pointer-events-none opacity-50"></div>
+
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-6xl mx-auto px-12 md:px-16 w-full">
+        <p class="text-xs font-bold text-teal-600 tracking-[0.2em] uppercase mb-5">The Solution</p>
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gray-950 leading-tight mb-5">
+          GrowthSync
+        </h2>
+        <p class="text-xl md:text-2xl text-gray-500 leading-relaxed max-w-3xl mb-12">
+          Conversational AI that turns every social interaction into a revenue opportunity. Every DM, comment, story mention, and live stream viewer becomes a personalized sales conversation, automatically.
+        </p>
+
+        <!-- Three feature cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <!-- DM Automation -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-gray-950 mb-3">DM Automation</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Instant follow-ups with personalized offers. Context-aware product bundling and one-time checkout links.</p>
+          </div>
+
+          <!-- Live Commerce -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-gray-950 mb-3">Live Commerce</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Auto-reply to live stream comments. Send checkout links via DM and capture leads in real-time.</p>
+          </div>
+
+          <!-- Retention Engine -->
+          <div class="bg-white border border-gray-200 rounded-2xl p-7 shadow-lg hover:shadow-xl transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-pink-50 flex items-center justify-center mb-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg text-gray-950 mb-3">Retention Engine</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Reward story mentions instantly. Build VIP lists via DMs and gather zero-party data naturally.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center px-12 md:px-16 pb-8">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-teal-500"></div>
+        <span class="text-xs font-medium text-gray-400">GrowthSync</span>
+      </div>
+    </div>
+    <span class="slide-num">04</span>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 5 — THE INTELLIGENCE ENGINE
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-[#030712]">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-6xl mx-auto px-12 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Text -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 text-violet-300 text-xs font-medium mb-6 border border-white/10">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/><line x1="12" y1="6" x2="12" y2="11"/><line x1="12" y1="13" x2="12" y2="18"/><line x1="6" y1="12" x2="11" y2="12"/><line x1="13" y1="12" x2="18" y2="12"/></svg>
+            The Intelligence Engine
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl md:text-6xl font-display font-bold mb-6 text-white leading-tight">
+            The Segment of <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400">One.</span>
+          </h2>
+
+          <p class="text-lg md:text-xl text-gray-400 leading-relaxed mb-10">
+            GrowthSync builds a complete profile of every person who interacts with your brand. Every channel, every touchpoint. You don't talk to segments anymore. You talk to Jessica.
+          </p>
+
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-gray-300 font-medium">
+              <div class="w-1.5 h-1.5 rounded-full bg-violet-500"></div>
+              Predictive AOV & LTV modeling
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 font-medium">
+              <div class="w-1.5 h-1.5 rounded-full bg-violet-500"></div>
+              Cross-channel interaction history
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 font-medium">
+              <div class="w-1.5 h-1.5 rounded-full bg-violet-500"></div>
+              Real-time intent scoring
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 font-medium">
+              <div class="w-1.5 h-1.5 rounded-full bg-violet-500"></div>
+              Autonomous conversation management 24/7
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Visual - AI Reasoning Cards -->
+        <div class="space-y-5">
+          <!-- Card 1 -->
+          <div class="bg-white/[0.08] border border-white/[0.18] rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                <h4 class="font-bold text-sm text-white">Channel Selection</h4>
+              </div>
+              <span class="text-xs font-bold text-teal-400 bg-teal-400/[0.15] px-2 py-1 rounded-md">94% Match</span>
+            </div>
+            <p class="text-sm text-gray-400">Chose <strong class="text-white">IG DM</strong> over TikTok DM for first outreach based on engagement history.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white/[0.08] border border-white/[0.18] rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                <h4 class="font-bold text-sm text-white">Offer Strategy</h4>
+              </div>
+              <span class="text-xs font-bold text-orange-400 bg-orange-400/[0.15] px-2 py-1 rounded-md">+45% Conv.</span>
+            </div>
+            <p class="text-sm text-gray-400">Offered <strong class="text-white">Early Access</strong> instead of a 15% Discount, based on customer persona.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white/[0.08] border border-white/[0.18] rounded-2xl p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+              <h4 class="font-bold text-sm text-white">Predictive Scoring</h4>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <div class="flex justify-between text-xs mb-1.5">
+                  <span class="text-gray-500">Upsell Confidence</span>
+                  <span class="font-bold text-emerald-400">82%</span>
+                </div>
+                <div class="h-1.5 w-full bg-white/[0.1] rounded-full overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width: 82%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs mb-1.5">
+                  <span class="text-gray-500">Sentiment Score</span>
+                  <span class="font-bold text-teal-400">Highly Positive</span>
+                </div>
+                <div class="h-1.5 w-full bg-white/[0.1] rounded-full overflow-hidden">
+                  <div class="h-full bg-teal-500 rounded-full" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="pt-3 border-t border-white/[0.18] flex justify-between items-center">
+                <span class="text-xs text-gray-500">Projected LTV</span>
+                <span class="text-sm font-bold text-white">$1,250 <span class="text-gray-500 font-normal text-xs">(Top 5%)</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center px-12 md:px-16 pb-8">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-teal-500"></div>
+        <span class="text-xs font-medium text-white/40">GrowthSync</span>
+      </div>
+    </div>
+    <span class="slide-num slide-num-dark">05</span>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 6 — TRACTION
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-white">
+    <div class="absolute inset-0 dot-grid opacity-[0.03] pointer-events-none"></div>
+
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-6xl mx-auto px-12 md:px-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Text + Markers -->
+        <div>
+          <p class="text-xs font-bold text-teal-600 tracking-[0.2em] uppercase mb-5">Traction</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-4">
+            Product Market Fit
+          </h2>
+          <p class="text-xl md:text-2xl font-display font-bold text-gray-950 mb-6">
+            In 8 months, we <span class="text-gradient-teal">bootstrapped to $1M ARR</span> profitability.
+          </p>
+
+          <div class="space-y-4">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Traction Markers</p>
+            <div class="space-y-3.5">
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></div>
+                <p class="text-sm text-gray-600 leading-relaxed">Launched with a private cohort & saw <strong class="text-gray-900">3-5x GMV growth</strong> 45 days after onboarding</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></div>
+                <p class="text-sm text-gray-600 leading-relaxed">Private beta turned into <strong class="text-gray-900">>100 waitlist</strong>, doubling MoM from word of mouth</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></div>
+                <p class="text-sm text-gray-600 leading-relaxed">Onboarding first <strong class="text-gray-900">$10M+ brand</strong> in Jan, replacing $400K+/year ops</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></div>
+                <p class="text-sm text-gray-600 leading-relaxed">Live V1 testing with <strong class="text-gray-900">Palmstreet</strong> &mdash; path to ~3,000 monthly active sellers</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></div>
+                <p class="text-sm text-gray-600 leading-relaxed"><strong class="text-gray-900">Direct deal flow from TikTok</strong>, with tailwinds toward a deeper partnership</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Revenue Chart -->
+        <div class="pt-4">
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 text-center">GrowthSync Revenue</p>
+          <div class="bg-white border border-gray-200 rounded-2xl shadow-xl p-8">
+            <svg viewBox="0 0 500 300" class="w-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#0d9488" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#0d9488" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Grid lines -->
+              <line x1="50" y1="260" x2="450" y2="260" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="50" y1="200" x2="450" y2="200" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="50" y1="140" x2="450" y2="140" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="50" y1="80" x2="450" y2="80" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="50" y1="20" x2="450" y2="20" stroke="#f3f4f6" stroke-width="1"/>
+
+              <!-- Y-axis labels -->
+              <text x="42" y="264" text-anchor="end" font-family="Inter" font-size="11" fill="#9ca3af">$0</text>
+              <text x="42" y="204" text-anchor="end" font-family="Inter" font-size="11" fill="#9ca3af">$20k</text>
+              <text x="42" y="144" text-anchor="end" font-family="Inter" font-size="11" fill="#9ca3af">$40k</text>
+              <text x="42" y="84" text-anchor="end" font-family="Inter" font-size="11" fill="#9ca3af">$60k</text>
+              <text x="42" y="24" text-anchor="end" font-family="Inter" font-size="11" fill="#9ca3af">$80k</text>
+
+              <!-- X-axis labels -->
+              <text x="70" y="282" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">Q1</text>
+              <text x="170" y="282" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">Q2</text>
+              <text x="270" y="282" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">Q3</text>
+              <text x="370" y="282" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">Q4</text>
+              <text x="450" y="282" text-anchor="middle" font-family="Inter" font-size="11" fill="#9ca3af">Q1 '26</text>
+
+              <!-- Fill area -->
+              <path d="M 70 236 L 170 182 L 270 134 L 370 59 L 370 260 L 70 260 Z" fill="url(#chart-fill)"/>
+
+              <!-- Main line -->
+              <path d="M 70 236 L 170 182 L 270 134 L 370 59" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <!-- Projected line -->
+              <path d="M 370 59 L 450 35" fill="none" stroke="#0d9488" stroke-width="2" stroke-dasharray="8 6" stroke-linecap="round"/>
+
+              <!-- Data points -->
+              <circle cx="70" cy="236" r="5" fill="white" stroke="#0d9488" stroke-width="2.5"/>
+              <circle cx="170" cy="182" r="5" fill="white" stroke="#0d9488" stroke-width="2.5"/>
+              <circle cx="270" cy="134" r="5" fill="white" stroke="#0d9488" stroke-width="2.5"/>
+              <circle cx="370" cy="59" r="5" fill="white" stroke="#0d9488" stroke-width="2.5"/>
+              <circle cx="450" cy="35" r="6" fill="white" stroke="#0d9488" stroke-width="2" stroke-dasharray="3 2"/>
+
+              <!-- Value labels -->
+              <text x="70" y="224" text-anchor="middle" font-family="Outfit" font-size="13" font-weight="700" fill="#030712">$8k/Mo</text>
+              <text x="170" y="172" text-anchor="middle" font-family="Outfit" font-size="13" font-weight="700" fill="#030712">$26k/Mo</text>
+              <text x="370" y="49" text-anchor="middle" font-family="Outfit" font-size="14" font-weight="700" fill="#030712">$67k/Mo</text>
+            </svg>
+          </div>
+          <p class="text-xs text-gray-400 text-right mt-3">Sources: Internal Actuals, Influencer Marketing Hub, eMarketer</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center px-12 md:px-16 pb-8">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-teal-500"></div>
+        <span class="text-xs font-medium text-gray-400">GrowthSync</span>
+      </div>
+    </div>
+    <span class="slide-num">06</span>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 7 — MICHAEL BROUGHTON
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-white grain">
+
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-6xl mx-auto px-12 md:px-16 w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+
+        <!-- Left: Photo (2 cols) -->
+        <div class="lg:col-span-2 flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <div class="aspect-[3/4] rounded-3xl overflow-hidden border border-gray-200 shadow-2xl">
+              <img src="./public/michael-broughton.png" alt="Michael Broughton" class="w-full h-full object-cover" />
+            </div>
+            <!-- Forbes badge -->
+            <div class="absolute -bottom-3 -right-3 bg-white border border-gray-200 rounded-xl px-4 py-2 shadow-lg">
+              <p class="font-display font-bold text-sm text-gray-950">Forbes 30 Under 30</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Bio (3 cols) -->
+        <div class="lg:col-span-3">
+          <p class="text-xs font-bold text-teal-600 tracking-[0.2em] uppercase mb-5">Meet Michael Broughton</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-6">
+            Second Time Founder Building Consumer Tech
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed mb-8">
+            Founded ALTRO, raising $22M to build the first tri-bureau $75 tradeline to enable low income Americans to build credit with their subscriptions. Launched nationwide with Discover and acquired in 2024.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+              <p class="text-sm font-bold text-gray-950">Thiel Fellow</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+              <p class="text-sm font-bold text-gray-950">YC S20</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+              <p class="text-sm font-bold text-gray-950">Inaugural Leaders Fellow</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+              <p class="text-sm font-bold text-gray-950">Times Best Invention</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+              <p class="text-sm font-bold text-gray-950">Forbes Consumer Tech</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+              <p class="text-sm font-bold text-gray-950">Vice Chairman, USCCU</p>
+              <p class="text-xs text-gray-400">$800M Credit Union</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center px-12 md:px-16 pb-8">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-teal-500"></div>
+        <span class="text-xs font-medium text-gray-400">GrowthSync</span>
+      </div>
+    </div>
+    <span class="slide-num">07</span>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       SLIDE 8 — ROD HENLEY
+       ═══════════════════════════════════════════════ -->
+  <section class="slide bg-white grain">
+
+    <div class="flex-1 flex items-center relative z-10">
+      <div class="max-w-6xl mx-auto px-12 md:px-16 w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+
+        <!-- Left: Photo (2 cols) -->
+        <div class="lg:col-span-2 flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <div class="aspect-[3/4] rounded-3xl overflow-hidden border border-gray-200 shadow-2xl">
+              <img src="./public/rod-henley.jpg" alt="Rod Henley" class="w-full h-full object-cover" />
+            </div>
+            <!-- Culture badge -->
+            <div class="absolute -bottom-3 -right-3 bg-white border border-gray-200 rounded-xl px-4 py-2 shadow-lg">
+              <p class="font-display font-bold text-sm text-gray-950">ROC NATION Alumni</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Bio (3 cols) -->
+        <div class="lg:col-span-3">
+          <p class="text-xs font-bold text-teal-600 tracking-[0.2em] uppercase mb-5">Meet Rod Henley</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-950 leading-tight mb-6">
+            Repeat Founder Across Culture & Influencers
+          </h2>
+          <p class="text-lg text-gray-600 leading-relaxed mb-8">
+            Early cultivator of culture driven brands. He built an artist management company that led to being poached by ROC NATION and founded one of the largest events for tastemakers and influencers in LA.
+          </p>
+
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></div>
+              <p class="text-sm font-medium text-gray-700">Founder, Scoreboard Sundays</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></div>
+              <p class="text-sm font-medium text-gray-700">Launched The Influencer Network</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></div>
+              <p class="text-sm font-medium text-gray-700">Managed Robin Thicke, ASAP Ferg, Etc.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></div>
+              <p class="text-sm font-medium text-gray-700">Scaled AMC To Label Partnerships & National Tour</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></div>
+              <p class="text-sm font-medium text-gray-700">Built GrowthSync's 25+ Inbound Pipeline</p>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 pt-8 border-t border-gray-100">
+            <p class="text-sm text-gray-400 mb-3">Ready to talk?</p>
+            <a href="mailto:hello@growthsync.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-950 text-white font-semibold text-sm hover:bg-gray-800 transition-colors">
+              hello@growthsync.com
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-between items-center px-12 md:px-16 pb-8">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-teal-500"></div>
+        <span class="text-xs font-medium text-gray-400">GrowthSync</span>
+      </div>
+      <span class="text-xs font-medium text-gray-300 mr-12">Q1 2026</span>
+    </div>
+    <span class="slide-num">08</span>
+  </section>
+
+
+  <!-- Navigation hint -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 no-print opacity-0 hover:opacity-100 transition-opacity">
+    <div class="bg-gray-950/80 backdrop-blur text-white text-xs font-medium px-4 py-2 rounded-full">
+      Use <kbd class="px-1.5 py-0.5 bg-white/20 rounded text-[10px]">&darr;</kbd> <kbd class="px-1.5 py-0.5 bg-white/20 rounded text-[10px]">&uarr;</kbd> or scroll to navigate &middot; <kbd class="px-1.5 py-0.5 bg-white/20 rounded text-[10px]">Ctrl+P</kbd> to export PDF
+    </div>
+  </div>
+
+  <script>
+    // Keyboard navigation
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        current = Math.min(current + 1, slides.length - 1);
+        slides[current].scrollIntoView({ behavior: 'smooth' });
+      }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        current = Math.max(current - 1, 0);
+        slides[current].scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Update current slide index on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          current = Array.from(slides).indexOf(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    slides.forEach(slide => observer.observe(slide));
+  </script>
+
+</body>
+</html>
