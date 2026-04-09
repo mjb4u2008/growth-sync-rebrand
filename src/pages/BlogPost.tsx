@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin, Link as LinkIcon, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Calendar, Clock, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogPosts';
+import { getMarketContextLinks, getRelatedPosts } from '../utils/blogLinks';
 
 export default function BlogPost() {
   const { id } = useParams();
@@ -19,6 +20,8 @@ export default function BlogPost() {
   const siteUrl = 'https://growthsync.com';
   const postUrl = `${siteUrl}/blog/${post.id}`;
   const imageUrl = post.image.startsWith('http') ? post.image : `${siteUrl}${post.image}`;
+  const relatedPosts = getRelatedPosts(blogPosts, post, 3);
+  const marketContextLinks = getMarketContextLinks(post, 2);
 
   // BreadcrumbList for rich results
   const breadcrumbData = {
@@ -184,6 +187,72 @@ export default function BlogPost() {
         >
           {post.content}
         </motion.div>
+
+        <section className="mt-16 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">Keep Reading</p>
+            <h3 className="mt-3 text-2xl font-display font-bold text-gray-950">Related posts worth opening next</h3>
+            <div className="mt-6 grid gap-4">
+              {relatedPosts.map((relatedPost) => (
+                <Link
+                  key={relatedPost.id}
+                  to={`/blog/${relatedPost.id}`}
+                  className="group rounded-2xl border border-gray-200 bg-white p-5 transition-colors hover:border-teal-200 hover:bg-teal-50/40 no-underline"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">{relatedPost.category}</p>
+                      <p className="mt-2 text-lg font-display font-bold text-gray-950 group-hover:text-teal-700">{relatedPost.title}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-600">{relatedPost.excerpt}</p>
+                    </div>
+                    <ArrowUpRight className="h-5 w-5 shrink-0 text-gray-300 transition-colors group-hover:text-teal-600" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-6">
+            <div className="rounded-3xl border border-gray-200 bg-white p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Market Context</p>
+              <h3 className="mt-3 text-2xl font-display font-bold text-gray-950">Useful source trails around this topic</h3>
+              <div className="mt-6 grid gap-4">
+                {marketContextLinks.map((resource) => (
+                  <a
+                    key={resource.href}
+                    href={resource.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group rounded-2xl border border-gray-200 p-5 transition-colors hover:border-teal-200 hover:bg-teal-50/40"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-base font-bold text-gray-950 group-hover:text-teal-700">{resource.label}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-gray-600">{resource.description}</p>
+                      </div>
+                      <ArrowUpRight className="mt-0.5 h-5 w-5 shrink-0 text-gray-300 transition-colors group-hover:text-teal-600" />
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-3xl bg-gray-950 p-8 text-white">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-300">Book Time</p>
+              <h3 className="mt-3 text-2xl font-display font-bold">Want help turning this into revenue?</h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/72">
+                If this article lines up with what your team is seeing, we can show you how GrowthSync turns those conversations into attributed sales.
+              </p>
+              <Link
+                to="/demo"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-gray-950 transition-colors hover:bg-teal-50 no-underline"
+              >
+                Book a demo
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
 
         {/* Share & Tags */}
         <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">

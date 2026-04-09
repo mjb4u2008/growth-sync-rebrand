@@ -16,6 +16,7 @@ This skill is the chain of command for publishing GrowthSync blog posts.
 3. Read [references/linking-playbook.md](references/linking-playbook.md).
 4. Read [references/post-template.md](references/post-template.md) while editing `src/data/blogPosts.tsx`.
 5. Read [references/image-workflow.md](references/image-workflow.md) before generating or revising hero art.
+6. Read [references/retro-link-refresh-prompt.md](references/retro-link-refresh-prompt.md) when the task is to go back through older posts and apply the new link rules.
 
 ## Trigger Phrases
 
@@ -27,6 +28,9 @@ Use this workflow when the user says things like:
 - "Publish this post"
 - "Post this under Rod"
 - "Generate the blog image"
+- "Go through our old blogs"
+- "Retro link the blog"
+- "Ralph Wiggum this"
 
 ## Non-Negotiables
 
@@ -52,6 +56,7 @@ Use this workflow when the user says things like:
 - `npm run blog:images -- <slug>`
 - `npm run sitemap`
 - `npm run blog:check`
+- `npm run blog:link-audit`
 - `npm run lint`
 - `npm run build`
 

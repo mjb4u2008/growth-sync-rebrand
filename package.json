@@ -12,6 +12,7 @@
     "generate:mascots": "tsx scripts/generate-mascots.ts",
     "blog:images": "tsx scripts/generate-blog-images.ts",
     "blog:check": "tsx scripts/validate-blog-post.ts",
+    "blog:link-audit": "tsx scripts/audit-blog-links.ts",
     "sitemap": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
