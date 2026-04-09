@@ -41,6 +41,10 @@ These elements can appear across posts to create visual continuity:
 ### Post 4: "Introducing GrowthSync"
 **Image**: Use the actual GrowthSync logo (white lightning bolt on dark navy rounded square) as the hero image. This is a company announcement — the logo speaks for itself. Place it centered on the dark navy background, optionally with a subtle teal glow/bloom behind it.
 
+### Post 5: "Instagram Just Copied TikTok Shop's Playbook"
+**Scene**: A side-by-side miniature platform study, not a centered phone hero. On the left, a vibrant TikTok-style commerce machine: a tiny creator stage, affiliate product tags, a live-selling conveyor, and glowing sales signals already humming. On the right, an Instagram-like storefront is visibly recreating that exact system from traced outlines, duplicate molds, and freshly copied components. A scanning beam or translucent blueprint bridge runs from left to right, making the "copying" unmistakable. The two worlds should feel related, but the right side should read as an imitation catching up, not an original.
+**Mood**: Strategic imitation, platform convergence, "the playbook is being copied"
+
 ## Prompt Template for Image Generation (Google Imagen / Gemini)
 
 When generating an image, combine the base style with the post-specific scene:
@@ -65,3 +69,4 @@ When generating an image, combine the base style with the post-specific scene:
 - Not AI-generated "people" or faces
 - Not flat 2D illustrations (these have depth and physicality)
 - Not overly complex or busy — each scene has one clear focal point
+- Not the same central phone composition repeated post after post. Vary the silhouette and the focal object so each article feels like its own world.

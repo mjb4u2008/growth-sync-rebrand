@@ -180,7 +180,7 @@ export default function BlogPost() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-gray-700"
+          className="text-gray-700 [&_a]:font-medium [&_a]:text-teal-600 [&_a]:underline [&_a]:decoration-teal-200 [&_a]:underline-offset-4 [&_a:hover]:text-teal-700"
         >
           {post.content}
         </motion.div>

@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/((?!assets|blog/.*\\.png|mascots|favicon\\.png|growthsync-logo.*|michael-broughton\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }
+    { "source": "/((?!api/.*|assets|blog/.*\\.png|mascots|favicon\\.png|growthsync-logo.*|michael-broughton\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

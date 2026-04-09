@@ -10,8 +10,13 @@ type BlogImageSpec = {
 const OUTPUT_DIR = join(process.cwd(), 'public', 'blog');
 
 const BASE_STYLE = `3D isometric diorama scene, miniature world, matte clay and ceramic material textures, dark navy background (#0a0f1a), teal (#14b8a6) glowing accents, warm coral highlights, soft diffused studio lighting, gentle tilt-shift depth of field, editorial illustration style, no text, no people, no photorealism, high detail, 16:9 aspect ratio`;
+const COMPOSITION_GUARDRAILS = `Distinct silhouette, avoid repeating a centered monolith phone or four-way crossroads layout unless the concept absolutely requires it. Choose a composition unique to this article's idea.`;
 
 const imageSpecs: BlogImageSpec[] = [
+  {
+    slug: 'instagram-tiktok-shop-playbook',
+    scene: 'A side-by-side miniature platform scene showing Instagram copying TikTok Shop. Left side: an established TikTok-style social commerce machine with a tiny creator stage, live-selling conveyor, affiliate product tags, and glowing teal sales signals already in motion. Right side: an Instagram-like storefront rebuilding that exact system from translucent tracing outlines, duplicate molds, cloned product tags, and copied checkout parts. A scanning beam or blueprint bridge travels from left to right, making the act of copying obvious. Asymmetrical composition, no central phone hero, no crossroads, clear feeling that one platform is borrowing the other platform playbook.',
+  },
   {
     slug: 'social-commerce-eating-ecommerce',
     scene: 'A miniature traditional brick storefront slowly being wrapped and absorbed by glowing teal social media icons, chat bubbles, and phone screens. The old store is gray ceramic crumbling at the edges. Shopping bags morph from physical brown paper into glowing teal digital shopping cart icons. Signal lines connect the social elements.',
@@ -144,7 +149,7 @@ const getImagePart = (response: Awaited<ReturnType<typeof ai.models.generateCont
 };
 
 const generateImage = async ({ slug, scene }: BlogImageSpec, index: number) => {
-  const prompt = `${scene} ${BASE_STYLE}`;
+  const prompt = `${scene} ${COMPOSITION_GUARDRAILS} ${BASE_STYLE}`;
   const finalPath = join(OUTPUT_DIR, `${slug}.png`);
 
   console.log(`[${index + 1}/${imageSpecs.length}] Generating: ${slug}...`);
@@ -168,30 +173,39 @@ const generateImage = async ({ slug, scene }: BlogImageSpec, index: number) => {
 };
 
 const main = async () => {
-  console.log(`Generating ${imageSpecs.length} Signal Worlds blog images...\n`);
+  const requestedSlugs = process.argv.slice(2);
+  const specsToGenerate = requestedSlugs.length > 0
+    ? imageSpecs.filter(({ slug }) => requestedSlugs.includes(slug))
+    : imageSpecs;
+
+  if (requestedSlugs.length > 0 && specsToGenerate.length === 0) {
+    throw new Error(`No blog image specs found for slugs: ${requestedSlugs.join(', ')}`);
+  }
+
+  console.log(`Generating ${specsToGenerate.length} Signal Worlds blog images...\n`);
 
   const results = [];
-  for (let i = 0; i < imageSpecs.length; i++) {
+  for (let i = 0; i < specsToGenerate.length; i++) {
     try {
-      results.push(await generateImage(imageSpecs[i], i));
+      results.push(await generateImage(specsToGenerate[i], i));
     } catch (err: any) {
-      console.error(`  Failed: ${imageSpecs[i].slug} — ${err.message}`);
+      console.error(`  Failed: ${specsToGenerate[i].slug} — ${err.message}`);
       if (err.message?.includes('429') || err.message?.includes('rate') || err.message?.includes('Resource')) {
         console.log('  Waiting 15s for rate limit...');
         await new Promise(r => setTimeout(r, 15000));
         try {
-          results.push(await generateImage(imageSpecs[i], i));
+          results.push(await generateImage(specsToGenerate[i], i));
         } catch (retryErr: any) {
-          console.error(`  Retry failed: ${imageSpecs[i].slug} — ${retryErr.message}`);
+          console.error(`  Retry failed: ${specsToGenerate[i].slug} — ${retryErr.message}`);
         }
       }
     }
-    if (i < imageSpecs.length - 1) {
+    if (i < specsToGenerate.length - 1) {
       await new Promise(r => setTimeout(r, 3000));
     }
   }
 
-  console.log(`\nDone. Generated ${results.length}/${imageSpecs.length} images.`);
+  console.log(`\nDone. Generated ${results.length}/${specsToGenerate.length} images.`);
 };
 
 await main();

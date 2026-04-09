@@ -9,7 +9,10 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "generate:mascots": "tsx scripts/generate-mascots.ts"
+    "generate:mascots": "tsx scripts/generate-mascots.ts",
+    "blog:images": "tsx scripts/generate-blog-images.ts",
+    "blog:check": "tsx scripts/validate-blog-post.ts",
+    "sitemap": "tsx scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
