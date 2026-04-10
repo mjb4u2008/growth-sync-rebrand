@@ -7,6 +7,23 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navItems = [
+    { to: '/blog', label: 'Blog' },
+    { to: '/brand', label: 'Brand kit' },
+    { to: '/careers', label: 'Careers' },
+  ];
+
+  const isActive = (path: string) => {
+    if (path === '/blog') {
+      return location.pathname === '/blog' || location.pathname.startsWith('/blog/');
+    }
+
+    if (path === '/brand') {
+      return location.pathname === '/brand' || location.pathname === '/press';
+    }
+
+    return location.pathname === path;
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -71,8 +88,15 @@ const Navbar = () => {
           </Link>
 
           <div className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors text-gray-600`}>
-            <Link to="/blog" className={`py-3 transition-colors hover:text-gray-950`}>Blog</Link>
-            <Link to="/careers" className={`py-3 transition-colors hover:text-gray-950`}>Careers</Link>
+            {navItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`py-3 transition-colors hover:text-gray-950 ${isActive(item.to) ? 'text-gray-950' : ''}`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
           <div className="flex items-center gap-4">
@@ -107,8 +131,16 @@ const Navbar = () => {
             className="fixed top-[64px] left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-lg md:hidden"
           >
             <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
-              <Link to="/blog" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Blog</Link>
-              <Link to="/careers" onClick={() => setMenuOpen(false)} className="py-3 text-gray-900 font-medium hover:text-teal-600 transition-colors">Careers</Link>
+              {navItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setMenuOpen(false)}
+                  className={`py-3 font-medium transition-colors hover:text-teal-600 ${isActive(item.to) ? 'text-gray-950' : 'text-gray-900'}`}
+                >
+                  {item.label}
+                </Link>
+              ))}
               <div className="border-t border-gray-100 mt-2 pt-3">
                 <Link to="/demo" onClick={() => setMenuOpen(false)} className="py-3 px-6 rounded-full bg-gray-950 text-white font-semibold text-center block">
                   Get started
