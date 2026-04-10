@@ -1,0 +1,33 @@
+{
+  "brand": "GrowthSync",
+  "website": "https://growthsync.com",
+  "assets": {
+    "mark": "/brand/growthsync-mark.svg",
+    "wordmark": "/brand/growthsync-wordmark.svg",
+    "wordmarkLight": "/brand/growthsync-wordmark-light.svg",
+    "lockup": "/brand/growthsync-lockup.svg",
+    "lockupLight": "/brand/growthsync-lockup-light.svg"
+  },
+  "colors": {
+    "graphite": "#030712",
+    "teal": "#14B8A6",
+    "cyan": "#06B6D4",
+    "violet": "#8B5CF6",
+    "pink": "#EC4899",
+    "cloud": "#F9FAFB"
+  },
+  "typography": {
+    "display": {
+      "family": "Outfit",
+      "stack": "\"Outfit\", ui-sans-serif, system-ui, sans-serif",
+      "weights": [500, 600, 700, 800, 900],
+      "usage": "Headlines, lockups, and emphasis"
+    },
+    "body": {
+      "family": "Inter",
+      "stack": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+      "weights": [300, 400, 500, 600],
+      "usage": "Paragraphs, interface labels, and supporting content"
+    }
+  }
+}

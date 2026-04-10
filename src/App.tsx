@@ -19,6 +19,7 @@ import Careers from './pages/Careers';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
+import BrandKit from './pages/BrandKit';
 
 export default function App() {
   return (
@@ -59,6 +60,8 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/demo" element={<BookDemo />} />
+            <Route path="/brand" element={<BrandKit />} />
+            <Route path="/press" element={<BrandKit />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms-of-service" element={<Terms />} />

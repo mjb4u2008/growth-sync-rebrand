@@ -18,6 +18,7 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/`, lastmod: latestBlogDate, changefreq: 'weekly', priority: '1.0' },
   { loc: `${SITE_URL}/blog`, lastmod: latestBlogDate, changefreq: 'weekly', priority: '0.8' },
   { loc: `${SITE_URL}/demo`, lastmod: '2026-03-26', changefreq: 'monthly', priority: '0.9' },
+  { loc: `${SITE_URL}/brand`, lastmod: '2026-04-10', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/careers`, lastmod: '2026-03-26', changefreq: 'weekly', priority: '0.6' },
   { loc: `${SITE_URL}/privacy`, lastmod: '2026-03-23', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/terms-of-service`, lastmod: '2026-03-23', changefreq: 'yearly', priority: '0.3' },

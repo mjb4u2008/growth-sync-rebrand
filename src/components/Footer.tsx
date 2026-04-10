@@ -26,6 +26,7 @@ const Footer = () => {
             <h4 className="font-bold text-gray-900 mb-4">Company</h4>
             <ul className="space-y-3 text-gray-500 text-sm font-medium">
               <li className="py-2 md:py-1"><Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link></li>
+              <li className="py-2 md:py-1"><Link to="/brand" className="hover:text-gray-900 transition-colors">Brand kit</Link></li>
               <li className="py-2 md:py-1"><Link to="/careers" className="hover:text-gray-900 transition-colors">Careers</Link></li>
               <li className="py-2 md:py-1"><a href="mailto:hello@growthsync.com" className="hover:text-gray-900 transition-colors">Contact</a></li>
             </ul>

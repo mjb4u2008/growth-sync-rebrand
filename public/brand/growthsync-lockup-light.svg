@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="240" viewBox="0 0 1480 240" fill="none">
+  <g transform="translate(0 30) scale(0.3515625)">
+    <rect width="512" height="512" rx="96" fill="#030712" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="4"/>
+    <path d="M272 128L176 288h64l-16 96 96-160h-64l16-96z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="28"/>
+  </g>
+  <text x="228" y="168" fill="#FFFFFF" font-family="Outfit, Inter, system-ui, sans-serif" font-size="176" font-weight="700" letter-spacing="-0.06em">GrowthSync</text>
+</svg>

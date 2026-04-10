@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+  <text x="96" y="122" fill="#14B8A6" font-family="Outfit, Inter, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="0.18em">GROWTHSYNC TYPOGRAPHY</text>
+  <text x="96" y="204" fill="#030712" font-family="Outfit, Inter, system-ui, sans-serif" font-size="88" font-weight="700" letter-spacing="-0.05em">Outfit for voice.</text>
+  <text x="96" y="278" fill="#4B5563" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="500">Inter for speed, readability, and dense interface copy.</text>
+
+  <rect x="96" y="352" width="1408" height="226" rx="40" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="142" y="430" fill="#14B8A6" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="0.16em">DISPLAY</text>
+  <text x="142" y="514" fill="#030712" font-family="Outfit, Inter, system-ui, sans-serif" font-size="86" font-weight="700" letter-spacing="-0.06em">GrowthSync turns social noise into revenue.</text>
+  <text x="142" y="558" fill="#6B7280" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="500">Use Outfit for headlines, lockups, callouts, and high-contrast emphasis.</text>
+
+  <rect x="96" y="616" width="1408" height="188" rx="40" fill="#030712"/>
+  <text x="142" y="684" fill="#5EEAD4" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="0.16em">BODY AND UI</text>
+  <text x="142" y="742" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="500">Use Inter for interface labels, supporting paragraphs, and information-dense moments that still need to feel polished.</text>
+</svg>

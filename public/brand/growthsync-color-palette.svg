@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <rect width="1600" height="900" fill="#F9FAFB"/>
+  <text x="96" y="122" fill="#14B8A6" font-family="Outfit, Inter, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="0.18em">GROWTHSYNC BRAND COLORS</text>
+  <text x="96" y="204" fill="#030712" font-family="Outfit, Inter, system-ui, sans-serif" font-size="88" font-weight="700" letter-spacing="-0.05em">Core palette</text>
+  <text x="96" y="254" fill="#4B5563" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="500">Neutral foundations, teal for action, and selective violet-to-pink energy.</text>
+
+  <g transform="translate(96 332)">
+    <rect width="222" height="320" rx="36" fill="#030712"/>
+    <text x="28" y="258" fill="#FFFFFF" font-family="Outfit, Inter, system-ui, sans-serif" font-size="34" font-weight="700">Graphite</text>
+    <text x="28" y="294" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Primary</text>
+    <text x="28" y="320" fill="#FFFFFF" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500">#030712</text>
+  </g>
+
+  <g transform="translate(346 332)">
+    <rect width="222" height="320" rx="36" fill="#14B8A6"/>
+    <text x="28" y="258" fill="#042F2E" font-family="Outfit, Inter, system-ui, sans-serif" font-size="34" font-weight="700">Teal</text>
+    <text x="28" y="294" fill="#0F3D3A" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Secondary</text>
+    <text x="28" y="320" fill="#0F3D3A" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500">#14B8A6</text>
+  </g>
+
+  <g transform="translate(596 332)">
+    <rect width="222" height="320" rx="36" fill="#06B6D4"/>
+    <text x="28" y="258" fill="#083344" font-family="Outfit, Inter, system-ui, sans-serif" font-size="34" font-weight="700">Cyan</text>
+    <text x="28" y="294" fill="#0E4251" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Secondary</text>
+    <text x="28" y="320" fill="#0E4251" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500">#06B6D4</text>
+  </g>
+
+  <g transform="translate(846 332)">
+    <rect width="222" height="320" rx="36" fill="#8B5CF6"/>
+    <text x="28" y="258" fill="#FFFFFF" font-family="Outfit, Inter, system-ui, sans-serif" font-size="34" font-weight="700">Violet</text>
+    <text x="28" y="294" fill="#F5F3FF" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Accent</text>
+    <text x="28" y="320" fill="#F5F3FF" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500">#8B5CF6</text>
+  </g>
+
+  <g transform="translate(1096 332)">
+    <rect width="222" height="320" rx="36" fill="#EC4899"/>
+    <text x="28" y="258" fill="#FFFFFF" font-family="Outfit, Inter, system-ui, sans-serif" font-size="34" font-weight="700">Pink</text>
+    <text x="28" y="294" fill="#FDF2F8" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="600">Accent</text>
+    <text x="28" y="320" fill="#FDF2F8" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="500">#EC4899</text>
+  </g>
+
+  <g transform="translate(1346 332)">
+    <rect width="158" height="320" rx="36" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+    <text x="28" y="258" fill="#030712" font-family="Outfit, Inter, system-ui, sans-serif" font-size="30" font-weight="700">Cloud</text>
+    <text x="28" y="292" fill="#6B7280" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Surface</text>
+    <text x="28" y="316" fill="#6B7280" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="500">#F9FAFB</text>
+  </g>
+
+  <rect x="96" y="712" width="1408" height="92" rx="30" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="132" y="768" fill="#030712" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="600">Suggested gradient treatment: Teal to Cyan for product motion, Violet to Pink for statement headlines.</text>
+</svg>

@@ -1,0 +1,40 @@
+GrowthSync Brand Guide
+======================
+
+Official brand page:
+https://growthsync.com/brand
+
+Core assets
+-----------
+- Mark: /brand/growthsync-mark.svg
+- Wordmark: /brand/growthsync-wordmark.svg
+- Wordmark (light): /brand/growthsync-wordmark-light.svg
+- Lockup: /brand/growthsync-lockup.svg
+- Lockup (light): /brand/growthsync-lockup-light.svg
+
+Core colors
+-----------
+- Graphite: #030712
+- Teal: #14B8A6
+- Cyan: #06B6D4
+- Violet: #8B5CF6
+- Pink: #EC4899
+- Cloud: #F9FAFB
+
+Typography
+----------
+- Display: Outfit
+- Body and UI: Inter
+
+Font sources
+------------
+- Outfit: https://fonts.google.com/specimen/Outfit
+- Inter: https://fonts.google.com/specimen/Inter
+
+Usage notes
+-----------
+- Use the full lockup on first mention.
+- Use the mark in small surfaces like avatars and favicons.
+- Keep generous clear space around the logo.
+- Do not stretch, recolor, rotate, or add effects to the mark.
+- Use the violet-to-pink gradient sparingly for statement moments.
