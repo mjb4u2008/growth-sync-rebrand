@@ -6,7 +6,6 @@ import {
   Download,
   FileArchive,
   Mail,
-  Palette,
   X,
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
@@ -25,7 +24,6 @@ type SectionLink = {
 type AssetCard = {
   title: string;
   description: string;
-  usage: string;
   previewAlt: string;
   previewHref: string;
   previewSurface: 'paper' | 'soft' | 'ink';
@@ -38,7 +36,6 @@ type ColorToken = {
   role: string;
   value: string;
   variable: string;
-  note: string;
 };
 
 type TypeToken = {
@@ -64,18 +61,16 @@ const sectionLinks: SectionLink[] = [
 ];
 
 const heroDownloads: DownloadItem[] = [
-  { label: 'Download full brand kit', href: '/brand/growthsync-brand-kit.zip' },
-  { label: 'Logo lockups', href: '#logos' },
-  { label: 'Brand tokens', href: '/brand/growthsync-brand-tokens.json' },
-  { label: 'Brand guide', href: '/brand/growthsync-brand-guide.txt' },
+  { label: 'All assets', href: '/brand/growthsync-brand-kit.zip' },
+  { label: 'Logos', href: '#logos' },
+  { label: 'Tokens', href: '/brand/growthsync-brand-tokens.json' },
+  { label: 'Guide', href: '/brand/growthsync-brand-guide.txt' },
 ];
 
 const brandAssets: AssetCard[] = [
   {
     title: 'Full lockup',
-    description:
-      'Use the lockup for first mention, press placements, decks, partner pages, and anywhere the mark and name should travel together.',
-    usage: 'Preferred in editorial and partner contexts.',
+    description: 'Default for first mention.',
     previewAlt: 'GrowthSync full lockup',
     previewHref: '/brand/growthsync-lockup-light.svg',
     previewSurface: 'ink',
@@ -87,9 +82,7 @@ const brandAssets: AssetCard[] = [
   },
   {
     title: 'Wordmark',
-    description:
-      'Use the wordmark when the surrounding layout already establishes the brand or when the mark appears elsewhere on the page.',
-    usage: 'Best for headers, press mentions, and product-adjacent layouts.',
+    description: 'For name-first placements.',
     previewAlt: 'GrowthSync wordmark',
     previewHref: '/brand/growthsync-wordmark.svg',
     previewSurface: 'paper',
@@ -101,9 +94,7 @@ const brandAssets: AssetCard[] = [
   },
   {
     title: 'Mark',
-    description:
-      'Use the mark for avatars, favicons, app surfaces, social profiles, and tight placements where the full name would feel cramped.',
-    usage: 'Best for compact placements and icon-led surfaces.',
+    description: 'For avatars, icons, and tight spaces.',
     previewAlt: 'GrowthSync brand mark',
     previewHref: '/brand/growthsync-mark.svg',
     previewSurface: 'soft',
@@ -118,42 +109,36 @@ const colorTokens: ColorToken[] = [
     role: 'Primary',
     value: '#030712',
     variable: '--brand-graphite',
-    note: 'Primary mark fill, headline color, and highest-contrast UI moments.',
   },
   {
     name: 'Teal',
     role: 'Primary',
     value: '#14B8A6',
     variable: '--brand-teal',
-    note: 'Primary action tone and the main system accent across the site.',
   },
   {
     name: 'Cyan',
     role: 'Secondary',
     value: '#06B6D4',
     variable: '--brand-cyan',
-    note: 'Support tone for product movement, gradients, and system highlights.',
   },
   {
     name: 'Violet',
     role: 'Accent',
     value: '#8B5CF6',
     variable: '--brand-violet',
-    note: 'Headline gradient start and selective statement moments.',
   },
   {
     name: 'Pink',
     role: 'Accent',
     value: '#EC4899',
     variable: '--brand-pink',
-    note: 'Headline gradient finish and campaign-led emphasis.',
   },
   {
     name: 'Cloud',
     role: 'Surface',
     value: '#F9FAFB',
     variable: '--brand-cloud',
-    note: 'Soft canvas for cards, surfaces, and presentation-friendly sections.',
   },
 ];
 
@@ -181,28 +166,26 @@ const ruleGroups: RuleGroup[] = [
     title: 'Do',
     tone: 'do',
     items: [
-      'Lead with the full lockup on first mention, then use the wordmark or mark where space is tighter.',
-      'Keep clear space around the logo. It should feel calm and expensive, never crowded.',
-      'Use graphite, white, and teal as the system foundation. Save the violet-to-pink gradient for statement moments.',
-      'Keep your own branding larger and more prominent when mentioning GrowthSync alongside another company.',
+      'Lead with the lockup on first mention.',
+      'Keep generous clear space around the logo.',
+      'Use graphite, white, and teal as the base.',
+      'Reserve violet and pink for emphasis.',
     ],
   },
   {
     title: "Don't",
     tone: 'dont',
     items: [
-      'Do not stretch, rotate, outline, shadow, or recolor the mark.',
-      'Do not use the accent gradient as a default fill for dense interface elements.',
-      'Do not combine the mark with other graphic elements to invent a new logo lockup.',
-      'Do not imply endorsement, partnership, or official affiliation without permission.',
+      'Do not stretch, rotate, or recolor the mark.',
+      'Do not default to the accent gradient.',
+      'Do not build new lockups.',
+      'Do not imply endorsement.',
     ],
   },
 ];
 
 const companyFacts = [
-  { label: 'Company', value: 'GrowthSync' },
   { label: 'Website', value: 'growthsync.com', href: 'https://growthsync.com' },
-  { label: 'Category', value: 'Conversational AI for social commerce' },
   { label: 'Contact', value: 'hello@growthsync.com', href: 'mailto:hello@growthsync.com' },
 ];
 
@@ -238,26 +221,18 @@ function DownloadLink({
 }
 
 function SectionIntro({
-  eyebrow,
   title,
-  description,
   actions,
 }: {
-  eyebrow: string;
   title: string;
-  description: string;
   actions?: ReactNode;
 }) {
   return (
     <div className="lg:sticky lg:top-28">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-600">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl font-display font-bold tracking-tight text-gray-950 md:text-5xl">
+      <h2 className="text-3xl font-display font-bold tracking-tight text-gray-950 md:text-5xl">
         {title}
       </h2>
-      <p className="mt-4 max-w-sm text-base leading-relaxed text-gray-600 md:text-lg">
-        {description}
-      </p>
-      {actions ? <div className="mt-8 flex flex-wrap gap-3">{actions}</div> : null}
+      {actions ? <div className="mt-6 flex flex-wrap gap-3">{actions}</div> : null}
     </div>
   );
 }
@@ -303,7 +278,7 @@ export default function BrandKit() {
         <title>Brand Kit | GrowthSync</title>
         <meta
           name="description"
-          content="Official GrowthSync brand kit and press resources, including approved logos, brand colors, typography, and usage guidance."
+          content="GrowthSync brand kit with logos, colors, typography, and downloadable assets."
         />
         <link rel="canonical" href="https://growthsync.com/brand" />
         <meta property="og:type" content="website" />
@@ -311,7 +286,7 @@ export default function BrandKit() {
         <meta property="og:title" content="Brand Kit | GrowthSync" />
         <meta
           property="og:description"
-          content="Official GrowthSync brand kit and press resources, including approved logos, brand colors, typography, and usage guidance."
+          content="GrowthSync brand kit with logos, colors, typography, and downloadable assets."
         />
         <meta property="og:image" content="https://growthsync.com/growthsync-logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -323,17 +298,12 @@ export default function BrandKit() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-12">
           <section className="grid gap-12 border-b border-gray-200 pb-16 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-16 md:pb-20">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                <Palette className="h-3.5 w-3.5 text-teal-600" />
-                Official Brand Kit
-              </div>
-
-              <h1 className="mt-6 max-w-4xl text-4xl font-display font-bold tracking-tight text-gray-950 md:text-6xl lg:text-7xl">
-                Official GrowthSync brand kit and press resources.
+              <h1 className="max-w-4xl text-4xl font-display font-bold tracking-tight text-gray-950 md:text-6xl lg:text-7xl">
+                Brand kit.
               </h1>
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
-                Logos, color tokens, typography, and usage guidance for press, partner pages, platform setup, outbound campaigns, and anywhere GrowthSync shows up outside the product.
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-gray-600 md:text-xl">
+                Logos, colors, typography, and downloads.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -364,11 +334,10 @@ export default function BrandKit() {
             </div>
 
             <aside className="h-fit rounded-[32px] border border-gray-200 bg-white p-6 shadow-[0_20px_80px_rgba(3,7,18,0.06)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400">Included</p>
               <img
                 src="/brand/growthsync-lockup.svg"
                 alt="GrowthSync lockup"
-                className="mt-8 h-10 w-auto"
+                className="h-10 w-auto"
               />
 
               <div className="mt-8 space-y-3">
@@ -385,20 +354,9 @@ export default function BrandKit() {
                 ))}
               </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-3 border-t border-gray-200 pt-6">
-                <div className="rounded-[22px] bg-gray-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">Logos</p>
-                  <p className="mt-3 font-display text-3xl font-bold text-gray-950">3</p>
-                </div>
-                <div className="rounded-[22px] bg-gray-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">Colors</p>
-                  <p className="mt-3 font-display text-3xl font-bold text-gray-950">6</p>
-                </div>
-              </div>
-
               <a
                 href="mailto:hello@growthsync.com"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gray-600 transition-colors hover:text-gray-950"
+                className="mt-8 inline-flex items-center gap-2 border-t border-gray-200 pt-6 text-sm font-semibold text-gray-600 transition-colors hover:text-gray-950"
               >
                 <Mail className="h-4 w-4" />
                 hello@growthsync.com
@@ -408,9 +366,7 @@ export default function BrandKit() {
 
           <section id="logos" className="grid gap-10 py-16 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16 md:py-20">
             <SectionIntro
-              eyebrow="Logos"
-              title="The official marks."
-              description="The best brand pages get the essentials out of the way fast. This section does the same, with the preferred lockup first and clean fallback variants below."
+              title="Logos"
               actions={(
                 <>
                   <DownloadLink href="/brand/growthsync-lockup.svg">Lockup SVG</DownloadLink>
@@ -425,13 +381,10 @@ export default function BrandKit() {
                   <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-8">
                     <div className="flex flex-col justify-between">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
-                          {asset.usage}
-                        </p>
-                        <h3 className="mt-3 text-2xl font-display font-bold tracking-tight text-gray-950 md:text-3xl">
+                        <h3 className="text-2xl font-display font-bold tracking-tight text-gray-950 md:text-3xl">
                           {asset.title}
                         </h3>
-                        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-gray-600 md:text-base">
+                        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 md:text-base">
                           {asset.description}
                         </p>
                       </div>
@@ -454,9 +407,7 @@ export default function BrandKit() {
 
           <section id="colors" className="grid gap-10 border-t border-gray-200 py-16 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16 md:py-20">
             <SectionIntro
-              eyebrow="Colors"
-              title="A restrained core palette."
-              description="Graphite, white, and teal do most of the work. Violet and pink are reserved for selective emphasis, not everyday interface noise."
+              title="Colors"
               actions={(
                 <>
                   <DownloadLink href="/brand/growthsync-brand-tokens.json">Tokens JSON</DownloadLink>
@@ -494,25 +445,12 @@ export default function BrandKit() {
                 </div>
               </article>
 
-              <article className="rounded-[32px] border border-gray-200 bg-gray-50 p-6 md:p-8">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">Usage notes</p>
-                <div className="mt-6 grid gap-4 md:grid-cols-2">
-                  {colorTokens.map((token) => (
-                    <div key={token.variable} className="rounded-[24px] border border-gray-200 bg-white p-5">
-                      <p className="text-lg font-display font-bold text-gray-950">{token.name}</p>
-                      <p className="mt-3 text-sm leading-relaxed text-gray-600">{token.note}</p>
-                    </div>
-                  ))}
-                </div>
-              </article>
             </div>
           </section>
 
           <section id="typography" className="grid gap-10 border-t border-gray-200 py-16 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16 md:py-20">
             <SectionIntro
-              eyebrow="Typography"
-              title="Two fonts, clear roles."
-              description="Outfit carries the brand voice. Inter handles interface labels, supporting paragraphs, and the dense moments that still need to feel polished."
+              title="Typography"
               actions={(
                 <>
                   <DownloadLink href="/brand/growthsync-typography-specimen.svg">Specimen</DownloadLink>
@@ -553,9 +491,7 @@ export default function BrandKit() {
 
           <section id="usage" className="grid gap-10 border-t border-gray-200 py-16 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-16 md:py-20">
             <SectionIntro
-              eyebrow="Usage"
-              title="Simple rules, professional output."
-              description="Use these rules to keep external placements clean, consistent, and unmistakably GrowthSync."
+              title="Usage"
               actions={(
                 <DownloadLink href="/brand/growthsync-brand-guide.txt">Plain-text guide</DownloadLink>
               )}
@@ -569,14 +505,9 @@ export default function BrandKit() {
                       <div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${group.tone === 'do' ? 'bg-teal-50 text-teal-700' : 'bg-rose-50 text-rose-700'}`}>
                         {group.tone === 'do' ? <Check className="h-5 w-5" /> : <X className="h-5 w-5" />}
                       </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
-                          {group.tone === 'do' ? 'Preferred' : 'Avoid'}
-                        </p>
-                        <h3 className="mt-1 text-2xl font-display font-bold tracking-tight text-gray-950">
-                          {group.title}
-                        </h3>
-                      </div>
+                      <h3 className="text-2xl font-display font-bold tracking-tight text-gray-950">
+                        {group.title}
+                      </h3>
                     </div>
 
                     <div className="mt-8 space-y-4">
@@ -592,21 +523,9 @@ export default function BrandKit() {
 
               <aside className="space-y-5">
                 <article className="rounded-[32px] border border-gray-200 bg-gray-950 p-6 text-white md:p-8">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10">
-                      <FileArchive className="h-5 w-5 text-teal-300" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Bundle</p>
-                      <h3 className="mt-1 text-2xl font-display font-bold tracking-tight text-white">
-                        Everything in one zip.
-                      </h3>
-                    </div>
-                  </div>
-
-                  <p className="mt-6 text-sm leading-relaxed text-white/70">
-                    Logos, tokens, palette sheet, typography specimen, and guide. One download, no hunting.
-                  </p>
+                  <h3 className="text-2xl font-display font-bold tracking-tight text-white">
+                    Everything in one zip.
+                  </h3>
 
                   <a
                     href="/brand/growthsync-brand-kit.zip"
@@ -619,7 +538,6 @@ export default function BrandKit() {
                 </article>
 
                 <article className="rounded-[32px] border border-gray-200 bg-white p-6 md:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">Press facts</p>
                   <div className="mt-6 space-y-4">
                     {companyFacts.map((fact) => (
                       <div key={fact.label} className="rounded-[24px] border border-gray-200 bg-gray-50 p-5">
