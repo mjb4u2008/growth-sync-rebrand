@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/8e003016-dc0e-45ac-b509-374b667df05a
+# GrowthSync Site
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+Prerequisite: Node.js 22.
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Quality Check
+
+Run the same gate used by CI before opening a pull request:
+
+```bash
+npm run deploy:check
+```
+
+This runs TypeScript checking, blog validation, and a production build.
+
+## Environments
+
+This repo is set up for a development, staging, and production flow:
+
+- Development happens locally and on short-lived branches.
+- Staging runs from the protected `staging` branch.
+- Production runs from the protected `main` branch and is released manually.
+
+See [docs/deployment-environments.md](docs/deployment-environments.md) for the full promotion workflow, required GitHub secrets, Vercel settings, and rollback procedure.

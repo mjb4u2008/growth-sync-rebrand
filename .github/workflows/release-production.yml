@@ -1,0 +1,92 @@
+name: Release Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_notes:
+        description: What is being released?
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+env:
+  VERCEL_CLI_VERSION: 53.0.1
+
+jobs:
+  release:
+    name: Stage, verify, and promote production
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: ${{ steps.promote.outputs.url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run deploy checks
+        run: npm run deploy:check
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@${VERCEL_CLI_VERSION}
+
+      - name: Pull Vercel production environment
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build production artifact
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Create staged production deployment
+        id: stage
+        run: |
+          url="$(vercel deploy --prebuilt --prod --skip-domain --token=${{ secrets.VERCEL_TOKEN }})"
+          echo "url=${url}" >> "$GITHUB_OUTPUT"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Smoke test staged production deployment
+        run: |
+          curl --fail --silent --show-error --location "${{ steps.stage.outputs.url }}/" > /tmp/production-home.html
+          grep -qi "GrowthSync" /tmp/production-home.html
+
+      - name: Promote staged deployment
+        id: promote
+        run: |
+          vercel promote "${{ steps.stage.outputs.url }}" --yes --timeout=5m --token=${{ secrets.VERCEL_TOKEN }}
+          vercel promote status --timeout=5m --token=${{ secrets.VERCEL_TOKEN }}
+          echo "url=${{ steps.stage.outputs.url }}" >> "$GITHUB_OUTPUT"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Scan recent production errors
+        if: always()
+        run: vercel logs --environment=production --level error --since=5m --limit=50 --token=${{ secrets.VERCEL_TOKEN }} || true
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

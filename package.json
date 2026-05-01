@@ -9,6 +9,8 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
+    "quality": "npm run lint && npm run blog:check && npm run build",
+    "deploy:check": "npm run quality",
     "generate:mascots": "tsx scripts/generate-mascots.ts",
     "blog:images": "tsx scripts/generate-blog-images.ts",
     "blog:check": "tsx scripts/validate-blog-post.ts",

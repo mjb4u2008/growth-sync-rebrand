@@ -1,0 +1,87 @@
+name: Deploy Staging
+
+on:
+  push:
+    branches:
+      - staging
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: staging
+  cancel-in-progress: true
+
+env:
+  VERCEL_CLI_VERSION: 53.0.1
+  VERCEL_STAGING_TARGET: ${{ vars.VERCEL_STAGING_TARGET || 'staging' }}
+  STAGING_DOMAIN: ${{ vars.STAGING_DOMAIN }}
+
+jobs:
+  deploy:
+    name: Deploy staging
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+      url: ${{ steps.staging-url.outputs.url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run deploy checks
+        run: npm run deploy:check
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@${VERCEL_CLI_VERSION}
+
+      - name: Pull Vercel staging environment
+        run: vercel pull --yes --environment=${VERCEL_STAGING_TARGET} --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build staging deployment
+        run: vercel build --target=${VERCEL_STAGING_TARGET} --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deploy staging build
+        id: deploy
+        run: |
+          url="$(vercel deploy --prebuilt --target=${VERCEL_STAGING_TARGET} --token=${{ secrets.VERCEL_TOKEN }})"
+          echo "url=${url}" >> "$GITHUB_OUTPUT"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Optionally alias staging domain
+        id: staging-url
+        run: |
+          final_url="${{ steps.deploy.outputs.url }}"
+          if [ -n "${STAGING_DOMAIN}" ]; then
+            vercel alias set "${final_url}" "${STAGING_DOMAIN}" --token=${{ secrets.VERCEL_TOKEN }}
+            final_url="https://${STAGING_DOMAIN}"
+          fi
+          echo "url=${final_url}" >> "$GITHUB_OUTPUT"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Smoke test staging
+        run: |
+          curl --fail --silent --show-error --location "${{ steps.staging-url.outputs.url }}/" > /tmp/staging-home.html
+          grep -qi "GrowthSync" /tmp/staging-home.html
