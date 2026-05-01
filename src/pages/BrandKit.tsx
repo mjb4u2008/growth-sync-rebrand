@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { Fragment, useState, type ReactNode } from 'react';
 import {
   ArrowUpRight,
   Check,
@@ -391,9 +391,11 @@ export default function BrandKit() {
 
                       <div className="mt-6 flex flex-wrap gap-3">
                         {asset.downloads.map((download) => (
-                          <DownloadLink key={download.label} href={download.href} external={download.external}>
-                            {download.label}
-                          </DownloadLink>
+                          <Fragment key={download.label}>
+                            <DownloadLink href={download.href} external={download.external}>
+                              {download.label}
+                            </DownloadLink>
+                          </Fragment>
                         ))}
                       </div>
                     </div>

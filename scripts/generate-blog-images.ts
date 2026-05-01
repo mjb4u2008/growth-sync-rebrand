@@ -1,6 +1,9 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { GoogleGenAI } from '@google/genai';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 type BlogImageSpec = {
   slug: string;
@@ -13,6 +16,18 @@ const BASE_STYLE = `3D isometric diorama scene, miniature world, matte clay and 
 const COMPOSITION_GUARDRAILS = `Distinct silhouette, avoid repeating a centered monolith phone or four-way crossroads layout unless the concept absolutely requires it. Choose a composition unique to this article's idea.`;
 
 const imageSpecs: BlogImageSpec[] = [
+  {
+    slug: 'social-commerce-shared-language',
+    scene: 'A miniature drafting table and taxonomy wall where glowing teal social signals are being organized into a clear shared language. Floating ceramic labels are abstract symbols only, no readable text: a signal dot, intent flame, conversation bubble, checkout path, and customer profile ring. Thin teal threads connect messy social icons on the left into a neat operating map on the right. Editorial, cerebral, category-building mood, no people, no central phone.',
+  },
+  {
+    slug: 'creator-led-distribution-market',
+    scene: 'A creator-led distribution network shown as a miniature marketplace map. Several small creator stages and product pedestals sit around the edges, each sending glowing teal sales paths toward multiple checkout destinations: a storefront, a marketplace warehouse, and a social shop kiosk. In the center is a brand command hub capturing the signals without owning every checkout. Dynamic radial composition, no people, no text, no central monolith phone.',
+  },
+  {
+    slug: 'social-commerce-better-definition',
+    scene: 'A compact circular loop diorama showing the true definition of social commerce. Four connected stations form one continuous loop: a glowing discovery feed tile, a conversation bubble cluster, a trust badge made from abstract hearts and comments, and a checkout pedestal with a shopping bag. Teal signal lines flow around the loop while old gray channel silos sit outside it disconnected. Clean symbolic composition, no readable text, no people.',
+  },
   {
     slug: 'instagram-tiktok-shop-playbook',
     scene: 'A side-by-side miniature platform scene showing Instagram copying TikTok Shop. Left side: an established TikTok-style social commerce machine with a tiny creator stage, live-selling conveyor, affiliate product tags, and glowing teal sales signals already in motion. Right side: an Instagram-like storefront rebuilding that exact system from translucent tracing outlines, duplicate molds, cloned product tags, and copied checkout parts. A scanning beam or blueprint bridge travels from left to right, making the act of copying obvious. Asymmetrical composition, no central phone hero, no crossroads, clear feeling that one platform is borrowing the other platform playbook.',
