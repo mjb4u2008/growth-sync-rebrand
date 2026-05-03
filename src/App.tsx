@@ -21,11 +21,12 @@ function AppShell() {
   const isDesignCanvas = location.pathname === '/';
   const isGetStarted = location.pathname === '/get-started';
   const isBlogIndex = location.pathname === '/blog';
-  const shouldHideChrome = isInvestorDeck || isDesignCanvas || isGetStarted || isBlogIndex;
+  const shouldHideNavbar = isInvestorDeck || isDesignCanvas || isGetStarted || isBlogIndex;
+  const shouldHideFooter = isInvestorDeck;
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-teal-100 selection:text-teal-900">
-      {!shouldHideChrome && <Navbar />}
+      {!shouldHideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<PricingPage />} />
@@ -40,7 +41,7 @@ function AppShell() {
         <Route path="/investor-deck" element={<InvestorDeck />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {!shouldHideChrome && <Footer />}
+      {!shouldHideFooter && <Footer />}
     </div>
   );
 }
