@@ -3,25 +3,48 @@ import { ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
 export default function GetStarted() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const name = String(form.get('name') || '').trim();
     const email = String(form.get('email') || '').trim();
     const handle = String(form.get('handle') || '').trim();
     const message = String(form.get('message') || '').trim();
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Social handle / brand: ${handle}`,
-      '',
-      message,
-    ].join('\n');
 
-    window.location.href = `mailto:hello@growthsync.com?subject=${encodeURIComponent('GrowthSync get started request')}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+    setStatus('submitting');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          handle,
+          message,
+          source: 'get-started-page',
+        }),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'Could not submit your request.');
+      }
+
+      formElement.reset();
+      setStatus('success');
+      setStatusMessage('Got it. We captured your request and will follow up shortly.');
+    } catch (error) {
+      setStatus('error');
+      setStatusMessage(error instanceof Error ? error.message : 'Could not submit your request.');
+    }
   }
 
   return (
@@ -95,15 +118,20 @@ export default function GetStarted() {
 
             <button
               type="submit"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#080b0f] px-7 py-4 text-base font-black text-white"
+              disabled={status === 'submitting'}
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#080b0f] px-7 py-4 text-base font-black text-white transition hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Start Now
+              {status === 'submitting' ? 'Submitting...' : 'Start Now'}
               <ArrowRight className="h-4 w-4" />
             </button>
 
-            {submitted && (
-              <p className="mt-4 text-center text-sm font-bold text-black/55">
-                Your email app should open with the request ready to send.
+            {statusMessage && (
+              <p
+                className={`mt-4 text-center text-sm font-bold ${
+                  status === 'success' ? 'text-[#007a4d]' : 'text-red-600'
+                }`}
+              >
+                {statusMessage}
               </p>
             )}
           </form>
