@@ -78,7 +78,7 @@ export default function BlogPost() {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-24">
+    <div className="min-h-screen bg-[#fbfaf6] pb-24 pt-24 text-[#080b0f]">
       <Helmet>
         <title>{post.title} | GrowthSync Blog</title>
         <meta name="description" content={post.excerpt} />
@@ -112,7 +112,7 @@ export default function BlogPost() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-black text-[#1688ff] transition-colors hover:text-[#080b0f]">
             <ArrowLeft className="w-4 h-4" /> Back to all posts
           </Link>
         </motion.div>
@@ -125,7 +125,7 @@ export default function BlogPost() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex items-center gap-4 mb-6"
           >
-            <span className="px-3 py-1 rounded-full bg-teal-100 text-teal-700 text-xs font-bold uppercase tracking-wider">
+            <span className="rounded-full bg-[#080b0f] px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-white">
               {post.category}
             </span>
           </motion.div>
@@ -134,7 +134,7 @@ export default function BlogPost() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gray-950 leading-[1.1] mb-8"
+            className="mb-8 font-display text-4xl font-black leading-[0.95] tracking-tight text-[#080b0f] sm:text-5xl md:text-6xl"
           >
             {post.title}
           </motion.h1>
@@ -144,16 +144,16 @@ export default function BlogPost() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row sm:items-center justify-between py-6 border-y border-gray-100 gap-4"
+            className="flex flex-col justify-between gap-4 border-y border-black/10 py-6 sm:flex-row sm:items-center"
           >
             <div className="flex items-center gap-4">
               <img src={post.author.avatar} alt={post.author.name} className="w-12 h-12 rounded-full object-cover" referrerPolicy="no-referrer" />
               <div>
-                <div className="font-bold text-gray-900">{post.author.name}</div>
-                <div className="text-sm text-gray-500">{post.author.role}</div>
+                <div className="font-black text-[#080b0f]">{post.author.name}</div>
+                <div className="text-sm font-bold text-black/46">{post.author.role}</div>
               </div>
             </div>
-            <div className="flex items-center gap-4 text-sm text-gray-500 font-medium">
+            <div className="flex items-center gap-4 text-sm font-bold text-black/46">
               <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> {post.date}</span>
               <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {post.readTime}</span>
             </div>
@@ -170,10 +170,10 @@ export default function BlogPost() {
           <img 
             src={post.image} 
             alt={post.title} 
-            className="w-full rounded-2xl aspect-video object-cover shadow-sm" 
+            className="aspect-video w-full rounded-lg object-cover shadow-sm"
             referrerPolicy="no-referrer"
           />
-          <figcaption className="text-center text-sm text-gray-400 mt-4">
+          <figcaption className="mt-4 text-center text-sm font-bold text-black/34">
             {post.category} - {post.title}
           </figcaption>
         </motion.figure>
@@ -183,29 +183,29 @@ export default function BlogPost() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-gray-700 [&_a]:font-medium [&_a]:text-teal-600 [&_a]:underline [&_a]:decoration-teal-200 [&_a]:underline-offset-4 [&_a:hover]:text-teal-700"
+          className="text-black/70 [&_a]:font-black [&_a]:text-[#1688ff] [&_a]:underline [&_a]:decoration-[#1688ff]/25 [&_a]:underline-offset-4 [&_a:hover]:text-[#080b0f]"
         >
           {post.content}
         </motion.div>
 
         <section className="mt-16 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700">Keep Reading</p>
-            <h3 className="mt-3 text-2xl font-display font-bold text-gray-950">Related posts worth opening next</h3>
+          <div className="rounded-lg border border-black/10 bg-white p-8 shadow-[0_18px_60px_rgba(8,11,15,0.04)]">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#1688ff]">Keep Reading</p>
+            <h3 className="mt-3 font-display text-2xl font-black leading-[1.02] text-[#080b0f]">Related posts worth opening next</h3>
             <div className="mt-6 grid gap-4">
               {relatedPosts.map((relatedPost) => (
                 <Link
                   key={relatedPost.id}
                   to={`/blog/${relatedPost.id}`}
-                  className="group rounded-2xl border border-gray-200 bg-white p-5 transition-colors hover:border-teal-200 hover:bg-teal-50/40 no-underline"
+                  className="group rounded-lg border border-black/10 bg-white p-5 transition-colors hover:border-[#1688ff]/35 hover:bg-[#1688ff]/5 no-underline"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">{relatedPost.category}</p>
-                      <p className="mt-2 text-lg font-display font-bold text-gray-950 group-hover:text-teal-700">{relatedPost.title}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-gray-600">{relatedPost.excerpt}</p>
+                      <p className="text-xs font-black uppercase tracking-[0.16em] text-black/36">{relatedPost.category}</p>
+                      <p className="mt-2 font-display text-lg font-black leading-[1.04] text-[#080b0f] group-hover:text-[#1688ff]">{relatedPost.title}</p>
+                      <p className="mt-2 text-sm font-bold leading-relaxed text-black/56">{relatedPost.excerpt}</p>
                     </div>
-                    <ArrowUpRight className="h-5 w-5 shrink-0 text-gray-300 transition-colors group-hover:text-teal-600" />
+                    <ArrowUpRight className="h-5 w-5 shrink-0 text-black/24 transition-colors group-hover:text-[#1688ff]" />
                   </div>
                 </Link>
               ))}
@@ -213,9 +213,9 @@ export default function BlogPost() {
           </div>
 
           <div className="grid gap-6">
-            <div className="rounded-3xl border border-gray-200 bg-white p-8">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Market Context</p>
-              <h3 className="mt-3 text-2xl font-display font-bold text-gray-950">Useful source trails around this topic</h3>
+            <div className="rounded-lg border border-black/10 bg-white p-8 shadow-[0_18px_60px_rgba(8,11,15,0.04)]">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-black/40">Market Context</p>
+              <h3 className="mt-3 font-display text-2xl font-black leading-[1.02] text-[#080b0f]">Useful source trails around this topic</h3>
               <div className="mt-6 grid gap-4">
                 {marketContextLinks.map((resource) => (
                   <a
@@ -223,29 +223,29 @@ export default function BlogPost() {
                     href={resource.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group rounded-2xl border border-gray-200 p-5 transition-colors hover:border-teal-200 hover:bg-teal-50/40"
+                    className="group rounded-lg border border-black/10 p-5 transition-colors hover:border-[#1688ff]/35 hover:bg-[#1688ff]/5"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-base font-bold text-gray-950 group-hover:text-teal-700">{resource.label}</p>
-                        <p className="mt-2 text-sm leading-relaxed text-gray-600">{resource.description}</p>
+                        <p className="text-base font-black text-[#080b0f] group-hover:text-[#1688ff]">{resource.label}</p>
+                        <p className="mt-2 text-sm font-bold leading-relaxed text-black/56">{resource.description}</p>
                       </div>
-                      <ArrowUpRight className="mt-0.5 h-5 w-5 shrink-0 text-gray-300 transition-colors group-hover:text-teal-600" />
+                      <ArrowUpRight className="mt-0.5 h-5 w-5 shrink-0 text-black/24 transition-colors group-hover:text-[#1688ff]" />
                     </div>
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-3xl bg-gray-950 p-8 text-white">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-300">Get Started</p>
-              <h3 className="mt-3 text-2xl font-display font-bold">Want help turning this into revenue?</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/72">
+            <div className="rounded-lg bg-[#080b0f] p-8 text-white shadow-[0_24px_80px_rgba(8,11,15,0.18)]">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#e8ff63]">Get Started</p>
+              <h3 className="mt-3 font-display text-3xl font-black leading-[0.95]">Turn this social intent into action.</h3>
+              <p className="mt-4 text-sm font-bold leading-relaxed text-white/64">
                 If this article lines up with what your team is seeing, we can show you how GrowthSync turns those conversations into attributed sales.
               </p>
               <Link
                 to="/get-started"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-gray-950 transition-colors hover:bg-teal-50 no-underline"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#e8ff63] px-5 py-3 text-sm font-black text-[#080b0f] transition hover:-translate-y-0.5 hover:bg-white no-underline"
               >
                 Get Started for Free
                 <ArrowUpRight className="h-4 w-4" />
@@ -255,24 +255,24 @@ export default function BlogPost() {
         </section>
 
         {/* Share & Tags */}
-        <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div className="mt-16 flex flex-col justify-between gap-6 border-t border-black/10 pt-8 sm:flex-row sm:items-center">
           <div className="flex items-center gap-3">
-            <span className="text-sm font-bold text-gray-900 uppercase tracking-wider">Share this article</span>
+            <span className="text-sm font-black uppercase tracking-[0.16em] text-[#080b0f]">Share this article</span>
             <div className="flex items-center gap-2">
-              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition-colors">
+              <button className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black/56 transition-colors hover:bg-[#080b0f] hover:text-white">
                 <Twitter className="w-4 h-4" />
               </button>
-              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition-colors">
+              <button className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black/56 transition-colors hover:bg-[#080b0f] hover:text-white">
                 <Linkedin className="w-4 h-4" />
               </button>
-              <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-teal-50 hover:text-teal-600 transition-colors">
+              <button className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black/56 transition-colors hover:bg-[#080b0f] hover:text-white">
                 <LinkIcon className="w-4 h-4" />
               </button>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
             {post.tags?.map(tag => (
-              <span key={tag} className="px-3 py-1 bg-gray-50 text-gray-600 text-sm font-medium rounded-full">
+              <span key={tag} className="rounded-full bg-white px-3 py-1 text-sm font-bold text-black/56">
                 #{tag}
               </span>
             ))}
@@ -280,14 +280,14 @@ export default function BlogPost() {
         </div>
 
         {/* Author Bio Box */}
-        <div className="mt-16 bg-gray-50 rounded-3xl p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+        <div className="mt-16 flex flex-col items-center gap-6 rounded-lg border border-black/10 bg-white p-8 text-center shadow-[0_18px_60px_rgba(8,11,15,0.04)] sm:flex-row sm:items-start sm:text-left">
           <img src={post.author.avatar} alt={post.author.name} className="w-24 h-24 rounded-full object-cover shadow-sm" referrerPolicy="no-referrer" />
           <div>
-            <h4 className="text-xl font-bold text-gray-900 mb-2">Written by {post.author.name}</h4>
-            <p className="text-gray-600 mb-4">
+            <h4 className="mb-2 font-display text-xl font-black text-[#080b0f]">Written by {post.author.name}</h4>
+            <p className="mb-4 font-bold leading-relaxed text-black/56">
               {post.author.bio}
             </p>
-            <button className="text-teal-600 font-bold text-sm uppercase tracking-wider hover:text-teal-700 transition-colors">
+            <button className="text-sm font-black uppercase tracking-[0.16em] text-[#1688ff] transition-colors hover:text-[#080b0f]">
               Follow on LinkedIn →
             </button>
           </div>

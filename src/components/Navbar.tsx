@@ -16,10 +16,10 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navItems = [
-    { to: '/#how-it-works', label: 'How it works' },
+    { to: '/#how', label: 'How it works' },
     { to: '/#proof', label: 'Proof' },
     { to: '/pricing', label: 'Pricing' },
-    { to: '/blog', label: 'Resources' },
+    { to: '/blog', label: 'Blog' },
   ];
 
   const isActive = (path: string) => {
@@ -82,9 +82,6 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link to="/get-started" className="hidden text-sm font-semibold text-gray-600 transition-colors hover:text-gray-950 md:inline-flex">
-              Log in
-            </Link>
             <Button asChild className="hidden md:inline-flex">
               <Link to="/get-started" className="inline-flex items-center gap-2">
                 Get Started for Free
@@ -121,11 +118,6 @@ const Navbar = () => {
               <Link to="/get-started" onClick={() => setMenuOpen(false)}>
                 Get Started for Free
                 <ArrowRight />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link to="/get-started" onClick={() => setMenuOpen(false)}>
-                Log in
               </Link>
             </Button>
           </div>

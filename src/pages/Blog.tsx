@@ -1,13 +1,14 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Calendar, User, Clock, ChevronRight } from 'lucide-react';
+import { ArrowRight, Calendar, ChevronRight, Clock, User, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogPosts';
 
 export default function Blog() {
+  const [featuredPost, ...posts] = blogPosts;
+
   return (
-    <div className="pt-32 pb-20 bg-white min-h-screen">
+    <main className="min-h-screen bg-[#fbfaf6] text-[#080b0f]">
       <Helmet>
         <title>Blog & Resources | GrowthSync</title>
         <meta name="description" content="Insights for the modern growth team. Strategies, playbooks, and trends on social commerce, AI automation, and turning engagement into revenue." />
@@ -19,127 +20,158 @@ export default function Blog() {
         <meta property="og:image" content="https://growthsync.com/growthsync-logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-      <div className="max-w-7xl mx-auto px-4 md:px-12">
-        
-        {/* Header */}
-        <div className="max-w-5xl mb-16 md:mb-20">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl font-display font-bold text-gray-950 mb-4 leading-tight"
-          >
-            Blog
-          </motion.h1>
+
+      <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-8">
+        <Link to="/" className="flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#080b0f] text-white">
+            <Zap className="h-5 w-5" />
+          </span>
+          <span className="font-display text-xl font-black tracking-tight">GrowthSync</span>
+        </Link>
+        <nav className="hidden items-center gap-9 text-sm font-black text-black/48 md:flex">
+          <Link to="/#how" className="transition hover:text-[#080b0f]">How it works</Link>
+          <Link to="/#proof" className="transition hover:text-[#080b0f]">Proof</Link>
+          <Link to="/blog" className="text-[#080b0f]">Blog</Link>
+        </nav>
+        <Link
+          to="/get-started"
+          className="rounded-full bg-[#080b0f] px-5 py-3 text-sm font-black text-white shadow-[0_10px_30px_rgba(8,11,15,0.16)] transition hover:-translate-y-0.5 hover:bg-black"
+        >
+          Get Started for Free
+        </Link>
+      </header>
+
+      <section className="mx-auto max-w-7xl px-5 pb-20 pt-14 md:px-8 md:pb-28 md:pt-20">
+        <div className="grid gap-10 border-b border-black/10 pb-12 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className="mb-5 text-xs font-black uppercase tracking-[0.22em] text-black/36"
+            >
+              Resources
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.06 }}
+              className="max-w-5xl font-display text-6xl font-black leading-[0.86] tracking-tight md:text-8xl"
+            >
+              Ideas for turning attention into action.
+            </motion.h1>
+          </div>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-500 max-w-2xl"
+            transition={{ duration: 0.5, delay: 0.12 }}
+            className="max-w-md text-lg font-bold leading-8 text-black/56"
           >
             Strategies, playbooks, and trends on social commerce, AI automation, and turning engagement into revenue.
           </motion.p>
         </div>
 
-        {/* Featured Post */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-16 md:mb-24"
-        >
-          <Link to={`/blog/${blogPosts[0].id}`} className="group block">
-            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-200 grid md:grid-cols-2 gap-0 transition-shadow hover:shadow-md">
-              <div className="h-64 md:h-auto overflow-hidden relative">
-                <img 
-                  src={blogPosts[0].image} 
-                  alt={blogPosts[0].title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-900 uppercase tracking-wider">
-                  {blogPosts[0].category}
+        {featuredPost && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.18 }}
+            className="mt-12"
+          >
+            <Link to={`/blog/${featuredPost.id}`} className="group block">
+              <article className="grid overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_24px_80px_rgba(8,11,15,0.07)] transition hover:-translate-y-1 hover:shadow-[0_30px_100px_rgba(8,11,15,0.1)] md:grid-cols-[0.95fr_1.05fr]">
+                <div className="relative min-h-[300px] overflow-hidden md:min-h-[520px]">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/46 via-black/0 to-black/8" />
+                  <span className="absolute left-5 top-5 rounded-full bg-[#e8ff63] px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#080b0f]">
+                    {featuredPost.category}
+                  </span>
                 </div>
-              </div>
-              <div className="p-6 md:p-12 flex flex-col justify-center">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                  <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {blogPosts[0].date}</span>
-                  <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {blogPosts[0].readTime}</span>
-                </div>
-                <h2 className="text-2xl md:text-4xl font-display font-bold text-gray-950 mb-4 group-hover:text-teal-600 transition-colors">
-                  {blogPosts[0].title}
-                </h2>
-                <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                  {blogPosts[0].excerpt}
-                </p>
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-                      {blogPosts[0].author.avatar ? (
-                        <img src={blogPosts[0].author.avatar} alt={blogPosts[0].author.name} className="w-full h-full object-cover" />
-                      ) : (
-                        <User className="w-5 h-5 text-gray-500" />
-                      )}
+                <div className="flex flex-col justify-between p-6 md:p-10 lg:p-12">
+                  <div>
+                    <div className="mb-6 flex flex-wrap items-center gap-4 text-sm font-bold text-black/46">
+                      <span className="flex items-center gap-1.5"><Calendar className="h-4 w-4" /> {featuredPost.date}</span>
+                      <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> {featuredPost.readTime}</span>
                     </div>
-                    <span className="font-medium text-gray-900">{blogPosts[0].author.name}</span>
+                    <h2 className="font-display text-4xl font-black leading-[0.95] tracking-tight transition group-hover:text-[#1688ff] md:text-5xl">
+                      {featuredPost.title}
+                    </h2>
+                    <p className="mt-6 max-w-xl text-lg font-bold leading-8 text-black/56">
+                      {featuredPost.excerpt}
+                    </p>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-teal-50 transition-colors">
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-teal-600" />
+                  <div className="mt-10 flex items-center justify-between gap-6 border-t border-black/10 pt-6">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full bg-black/6">
+                        {featuredPost.author.avatar ? (
+                          <img src={featuredPost.author.avatar} alt={featuredPost.author.name} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+                        ) : (
+                          <User className="h-5 w-5 text-black/42" />
+                        )}
+                      </div>
+                      <span className="font-black">{featuredPost.author.name}</span>
+                    </div>
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#080b0f] text-white transition group-hover:bg-[#1688ff]">
+                      <ArrowRight className="h-5 w-5" />
+                    </span>
                   </div>
                 </div>
-              </div>
-            </div>
-          </Link>
-        </motion.div>
+              </article>
+            </Link>
+          </motion.div>
+        )}
 
-        {/* Grid Posts */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.slice(1).map((post, index) => (
-            <motion.div 
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, index) => (
+            <motion.div
               key={post.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
+              transition={{ duration: 0.45, delay: 0.22 + index * 0.05 }}
             >
               <Link to={`/blog/${post.id}`} className="group block h-full">
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 h-full flex flex-col transition-shadow hover:shadow-md">
-                  <div className="h-48 overflow-hidden relative">
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                <article className="flex h-full flex-col overflow-hidden rounded-lg border border-black/10 bg-white shadow-[0_18px_60px_rgba(8,11,15,0.05)] transition hover:-translate-y-1 hover:shadow-[0_24px_80px_rgba(8,11,15,0.09)]">
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-900 uppercase tracking-wider">
+                    <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-[#080b0f] shadow-sm">
                       {post.category}
-                    </div>
+                    </span>
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                  <div className="flex flex-1 flex-col p-5">
+                    <div className="mb-4 flex items-center gap-3 text-xs font-bold text-black/42">
                       <span>{post.date}</span>
-                      <span>•</span>
+                      <span className="h-1 w-1 rounded-full bg-black/18" />
                       <span>{post.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-display font-bold text-gray-950 mb-3 group-hover:text-teal-600 transition-colors line-clamp-2">
+                    <h3 className="font-display text-2xl font-black leading-[1.02] tracking-tight transition group-hover:text-[#1688ff]">
                       {post.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 text-sm leading-relaxed line-clamp-3">
+                    <p className="mt-4 line-clamp-3 text-sm font-bold leading-6 text-black/52">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-                      <span className="text-sm font-medium text-gray-900">{post.author.name}</span>
-                      <span className="text-sm font-medium text-teal-600 flex items-center gap-1 group-hover:gap-2 transition-all">
-                        Read more <ChevronRight className="w-4 h-4" />
+                    <div className="mt-auto flex items-center justify-between border-t border-black/10 pt-5">
+                      <span className="text-sm font-black">{post.author.name}</span>
+                      <span className="inline-flex items-center gap-1 text-sm font-black text-[#1688ff] transition group-hover:gap-2">
+                        Read <ChevronRight className="h-4 w-4" />
                       </span>
                     </div>
                   </div>
-                </div>
+                </article>
               </Link>
             </motion.div>
           ))}
         </div>
-
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
