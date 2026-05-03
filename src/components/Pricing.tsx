@@ -36,9 +36,9 @@ const Pricing = () => {
         </div>
 
         <div className="text-center">
-          <button type="button" className="inline-flex items-center justify-center px-10 py-4 md:py-5 rounded-full bg-gray-950 text-white font-bold text-base md:text-lg hover:bg-gray-800 transition-colors gap-2">
+          <a href="/get-started" className="inline-flex items-center justify-center px-10 py-4 md:py-5 rounded-full bg-gray-950 text-white font-bold text-base md:text-lg hover:bg-gray-800 transition-colors gap-2">
             Get Started for Free <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

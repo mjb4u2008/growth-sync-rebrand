@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Check, CircleHelp, Gift, MessageSquare, ShieldCheck } from 'lucide-react';
 import { Badge } from '../components/ui/badge';
@@ -59,9 +60,11 @@ export default function PricingPage() {
                     </div>
                   ))}
                 </div>
-                <Button type="button" size="lg" className="mt-8 w-full">
+                <Button asChild size="lg" className="mt-8 w-full">
+                  <Link to="/get-started">
                   Get Started for Free
                   <ArrowRight />
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -110,8 +113,10 @@ export default function PricingPage() {
                         <div className="mt-4 grid gap-3 border-t border-gray-200 pt-4 text-sm text-gray-600 sm:grid-cols-3">
                           <span>{plan.messages} messages / month</span>
                           <span>{plan.note}</span>
-                          <Button type="button" variant={plan.featured ? 'default' : 'outline'} size="sm">
+                          <Button asChild variant={plan.featured ? 'default' : 'outline'} size="sm">
+                            <Link to="/get-started">
                             Get Started for Free
+                            </Link>
                           </Button>
                         </div>
                       </div>

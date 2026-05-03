@@ -10,7 +10,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from './ui/sheet';
-import { getLoginUrl } from '../utils/handoff';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -83,12 +82,14 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <a href={getLoginUrl()} className="hidden text-sm font-semibold text-gray-600 transition-colors hover:text-gray-950 md:inline-flex">
+            <Link to="/get-started" className="hidden text-sm font-semibold text-gray-600 transition-colors hover:text-gray-950 md:inline-flex">
               Log in
-            </a>
-            <Button type="button" className="hidden md:inline-flex">
+            </Link>
+            <Button asChild className="hidden md:inline-flex">
+              <Link to="/get-started" className="inline-flex items-center gap-2">
                 Get Started for Free
                 <ArrowRight />
+              </Link>
             </Button>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden" aria-label="Open navigation">
@@ -117,15 +118,15 @@ const Navbar = () => {
           ))}
           <div className="mt-4 grid gap-3 border-t border-gray-200 pt-4">
             <Button asChild>
-              <button type="button" onClick={() => setMenuOpen(false)}>
+              <Link to="/get-started" onClick={() => setMenuOpen(false)}>
                 Get Started for Free
                 <ArrowRight />
-              </button>
+              </Link>
             </Button>
             <Button asChild variant="outline">
-              <a href={getLoginUrl()} onClick={() => setMenuOpen(false)}>
+              <Link to="/get-started" onClick={() => setMenuOpen(false)}>
                 Log in
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

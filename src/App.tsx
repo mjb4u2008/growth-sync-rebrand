@@ -19,7 +19,8 @@ function AppShell() {
   const location = useLocation();
   const isInvestorDeck = location.pathname === '/investor-deck';
   const isDesignCanvas = location.pathname === '/';
-  const shouldHideChrome = isInvestorDeck || isDesignCanvas;
+  const isGetStarted = location.pathname === '/get-started';
+  const shouldHideChrome = isInvestorDeck || isDesignCanvas || isGetStarted;
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-teal-100 selection:text-teal-900">

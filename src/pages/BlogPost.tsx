@@ -243,13 +243,13 @@ export default function BlogPost() {
               <p className="mt-3 text-sm leading-relaxed text-white/72">
                 If this article lines up with what your team is seeing, we can show you how GrowthSync turns those conversations into attributed sales.
               </p>
-              <button
-                type="button"
+              <Link
+                to="/get-started"
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-gray-950 transition-colors hover:bg-teal-50 no-underline"
               >
                 Get Started for Free
                 <ArrowUpRight className="h-4 w-4" />
-              </button>
+              </Link>
             </div>
           </div>
         </section>

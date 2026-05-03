@@ -59,9 +59,9 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.35, type: 'spring', stiffness: 150, damping: 20 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button type="button" className="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-950 text-white font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+          <a href="/get-started" className="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-950 text-white font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
             Get Started for Free <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
           <div className="relative w-full sm:w-auto text-lg">
             <button
               onClick={() => document.getElementById('interactive-demo')?.scrollIntoView({ behavior: 'smooth' })}

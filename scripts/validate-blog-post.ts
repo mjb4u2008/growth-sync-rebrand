@@ -155,10 +155,10 @@ if (!internalLinks.some((href) => href.startsWith('/blog/'))) {
   });
 }
 
-if (!internalLinks.includes('/demo')) {
+if (!internalLinks.includes('/get-started')) {
   issues.push({
     level: 'error',
-    message: 'Missing the /demo CTA link. Every new sales-oriented post should give the reader a clean path to book time.',
+    message: 'Missing the /get-started CTA link. Every new sales-oriented post should give the reader a clean path to start.',
   });
 }
 

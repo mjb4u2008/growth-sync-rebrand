@@ -80,11 +80,12 @@ export default function Home() {
           <a href="#how">How it works</a>
           <a href="#proof">Proof</a>
           <a href="#pricing">Pricing</a>
+          <a href="/blog">Blog</a>
         </nav>
         <div className="flex items-center gap-3">
-          <button type="button" className="rounded-full bg-[#080b0f] px-5 py-3 text-sm font-black text-white">
+          <a href="/get-started" className="rounded-full bg-[#080b0f] px-5 py-3 text-sm font-black text-white">
             Get Started for Free
-          </button>
+          </a>
         </div>
       </header>
 
@@ -98,10 +99,10 @@ export default function Home() {
               Engage your audience, capture permissioned customer data, and move every comment, DM, and reply toward the right next step.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button type="button" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#080b0f] px-7 py-4 text-base font-black text-white">
+              <a href="/get-started" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#080b0f] px-7 py-4 text-base font-black text-white">
                 Get Started for Free
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
               <a href="#how" className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white px-7 py-4 text-base font-black">
                 See how it works
               </a>
@@ -188,13 +189,13 @@ export default function Home() {
             <h2 className="max-w-5xl font-display text-6xl font-black leading-[0.84] tracking-tight md:text-8xl lg:text-9xl">
               Get started for free.
             </h2>
-            <button
-              type="button"
+            <a
+              href="/get-started"
               className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-[#080b0f] px-8 py-4 text-base font-black text-white shadow-[0_18px_50px_rgba(8,11,15,0.22)] md:px-10 md:py-5 md:text-lg"
             >
               Start Now
               <ArrowRight className="h-5 w-5" />
-            </button>
+            </a>
           </div>
         </div>
       </section>
