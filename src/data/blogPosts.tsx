@@ -91,7 +91,7 @@ export const blogPosts = [
           Once a brand has that language, the product decisions get much clearer. Capture the signal. Understand the intent. Bring in the right customer context. Respond fast. Route the customer to the right purchase path. Learn from what happened. Do it again across every channel.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          That is the category we think is being built. If you are trying to turn social interactions into revenue with more precision, <ContentLink href="/demo">book time with us here</ContentLink>.
+          That is the category we think is being built. If you are trying to turn social interactions into revenue with more precision, <ContentLink href="/get-started">start with GrowthSync here</ContentLink>.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Sources</h2>
         <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 mb-8">
@@ -175,7 +175,7 @@ export const blogPosts = [
           GrowthSync sits in the messy middle where creator distribution becomes customer intent. When someone comments on a creator's video, DMs the brand, asks about sizing, clicks through to Shopify, or comes back through Instagram after seeing the same product on TikTok, that should not disappear into five separate tools.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          We are building the layer that helps brands capture those signals, respond with context, and turn social demand into owned customer relationships. Creator-led distribution is only getting bigger. The brands that can convert the relationship, not just the transaction, are going to have the leverage. If that is the motion you are building, <ContentLink href="/demo">book time with us here</ContentLink>.
+          We are building the layer that helps brands capture those signals, respond with context, and turn social demand into owned customer relationships. Creator-led distribution is only getting bigger. The brands that can convert the relationship, not just the transaction, are going to have the leverage. If that is the motion you are building, <ContentLink href="/get-started">start with GrowthSync here</ContentLink>.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Sources</h2>
         <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 mb-8">
@@ -268,7 +268,7 @@ export const blogPosts = [
           GrowthSync exists because the loop is broken for most brands. Discovery happens on TikTok and Instagram. Questions happen in DMs and comments. Product truth lives in Shopify or Amazon. Customer history lives somewhere else. Support lives in another inbox. The team tries to stitch it together manually after the customer has already moved on.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          We are building the operating layer for that loop: every sales channel, every customer conversation, one system that can understand what the customer wants and help the brand act on it. If this is the definition of social commerce you are building toward, <ContentLink href="/demo">book time with us here</ContentLink>.
+          We are building the operating layer for that loop: every sales channel, every customer conversation, one system that can understand what the customer wants and help the brand act on it. If this is the definition of social commerce you are building toward, <ContentLink href="/get-started">start with GrowthSync here</ContentLink>.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Sources</h2>
         <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 mb-8">
@@ -423,7 +423,7 @@ export const blogPosts = [
           GrowthSync turns every interaction into a conversation - personalized, instant, with a direct path to purchase and a direct path to a relationship. Whether the customer found you through a TikTok affiliate, an Instagram Reel, or any other social commerce channel, the brand finally gets to own that connection.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          The platforms will keep competing for the transaction. We&apos;re building the layer that lets brands own the relationship regardless of where the transaction happens. If that&apos;s the problem you&apos;re trying to solve, <ContentLink href="/demo">book time with us here</ContentLink>.
+          The platforms will keep competing for the transaction. We&apos;re building the layer that lets brands own the relationship regardless of where the transaction happens. If that&apos;s the problem you&apos;re trying to solve, <ContentLink href="/get-started">start with GrowthSync here</ContentLink>.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Sources</h2>
         <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 mb-8">

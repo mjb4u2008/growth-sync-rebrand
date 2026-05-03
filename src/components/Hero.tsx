@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import DashboardPeek from './DashboardPeek';
 import HeroMascot from './HeroMascots';
 
@@ -18,10 +17,10 @@ const Hero = () => {
           animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.6 }}
         >
-          <Link to="/blog/4" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-950/5 text-gray-600 text-xs md:text-sm font-medium mb-6 md:mb-8 border border-gray-200/50 backdrop-blur-sm hover:bg-gray-950/10 transition-colors">
+          <a href="/blog/4" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-950/5 text-gray-600 text-xs md:text-sm font-medium mb-6 md:mb-8 border border-gray-200/50 backdrop-blur-sm hover:bg-gray-950/10 transition-colors">
             <div className="w-1.5 h-1.5 rounded-full bg-teal-500"></div>
             We raised $1.6M to build the future of social commerce <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          </a>
         </motion.div>
 
         <div className="mb-6 md:mb-8">
@@ -60,9 +59,9 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.35, type: 'spring', stiffness: 150, damping: 20 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link to="/demo" className="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-950 text-white font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
-            Start generating revenue <ArrowRight className="w-5 h-5" />
-          </Link>
+          <button type="button" className="w-full sm:w-auto px-8 py-4 rounded-full bg-gray-950 text-white font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+            Get Started for Free <ArrowRight className="w-5 h-5" />
+          </button>
           <div className="relative w-full sm:w-auto text-lg">
             <button
               onClick={() => document.getElementById('interactive-demo')?.scrollIntoView({ behavior: 'smooth' })}

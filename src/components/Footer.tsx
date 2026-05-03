@@ -23,9 +23,18 @@ const Footer = () => {
           </div>
 
           <div>
+            <h4 className="font-bold text-gray-900 mb-4">Product</h4>
+            <ul className="space-y-3 text-gray-500 text-sm font-medium">
+              <li className="py-2 md:py-1"><Link to="/#how-it-works" className="hover:text-gray-900 transition-colors">How it works</Link></li>
+              <li className="py-2 md:py-1"><Link to="/pricing" className="hover:text-gray-900 transition-colors">Pricing</Link></li>
+              <li className="py-2 md:py-1"><span className="text-gray-900">Get Started for Free</span></li>
+            </ul>
+          </div>
+
+          <div>
             <h4 className="font-bold text-gray-900 mb-4">Company</h4>
             <ul className="space-y-3 text-gray-500 text-sm font-medium">
-              <li className="py-2 md:py-1"><Link to="/blog" className="hover:text-gray-900 transition-colors">Blog</Link></li>
+              <li className="py-2 md:py-1"><Link to="/blog" className="hover:text-gray-900 transition-colors">Resources</Link></li>
               <li className="py-2 md:py-1"><Link to="/brand" className="hover:text-gray-900 transition-colors">Brand kit</Link></li>
               <li className="py-2 md:py-1"><Link to="/careers" className="hover:text-gray-900 transition-colors">Careers</Link></li>
               <li className="py-2 md:py-1"><a href="mailto:hello@growthsync.com" className="hover:text-gray-900 transition-colors">Contact</a></li>

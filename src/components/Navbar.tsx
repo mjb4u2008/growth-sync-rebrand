@@ -1,19 +1,37 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Zap, X, Menu } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowRight, Menu, Zap } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { Button } from './ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './ui/sheet';
+import { getLoginUrl } from '../utils/handoff';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navItems = [
-    { to: '/blog', label: 'Blog' },
-    { to: '/brand', label: 'Brand kit' },
-    { to: '/careers', label: 'Careers' },
+    { to: '/#how-it-works', label: 'How it works' },
+    { to: '/#proof', label: 'Proof' },
+    { to: '/pricing', label: 'Pricing' },
+    { to: '/blog', label: 'Resources' },
   ];
 
   const isActive = (path: string) => {
+    if (path.includes('#')) {
+      return false;
+    }
+
+    if (path === '/pricing') {
+      return location.pathname === '/pricing';
+    }
+
     if (path === '/blog') {
       return location.pathname === '/blog' || location.pathname.startsWith('/blog/');
     }
@@ -35,48 +53,13 @@ const Navbar = () => {
     setMenuOpen(false);
   }, [location.pathname]);
 
-  const mobileNavRef = useRef<HTMLDivElement>(null);
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
-
-  // Focus trap + Escape handler for mobile nav
-  useEffect(() => {
-    if (!menuOpen) return;
-    const panel = mobileNavRef.current;
-    if (!panel) return;
-
-    const focusableEls = panel.querySelectorAll<HTMLElement>('a, button');
-    if (focusableEls.length > 0) focusableEls[0].focus();
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setMenuOpen(false);
-        hamburgerRef.current?.focus();
-        return;
-      }
-      if (e.key === 'Tab' && focusableEls.length > 0) {
-        const first = focusableEls[0];
-        const last = focusableEls[focusableEls.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [menuOpen]);
-
   return (
-    <>
+    <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
       <nav
         role="navigation"
         aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-200 py-4' : 'bg-transparent py-6'
+          scrolled ? 'border-b border-gray-200 bg-white/90 py-3 backdrop-blur-md' : 'bg-white/80 py-5 backdrop-blur-md'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -87,7 +70,7 @@ const Navbar = () => {
             <span className={`font-display font-bold text-xl tracking-tight transition-colors text-gray-950`}>GrowthSync</span>
           </Link>
 
-          <div className={`hidden md:flex items-center gap-8 text-sm font-medium transition-colors text-gray-600`}>
+          <div className="hidden items-center gap-7 text-sm font-semibold text-gray-600 transition-colors md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.to}
@@ -100,57 +83,54 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              ref={hamburgerRef}
-              onClick={() => setMenuOpen(!menuOpen)}
-              className={`md:hidden p-3 transition-colors text-gray-950`}
-              aria-expanded={menuOpen}
-              aria-controls="mobile-nav"
-              aria-label="Toggle navigation menu"
-            >
-              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-            <Link to="/demo" className={`inline-flex px-5 py-2.5 md:px-5 md:py-2.5 rounded-full font-semibold text-sm transition-colors bg-gray-950 text-white hover:bg-gray-800`}>
-              Get started
-            </Link>
+            <a href={getLoginUrl()} className="hidden text-sm font-semibold text-gray-600 transition-colors hover:text-gray-950 md:inline-flex">
+              Log in
+            </a>
+            <Button type="button" className="hidden md:inline-flex">
+                Get Started for Free
+                <ArrowRight />
+            </Button>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden" aria-label="Open navigation">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
           </div>
         </div>
       </nav>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            id="mobile-nav"
-            role="navigation"
-            aria-label="Mobile navigation"
-            ref={mobileNavRef}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-[64px] left-0 right-0 z-40 bg-white border-b border-gray-200 shadow-lg md:hidden"
-          >
-            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMenuOpen(false)}
-                  className={`py-3 font-medium transition-colors hover:text-teal-600 ${isActive(item.to) ? 'text-gray-950' : 'text-gray-900'}`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="border-t border-gray-100 mt-2 pt-3">
-                <Link to="/demo" onClick={() => setMenuOpen(false)} className="py-3 px-6 rounded-full bg-gray-950 text-white font-semibold text-center block">
-                  Get started
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      <SheetContent className="w-[88vw]">
+        <SheetHeader>
+          <SheetTitle>GrowthSync</SheetTitle>
+          <SheetDescription>Conversational AI for social commerce.</SheetDescription>
+        </SheetHeader>
+        <div className="mt-8 grid gap-2">
+          {navItems.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              onClick={() => setMenuOpen(false)}
+              className={`rounded-md px-3 py-3 font-semibold transition-colors hover:bg-gray-100 ${isActive(item.to) ? 'text-gray-950' : 'text-gray-700'}`}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="mt-4 grid gap-3 border-t border-gray-200 pt-4">
+            <Button asChild>
+              <button type="button" onClick={() => setMenuOpen(false)}>
+                Get Started for Free
+                <ArrowRight />
+              </button>
+            </Button>
+            <Button asChild variant="outline">
+              <a href={getLoginUrl()} onClick={() => setMenuOpen(false)}>
+                Log in
+              </a>
+            </Button>
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 

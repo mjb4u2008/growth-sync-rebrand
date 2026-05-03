@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { Zap, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Pricing = () => {
   const isMobile = typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
@@ -37,9 +36,9 @@ const Pricing = () => {
         </div>
 
         <div className="text-center">
-          <Link to="/demo" className="inline-flex items-center justify-center px-10 py-4 md:py-5 rounded-full bg-gray-950 text-white font-bold text-base md:text-lg hover:bg-gray-800 transition-colors gap-2">
-            Start generating revenue <ArrowRight className="w-5 h-5" />
-          </Link>
+          <button type="button" className="inline-flex items-center justify-center px-10 py-4 md:py-5 rounded-full bg-gray-950 text-white font-bold text-base md:text-lg hover:bg-gray-800 transition-colors gap-2">
+            Get Started for Free <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>
