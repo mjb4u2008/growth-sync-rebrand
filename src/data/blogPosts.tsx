@@ -20,7 +20,139 @@ const rodAuthor = {
   bio: "Rod spent years in media and entertainment, from managing global campaigns at Roc Nation to building one of LA's largest cultural events. He co-founded GrowthSync because he saw firsthand how creator relationships drive commerce, and that brands needed a better way to turn those conversations into revenue."
 };
 
+const tannerAuthor = {
+  name: "Tanner",
+  role: "Founding Engineer at GrowthSync",
+  avatar: "/tanner-growthsync.jpg",
+  bio: "Tanner is the Founding Engineer at GrowthSync. He builds from an operator's view of the problem first, then turns that understanding into software that helps brands move faster."
+};
+
 export const blogPosts = [
+  {
+    id: 38,
+    title: "Why I Joined GrowthSync",
+    excerpt: "Tanner joins GrowthSync as Founding Engineer with a lesson from operations-heavy software: understand the work before building the product.",
+    category: "Company",
+    author: tannerAuthor,
+    date: "May 16, 2026",
+    dateISO: "2026-05-16T08:00:00Z",
+    readTime: "7 min read",
+    image: "/blog/why-i-joined-growthsync.png",
+    imageSource: "supplied-photo",
+    tags: ['Company', 'Product Engineering', 'Operations', 'Founding Engineer'],
+    content: (
+      <>
+        <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
+          One of my earliest experiences at a startup taught me a lesson I have been carrying around for years: the best software starts by understanding the operation underneath it.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Reflexive software</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          I learned this while working on the supply chain team at <ContentLink href="https://localkitchens.com/">Local Kitchens</ContentLink>. Local Kitchens was focused on building out ghost kitchens with the caveat of managing the entire operations stack. Rather than just leasing out kitchen space, Local Kitchens managed supply chain, kitchen operations, ordering, and a lot of the messy work around the kitchen itself.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          The supply chain was a notoriously difficult problem to solve. Getting a clear understanding of what was actually spent on supplies versus what was theoretically spent helped the team understand operational efficiency and waste. A major dependency here was inventory. To make those calculations useful, you first needed a clear idea of what was actually on hand.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          I asked how people took inventory, and it turned out there was no app that made it easy to walk around and fill everything out. It was a combination of Excel, pen and paper, and whatever local system each kitchen had developed. Then teams would order based on that. It was hard to track inventory over time, hard to reproduce, and hard to keep consistent.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          I immediately jumped in and scoped out a one-month sprint to build a mobile-responsive web app that people could carry around while taking inventory.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          It was a smashing success. The person I was working closely with said they were easily able to write the inventory down in the app. There were some small UI things to fix, but overall it worked.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          And then we looked at the impact.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          We were not getting a more accurate understanding of inventory. It was not faster. It technically worked as an app to track inventory, but it did not actually solve the problem. I was a hammer and thought every problem was a nail.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          It turned out every kitchen had a different system for organization. SKUs were not ordered consistently across locations. So it did not matter how snappy the app was. If you did not clearly understand where something was located, the app could not solve the problem.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          We needed to solve the layer below the technology. You cannot just jump to a product solution, particularly with operational problems. You have to take a step back and truly understand the problem.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Put your ego aside. The solution may not involve product at all.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Operational product engineering</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          That experience gave me a deep appreciation for a different type of problem solving. Sometimes it is called product engineering, which usually means understanding the use case and the space before jumping in. But in operations-heavy domains, where there are concrete items being sold, physical movements happening, and tangible work being done, I think you need to go one click deeper.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          You need one more layer of abstraction. You need to look at the business problem and first think as an operator.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          What I have noticed about the best operators is that they do not focus on solutions too quickly. They first focus on empathetically understanding the problem. They do not rush to judgment. They start with very little ego and act like a sponge, soaking up as much information about the domain and problem space as possible.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          They are not thinking about product solutions, apps, spreadsheets, or anything else yet. They are acting as a student in a class with many teachers. Those teachers are the people doing the work day to day. They can openly explain the problems they face because they are just explaining the nuts and bolts of their normal work.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Only then should you start to think through the core underlying problems. Are there systems in place? If not, why? If yes, are those systems working? Are people being put in a position to succeed?
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          It is an extremely cross-functional form of product engineering. It is one I found very interesting to work on, and one I knew I eventually wanted to get back to.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Since then</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          I spent the years that followed building in completely different domains. The work was challenging and interesting. I learned an enormous amount. But somewhere along the way I realized I was missing something I could not quite name.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          It was not until I sat down with Mike and Rod that I figured out what it was.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What I found</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          Clothing brands, CPG brands, and small businesses are juggling a lot. Sales tracking, marketing, supply management, customer support, all at the same time. Many are working with lean, scrappy teams, and it can feel like a lot to manage.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          But what I have learned from working in operations-heavy domains is that these are not insurmountable problems. They are a series of concrete, tangible problems that need to be understood and solved one at a time. That is the type of problem that gets me excited to help solve.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          In my first calls with Mike and Rod, there were moments where they talked about the struggles brands were having. When they mentioned inventory, I found myself getting excited without fully knowing why. Every time there was another layer of complexity, I became more interested in the space.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Rather than thinking about software and adding lines to a codebase, I was envisioning actually being in the warehouses. I was not thinking about Kubernetes. I was thinking about how a sales team manages its pipeline. I started getting that feeling of solving physical, tangible problems again.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Mike and Rod made me feel extremely excited to be a student again. I could go back and learn how brands operate their entire businesses. I could learn from operators across completely different businesses. That variety was its own kind of education.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The culture mattered too</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          Something that also stuck out to me was the level of ownership across the team. Everyone held themselves to extremely high standards.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          After I decided to join, Mike posted something on LinkedIn that put words to exactly what I had felt. He wrote about always saying "we" and only switching to "I" when something broke. "Fall on the sword yourself. Celebrate with the team." I was not surprised when I read it. It was exactly what I had felt in the room.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          It was clear that this was a team where everyone held themselves to that same standard. When that becomes the culture, it compounds. Wins feel collective. Losses get owned and fixed by individuals rather than deflected. It does not matter what your title is. Everyone operates that way, and it acts as a multiplier across the entire team.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          That is a great kind of team to be a part of. I wanted to jump in.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What I get to build now</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          I have spent a lot of time in my career thinking about what types of problems I want to work on and what types of people I want to work with. Rarely do both answers show up at the same time. With GrowthSync, they did.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          I get to work on tangible, complex operational problems alongside a team that holds itself to an extremely high standard. I get to talk to operators, learn from them, and build for them. That is exactly the kind of work I wanted to do next.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          If you are a brand operator trying to turn messy Instagram demand into clearer workflows, cleaner customer context, and revenue action, <ContentLink href="/get-started">start with GrowthSync here</ContentLink>.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Sources</h2>
+        <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 mb-8">
+          <p className="text-base leading-relaxed text-gray-600 mb-3">
+            <ContentLink href="https://localkitchens.com/">Local Kitchens</ContentLink>
+          </p>
+          <p className="text-base leading-relaxed text-gray-600">
+            <ContentLink href="/blog/37">Related: The Language of Social Commerce Is Still Being Built</ContentLink>
+          </p>
+        </div>
+      </>
+    )
+  },
   {
     id: 37,
     title: "The Language of Social Commerce Is Still Being Built",
