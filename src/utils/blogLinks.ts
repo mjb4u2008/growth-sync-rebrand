@@ -247,6 +247,18 @@ const postSpecificMarketContext: Record<number, MarketContextLink[]> = {
       description: 'Consumer expectations around social response speed and why delay costs attention.',
     },
   ],
+  38: [
+    {
+      label: 'Local Kitchens',
+      href: 'https://localkitchens.com/',
+      description: 'The restaurant operations context Tanner references in his founding engineer note.',
+    },
+    {
+      label: 'Shopify Social Commerce Guide',
+      href: 'https://help.shopify.com/en/manual/online-sales-channels/social-commerce',
+      description: 'Useful background on the commerce surfaces brands now have to connect operationally.',
+    },
+  ],
 };
 
 export function hasPostSpecificMarketContext(postId: number) {

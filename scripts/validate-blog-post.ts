@@ -82,6 +82,8 @@ const imageFile = join(process.cwd(), 'public', imagePath.replace(/^blog\//, 'bl
 const imageSlug = targetPost.image.split('/').pop()?.replace(/\.png$/, '') ?? '';
 const imageSpecSource = readFileSync(join(process.cwd(), 'scripts', 'generate-blog-images.ts'), 'utf8');
 const sitemapSource = readFileSync(join(process.cwd(), 'public', 'sitemap.xml'), 'utf8');
+const imageSource = (targetPost as { imageSource?: string }).imageSource;
+const usesSuppliedImage = imageSource === 'supplied-photo';
 
 const issues: ValidationIssue[] = [];
 
@@ -92,14 +94,14 @@ if (!blogPosts[0] || blogPosts[0].id !== targetPost.id) {
   });
 }
 
-if (!['Michael Broughton', 'Rod Henley'].includes(targetPost.author.name)) {
+if (!['Michael Broughton', 'Rod Henley', 'Tanner'].includes(targetPost.author.name)) {
   issues.push({
     level: 'error',
-    message: `Author must resolve to Michael Broughton or Rod Henley. Found "${targetPost.author.name}".`,
+    message: `Author must resolve to Michael Broughton, Rod Henley, or Tanner. Found "${targetPost.author.name}".`,
   });
 }
 
-if (!targetPost.title || targetPost.title.length < 30) {
+if (!targetPost.title || (targetPost.category !== 'Company' && targetPost.title.length < 30)) {
   issues.push({
     level: 'error',
     message: 'Title looks too short. GrowthSync titles should make a sharp point and carry a clear takeaway.',
@@ -176,7 +178,7 @@ if (!existsSync(imageFile)) {
   });
 }
 
-if (imageSlug && !imageSpecSource.includes(`slug: '${imageSlug}'`)) {
+if (imageSlug && !usesSuppliedImage && !imageSpecSource.includes(`slug: '${imageSlug}'`)) {
   issues.push({
     level: 'error',
     message: `No image spec found for slug "${imageSlug}" in scripts/generate-blog-images.ts.`,
