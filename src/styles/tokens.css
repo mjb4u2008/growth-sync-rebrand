@@ -35,7 +35,9 @@
   --gs-ink-3:           #6E6A60;   /* tertiary / mono labels        */
   --gs-ink-4:           #A6A092;   /* placeholder / disabled        */
   --gs-rule:            #1E1B14;   /* hairline rules on paper       */
-  --gs-rule-soft:       rgba(11,11,18,0.10); /* y2k pinstripes      */
+  --gs-rule-soft:       rgba(11,11,18,0.10);
+  --gs-rule-pinstripe:  rgba(11,11,18,0.035); /* soft paper lines    */
+  --gs-rule-pinstripe-warm: rgba(11,11,18,0.026);
 
   /* =============================================================
      COLOR — Tangerine (the brand)
@@ -162,18 +164,19 @@
                         0 -1px 0 rgba(255,255,255,0.18) inset;
 
   /* =============================================================
-     PATTERNS — Y2K pinstripes (from pen/y2k-pinstripes.js)
-     Apply as a background-image overlay on paper surfaces.
+     PATTERNS — soft paper pinstripes.
+     Keep these low-contrast and low-frequency so they read like
+     light gray stationery lines on mobile instead of scanline bands.
      ============================================================= */
   --gs-pinstripe-y2k: repeating-linear-gradient(
     to bottom,
-    rgba(11,11,18,0.08) 0 1px,
-    transparent 1px 3px
+    var(--gs-rule-pinstripe) 0 1px,
+    transparent 1px 7px
   );
   --gs-pinstripe-warm: repeating-linear-gradient(
     to bottom,
-    rgba(233,222,200,0.38) 0 4px,
-    transparent 4px 8px
+    var(--gs-rule-pinstripe-warm) 0 1px,
+    transparent 1px 8px
   );
 }
 

@@ -379,17 +379,17 @@
   .gscs-tabs {
     height: 34px;
     overflow: hidden;
+    gap: 4px;
+    padding: 6px 8px 0;
   }
   .gscs-tab {
     padding: 6px 8px;
   }
   .gscs-tab:not(.on):not(.plus) {
-    max-width: 42px;
-    overflow: hidden;
-  }
-  .gscs-tab:not(.on):not(.plus) .x {
     display: none;
   }
+  .gscs-tab.on { max-width: calc(100% - 44px); }
+  .gscs-tab.plus { margin-left: auto; }
   .gscs-url {
     grid-template-columns: 72px minmax(0, 1fr);
   }
