@@ -6,35 +6,38 @@ https://growthsync.com/brand
 
 Core assets
 -----------
+- Logo: /brand/growthsync-logo.svg
+- Icon: /brand/growthsync-icon.svg
 - Mark: /brand/growthsync-mark.svg
 - Wordmark: /brand/growthsync-wordmark.svg
 - Wordmark (light): /brand/growthsync-wordmark-light.svg
 - Lockup: /brand/growthsync-lockup.svg
 - Lockup (light): /brand/growthsync-lockup-light.svg
+- LinkedIn icon: /brand/growthsync-linkedin-icon.png
+- LinkedIn logo card: /brand/growthsync-linkedin-logo.png
 
 Core colors
 -----------
-- Graphite: #030712
-- Teal: #14B8A6
-- Cyan: #06B6D4
-- Violet: #8B5CF6
-- Pink: #EC4899
-- Cloud: #F9FAFB
+- Ink: #0B0B12
+- Cream: #FBF7EE
+- Tangerine: #F26B1F
+- Tangerine deep: #C84F0E
+- Tangerine stroke: #8C2F0C
 
 Typography
 ----------
-- Display: Outfit
+- Display/logo: Hanken Grotesk
 - Body and UI: Inter
 
 Font sources
 ------------
-- Outfit: https://fonts.google.com/specimen/Outfit
+- Hanken Grotesk: https://fonts.google.com/specimen/Hanken+Grotesk
 - Inter: https://fonts.google.com/specimen/Inter
 
 Usage notes
 -----------
 - Use the full lockup on first mention.
-- Use the mark in small surfaces like avatars and favicons.
+- Use the icon/mark in small surfaces like avatars and favicons.
 - Keep generous clear space around the logo.
 - Do not stretch, recolor, rotate, or add effects to the mark.
-- Use the violet-to-pink gradient sparingly for statement moments.
+- Use the tangerine sphere with the GrowthSync wordmark as the primary lockup.

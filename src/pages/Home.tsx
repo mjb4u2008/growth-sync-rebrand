@@ -1,7 +1,8 @@
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import CaseStudies from '../components/ui/case-studies';
 import Features from '../components/ui/features';
+import { GrowthSyncLogo } from '../components/atoms';
 
 const proofNames = [
   { name: 'Ed Hardy', kind: 'Brand' },
@@ -71,10 +72,7 @@ export default function Home() {
 
       <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-8">
         <a href="/" className="flex items-center gap-3 font-black tracking-tight">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#080b0f] text-white">
-            <Zap className="h-5 w-5" />
-          </span>
-          GrowthSync
+          <GrowthSyncLogo height={36} />
         </a>
         <nav className="hidden items-center gap-8 text-sm font-bold text-black/55 md:flex">
           <a href="#how">How it works</a>

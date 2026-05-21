@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Calendar, ChevronRight, Clock, User, Zap } from 'lucide-react';
+import { ArrowRight, Calendar, ChevronRight, Clock, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../data/blogPosts';
+import { GrowthSyncLogo } from '../components/atoms';
 
 export default function Blog() {
   const [featuredPost, ...posts] = blogPosts;
@@ -23,10 +24,7 @@ export default function Blog() {
 
       <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 md:px-8">
         <Link to="/" className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#080b0f] text-white">
-            <Zap className="h-5 w-5" />
-          </span>
-          <span className="font-display text-xl font-black tracking-tight">GrowthSync</span>
+          <GrowthSyncLogo height={36} />
         </Link>
         <nav className="hidden items-center gap-9 text-sm font-black text-black/48 md:flex">
           <Link to="/#how" className="transition hover:text-[#080b0f]">How it works</Link>

@@ -1,5 +1,6 @@
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { GrowthSyncLogo } from './atoms';
 
 const footerLinks = {
   Product: [
@@ -26,10 +27,7 @@ const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-start">
           <div>
             <Link to="/" className="inline-flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#080b0f] text-white">
-                <Zap className="h-5 w-5" />
-              </span>
-              <span className="font-display text-xl font-black tracking-tight">GrowthSync</span>
+              <GrowthSyncLogo height={36} />
             </Link>
 
             <h2 className="mt-8 max-w-2xl font-display text-5xl font-black leading-[0.88] tracking-tight md:text-7xl">

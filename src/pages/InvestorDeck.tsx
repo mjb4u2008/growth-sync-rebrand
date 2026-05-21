@@ -16,6 +16,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { GrowthSyncLogo } from '../components/atoms';
 
 type SlideProps = {
   eyebrow: string;
@@ -138,11 +139,8 @@ const InvestorDeck = () => {
                   </div>
 
                   <div className="mt-8 flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-slate-950 shadow-[0_16px_40px_rgba(255,255,255,0.12)]">
-                      <Zap className="h-6 w-6" />
-                    </div>
                     <div>
-                      <p className="text-xl font-display font-bold tracking-tight text-white">GrowthSync</p>
+                      <GrowthSyncLogo height={38} color="#FFFFFF" />
                       <p className="text-sm text-white/55">Updated brand deck • March 2026</p>
                     </div>
                   </div>

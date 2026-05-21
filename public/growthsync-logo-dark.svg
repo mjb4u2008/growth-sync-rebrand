@@ -1,12 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="GrowthSync">
   <rect width="1200" height="630" fill="#0B0B12"/>
-  <circle cx="206" cy="315" r="28" fill="url(#dot)"/>
-  <text x="254" y="364" fill="#FFFFFF" font-family="Hanken Grotesk, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="154" font-weight="900" letter-spacing="-0.035em">GrowthSync</text>
-  <defs>
-    <radialGradient id="dot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(188 294) rotate(48) scale(58)">
-      <stop stop-color="#FFC79A"/>
-      <stop offset="0.45" stop-color="#FF6B1A"/>
-      <stop offset="1" stop-color="#D8501A"/>
-    </radialGradient>
-  </defs>
+  <g transform="translate(180 237) scale(1.5556)">
+    <defs>
+      <linearGradient id="gs-card-base" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FF8F3F"/>
+        <stop offset="50%" stop-color="#F26B1F"/>
+        <stop offset="100%" stop-color="#C84F0E"/>
+      </linearGradient>
+      <radialGradient id="gs-card-hl" cx="0.3" cy="0.25" r="0.5">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="gs-card-inset-top" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+        <stop offset="6%" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="gs-card-inset-bot" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#000000" stop-opacity="0.18"/>
+        <stop offset="6%" stop-color="#000000" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <g transform="translate(10, 10) scale(0.8)">
+      <circle cx="50" cy="50" r="48" fill="url(#gs-card-base)" stroke="#8C2F0C" stroke-width="2"/>
+      <circle cx="50" cy="50" r="47" fill="url(#gs-card-hl)"/>
+      <circle cx="50" cy="50" r="47" fill="url(#gs-card-inset-top)"/>
+      <circle cx="50" cy="50" r="47" fill="url(#gs-card-inset-bot)"/>
+    </g>
+    <text x="110" y="68" font-family="'Hanken Grotesk', system-ui, -apple-system, sans-serif" font-weight="900" font-size="64" fill="#FFFFFF" letter-spacing="-0.05em">GrowthSync</text>
+  </g>
 </svg>

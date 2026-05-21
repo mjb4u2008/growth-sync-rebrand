@@ -14,7 +14,7 @@
 
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
-import { Avatar } from "@/components/atoms";
+import { Avatar, GrowthSyncLogo } from "@/components/atoms";
 
 type RowState = "pending" | "sent";
 
@@ -146,20 +146,6 @@ const sidebarLogo: CSSProperties = {
   alignItems: "center",
   gap: 8,
   padding: "0 4px 6px",
-};
-
-const sidebarLogoMark: CSSProperties = {
-  width: 22, height: 22, borderRadius: 999,
-  background:
-    "radial-gradient(circle at 32% 28%, #FFC79A 0%, #FF8847 35%, #E04F0A 75%, #9A3000 100%)",
-  boxShadow:
-    "0 1px 0 rgba(255,255,255,0.45) inset, 0 -1px 0 rgba(0,0,0,0.2) inset, 0 3px 6px -2px rgba(224,79,10,0.55)",
-};
-
-const sidebarLogoWord: CSSProperties = {
-  font: "800 15px/1 var(--gs-font-display)",
-  letterSpacing: "0",
-  color: "var(--gs-ink)",
 };
 
 const sidebarGroupLabel: CSSProperties = {
@@ -732,8 +718,7 @@ export function HeroConsoleWindow() {
         {/* ---------- SIDEBAR ---------- */}
         <aside className="gs-console-sidebar" style={sidebar}>
           <div style={sidebarLogo}>
-            <span style={sidebarLogoMark} />
-            <span style={sidebarLogoWord}>GrowthSync</span>
+            <GrowthSyncLogo height={22} />
           </div>
 
           <div>

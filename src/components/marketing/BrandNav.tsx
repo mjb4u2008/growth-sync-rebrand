@@ -11,7 +11,7 @@
  */
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { LogoWordmark, TangerineButton, VersionBadge } from "@/components/atoms";
+import { GrowthSyncLogo, TangerineButton, VersionBadge } from "@/components/atoms";
 import { GS_DATA } from "@/lib/data";
 import type { BrandNavProps } from "@/lib/types";
 
@@ -225,7 +225,7 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
         style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", color: "inherit" }}
         aria-label="GrowthSync — home"
       >
-        <LogoWordmark size={20} withOrb />
+        <GrowthSyncLogo height={30} />
         <VersionBadge>v1.0</VersionBadge>
       </a>
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Menu, Zap } from 'lucide-react';
+import { ArrowRight, Menu } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
+import { GrowthSyncLogo } from './atoms';
 import {
   Sheet,
   SheetContent,
@@ -63,10 +64,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-gray-950`}>
-              <Zap className={`w-5 h-5 transition-colors text-white`} />
-            </div>
-            <span className={`font-display font-bold text-xl tracking-tight transition-colors text-gray-950`}>GrowthSync</span>
+            <GrowthSyncLogo height={32} />
           </Link>
 
           <div className="hidden items-center gap-7 text-sm font-semibold text-gray-600 transition-colors md:flex">
@@ -99,7 +97,9 @@ const Navbar = () => {
 
       <SheetContent className="w-[88vw]">
         <SheetHeader>
-          <SheetTitle>GrowthSync</SheetTitle>
+          <SheetTitle>
+            <GrowthSyncLogo height={32} />
+          </SheetTitle>
           <SheetDescription>Conversational AI for social commerce.</SheetDescription>
         </SheetHeader>
         <div className="mt-8 grid gap-2">

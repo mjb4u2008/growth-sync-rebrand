@@ -1,3 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="260" viewBox="0 0 1320 260" fill="none">
-  <text x="0" y="190" fill="#0B0B12" font-family="Hanken Grotesk, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="190" font-weight="900" letter-spacing="-0.035em">GrowthSync</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 92" width="440" height="92" role="img" aria-label="GrowthSync">
+  <text
+    x="0"
+    y="68"
+    font-family="'Hanken Grotesk', system-ui, -apple-system, sans-serif"
+    font-weight="900"
+    font-size="64"
+    fill="#0B0B12"
+    letter-spacing="-0.05em"
+  >GrowthSync</text>
 </svg>

@@ -1,5 +1,6 @@
-import { ArrowUpRight, Menu, Zap } from 'lucide-react';
+import { ArrowUpRight, Menu } from 'lucide-react';
 import { motion } from 'motion/react';
+import { GrowthSyncLogo } from '@/components/atoms';
 
 const navItems = ['How it works', 'Proof', 'Pricing'];
 
@@ -13,10 +14,7 @@ export default function HeaderPrototype() {
           whileHover={{ scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 360, damping: 18 }}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-950 text-white transition-colors group-hover:bg-teal-700">
-            <Zap className="h-4 w-4" />
-          </span>
-          <span className="text-base font-bold tracking-tight text-gray-950">GrowthSync</span>
+          <GrowthSyncLogo height={32} />
         </motion.a>
 
         <nav className="hidden items-center gap-1 rounded-full border border-gray-200 bg-gray-50 p-1 md:flex">

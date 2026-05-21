@@ -5,6 +5,7 @@
 
 export { Orb, VersionBadge, MonoLabel, Eyebrow, ReadMore, Avatar } from "./primitives";
 export { LogoWordmark } from "./LogoWordmark";
+export { GrowthSyncLogo } from "./GrowthSyncLogo";
 export { TangerineButton } from "./TangerineButton";
 export { StatusPill } from "./StatusPill";
 export { ChromeWindow } from "./ChromeWindow";

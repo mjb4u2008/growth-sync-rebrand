@@ -2,25 +2,28 @@
   "brand": "GrowthSync",
   "website": "https://growthsync.com",
   "assets": {
+    "logo": "/brand/growthsync-logo.svg",
+    "icon": "/brand/growthsync-icon.svg",
     "mark": "/brand/growthsync-mark.svg",
     "wordmark": "/brand/growthsync-wordmark.svg",
     "wordmarkLight": "/brand/growthsync-wordmark-light.svg",
     "lockup": "/brand/growthsync-lockup.svg",
-    "lockupLight": "/brand/growthsync-lockup-light.svg"
+    "lockupLight": "/brand/growthsync-lockup-light.svg",
+    "linkedinIcon": "/brand/growthsync-linkedin-icon.png",
+    "linkedinLogo": "/brand/growthsync-linkedin-logo.png"
   },
   "colors": {
-    "graphite": "#030712",
-    "teal": "#14B8A6",
-    "cyan": "#06B6D4",
-    "violet": "#8B5CF6",
-    "pink": "#EC4899",
-    "cloud": "#F9FAFB"
+    "ink": "#0B0B12",
+    "cream": "#FBF7EE",
+    "tangerine": "#F26B1F",
+    "tangerineDeep": "#C84F0E",
+    "tangerineStroke": "#8C2F0C"
   },
   "typography": {
     "display": {
-      "family": "Outfit",
-      "stack": "\"Outfit\", ui-sans-serif, system-ui, sans-serif",
-      "weights": [500, 600, 700, 800, 900],
+      "family": "Hanken Grotesk",
+      "stack": "\"Hanken Grotesk\", system-ui, -apple-system, sans-serif",
+      "weights": [400, 500, 600, 700, 800, 900],
       "usage": "Headlines, lockups, and emphasis"
     },
     "body": {

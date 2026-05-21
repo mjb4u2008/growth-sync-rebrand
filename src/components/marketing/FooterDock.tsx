@@ -2,12 +2,12 @@
  * <FooterDock> — cream status bar + dark footer.
  *
  *   <CONNECTED · LISTEN › UNDERSTAND › ENGAGE › CONVERT · NETWORK CONNECTED>
- *   <dark>  LogoWordmark + 3 columns + colophon  </dark>
+ *   <dark>  GrowthSyncLogo + 3 columns + colophon  </dark>
  */
 
 import type { CSSProperties } from "react";
 import { Fragment } from "react";
-import { LogoWordmark } from "@/components/atoms";
+import { GrowthSyncLogo } from "@/components/atoms";
 import { GS_DATA } from "@/lib/data";
 import type { FooterColumnData, FooterDockProps } from "@/lib/types";
 
@@ -92,7 +92,7 @@ export function FooterDock({ data = GS_DATA.footer }: FooterDockProps) {
         <div className="gs-page" style={{ padding: "44px 28px 28px" }}>
           <div className="gs-footer-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr", gap: 40 }}>
             <div>
-              <LogoWordmark size={26} withOrb color="#FBF7EE" />
+              <GrowthSyncLogo height={42} color="#FBF7EE" />
               <div
                 style={{
                   marginTop: 12,

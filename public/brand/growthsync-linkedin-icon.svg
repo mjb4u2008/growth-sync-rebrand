@@ -1,11 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="GrowthSync icon">
   <rect width="1024" height="1024" fill="#FBF7EE"/>
-  <circle cx="512" cy="512" r="208" fill="url(#dot)"/>
-  <defs>
-    <radialGradient id="dot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(390 360) rotate(48) scale(420)">
-      <stop stop-color="#FFC79A"/>
-      <stop offset="0.45" stop-color="#FF6B1A"/>
-      <stop offset="1" stop-color="#D8501A"/>
-    </radialGradient>
-  </defs>
+  <g transform="translate(172 172) scale(6.8)">
+    <defs>
+      <linearGradient id="gs-base" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FF8F3F"/>
+        <stop offset="50%" stop-color="#F26B1F"/>
+        <stop offset="100%" stop-color="#C84F0E"/>
+      </linearGradient>
+      <radialGradient id="gs-hl" cx="0.3" cy="0.25" r="0.5">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
+        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="gs-inset-top" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+        <stop offset="6%" stop-color="#ffffff" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="gs-inset-bot" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#000000" stop-opacity="0.18"/>
+        <stop offset="6%" stop-color="#000000" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="50" cy="50" r="48" fill="url(#gs-base)" stroke="#8C2F0C" stroke-width="2"/>
+    <circle cx="50" cy="50" r="47" fill="url(#gs-hl)"/>
+    <circle cx="50" cy="50" r="47" fill="url(#gs-inset-top)"/>
+    <circle cx="50" cy="50" r="47" fill="url(#gs-inset-bot)"/>
+  </g>
 </svg>
