@@ -1,28 +1,28 @@
-# GrowthSync Blog Image Theme: "Signal Worlds"
+# GrowthSync Blog Image Theme: "Y2K Aqua Field Notes"
 
 ## Concept
-Each blog post gets a miniature 3D diorama scene — a self-contained world that represents the post's core idea. Think editorial illustration meets architectural model. The scenes are abstract and symbolic, never literal or photorealistic. No fake people. No stock photo energy.
+Each blog post gets a Y2K Aqua social-commerce field-note image. Think early-2000s browser chrome, cream paper, spreadsheet cells, DM bubbles, customer memory cards, and tangerine status lights. Images should feel like a useful artifact from GrowthSync's operating system, not generic SaaS decoration.
 
 ## Visual Style
-- **Rendering**: 3D isometric/slightly elevated camera angle, matte clay and ceramic material finish
-- **Lighting**: Soft, diffused studio lighting with one warm key light and subtle ambient occlusion shadows
-- **Depth of field**: Gentle tilt-shift blur at edges to give that miniature/diorama feel
-- **Composition**: Centered subject with breathing room, clean negative space around the scene
+- **Rendering**: Editorial 16-bit / early-2000s internet blend with old Apple Aqua windows, spreadsheet chrome, soft bevels, and crisp UI objects.
+- **Lighting**: Warm studio light on cream paper, with gentle Aqua-blue glass highlights and tangerine LEDs.
+- **Texture**: Subtle pinstripes, scanline hints, paper grain, and glossy title bars.
+- **Composition**: Readable 16:9 hero image with one clear article idea. Avoid text-heavy layouts and repeated centered-phone compositions.
 
 ## Color Palette
-- **Background**: Rich dark navy gradient (#0a0f1a to #0f172a) — consistent across all posts
-- **Primary accent**: GrowthSync teal (#14b8a6) — used for glowing elements, key objects, and emphasis
-- **Secondary accents**: Warm coral (#f97316), soft violet (#8b5cf6) — used sparingly for contrast
-- **Materials**: Matte white ceramic for structures, frosted glass for overlays, brushed metal for small details
-- **Glow**: Teal elements emit a soft bloom/glow against the dark background
+- **Background**: Warm cream paper (#fbfaf6 / #f2eadb), never dark navy as the default.
+- **Primary accents**: Aqua, teal, cyan, electric blue.
+- **Conversion accents**: Tangerine status lights and sparse signal lime.
+- **Sparse moments**: Violet/pink only as small Instagram-native accents.
+- **Materials**: Aqua glass, old browser chrome, cream paper, product workflow surfaces.
 
 ## Recurring Motifs
 These elements can appear across posts to create visual continuity:
-- **Chat bubbles** as physical 3D objects (rounded rectangles with depth)
-- **Lightning bolt** (our logo mark) as a small recurring element in scenes
-- **Signal lines** — glowing teal paths connecting objects (representing data/conversation flow)
-- **Miniature phone screens** showing abstract UI
-- **Floating notification badges** as small spheres or pills
+- Instagram-style comments and DM bubbles as abstract UI shapes
+- Old-web spreadsheet/table rows with highlighted intent
+- CRM cards and customer memory folders
+- Tiny original helper objects: pencil, cursor, folder, inbox sprite, receipt, browser window, signal orb
+- Tangerine status dots and Aqua titlebars
 
 ## Per-Post Scene Descriptions
 
@@ -50,23 +50,23 @@ These elements can appear across posts to create visual continuity:
 When generating an image, combine the base style with the post-specific scene:
 
 ```
-[POST SCENE DESCRIPTION]. 3D isometric diorama scene, miniature world, matte clay and ceramic material textures, dark navy background (#0a0f1a), teal (#14b8a6) glowing accents, warm coral highlights, soft diffused studio lighting, gentle tilt-shift depth of field, editorial illustration style, no text, no people, no photorealism, high detail, 16:9 aspect ratio
+[POST SCENE DESCRIPTION]. Y2K Aqua social-commerce operating system illustration, old browser window and spreadsheet UI surfaces, cream paper background, tangerine status lights, soft Aqua blue glass, retro 2003 desktop chrome, Instagram-style comments and DM bubbles as abstract UI shapes, CRM cards and tiny file icons, clean editorial composition, high readability, warm studio light, subtle pinstripe texture, no readable text, no real logos, no copied characters or existing IP, no photorealistic people, 16:9
 ```
 
 ## How to Generate
 
-1. Use the Google Gemini API (Imagen 3) endpoint
+1. Use the Google Gemini API image endpoint
 2. Pass the prompt from the template above
 3. Use `aspectRatio: "16:9"` and `sampleCount: 1`
 4. Save the output as PNG to `/public/blog/` directory
-5. Update the `image` field in `src/data/blogPosts.tsx`
+5. Save only reviewed samples first. Do not batch-generate without Mike's approval.
 
-**API Key**: Ask the user for the Google AI Studio API key (do not store in this file or commit to git).
+**API Key**: Use `GEMINI_API_KEY` from local or Vercel env. Do not print, commit, or expose the key.
 
 ## What This Theme is NOT
-- Not photorealistic renders of real environments
-- Not stock photography or generic tech imagery
-- Not AI-generated "people" or faces
-- Not flat 2D illustrations (these have depth and physicality)
-- Not overly complex or busy — each scene has one clear focal point
-- Not the same central phone composition repeated post after post. Vary the silhouette and the focal object so each article feels like its own world.
+- Not dark Signal Worlds / navy clay dioramas
+- Not stock photography or generic SaaS dashboards
+- Not fake platform logos or brand logos
+- Not copied helper characters such as Microsoft Clippy or any existing character IP
+- Not unreadable text-heavy images
+- Not batches generated before reviewing one or two samples

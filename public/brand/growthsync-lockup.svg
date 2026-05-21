@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="240" viewBox="0 0 1480 240" fill="none">
-  <g transform="translate(0 30) scale(0.3515625)">
-    <rect width="512" height="512" rx="96" fill="#030712"/>
-    <path d="M272 128L176 288h64l-16 96 96-160h-64l16-96z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="28"/>
-  </g>
-  <text x="228" y="168" fill="#030712" font-family="Outfit, Inter, system-ui, sans-serif" font-size="176" font-weight="700" letter-spacing="-0.06em">GrowthSync</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="320" viewBox="0 0 1540 320" fill="none">
+  <circle cx="64" cy="160" r="28" fill="url(#dot)"/>
+  <text x="110" y="208" fill="#0B0B12" font-family="Hanken Grotesk, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="198" font-weight="900" letter-spacing="-0.035em">GrowthSync</text>
+  <rect x="1188" y="92" width="194" height="82" rx="18" fill="#0B0B12"/>
+  <text x="1226" y="148" fill="#FFD2A8" font-family="Space Mono, Menlo, Consolas, monospace" font-size="38" font-weight="700" letter-spacing="0.04em">v1.0</text>
+  <defs>
+    <radialGradient id="dot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(46 140) rotate(48) scale(56)">
+      <stop stop-color="#FFC79A"/>
+      <stop offset="0.45" stop-color="#FF6B1A"/>
+      <stop offset="1" stop-color="#D8501A"/>
+    </radialGradient>
+  </defs>
 </svg>

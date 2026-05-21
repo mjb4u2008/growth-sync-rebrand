@@ -2,7 +2,7 @@ import { ArrowRight, BrainCircuit, Crown, Instagram, Play, MessageCircle, Sparkl
 
 const CLIENTS = [
   { name: 'Von Dutch' },
-  { name: 'Pavoy' },
+  { name: 'Pavoi' },
   { name: 'Ed Hardy' },
   { name: 'Canvas Beauty' },
   { name: 'Dripglosss' },

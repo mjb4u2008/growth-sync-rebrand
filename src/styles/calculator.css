@@ -1,0 +1,244 @@
+/* Calculator window — shared between preview card and UI kit.
+   The class names are prefixed with .gscalc-... to avoid collisions. */
+
+.gscalc-app {
+  border-radius: 8px; overflow: hidden;
+  background: var(--gs-paper-cool);
+  box-shadow: 0 0 0 1px rgba(11,11,18,0.18), 0 28px 50px -22px rgba(11,11,18,0.40);
+  font: var(--gs-body-sm); color: var(--gs-ink);
+}
+
+.gscalc-title {
+  height: 30px; display: grid; grid-template-columns: 24px 1fr 90px;
+  align-items: center; padding: 0 8px;
+  background: linear-gradient(180deg, #6E2F0D 0%, #501C03 60%, #2A0F02 100%);
+  color: #FFE9CC;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.5);
+}
+.gscalc-title .ic { width: 14px; height: 14px; border-radius: 2px;
+  background: linear-gradient(180deg, #F7C28E, #C97A30);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px rgba(0,0,0,0.4); }
+.gscalc-title .t { font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.10em; text-transform: uppercase; color: #FFE9CC; }
+.gscalc-title .win-btns { justify-self: end; display: flex; gap: 4px; }
+.gscalc-win-btn { width: 22px; height: 18px; border-radius: 3px;
+  background: linear-gradient(180deg, #D7D2C2, #B2AC97);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 0 0 1px rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  font: 700 10px/1 var(--gs-font-mono); color: #0B0B12; }
+.gscalc-win-btn.x { background: linear-gradient(180deg, #FF8F88, #D8392F); color: #fff; }
+
+.gscalc-menu {
+  display: flex; align-items: center; gap: 14px;
+  height: 32px; padding: 0 12px;
+  background: linear-gradient(180deg, #FBF7EE, #E9E0CC);
+  box-shadow: inset 0 -1px 0 rgba(11,11,18,0.12);
+  font: 500 12px/1 var(--gs-font-sans); color: var(--gs-ink);
+}
+.gscalc-menu .calc-pill { padding: 2px 6px; border-radius: 4px;
+  color: var(--gs-tangerine-deep);
+  box-shadow: inset 0 0 0 1px var(--gs-tangerine-deep);
+  font-weight: 700; }
+.gscalc-menu .right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.gscalc-auto { display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 8px; border-radius: 4px;
+  background: linear-gradient(180deg, #FBF7EE, #E1D8C0);
+  box-shadow: 0 0 0 1px rgba(11,11,18,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
+  font: 700 10px/1 var(--gs-font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.gscalc-auto .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--gs-success); }
+
+.gscalc-row { display: grid; grid-template-columns: 36px 1fr; align-items: stretch; border-top: 1px solid rgba(11,11,18,0.08); }
+.gscalc-cell {
+  background: linear-gradient(180deg, #ECE5D0, #D9D0B5);
+  box-shadow: inset -1px 0 0 rgba(11,11,18,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.04em;
+  color: var(--gs-ink-2);
+}
+.gscalc-cell.num { color: var(--gs-tangerine-deep); }
+
+.gscalc-step {
+  display: flex; align-items: center; gap: 14px;
+  padding: 8px 16px; background: var(--gs-paper-cool);
+  font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--gs-ink);
+}
+.gscalc-hatch { flex: 0 1 80px; height: 8px;
+  background-image: repeating-linear-gradient(135deg, rgba(11,11,18,0.20) 0 2px, transparent 2px 4px); }
+.gscalc-step .instr { margin-left: auto; color: var(--gs-ink-2); font-style: italic; font-family: var(--gs-font-editorial); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 13px; }
+.gscalc-step .computed { margin-left: auto; color: var(--gs-ink-3); font: 700 10px/1 var(--gs-font-mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.gscalc-step .computed em { color: var(--gs-tangerine-deep); font-style: normal; }
+
+.gscalc-q {
+  display: grid; grid-template-columns: 1fr 240px;
+  gap: 18px; padding: 16px 20px 12px;
+  background: var(--gs-bone);
+}
+.gscalc-q .lb { font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--gs-ink-3); }
+.gscalc-q .qq { font: 800 22px/1.1 var(--gs-font-display); color: var(--gs-ink); letter-spacing: 0; margin-top: 4px; }
+.gscalc-q .qval {
+  height: 50px; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, #FFB57A, #FF6B1A);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), inset 0 -1px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.18);
+  color: #fff; gap: 6px;
+}
+.gscalc-q .qval .v { font: 800 22px/1 var(--gs-font-tech); letter-spacing: 0.02em; }
+.gscalc-q .qval .u { font: 400 13px/1 var(--gs-font-editorial); font-style: italic; opacity: 0.95; }
+
+.gscalc-slider { display: grid; grid-template-columns: 28px 1fr 28px; gap: 10px; align-items: center; padding: 8px 20px 6px; background: var(--gs-bone); }
+.gscalc-chev { width: 28px; height: 26px;
+  background: linear-gradient(180deg, #FBF7EE, #D9D0B5);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 0 0 1px rgba(11,11,18,0.22);
+  display: flex; align-items: center; justify-content: center;
+  font: 700 12px var(--gs-font-mono); color: var(--gs-ink); cursor: pointer; user-select: none; }
+.gscalc-track { position: relative; height: 14px; border-radius: 999px;
+  background: linear-gradient(180deg, #D8D0BB, #BFB69E);
+  box-shadow: inset 0 1px 1px rgba(11,11,18,0.20), 0 1px 0 rgba(255,255,255,0.5); }
+.gscalc-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px;
+  background: linear-gradient(180deg, #FF9159 0%, #FF6B1A 50%, #D8501A 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.25); }
+.gscalc-thumb { position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 22px; height: 26px; border-radius: 4px;
+  background: linear-gradient(180deg, #FBF7EE 0%, #E5DDC4 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(11,11,18,0.4), 0 2px 4px -1px rgba(11,11,18,0.3); }
+.gscalc-thumb::after { content: ""; position: absolute; inset: 4px 8px;
+  background-image: repeating-linear-gradient(90deg, rgba(11,11,18,0.45) 0 1px, transparent 1px 3px); }
+.gscalc-ticks {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 28px;
+  gap: 10px;
+  min-height: 24px;
+  padding: 4px 20px 14px;
+  background: var(--gs-bone);
+  font: 700 10px/1 var(--gs-font-mono);
+  letter-spacing: 0.06em;
+  color: var(--gs-ink-3);
+}
+.gscalc-tick-rail { grid-column: 2; position: relative; min-width: 0; }
+.gscalc-tick {
+  position: absolute;
+  top: 0;
+  left: var(--tick-pct);
+  transform: translateX(-50%);
+  min-width: 44px;
+  text-align: center;
+  white-space: nowrap;
+}
+.gscalc-tick.on { color: var(--gs-tangerine-deep); }
+
+.gscalc-calc {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #ECE5D0, #DBD2B7);
+  border-top: 1px solid rgba(11,11,18,0.08); border-bottom: 1px solid rgba(11,11,18,0.08);
+}
+.gscalc-fic { width: 32px; height: 32px; border-radius: 4px;
+  background: linear-gradient(180deg, #4A2A12, #1A0D02);
+  display: flex; align-items: center; justify-content: center;
+  font: 800 18px/1 var(--gs-font-editorial); font-style: italic; color: #FFB57A;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(0,0,0,0.3); }
+.gscalc-calc .lab { font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.10em; text-transform: uppercase; color: var(--gs-ink); }
+.gscalc-calc .dots { color: var(--gs-tangerine-deep); letter-spacing: 0.06em; }
+.gscalc-formula { display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: 5px;
+  background: linear-gradient(180deg, #2C1D08, #110900);
+  color: #F9C089;
+  font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.06em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(0,0,0,0.45); }
+.gscalc-formula em { color: var(--gs-tangerine-hi); font-style: italic; font-family: var(--gs-font-editorial); font-weight: 400; }
+.gscalc-formula .sig { color: #FFB57A; font-style: italic; font-family: var(--gs-font-editorial); font-weight: 400; }
+.gscalc-calc .right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.gscalc-prog { width: 160px; height: 10px; border-radius: 2px;
+  background-image: repeating-linear-gradient(90deg, #FF6B1A 0 8px, #FFB57A 8px 10px, #E04F0A 10px 18px, #FFB57A 18px 20px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 0 0 1px rgba(11,11,18,0.3); }
+.gscalc-done { font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.06em; color: var(--gs-success); display: flex; align-items: center; gap: 5px; }
+.gscalc-done .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--gs-success); }
+
+.gscalc-result { display: grid; grid-template-columns: 36px minmax(0, 1fr) minmax(390px, 46%); align-items: stretch; background: var(--gs-bone); }
+.gscalc-result .body { min-width: 0; padding: 22px 24px 24px 20px; }
+.gscalc-result .body .lb { font: 700 11px/1 var(--gs-font-mono); letter-spacing: 0.10em; text-transform: uppercase; color: var(--gs-ink-3); }
+.gscalc-result .body .ti { max-width: 440px; font: 800 22px/1.2 var(--gs-font-display); letter-spacing: 0; color: var(--gs-ink); margin-top: 6px; }
+.gscalc-result .body .sub { font: italic 400 14px/1.4 var(--gs-font-editorial); color: var(--gs-ink-2); margin-top: 4px; max-width: 500px; }
+.gscalc-panel { align-self: center; justify-self: end; margin: 16px 20px;
+  width: calc(100% - 40px);
+  min-width: 0;
+  min-height: 108px;
+  box-sizing: border-box;
+  padding: 18px clamp(20px, 4vw, 30px);
+  background:
+    radial-gradient(120% 70% at 20% 0%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 55%),
+    linear-gradient(180deg, #FF8042 0%, #F36321 55%, #B83F0A 100%);
+  border-radius: 10px; color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    inset 0 -1px 0 rgba(0,0,0,0.28),
+    0 16px 28px -10px rgba(224,79,10,0.55),
+    0 0 0 1px rgba(0,0,0,0.18);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(12px, 1.6vw, 22px);
+}
+.gscalc-panel .v {
+  justify-self: end;
+  min-width: 0;
+  white-space: nowrap;
+  font: 900 var(--result-font-size, 64px)/0.95 var(--gs-font-tech);
+  letter-spacing: 0;
+}
+.gscalc-panel .u { justify-self: end; display: flex; flex-direction: column; gap: 2px; min-width: max-content; }
+.gscalc-panel .u .one { font: italic 400 20px/1 var(--gs-font-editorial); }
+.gscalc-panel .u .two { font: 400 13px/1 var(--gs-font-mono); letter-spacing: 0.04em; }
+
+@media (max-width: 1120px) {
+  .gscalc-result {
+    grid-template-columns: 36px minmax(0, 1fr) minmax(330px, 44%);
+  }
+  .gscalc-panel {
+    min-height: 92px;
+    padding: 16px 22px;
+  }
+  .gscalc-panel .v {
+    font-size: min(var(--result-font-size, 64px), 54px);
+  }
+  .gscalc-panel .u {
+    transform: translateY(-2px);
+  }
+  .gscalc-panel .u .one { font-size: 16px; }
+  .gscalc-panel .u .two { font-size: 11px; }
+}
+
+@media (max-width: 860px) {
+  .gscalc-result {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+  .gscalc-panel {
+    grid-column: 2;
+    justify-self: stretch;
+    width: auto;
+    margin: 0 20px 20px;
+  }
+}
+
+.gscalc-bottom { display: flex; align-items: center; gap: 1px; padding: 0 14px; background: linear-gradient(180deg, #ECE5D0, #D9D0B5); border-top: 1px solid rgba(11,11,18,0.10); }
+.gscalc-tab { padding: 6px 12px; font: 500 12px/1 var(--gs-font-sans); color: var(--gs-ink-2); border-radius: 4px 4px 0 0; cursor: pointer; }
+.gscalc-tab.on { background: var(--gs-bone); color: var(--gs-ink); box-shadow: inset 0 1px 0 rgba(255,255,255,0.7); }
+.gscalc-bottom .auto-right { margin-left: auto; padding-right: 4px; font: 700 10px/1 var(--gs-font-mono); letter-spacing: 0.06em; color: var(--gs-ink-3); text-transform: uppercase; }
+
+.gscalc-status {
+  display: flex; align-items: center; gap: 16px;
+  padding: 5px 14px;
+  background: linear-gradient(180deg, #D9D0B5, #BEB496);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+  font: 700 10px/1 var(--gs-font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--gs-ink);
+}
+.gscalc-status .ready { display: flex; align-items: center; gap: 5px; color: var(--gs-success); }
+.gscalc-status .ready .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--gs-success); }
+.gscalc-status .sum { color: var(--gs-tangerine-deep); }
+.gscalc-status .right { margin-left: auto; display: flex; gap: 8px; }
+.gscalc-status .right span {
+  padding: 2px 6px; border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(11,11,18,0.22), inset 0 1px 0 rgba(255,255,255,0.45);
+  background: linear-gradient(180deg, #ECE5D0, #C9C0A7);
+}

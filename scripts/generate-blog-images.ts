@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { GoogleGenAI } from '@google/genai';
 import { config } from 'dotenv';
@@ -11,14 +11,15 @@ type BlogImageSpec = {
 };
 
 const OUTPUT_DIR = join(process.cwd(), 'public', 'blog');
+const SAMPLE_OUTPUT_DIR = join(OUTPUT_DIR, 'y2k-samples');
 
-const BASE_STYLE = `3D isometric diorama scene, miniature world, matte clay and ceramic material textures, dark navy background (#0a0f1a), teal (#14b8a6) glowing accents, warm coral highlights, soft diffused studio lighting, gentle tilt-shift depth of field, editorial illustration style, no text, no people, no photorealism, high detail, 16:9 aspect ratio`;
-const COMPOSITION_GUARDRAILS = `Distinct silhouette, avoid repeating a centered monolith phone or four-way crossroads layout unless the concept absolutely requires it. Choose a composition unique to this article's idea.`;
+const BASE_STYLE = `Y2K Aqua social-commerce operating system illustration, abstract old desktop chrome with only three colored status dots and otherwise blank top bars, blank spreadsheet grids, blank CRM cards, cream paper background (#fbfaf6), tangerine status lights, soft Aqua blue glass, retro 2003 interface materials, abstract comments and DM bubbles as rounded UI shapes only, tiny blank file tiles, clean editorial composition, warm studio light, subtle pinstripe texture, complete edge-to-edge 16:9 frame. Hard constraints: no black bars, no letterboxing, no menu words, no tab labels, no address bars, no captions, no readable text, no garbled pseudo-text, no micro-writing strokes, no letters, no numerals, no currency symbols, no @ symbols, no typography, no real logos, no platform glyphs, no app icons, no play-button marks, no copied characters or existing IP, no photorealistic people`;
+const COMPOSITION_GUARDRAILS = `Distinct silhouette, avoid repeating a centered monolith phone or four-way crossroads layout unless the concept absolutely requires it. Choose a composition unique to this article's idea. Keep the image bright, inspectable, and useful as a blog hero. Use unlabeled symbolic shapes, blank panels, color, paths, and object relationships instead of labels or UI text. If you draw a window, its chrome must be blank except for three colored circles; all panels inside must use simple geometric bars and dots only.`;
 
 const imageSpecs: BlogImageSpec[] = [
   {
     slug: 'social-commerce-shared-language',
-    scene: 'A miniature drafting table and taxonomy wall where glowing teal social signals are being organized into a clear shared language. Floating ceramic labels are abstract symbols only, no readable text: a signal dot, intent flame, conversation bubble, checkout path, and customer profile ring. Thin teal threads connect messy social icons on the left into a neat operating map on the right. Editorial, cerebral, category-building mood, no people, no central phone.',
+    scene: 'A miniature drafting table where glowing teal social signals are being organized into a clear shared language. On the left, messy unlabeled social shapes float like a thought cloud. On the right, six large blank ceramic cards sit in a clean operating map, each card using only simple geometric bars and dots with no grid, no menu row, no tiny marks, no labels. Thin teal threads connect the messy shapes into the blank cards. Editorial, cerebral, category-building mood, no people, no central phone.',
   },
   {
     slug: 'creator-led-distribution-market',
@@ -30,39 +31,39 @@ const imageSpecs: BlogImageSpec[] = [
   },
   {
     slug: 'instagram-tiktok-shop-playbook',
-    scene: 'A side-by-side miniature platform scene showing Instagram copying TikTok Shop. Left side: an established TikTok-style social commerce machine with a tiny creator stage, live-selling conveyor, affiliate product tags, and glowing teal sales signals already in motion. Right side: an Instagram-like storefront rebuilding that exact system from translucent tracing outlines, duplicate molds, cloned product tags, and copied checkout parts. A scanning beam or blueprint bridge travels from left to right, making the act of copying obvious. Asymmetrical composition, no central phone hero, no crossroads, clear feeling that one platform is borrowing the other platform playbook.',
+    scene: 'A side-by-side miniature platform scene showing one social shop system copying another without using any real platform marks. Left side: an established social commerce machine with a tiny creator stage, live-selling conveyor, blank product tags, and glowing teal sales signals already in motion. Right side: a newer storefront rebuilding that exact system from translucent tracing outlines, duplicate molds, cloned blank product tags, and copied checkout parts. A scanning beam or blueprint bridge travels from left to right, making the act of copying obvious. Asymmetrical composition, no central phone hero, no crossroads, clear feeling that one platform is borrowing another platform playbook.',
   },
   {
     slug: 'social-commerce-eating-ecommerce',
-    scene: 'A miniature traditional brick storefront slowly being wrapped and absorbed by glowing teal social media icons, chat bubbles, and phone screens. The old store is gray ceramic crumbling at the edges. Shopping bags morph from physical brown paper into glowing teal digital shopping cart icons. Signal lines connect the social elements.',
+    scene: 'A miniature traditional brick storefront slowly being wrapped and absorbed by glowing teal social signal tiles, chat bubbles, and blank commerce panels. The old store is gray ceramic crumbling at the edges. Shopping bags morph from physical brown paper into glowing teal digital checkout shapes. Signal lines connect the social elements.',
   },
   {
     slug: 'decade-in-ecommerce',
-    scene: 'A winding timeline path through a miniature landscape. Starting from a small gray ceramic laptop and cardboard boxes on one end, the path winds past milestones — a shopping cart, a warehouse, stacked packages — ending at a glowing teal phone emitting social commerce signal lines. The path transitions from muted gray to vibrant teal.',
+    scene: 'A winding timeline path through a miniature landscape. Starting from a small gray ceramic laptop and cardboard boxes on one end, the path winds past milestones: a shopping cart, a warehouse, and stacked packages, ending at a glowing teal blank social commerce panel emitting signal lines. The path transitions from muted gray to vibrant teal.',
   },
   {
     slug: 'brand-dms-goldmine',
-    scene: 'A treasure chest overflowing with glowing teal 3D chat bubbles and message envelopes. Golden coins and small gems spill out from between the messages. Some chat bubbles have tiny dollar signs embossed on them. The chest sits on a ceramic pedestal surrounded by scattered nuggets of gold.',
+    scene: 'A treasure chest overflowing with glowing teal 3D chat bubbles and message envelopes. Golden coins and small gems spill out from between the messages. The chest sits on a ceramic pedestal surrounded by scattered nuggets of gold. All chat bubbles are blank and symbol-free.',
   },
   {
     slug: 'social-listening-sales-channel',
-    scene: 'A giant ceramic ear sculpture on a pedestal, surrounded by dozens of tiny floating social signals — chat bubbles, heart icons, at symbols, notification badges. Some signals glow bright teal representing sales signals while others are muted gray. Glowing teal signal lines connect the important signals to a small revenue dashboard display.',
+    scene: 'A giant ceramic ear sculpture on a pedestal, surrounded by dozens of tiny floating social signals: blank chat bubbles, abstract reaction tokens, and notification beads. Some signals glow bright teal representing sales signals while others are muted gray. Glowing teal signal lines connect the important signals to a small blank revenue dashboard display.',
   },
   {
     slug: 'link-in-bio-era-over',
-    scene: 'A broken bridge or crumbling chain link structure spanning a gap. On one side, a phone screen shows a social media profile. On the other side, a glowing teal checkout interface with a shopping bag. Chain link icons fall into the void between. The gap represents lost conversions.',
+    scene: 'A broken bridge or crumbling chain link structure spanning a gap. On one side, a blank social profile panel sits on a ceramic stand. On the other side, a glowing teal checkout interface with a shopping bag. Abstract chain segments fall into the void between. The gap represents lost conversions.',
   },
   {
     slug: 'instagram-engagement-wrong',
-    scene: 'Two measuring instruments side by side on a ceramic platform. The left instrument is a tall tower of stacked heart and like icons, gray and cold, impressively tall but dim. The right is shorter but radiates bright teal light topped with a dollar sign and connected to rising graph lines. A spotlight illuminates the right side.',
+    scene: 'Two measuring instruments side by side on a ceramic platform. The left instrument is a tall tower of stacked reaction tokens, gray and cold, impressively tall but dim. The right is shorter but radiates bright teal light and connects to rising graph lines. A spotlight illuminates the right side.',
   },
   {
     slug: 'creator-economy-sales-playbook',
-    scene: 'A miniature content creation studio setup with a phone on a tiny tripod, a ring light, a desk with editing tools. Instead of traditional sales tools, the desk has social media equipment. Bright teal signal lines flow outward from the phone to multiple small shopping bag icons scattered around the scene like an expanding network.',
+    scene: 'A miniature content creation studio setup with a blank panel on a tiny tripod, a ring light, and a desk with editing tools. Instead of traditional sales tools, the desk has abstract social equipment. Bright teal signal lines flow outward to multiple small shopping bag tokens scattered around the scene like an expanding network.',
   },
   {
     slug: 'response-time-gap',
-    scene: 'A dramatic hourglass with glowing teal sand flowing rapidly from top to bottom. Around the hourglass, chat bubble message icons transition from bright teal at the top fresh and alive to faded gray at the bottom cold and dead. A small stopwatch nearby shows the critical five-minute window with teal markings.',
+    scene: 'A dramatic hourglass with glowing teal sand flowing rapidly from top to bottom. Around the hourglass, blank chat bubble message shapes transition from bright teal at the top fresh and alive to faded gray at the bottom cold and dead. A small stopwatch nearby uses only a colored teal arc, with no numbers or markings.',
   },
   {
     slug: 'conversational-ai-not-chatbot',
@@ -70,15 +71,15 @@ const imageSpecs: BlogImageSpec[] = [
   },
   {
     slug: 'small-brands-beating-enterprise',
-    scene: 'A tiny ceramic storefront with a single phone screen glowing bright teal, radiating connection lines to many small customer figures. Behind it towers a massive gray corporate building that is dim and lifeless with few connections. The small store is vibrant and winning despite its size. David and Goliath scale contrast.',
+    scene: 'A tiny ceramic storefront with a single blank teal commerce panel, radiating connection lines to many small customer figures. Behind it towers a massive gray corporate building that is dim and lifeless with few connections. The small store is vibrant and winning despite its size. David and Goliath scale contrast.',
   },
   {
     slug: 'crm-not-built-social',
-    scene: 'A traditional filing cabinet or database cylinder made of gray ceramic, cracking open at the seams. Social media signals — chat bubbles, DM envelopes, heart reactions, story reply icons — overflow out of every crack and drawer. The volume is overwhelming. Some signals escape into the air and fade away unprocessed.',
+    scene: 'A traditional filing cabinet or database cylinder made of gray ceramic, cracking open at the seams. Social signals: blank chat bubbles, DM envelopes, reaction beads, and story reply arrows overflow out of every crack and drawer. The volume is overwhelming. Some signals escape into the air and fade away unprocessed.',
   },
   {
     slug: 'tiktok-shop-33-billion',
-    scene: 'A massive glowing teal play button icon triangular at the center of the scene, surrounded by cascading waterfalls of golden coins, miniature shopping bags, and rising bar chart segments. Growth arrows point upward. The scale emphasizes enormous numbers. Small product boxes orbit the play button like satellites.',
+    scene: 'A massive glowing teal commerce engine at the center of the scene, shaped like an abstract triangular prism rather than a media icon, surrounded by cascading waterfalls of golden coins, miniature shopping bags, and rising bar chart blocks. Growth arrows point upward. The scale emphasizes enormous market momentum without showing any numbers. Small product boxes orbit the engine like satellites.',
   },
   {
     slug: 'brands-social-selling-field-notes',
@@ -86,15 +87,15 @@ const imageSpecs: BlogImageSpec[] = [
   },
   {
     slug: 'social-media-revenue-channel',
-    scene: 'A balance scale on a ceramic pedestal. On the left pan sit traditional revenue channel icons including an email envelope, a megaphone for ads, and a website browser. On the right pan sits a single phone showing social interactions, glowing teal, tipping the entire scale dramatically. The phone side clearly outweighs everything else.',
+    scene: 'A balance scale on a ceramic pedestal. On the left pan sit traditional revenue channel objects including an email envelope, a megaphone for ads, and a blank website browser. On the right pan sits a single blank teal social interaction panel, tipping the entire scale dramatically. The social side clearly outweighs everything else.',
   },
   {
     slug: 'amazon-sellers-moving-social',
-    scene: 'A miniature migration scene with small cardboard shipping boxes with tiny ceramic legs walking in a line across a bridge. They migrate from a large gray warehouse fulfillment center toward a vibrant landscape of phones, chat bubbles, and social icons all glowing teal. The new world is brighter.',
+    scene: 'A miniature migration scene with small cardboard shipping boxes with tiny ceramic legs walking in a line across a bridge. They migrate from a large gray warehouse fulfillment center toward a vibrant landscape of blank commerce panels, chat bubbles, and social signal tiles all glowing teal. The new world is brighter.',
   },
   {
     slug: 'intent-signals-everywhere',
-    scene: 'A dark scene with dozens of pulsing teal dots and expanding signal wave rings emanating from various sources including comment icons, DM envelopes, story reply arrows, and live stream hearts. In the center stands a single large antenna or receiver dish capturing all the signals, glowing brilliantly teal with concentrated energy.',
+    scene: 'A dark scene with dozens of pulsing teal dots and expanding signal wave rings emanating from various sources including blank comment bubbles, DM envelopes, story reply arrows, and live stream reaction beads. In the center stands a single large antenna or receiver dish capturing all the signals, glowing brilliantly teal with concentrated energy.',
   },
   {
     slug: 'respond-every-dm-realtime',
@@ -102,19 +103,19 @@ const imageSpecs: BlogImageSpec[] = [
   },
   {
     slug: 'holiday-social-commerce-proof',
-    scene: 'A festive diorama with miniature gift boxes, shopping bags, and ornament baubles, but instead of ribbons they are connected by glowing teal social signal lines. Phone screens show shopping interfaces. Warm coral and gold accents mix with the teal for a holiday feel. A small tree has chat bubbles as ornaments.',
+    scene: 'A festive diorama with miniature gift boxes, shopping bags, and ornament baubles, but instead of ribbons they are connected by glowing teal social signal lines. Blank commerce panels show shopping interfaces without text. Warm coral and gold accents mix with the teal for a holiday feel. A small tree has chat bubbles as ornaments.',
   },
   {
     slug: 'ai-social-selling-scalable',
-    scene: 'A single glowing teal AI node — a smooth sphere with circuit-like patterns — sits at the center. From it radiate dozens of glowing conversation lines outward to multiple phone screens arranged in a circular array, each showing a different customer interaction. The visualization emphasizes scale and simultaneity. Each phone glows softly.',
+    scene: 'A single glowing teal AI node, a smooth sphere with circuit-like patterns, sits at the center. From it radiate dozens of glowing conversation lines outward to multiple blank social panels arranged in a circular array, each showing a different customer interaction through abstract shapes only. The visualization emphasizes scale and simultaneity. Each panel glows softly.',
   },
   {
     slug: 'black-friday-social-data',
-    scene: 'A miniature Black Friday storefront scene rendered in the digital world with price tag badges, shopping bags, and deal starburst icons floating around phone screens displaying social commerce interfaces. Teal and warm coral accents create urgency. A giant sale badge is made of clay, surrounded by social engagement metrics.',
+    scene: 'A miniature high-volume sale storefront scene rendered in the digital world with blank price-tag shapes, shopping bags, and deal starburst shapes floating around blank commerce panels. Teal and warm coral accents create urgency. A giant blank sale badge is made of clay, surrounded by abstract social engagement bars and dots.',
   },
   {
     slug: 'social-commerce-2025-review',
-    scene: 'A large ceramic calendar or yearbook page for 2025, lying open. Key milestones are marked with glowing teal pins placed at various months. Each pin connects via signal lines to a miniature scene: a play button logo, a phone with DMs, a live stream icon, a checkout link. The year is visualized as a journey of growth.',
+    scene: 'A large ceramic calendar-like grid or yearbook page lying open with no numbers or text. Key milestones are marked with glowing teal pins placed across the grid. Each pin connects via signal lines to a miniature scene: an abstract media tile, a DM bubble cluster, a live stream bead, and a checkout path. The year is visualized as a journey of growth.',
   },
   {
     slug: 'holiday-winners-common-thread',
@@ -122,15 +123,15 @@ const imageSpecs: BlogImageSpec[] = [
   },
   {
     slug: 'social-commerce-predictions-2026',
-    scene: 'A crystal ball or futuristic lens sitting on a ceramic pedestal, glowing teal from within. Inside the transparent sphere, five tiny scenes are visible: an AI chat interface, a rising graph, a live stream setup, a social revenue dashboard, and a conversation commerce flow. Stars and prediction sparkles float around it.',
+    scene: 'A crystal ball or futuristic lens sitting on a ceramic pedestal, glowing teal from within. Inside the transparent sphere, several tiny scenes are visible: an AI chat interface, a rising graph, a live stream setup, a social revenue dashboard, and a conversation commerce flow. Stars and prediction sparkles float around it.',
   },
   {
     slug: 'premium-brands-tiktok',
-    scene: 'Luxury brand elements — elegant product packaging, premium ceramic boxes with gold trim, high-end shopping bags — arranged in a semicircle around a phone screen that glows teal. Subtle signal lines draw the premium items toward the screen. The premium items maintain their elegance while being attracted to social.',
+    scene: 'Luxury brand elements: elegant product packaging, premium ceramic boxes with gold trim, high-end shopping bags, arranged in a semicircle around a blank teal social commerce panel. Subtle signal lines draw the premium items toward the panel. The premium items maintain their elegance while being attracted to social.',
   },
   {
     slug: 'cost-ignoring-social-conversations',
-    scene: 'A large ceramic bucket receiving coins and revenue from social engagement at the top, but leaking badly through cracks at the bottom. Each crack is shaped like an unread message icon or ignored chat bubble. The lost revenue flows away into a drain. The waste is visually dramatic as most of what goes in leaks right out.',
+    scene: 'A large ceramic bucket receiving coins and revenue from social engagement at the top, but leaking badly through cracks at the bottom. Each crack is shaped like an unread message envelope or ignored chat bubble. The lost revenue flows away into a drain. The waste is visually dramatic as most of what goes in leaks right out.',
   },
   {
     slug: 'infrastructure-social-selling',
@@ -144,15 +145,13 @@ const imageSpecs: BlogImageSpec[] = [
 
 const apiKey = process.env.GEMINI_API_KEY;
 
-if (!apiKey) {
+if (!apiKey && !process.argv.includes('--dry-run')) {
   throw new Error('Missing GEMINI_API_KEY environment variable.');
 }
 
-mkdirSync(OUTPUT_DIR, { recursive: true });
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
-const ai = new GoogleGenAI({ apiKey });
-
-const getImagePart = (response: Awaited<ReturnType<typeof ai.models.generateContent>>) => {
+const getImagePart = (response: Awaited<ReturnType<GoogleGenAI['models']['generateContent']>>) => {
   for (const candidate of response.candidates ?? []) {
     for (const part of candidate.content?.parts ?? []) {
       if (part.inlineData?.data) {
@@ -163,11 +162,31 @@ const getImagePart = (response: Awaited<ReturnType<typeof ai.models.generateCont
   throw new Error('Gemini returned no image data.');
 };
 
-const generateImage = async ({ slug, scene }: BlogImageSpec, index: number) => {
+const generateImage = async (
+  { slug, scene }: BlogImageSpec,
+  index: number,
+  total: number,
+  options: { dryRun: boolean; overwrite: boolean; sample: boolean },
+) => {
   const prompt = `${scene} ${COMPOSITION_GUARDRAILS} ${BASE_STYLE}`;
-  const finalPath = join(OUTPUT_DIR, `${slug}.png`);
+  const outputDir = options.sample ? SAMPLE_OUTPUT_DIR : OUTPUT_DIR;
+  const finalPath = join(outputDir, options.sample ? `${slug}-y2k-sample.png` : `${slug}.png`);
 
-  console.log(`[${index + 1}/${imageSpecs.length}] Generating: ${slug}...`);
+  console.log(`[${index + 1}/${total}] ${options.dryRun ? 'Prompting' : 'Generating'}: ${slug}...`);
+
+  if (options.dryRun) {
+    console.log(prompt);
+    return { slug, finalPath };
+  }
+
+  if (existsSync(finalPath) && !options.overwrite) {
+    console.log(`  Skipped existing file: ${finalPath}`);
+    return { slug, finalPath };
+  }
+
+  if (!ai) {
+    throw new Error('Missing Gemini client.');
+  }
 
   const response = await ai.models.generateContent({
     model: 'gemini-2.5-flash-image',
@@ -182,34 +201,54 @@ const generateImage = async ({ slug, scene }: BlogImageSpec, index: number) => {
   });
 
   const imagePart = getImagePart(response);
+  mkdirSync(outputDir, { recursive: true });
   writeFileSync(finalPath, Buffer.from(imagePart.data ?? '', 'base64'));
   console.log(`  Done: ${finalPath}`);
   return { slug, finalPath };
 };
 
 const main = async () => {
-  const requestedSlugs = process.argv.slice(2);
-  const specsToGenerate = requestedSlugs.length > 0
-    ? imageSpecs.filter(({ slug }) => requestedSlugs.includes(slug))
-    : imageSpecs;
+  const args = process.argv.slice(2);
+  const dryRun = args.includes('--dry-run');
+  const overwrite = args.includes('--overwrite');
+  const sample = args.includes('--sample');
+  const all = args.includes('--all');
+  const requestedSlugs = args.flatMap((arg, index) => {
+    if (arg === '--slug') return args[index + 1] ? [args[index + 1]] : [];
+    if (arg.startsWith('--')) return [];
+    if (args[index - 1] === '--slug') return [];
+    return [arg];
+  });
+
+  if (!all && requestedSlugs.length === 0) {
+    throw new Error('Refusing to batch-generate blog images. Pass --slug <slug> for 1-2 review samples, or --all after approval.');
+  }
+
+  if (!all && requestedSlugs.length > 2) {
+    throw new Error('Generate only 1-2 review samples before batch approval.');
+  }
+
+  const specsToGenerate = all
+    ? imageSpecs
+    : imageSpecs.filter(({ slug }) => requestedSlugs.includes(slug));
 
   if (requestedSlugs.length > 0 && specsToGenerate.length === 0) {
     throw new Error(`No blog image specs found for slugs: ${requestedSlugs.join(', ')}`);
   }
 
-  console.log(`Generating ${specsToGenerate.length} Signal Worlds blog images...\n`);
+  console.log(`Generating ${specsToGenerate.length} Y2K Aqua blog image${specsToGenerate.length === 1 ? '' : 's'}...\n`);
 
   const results = [];
   for (let i = 0; i < specsToGenerate.length; i++) {
     try {
-      results.push(await generateImage(specsToGenerate[i], i));
+      results.push(await generateImage(specsToGenerate[i], i, specsToGenerate.length, { dryRun, overwrite, sample }));
     } catch (err: any) {
       console.error(`  Failed: ${specsToGenerate[i].slug} — ${err.message}`);
       if (err.message?.includes('429') || err.message?.includes('rate') || err.message?.includes('Resource')) {
         console.log('  Waiting 15s for rate limit...');
         await new Promise(r => setTimeout(r, 15000));
         try {
-          results.push(await generateImage(specsToGenerate[i], i));
+          results.push(await generateImage(specsToGenerate[i], i, specsToGenerate.length, { dryRun, overwrite, sample }));
         } catch (retryErr: any) {
           console.error(`  Retry failed: ${specsToGenerate[i].slug} — ${retryErr.message}`);
         }

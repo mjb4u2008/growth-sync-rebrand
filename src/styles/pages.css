@@ -1,0 +1,300 @@
+/* GrowthSync — content page surfaces (Privacy, Terms, footer pages, BookACall).
+   Reuses .gs-window from global.css for the Y2K chrome. */
+
+.gs-pagewrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 28px 96px;
+}
+
+.gs-pagewrap--wide { max-width: 1180px; }
+
+.gs-page-eyebrow {
+  font: 700 11px/1 var(--gs-font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gs-tangerine-deep);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gs-page-eyebrow .dot {
+  width: 7px; height: 7px; border-radius: 999px;
+  background: var(--gs-success);
+}
+
+.gs-page-title {
+  font: 800 44px/1.05 var(--gs-font-display);
+  letter-spacing: var(--gs-tracking-display);
+  color: var(--gs-ink);
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.gs-page-lede {
+  font: 500 18px/1.45 var(--gs-font-sans);
+  color: var(--gs-ink-2);
+  max-width: 64ch;
+  margin: 0 0 32px;
+}
+
+.gs-page-body {
+  padding: 28px 32px 32px;
+  background: var(--gs-paper);
+}
+
+.gs-page-body h2 {
+  font: 800 22px/1.2 var(--gs-font-display);
+  color: var(--gs-ink);
+  margin: 28px 0 10px;
+  letter-spacing: 0;
+}
+
+.gs-page-body h3 {
+  font: 700 15px/1.2 var(--gs-font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gs-tangerine-deep);
+  margin: 20px 0 8px;
+}
+
+.gs-page-body p,
+.gs-page-body li {
+  font: 400 16px/1.55 var(--gs-font-sans);
+  color: var(--gs-ink-2);
+}
+
+.gs-page-body p { margin: 0 0 12px; }
+
+.gs-page-body ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+
+.gs-page-body strong { color: var(--gs-ink); }
+
+.gs-page-cta-row {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--gs-rule);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.gs-page-cta-row .meta {
+  font: 700 10px/1.4 var(--gs-font-mono);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--gs-ink-3);
+}
+
+/* ---- Book a Call split layout ---- */
+
+.gs-bac-split {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.gs-bac-pitch {
+  padding: 8px 4px 0;
+}
+
+.gs-bac-bullets {
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+
+.gs-bac-bullets li {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--gs-paper);
+  border: 1px solid var(--gs-bone-edge);
+  border-radius: 8px;
+  font: 600 14px/1.2 var(--gs-font-sans);
+  color: var(--gs-ink);
+}
+
+.gs-bac-bullets .led {
+  width: 8px; height: 8px; border-radius: 999px;
+  background: var(--gs-success);
+  box-shadow: 0 0 0 2px rgba(30,142,62,0.18);
+}
+
+.gs-bac-bullets .meta {
+  font: 700 10px/1 var(--gs-font-mono);
+  letter-spacing: 0.10em;
+  color: var(--gs-ink-3);
+  text-transform: uppercase;
+}
+
+/* ---- Intake form ---- */
+
+.gs-form-grid {
+  padding: 18px 20px 20px;
+  background: var(--gs-paper);
+  display: grid;
+  gap: 12px;
+}
+
+.gs-form-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.gs-form-row label {
+  font: 700 11px/1 var(--gs-font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gs-ink-3);
+}
+
+.gs-form-row .req { color: var(--gs-tangerine-deep); margin-left: 4px; }
+
+.gs-form-row input,
+.gs-form-row textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: 500 14px/1.3 var(--gs-font-sans);
+  color: var(--gs-ink);
+  background: #FFFDF5;
+  border: 1px solid var(--gs-bone-edge);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 2px rgba(11,11,18,0.06);
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.gs-form-row textarea { min-height: 78px; resize: vertical; }
+
+.gs-form-row input:focus,
+.gs-form-row textarea:focus {
+  border-color: var(--gs-tangerine);
+  box-shadow: inset 0 1px 2px rgba(11,11,18,0.06), 0 0 0 3px rgba(255,107,26,0.18);
+}
+
+.gs-form-row.is-error input,
+.gs-form-row.is-error textarea {
+  border-color: var(--gs-danger, #C24306);
+  background: #FFF6F0;
+}
+
+.gs-form-error {
+  grid-column: 2;
+  font: 600 11px/1 var(--gs-font-mono);
+  color: var(--gs-danger, #C24306);
+}
+
+.gs-form-server-error {
+  padding: 10px 12px;
+  border: 1px solid rgba(199, 55, 47, 0.32);
+  border-radius: 6px;
+  background: #FFF6F0;
+  color: var(--gs-danger);
+  font: 700 12px/1.35 var(--gs-font-sans);
+}
+
+.gs-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--gs-rule);
+  margin-top: 6px;
+}
+
+.gs-form-actions .hint {
+  font: 700 10px/1.4 var(--gs-font-mono);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--gs-ink-3);
+}
+
+.gs-form-success {
+  padding: 18px 20px;
+  background: var(--gs-paper);
+  display: grid;
+  gap: 8px;
+}
+
+.gs-form-success .head {
+  font: 800 16px/1.2 var(--gs-font-display);
+  color: var(--gs-ink);
+}
+
+.gs-form-success .sub {
+  font: 500 14px/1.5 var(--gs-font-sans);
+  color: var(--gs-ink-2);
+}
+
+.gs-form-success--page {
+  padding: 28px 32px 32px;
+}
+
+.gs-success-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.gs-success-actions a {
+  color: var(--gs-tangerine-deep);
+  font: 800 13px/1 var(--gs-font-sans);
+  text-decoration: none;
+}
+
+.gs-success-actions .hint {
+  font: 700 11px/1.35 var(--gs-font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gs-ink-3);
+}
+
+/* ---- Calendly slot ---- */
+
+.gs-calendly-slot {
+  min-height: 640px;
+  background: var(--gs-paper);
+}
+
+.gs-calendly-frame {
+  width: 100%;
+  min-height: 620px;
+  margin-top: 18px;
+  border: 1px solid var(--gs-bone-edge);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 880px) {
+  .gs-bac-split { grid-template-columns: 1fr; gap: 22px; }
+  .gs-form-row { grid-template-columns: 1fr; }
+  .gs-form-row label { letter-spacing: 0.06em; }
+  .gs-form-error { grid-column: 1; }
+  .gs-form-success--page { padding: 22px 18px 24px; }
+  .gs-pagewrap { padding: 36px 18px 72px; }
+  .gs-page-title { font-size: 32px; }
+  .gs-page-body { padding: 20px 18px 22px; }
+}
+
+footer ul a:hover { color: var(--gs-tangerine-hi); }

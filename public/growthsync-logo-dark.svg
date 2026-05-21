@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0B0B12"/>
+  <circle cx="206" cy="315" r="28" fill="url(#dot)"/>
+  <text x="254" y="364" fill="#FFFFFF" font-family="Hanken Grotesk, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="154" font-weight="900" letter-spacing="-0.035em">GrowthSync</text>
+  <defs>
+    <radialGradient id="dot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(188 294) rotate(48) scale(58)">
+      <stop stop-color="#FFC79A"/>
+      <stop offset="0.45" stop-color="#FF6B1A"/>
+      <stop offset="1" stop-color="#D8501A"/>
+    </radialGradient>
+  </defs>
+</svg>
