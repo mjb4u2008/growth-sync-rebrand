@@ -97,26 +97,32 @@
 /* ---- Book a Call intake layout ---- */
 
 .gs-bac-intake {
-  width: min(100%, 780px);
+  width: min(100%, 1120px);
   margin: 0 auto;
   display: grid;
-  gap: 26px;
+  grid-template-columns: minmax(0, 0.92fr) minmax(460px, 1fr);
+  align-items: center;
+  gap: clamp(36px, 5vw, 72px);
+  min-height: min(660px, calc(100svh - 210px));
 }
 
 .gs-bac-intake .gs-bac-pitch {
   padding: 0;
-  text-align: center;
+  text-align: left;
+  transform: translateY(32px);
 }
 
 .gs-bac-intake .gs-page-title {
-  max-width: 740px;
-  margin: 0 auto;
-  font-size: clamp(44px, 5.1vw, 68px);
-  line-height: 0.96;
+  max-width: 500px;
+  margin: 0;
+  font-size: clamp(56px, 5.4vw, 76px);
+  line-height: 0.94;
 }
 
 .gs-bac-intake section[aria-labelledby="bac-scheduler"] {
   width: 100%;
+  max-width: 590px;
+  justify-self: end;
 }
 
 /* ---- Book a Call split layout ---- */
@@ -316,11 +322,25 @@
 /* ---- Responsive ---- */
 
 @media (max-width: 880px) {
-  .gs-bac-intake { gap: 20px; }
+  .gs-bac-intake {
+    width: min(100%, 620px);
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: 0;
+  }
+  .gs-bac-intake .gs-bac-pitch {
+    text-align: center;
+    transform: none;
+  }
   .gs-bac-intake .gs-page-title {
     max-width: 620px;
+    margin: 0 auto;
     font-size: 38px;
     line-height: 0.98;
+  }
+  .gs-bac-intake section[aria-labelledby="bac-scheduler"] {
+    max-width: none;
+    justify-self: stretch;
   }
   .gs-bac-split { grid-template-columns: 1fr; gap: 22px; }
   .gs-form-row { grid-template-columns: 1fr; }

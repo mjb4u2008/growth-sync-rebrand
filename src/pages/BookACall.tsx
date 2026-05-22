@@ -56,7 +56,7 @@ export function BookACall() {
         <title>Book a Call | GrowthSync</title>
         <meta
           name="description"
-          content="Book a GrowthSync intro call to see how Instagram comments, DMs, and story replies become customer memory and revenue action."
+          content="Book a GrowthSync intro call to see how Instagram and TikTok impressions become customer memory and revenue action."
         />
         <link rel="canonical" href="https://growthsync.com/book-a-call" />
       </Helmet>
@@ -126,7 +126,7 @@ function Pitch() {
   return (
     <section className="gs-bac-pitch" aria-labelledby="bac-headline">
       <h1 id="bac-headline" className="gs-page-title">
-        Start turning Instagram intent into action.
+        Start turning impressions into actions.
       </h1>
     </section>
   );
@@ -217,8 +217,8 @@ function IntakeForm() {
       <Field label="Name" name="name" value={form.name} onChange={update("name")} error={errors.name} required autoComplete="name" />
       <Field label="Company" name="company" value={form.company} onChange={update("company")} error={errors.company} required autoComplete="organization" />
       <Field label="Email" name="email" type="email" value={form.email} onChange={update("email")} error={errors.email} required autoComplete="email" />
-      <Field label="Instagram handles" name="social" value={form.social} onChange={update("social")} error={errors.social} required placeholder="@brand, @founder, @creator" />
-      <TextArea label="Notes" name="notes" value={form.notes} onChange={update("notes")} error={errors.notes} placeholder="Biggest Instagram workflow, launch timing, or what you'd want to see." />
+      <Field label="Instagram / TikTok" name="social" value={form.social} onChange={update("social")} error={errors.social} required placeholder="@brand, @founder, @creator" />
+      <TextArea label="Notes" name="notes" value={form.notes} onChange={update("notes")} error={errors.notes} placeholder="Biggest social workflow, launch timing, or what you'd want to see." />
       {serverError && (
         <div className="gs-form-server-error" role="alert">
           {serverError}
