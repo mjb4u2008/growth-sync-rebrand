@@ -257,7 +257,7 @@ const InvestorDeck = () => {
           <div className="grid h-full grid-cols-[0.9fr_1.1fr] gap-8">
             <div className="rounded-[34px] border border-white/10 bg-white/6 p-8 backdrop-blur-md">
               <p className="text-lg leading-relaxed text-white/72">
-                Commerce now happens across storefronts, marketplaces, inboxes, shipping tools, and live channels at the same time. Every new channel adds another queue, another workflow, and another chance to lose the customer.
+                Commerce now happens across storefronts, marketplaces, inboxes, shipping tools, Instagram, and TikTok at the same time. Every new channel adds another queue, another workflow, and another chance to lose the customer.
               </p>
 
               <div className="mt-8 grid gap-3">

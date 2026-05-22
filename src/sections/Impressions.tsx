@@ -215,7 +215,7 @@ const CARDS = [
     step: "STEP 01 / CONNECT",
     title2: "Track interactions across socials",
     body:
-      "Plug in IG, TikTok, YouTube, Threads, and your live channels. Comments, DMs, story replies, and creator mentions all flow into one inbox.",
+      "Track Instagram and TikTok impressions 24/7. See sentiment and what people say about your brand.",
     cta: "Connect your channels →",
   },
   {

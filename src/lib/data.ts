@@ -66,7 +66,7 @@ export const GS_DATA: GsData = {
     resultBody: {
       lb: "SIGNALS / MONTH",
       ti: "This is the conversation happening about your brand.",
-      sub: "Comments, likes, DMs, mentions, and shares across Instagram, TikTok, and YouTube every month, on average.",
+      sub: "Comments, likes, DMs, mentions, and shares across Instagram and TikTok every month, on average.",
     },
     autosavedAt: "14:02:11",
   },

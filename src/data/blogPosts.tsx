@@ -354,7 +354,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The old definition is too channel-centric</h2>
         <p className="text-lg leading-relaxed mb-8">
-          If you define social commerce as "commerce on social platforms," you end up organizing around platforms. TikTok Shop becomes one channel. Instagram Shops becomes another. YouTube Shopping, Pinterest, Facebook Marketplace, live selling, affiliates, and DMs all become separate programs.
+          If you define social commerce as "commerce on social platforms," you end up organizing around platforms. TikTok Shop becomes one channel. Instagram Shops becomes another. Live selling, affiliates, and DMs all become separate programs.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           That is how most brands already operate. The problem is that customers do not experience it that way. They might discover a product in a TikTok video, ask a sizing question in Instagram DMs, search the brand on Amazon, and finally buy from Shopify after seeing a creator's second post. The brand calls those channels. The customer calls it one decision.
@@ -677,7 +677,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What we're building</h2>
         <p className="text-lg leading-relaxed mb-8">
-          GrowthSync is a conversational AI platform purpose-built for social commerce. We sit on top of Instagram, TikTok, and the platforms where your customers already spend their time. When someone interacts with your brand, GrowthSync picks up the conversation in real time.
+          GrowthSync is a conversational AI platform purpose-built for social commerce. We sit on top of Instagram and TikTok, where your customers already spend time. When someone interacts with your brand, GrowthSync picks up the conversation in real time.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           It responds to comments with personalized DMs. It follows up with viewers who engaged during live streams. It turns story mentions into VIP lists. It bundles products, generates one-time checkout links, and closes deals directly inside the chat. No landing pages. No link in bio. No friction.
@@ -1702,7 +1702,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why this shift is inevitable</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The platforms are building for this. Instagram's DM commerce features, TikTok Shop's in-app checkout, YouTube's shopping integrations, they're all designed to keep the transaction inside the platform. The link in bio was a workaround for a limitation that no longer exists. The brands still relying on it are voluntarily destroying their conversion rates. The ones that move to conversational commerce will capture 5-8x more revenue from the same audience.
+          The platforms are building for this. Instagram's DM commerce features and TikTok Shop's in-app checkout are designed to keep the transaction inside the platform. The link in bio was a workaround for a limitation that no longer exists. The brands still relying on it are voluntarily destroying their conversion rates. The ones that move to conversational commerce will capture 5-8x more revenue from the same audience.
         </p>
       </>
     )
@@ -1822,7 +1822,7 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          Social commerce in the US is on track to hit $80 billion by 2027. That's not a projection from optimists. It's a consensus estimate based on growth rates that keep outpacing expectations. TikTok Shop alone did $33 billion globally in 2024. Instagram is building native checkout. YouTube is launching shopping integrations. The platforms have decided that social is a commerce channel. The only question left is which brands will capture it and which ones will keep pretending it's just a marketing channel.
+          Social commerce in the US is on track to hit $80 billion by 2027. That's not a projection from optimists. It's a consensus estimate based on growth rates that keep outpacing expectations. TikTok Shop alone did $33 billion globally in 2024. Instagram is building native checkout. The platforms have decided that social is a commerce channel. The only question left is which brands will capture it and which ones will keep pretending it's just a marketing channel.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The shift from discovery to purchase</h2>
         <p className="text-lg leading-relaxed mb-8">
