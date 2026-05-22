@@ -40,14 +40,14 @@ const SRC_BG: Record<Source, string> = {
 };
 
 const stage: CSSProperties = {
-  padding: "16px 18px 18px",
+  padding: "14px 16px 16px",
   display: "grid",
-  gap: 14,
+  gap: 12,
 };
 
 const feedWrap: CSSProperties = {
   position: "relative",
-  height: 280,
+  height: 234,
   overflow: "hidden",
   borderRadius: 10,
   background: "linear-gradient(180deg, #fff 0%, var(--gs-paper-cool) 100%)",
@@ -139,8 +139,8 @@ interface RowProps {
   position: number;
 }
 
-const ROW_HEIGHT = 56;
-const ROW_GAP = 8;
+const ROW_HEIGHT = 49;
+const ROW_GAP = 7;
 const VISIBLE = 4;
 
 function Row({ signal, position }: RowProps) {

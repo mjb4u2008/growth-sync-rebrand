@@ -94,6 +94,31 @@
   color: var(--gs-ink-3);
 }
 
+/* ---- Book a Call intake layout ---- */
+
+.gs-bac-intake {
+  width: min(100%, 780px);
+  margin: 0 auto;
+  display: grid;
+  gap: 26px;
+}
+
+.gs-bac-intake .gs-bac-pitch {
+  padding: 0;
+  text-align: center;
+}
+
+.gs-bac-intake .gs-page-title {
+  max-width: 740px;
+  margin: 0 auto;
+  font-size: clamp(44px, 5.1vw, 68px);
+  line-height: 0.96;
+}
+
+.gs-bac-intake section[aria-labelledby="bac-scheduler"] {
+  width: 100%;
+}
+
 /* ---- Book a Call split layout ---- */
 
 .gs-bac-split {
@@ -219,6 +244,10 @@
   margin-top: 6px;
 }
 
+.gs-bac-intake .gs-form-actions {
+  justify-content: flex-end;
+}
+
 .gs-form-actions .hint {
   font: 700 10px/1.4 var(--gs-font-mono);
   letter-spacing: 0.10em;
@@ -287,6 +316,12 @@
 /* ---- Responsive ---- */
 
 @media (max-width: 880px) {
+  .gs-bac-intake { gap: 20px; }
+  .gs-bac-intake .gs-page-title {
+    max-width: 620px;
+    font-size: 38px;
+    line-height: 0.98;
+  }
   .gs-bac-split { grid-template-columns: 1fr; gap: 22px; }
   .gs-form-row { grid-template-columns: 1fr; }
   .gs-form-row label { letter-spacing: 0.06em; }
@@ -295,6 +330,14 @@
   .gs-pagewrap { padding: 36px 18px 72px; }
   .gs-page-title { font-size: 32px; }
   .gs-page-body { padding: 20px 18px 22px; }
+}
+
+@media (max-width: 520px) {
+  .gs-bac-intake { gap: 18px; }
+  .gs-bac-intake .gs-page-title {
+    font-size: 33px;
+    line-height: 1;
+  }
 }
 
 footer ul a:hover { color: var(--gs-tangerine-hi); }

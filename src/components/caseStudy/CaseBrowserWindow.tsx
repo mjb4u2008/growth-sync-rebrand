@@ -94,7 +94,9 @@ export function CaseBrowserWindow({
           <p>{body}</p>
         </div>
         <div className="side">
-          <div className="pr">→ press release</div>
+          <a className="pr" href="/book-a-call" onClick={(e) => e.stopPropagation()}>
+            → press release
+          </a>
           <div className="stats">
             <div className="h">Stats / Numbers</div>
             {stats.map(([k, v]) => (

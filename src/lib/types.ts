@@ -71,6 +71,7 @@ export interface EyebrowProps {
 
 export interface ReadMoreProps {
   children?: ReactNode;
+  href?: string;
   onClick?: () => void;
   style?: CSSProperties;
 }

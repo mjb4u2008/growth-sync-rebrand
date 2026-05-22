@@ -25,6 +25,9 @@ const root: CSSProperties = {
   background: "var(--gs-bone)",
   overflow: "hidden",
   position: "relative",
+  width: "100%",
+  maxWidth: 540,
+  marginInline: "auto",
   boxShadow:
     "inset 0 1px 0 rgba(255,255,255,0.65), 0 0 0 1px var(--gs-chrome-edge), 0 24px 48px -18px rgba(11,11,18,0.32), 0 56px 96px -40px rgba(11,11,18,0.36)",
 };

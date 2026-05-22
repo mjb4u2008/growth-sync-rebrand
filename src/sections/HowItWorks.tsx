@@ -21,7 +21,7 @@ export function HowItWorks() {
           lede="A three-part operating sequence for listening, understanding, and converting every social impression."
         />
       </div>
-      <div style={{ marginTop: 48 }} className="gs-two-col">
+      <div style={{ marginTop: 36 }} className="gs-two-col">
         <CaptureWindow />
         <div>
           <RainbowStrip />

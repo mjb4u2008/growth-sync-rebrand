@@ -206,6 +206,7 @@
   height: 30px; padding: 0 10px; border-radius: 4px;
   background: linear-gradient(180deg, #FF9159, #E15A1B);
   font: italic 400 11px/1 var(--gs-font-editorial); color: #fff;
+  text-decoration: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px rgba(0,0,0,0.18);
 }
 .gscs-bw.b-mint  .pr { background: linear-gradient(180deg, #AEDED1, #6FA89B); color: #1B3F38; }
@@ -327,6 +328,7 @@
   font: 800 10px/1 var(--gs-font-mono); letter-spacing: 0.10em; text-transform: uppercase;
   color: #fff;
   position: relative;
+  text-decoration: none;
   text-shadow: 0 1px 0 rgba(0,0,0,0.12);
 }
 .gscs-feat.tan .lab,

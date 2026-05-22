@@ -61,12 +61,7 @@ export function BookACall() {
         <link rel="canonical" href="https://growthsync.com/book-a-call" />
       </Helmet>
 
-      <div className="gs-page-eyebrow">
-        <span className="dot" />
-        <span>BOOK A CALL · 15 MIN · INSTAGRAM-FIRST</span>
-      </div>
-
-      <div className="gs-bac-split">
+      <div className="gs-bac-intake">
         <Pitch />
         <Scheduler />
       </div>
@@ -133,28 +128,6 @@ function Pitch() {
       <h1 id="bac-headline" className="gs-page-title">
         Start turning Instagram intent into action.
       </h1>
-      <p className="gs-page-lede">
-        GrowthSync helps brands capture buying intent across Instagram comments,
-        DMs, and story replies, respond in your voice, and turn each signal into
-        customer memory your team can use.
-      </p>
-      <ul className="gs-bac-bullets" aria-label="What you'll see">
-        <li>
-          <span className="led" />
-          <span>Instagram signal capture</span>
-          <span className="meta">LIVE</span>
-        </li>
-        <li>
-          <span className="led" />
-          <span>Brand voice replies</span>
-          <span className="meta">DRAFT</span>
-        </li>
-        <li>
-          <span className="led" />
-          <span>Customer memory</span>
-          <span className="meta">ROUTED</span>
-        </li>
-      </ul>
     </section>
   );
 }
@@ -252,7 +225,6 @@ function IntakeForm() {
         </div>
       )}
       <div className="gs-form-actions">
-        <span className="hint">No spam · Reply within 1 business day</span>
         <TangerineButton size="md" type="submit">
           {submitState === "submitting" ? "Sending..." : "Request a call →"}
         </TangerineButton>

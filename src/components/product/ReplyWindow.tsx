@@ -32,9 +32,9 @@ const THREAD: Bubble[] = [
 ];
 
 const stage: CSSProperties = {
-  padding: "16px 18px 18px",
+  padding: "14px 16px 16px",
   display: "grid",
-  gap: 14,
+  gap: 12,
 };
 
 const threadShell: CSSProperties = {
@@ -42,11 +42,11 @@ const threadShell: CSSProperties = {
   borderRadius: 12,
   background: "#fff",
   boxShadow: "0 0 0 1px var(--gs-bone-edge)",
-  padding: "16px 14px 16px",
+  padding: "14px 12px 14px",
   display: "flex",
   flexDirection: "column",
   gap: 4,
-  height: 360,
+  height: 306,
   justifyContent: "flex-end",
   overflow: "hidden",
 };

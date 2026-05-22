@@ -110,21 +110,24 @@ export function Eyebrow({ children, dot = true, style }: EyebrowProps) {
   );
 }
 
-export function ReadMore({ children = "Read more →", onClick, style }: ReadMoreProps) {
+export function ReadMore({ children = "Read more →", href = "/book-a-call", onClick, style }: ReadMoreProps) {
   return (
-    <span
+    <a
+      href={href}
       onClick={onClick}
       style={{
+        display: "inline-block",
         font: "700 11px/1 var(--gs-font-mono)",
         letterSpacing: "0.08em",
         textTransform: "uppercase",
         color: "var(--gs-tangerine-deep)",
         cursor: "pointer",
+        textDecoration: "none",
         ...style,
       }}
     >
       {children}
-    </span>
+    </a>
   );
 }
 

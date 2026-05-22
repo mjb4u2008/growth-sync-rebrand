@@ -180,6 +180,23 @@
   );
 }
 
+@media (max-width: 720px) {
+  :root {
+    --gs-rule-pinstripe: rgba(11,11,18,0.022);
+    --gs-rule-pinstripe-warm: rgba(11,11,18,0.016);
+    --gs-pinstripe-y2k: repeating-linear-gradient(
+      to bottom,
+      var(--gs-rule-pinstripe) 0 1px,
+      transparent 1px 9px
+    );
+    --gs-pinstripe-warm: repeating-linear-gradient(
+      to bottom,
+      var(--gs-rule-pinstripe-warm) 0 1px,
+      transparent 1px 10px
+    );
+  }
+}
+
 .gs-home {
   --gs-font-display:   "Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --gs-font-sans:      "Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;

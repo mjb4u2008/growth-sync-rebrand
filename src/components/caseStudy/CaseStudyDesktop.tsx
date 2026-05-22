@@ -108,7 +108,9 @@ function FeatureTile({ lab, ti, c1, c2, ic, tan }: CaseFeatureTileData) {
       </div>
       <div className="lab">{lab}</div>
       <div className="ti">{ti}</div>
-      <span className="more">Read more ›</span>
+      <a className="more" href="/book-a-call" onClick={(e) => e.stopPropagation()}>
+        Read more ›
+      </a>
     </div>
   );
 }

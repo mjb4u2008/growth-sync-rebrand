@@ -26,23 +26,24 @@ body {
   --gs-font-editorial: "Instrument Serif", "Times New Roman", Georgia, serif;
 }
 
-.gs-page { max-width: 1180px; margin: 0 auto; padding: 0 28px 80px; }
-.gs-section { padding: 80px 0; }
-.gs-section-tight { padding: 56px 0; }
+.gs-page { max-width: 1180px; margin: 0 auto; padding: 0 28px 72px; }
+.gs-section { padding: 68px 0; }
+.gs-section-tight { padding: 48px 0; }
 .gs-center { text-align: center; }
 
 .gs-hero {
-  font: 900 112px/1.0 var(--gs-font-display);
+  font: 900 clamp(88px, 6.7vw, 108px)/0.98 var(--gs-font-display);
   letter-spacing: -0.04em;
   color: var(--gs-ink);
-  margin: 38px 0 28px;
+  margin: 32px 0 24px;
   text-wrap: balance;
 }
+.gs-hero-copy-mobile { display: none; }
 .gs-section-title {
-  font: 800 44px/1.05 var(--gs-font-display);
+  font: 800 40px/1.04 var(--gs-font-display);
   letter-spacing: var(--gs-tracking-display);
   color: var(--gs-ink);
-  margin: 16px 0 12px;
+  margin: 14px 0 10px;
   text-wrap: balance;
   white-space: pre-line;
 }
@@ -53,22 +54,23 @@ body {
   letter-spacing: -0.01em;
 }
 .gs-subhead {
-  font: 700 28px/1.15 var(--gs-font-display);
+  font: 700 26px/1.14 var(--gs-font-display);
   letter-spacing: -0.02em;
   color: var(--gs-ink);
   margin: 0 0 8px;
 }
 .gs-lede {
   font: var(--gs-body);
-  font-size: 16px;
+  font-size: 15.5px;
+  line-height: 1.48;
   color: var(--gs-ink-2);
   max-width: 56ch;
   text-wrap: pretty;
 }
 .gs-lede-center { margin-left: auto; margin-right: auto; }
 .gs-lede-hero {
-  font-size: 19px;
-  line-height: 1.45;
+  font-size: 18px;
+  line-height: 1.42;
   color: var(--gs-ink);
   font-weight: 500;
   max-width: 52ch;
@@ -76,11 +78,11 @@ body {
 
 .gs-two-col {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 44px;
   align-items: center;
 }
-.gs-two-col-flip { grid-template-columns: 1fr 1.25fr; }
+.gs-two-col-flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); }
 .gs-two-col-flip > :first-child { order: 2; }
 
 .gs-hero-ctas { display: flex; gap: 10px; justify-content: center; align-items: center; }
@@ -1045,12 +1047,12 @@ body {
 
 /* Responsive — tablet --------------------------------------------- */
 @media (max-width: 1024px) {
-  .gs-page { padding: 0 20px 60px; }
-  .gs-section { padding: 56px 0; }
+  .gs-page { padding: 0 20px 56px; }
+  .gs-section { padding: 50px 0; }
   .gs-hero { font-size: 64px; }
-  .gs-section-title { font-size: 36px; }
-  .gs-closer h2 { font-size: 54px; }
-  .gs-two-col { grid-template-columns: 1fr; gap: 40px; }
+  .gs-section-title { font-size: 34px; }
+  .gs-closer h2 { font-size: 50px; }
+  .gs-two-col { grid-template-columns: 1fr; gap: 30px; }
   .gs-two-col-flip > :first-child { order: 0; }
   .gs-hero-window-wrap { grid-template-columns: 1fr; gap: 16px; }
 }
@@ -1058,13 +1060,24 @@ body {
 /* Responsive — mobile --------------------------------------------- */
 @media (max-width: 720px) {
   .gs-page { padding: 0 16px 48px; }
-  .gs-section { padding: 44px 0; }
-  .gs-hero { font-size: 48px; line-height: 1.02; margin: 18px 0 18px; }
-  .gs-section-title { font-size: 28px; line-height: 1.1; }
-  .gs-subhead { font-size: 22px; }
-  .gs-lede { font-size: 15px; }
+  .gs-section { padding: 38px 0; }
+  .gs-hero {
+    font-size: 43px;
+    line-height: 1.04;
+    margin: 22px 0 16px;
+    letter-spacing: -0.035em;
+  }
+  .gs-hero-copy-desktop { display: none; }
+  .gs-hero-copy-mobile {
+    display: grid;
+    gap: 0;
+  }
+  .gs-section-title { font-size: 26px; line-height: 1.08; }
+  .gs-subhead { font-size: 21px; }
+  .gs-lede { font-size: 14.5px; line-height: 1.45; }
+  .gs-lede-hero { font-size: 15.5px; line-height: 1.38; max-width: 34ch; }
   .gs-closer { padding: 36px 22px 36px; border-radius: 18px; }
-  .gs-closer h2 { font-size: 36px; line-height: 1.04; }
+  .gs-closer h2 { font-size: 34px; line-height: 1.04; }
   .gs-closer-sub { font-size: 16px; }
   .gs-closer-actions { flex-direction: column; gap: 12px; }
   .gs-closer-stats { gap: 24px; flex-wrap: wrap; margin-top: 18px; padding-top: 14px; }

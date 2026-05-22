@@ -17,10 +17,17 @@ export function Hero() {
     >
       <span className="gs-marble" style={{ top: 96, right: "16%", width: 14, height: 14, opacity: 0.85 }} />
 
-      <h1 className="gs-hero">
-        The relationship layer
-        <br />
-        for social commerce.
+      <h1 className="gs-hero" aria-label="The relationship layer for social commerce.">
+        <span className="gs-hero-copy-desktop" aria-hidden="true">
+          The relationship layer
+          <br />
+          for social commerce.
+        </span>
+        <span className="gs-hero-copy-mobile" aria-hidden="true">
+          <span>The relationship</span>
+          <span>layer for social</span>
+          <span>commerce.</span>
+        </span>
       </h1>
       <p className="gs-lede gs-lede-center gs-lede-hero">
         GrowthSync turns social impressions into zero-party data, engagement, and revenue.

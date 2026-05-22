@@ -84,7 +84,7 @@ const STEP_MS = 2400;
 const RESTART_MS = 4200;
 
 const VISIBLE_ROWS = 4;
-const ROW_HEIGHT = 50;
+const ROW_HEIGHT = 44;
 const ROW_GAP = 6;
 const TIMELINE_HEIGHT = VISIBLE_ROWS * ROW_HEIGHT + (VISIBLE_ROWS - 1) * ROW_GAP;
 
@@ -131,35 +131,35 @@ function useCountUp(target: number, duration = 720): number {
 }
 
 const root: CSSProperties = {
-  padding: "18px 18px 22px",
+  padding: "14px 16px 16px",
   display: "grid",
-  gap: 16,
+  gap: 12,
 };
 
 const head: CSSProperties = {
   display: "grid",
   gridTemplateColumns: "auto 1fr auto",
-  gap: 14,
+  gap: 12,
   alignItems: "center",
-  padding: "16px 18px",
+  padding: "14px 16px",
   borderBottom: "1px solid var(--gs-bone-edge)",
 };
 
 const avatar: CSSProperties = {
-  width: 46,
-  height: 46,
+  width: 42,
+  height: 42,
   borderRadius: 999,
   background: "linear-gradient(180deg, #FFCDB7, #F4A38A)",
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  font: "800 16px/1 var(--gs-font-display)",
+  font: "800 15px/1 var(--gs-font-display)",
   color: "#5A1E00",
   boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px rgba(11,11,18,0.10)",
 };
 
 const nameLine: CSSProperties = {
-  font: "800 19px/1.1 var(--gs-font-display)",
+  font: "800 18px/1.08 var(--gs-font-display)",
   color: "var(--gs-ink)",
   letterSpacing: "0",
 };
@@ -176,7 +176,7 @@ const chipHot: CSSProperties = {
   font: "700 9px/1 var(--gs-font-mono)",
   letterSpacing: "0.10em",
   textTransform: "uppercase",
-  padding: "5px 9px",
+  padding: "5px 8px",
   borderRadius: 999,
   background: "linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine))",
   color: "#fff",
@@ -194,12 +194,12 @@ const sectionLabel: CSSProperties = {
 const statCard: CSSProperties = {
   position: "relative",
   display: "grid",
-  gap: 8,
-  padding: "12px 14px 13px",
+  gap: 6,
+  padding: "10px 12px 11px",
   borderRadius: 12,
   background: "linear-gradient(180deg, #FFFFFF 0%, var(--gs-paper-cool) 100%)",
   boxShadow: "inset 0 1px 0 rgba(255,255,255,0.7), 0 0 0 1px var(--gs-bone-edge)",
-  minHeight: 70,
+  minHeight: 62,
   transition: "box-shadow 320ms ease",
 };
 
@@ -211,14 +211,14 @@ const statKey: CSSProperties = {
 };
 
 const statVal: CSSProperties = {
-  font: "800 22px/1 var(--gs-font-display)",
+  font: "800 20px/1 var(--gs-font-display)",
   color: "var(--gs-tangerine-deep)",
   letterSpacing: "0",
 };
 
 const nodeBubble = (src: Source): CSSProperties => ({
-  width: 28,
-  height: 28,
+  width: 26,
+  height: 26,
   borderRadius: 999,
   background: NODE_TINTS[src],
   color: "#fff",
@@ -358,8 +358,8 @@ function renderRow(row: TimelineRow): ReactNode {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "32px 50px 1fr",
-        gap: 10,
+        gridTemplateColumns: "30px 46px 1fr",
+        gap: 8,
         alignItems: "center",
         height: "100%",
       }}
@@ -562,7 +562,7 @@ export function SocialCrmWindow() {
                     }}
                   />
                 </div>
-                <span style={{ ...statVal, fontSize: 20, minWidth: 36, textAlign: "right" }}>{Math.round(intentDisplay)}</span>
+                <span style={{ ...statVal, minWidth: 36, textAlign: "right" }}>{Math.round(intentDisplay)}</span>
               </div>
             </StatCard>
           </div>
