@@ -1143,6 +1143,9 @@ body {
   .gs-nav-logo {
     min-width: 0;
   }
+  .gs-nav-cta {
+    grid-column: 2 !important;
+  }
   .gs-nav-tabs,
   .gs-nav-blog { display: none !important; }
 }

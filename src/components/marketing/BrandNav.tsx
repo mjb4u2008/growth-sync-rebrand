@@ -25,7 +25,7 @@ const bar: CSSProperties = {
   top: 0,
   zIndex: 50,
   display: "grid",
-  gridTemplateColumns: "240px 1fr 240px 140px",
+  gridTemplateColumns: "minmax(220px, 1fr) minmax(220px, 260px) 140px",
   alignItems: "center",
   gap: 16,
   height: 64,
@@ -41,8 +41,10 @@ const RAIL_HEIGHT = 36;
 const PILL_HEIGHT = RAIL_HEIGHT - RAIL_PAD * 2; // 26
 
 const railStyle: CSSProperties = {
-  position: "relative",
-  justifySelf: "center",
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%, -50%)",
   display: "flex",
   alignItems: "center",
   gap: TAB_GAP,
@@ -99,6 +101,7 @@ const pillStyle: CSSProperties = {
 };
 
 const blogStyle: CSSProperties = {
+  gridColumn: 2,
   justifySelf: "end",
   display: "inline-flex",
   alignItems: "center",
@@ -222,10 +225,17 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
       <a
         href="/"
         className="gs-nav-logo"
-        style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", color: "inherit" }}
+        style={{
+          gridColumn: 1,
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          textDecoration: "none",
+          color: "inherit",
+        }}
         aria-label="GrowthSync home"
       >
-        <GrowthSyncLogo height={30} />
+        <GrowthSyncLogo height={30} style={{ marginRight: -34 }} />
         <VersionBadge>v1.0</VersionBadge>
       </a>
 
@@ -288,7 +298,7 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
         <span style={{ color: "var(--gs-tangerine-deep)", font: "700 13px/1 var(--gs-font-mono)" }}>›</span>
       </a>
 
-      <div style={{ justifySelf: "end" }}>
+      <div className="gs-nav-cta" style={{ gridColumn: 3, justifySelf: "end" }}>
         <a href={data.ctaHref} style={{ textDecoration: "none" }}>
           <TangerineButton size="orb">
             {data.cta} <span style={{ marginLeft: 6, opacity: 0.9 }}>›</span>
