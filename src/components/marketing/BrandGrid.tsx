@@ -1,5 +1,5 @@
 /**
- * <BrandGrid> + <BrandTile> — Y2K beveled mosaic.
+ * <BrandGrid> + <BrandTile> - Y2K beveled mosaic.
  * Tiles read their color skin from <BrandTileColor>. The "Nike" tile
  * uses `big: true` and spans two rows.
  */

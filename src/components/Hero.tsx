@@ -74,7 +74,7 @@ const Hero = () => {
         </motion.div>
         <p className="mt-4 text-sm text-gray-400 tracking-wide">No credit card required</p>
 
-        {/* Brand marquee — right in the hero */}
+        {/* Brand marquee - right in the hero */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

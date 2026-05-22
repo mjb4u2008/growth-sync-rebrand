@@ -1,8 +1,8 @@
 /**
- * <SocialCrmWindow> — Module 03 · CRM
+ * <SocialCrmWindow> - Module 03 · CRM
  *
  * One person, one CRM. Maya R.'s profile sits at the top. Two stat
- * cards — GMV · 90D and CONVOS — sit above a full-width INTENT bar.
+ * cards - GMV · 90D and CONVOS - sit above a full-width INTENT bar.
  * Below them, an interactions feed renders as a fixed-height
  * notifications stack: new events drop in at the top, the oldest
  * fades out at the bottom, the stack always holds four rows. When

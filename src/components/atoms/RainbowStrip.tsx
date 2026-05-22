@@ -1,7 +1,7 @@
 /**
- * <RainbowStrip> — five-bar mini color strip used above each
+ * <RainbowStrip> - five-bar mini color strip used above each
  * module label in the "How It Works" rows. Tangerine, butter, mint,
- * sky, lilac — referencing the rest of the system palette.
+ * sky, lilac - referencing the rest of the system palette.
  */
 
 const BARS = [

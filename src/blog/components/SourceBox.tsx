@@ -1,5 +1,5 @@
 /**
- * <SourceBox> — dashed-rule list of sources at the foot of the article.
+ * <SourceBox> - dashed-rule list of sources at the foot of the article.
  * Hidden when the post has no sources.
  */
 

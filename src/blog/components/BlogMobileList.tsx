@@ -1,5 +1,5 @@
 /**
- * <BlogMobileList> — stacked card-row view of posts for narrow screens.
+ * <BlogMobileList> - stacked card-row view of posts for narrow screens.
  * Keeps the file/window metaphor but skips the unreadable mini-columns.
  * Each row is a real `<a href="/blog/:slug">` that navigates to the full
  * article reader; the SPA router intercepts the click.

@@ -1,5 +1,5 @@
 /**
- * <CrmProfileCard> — segment-of-one CRM panel.
+ * <CrmProfileCard> - segment-of-one CRM panel.
  *
  *   Header: avatar + name + handle + intent pill
  *   Stats:  4-up Orbitron stat row (optional)

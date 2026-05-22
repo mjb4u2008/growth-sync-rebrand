@@ -1,5 +1,5 @@
 /**
- * <BrandStrip> — partner wordmark row on paper-warm pinstripes.
+ * <BrandStrip> - partner wordmark row on paper-warm pinstripes.
  *
  * Wordmarks animate as a single horizontal marquee. The list is rendered
  * twice back-to-back so the CSS keyframe can translate by -50% with no

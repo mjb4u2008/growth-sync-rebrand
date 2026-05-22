@@ -99,7 +99,7 @@ const imageSpecs: BlogImageSpec[] = [
   },
   {
     slug: 'respond-every-dm-realtime',
-    scene: 'A towering mountain of 3D message envelopes and chat bubbles piled impossibly high. At the base, a tiny single desk with a small figure looks overwhelmed. Nearby, a glowing teal AI hub — a smooth sphere with neural network patterns — sends out dozens of simultaneous response lines to the messages, processing them all at once.',
+    scene: 'A towering mountain of 3D message envelopes and chat bubbles piled impossibly high. At the base, a tiny single desk with a small figure looks overwhelmed. Nearby, a glowing teal AI hub - a smooth sphere with neural network patterns - sends out dozens of simultaneous response lines to the messages, processing them all at once.',
   },
   {
     slug: 'holiday-social-commerce-proof',
@@ -243,14 +243,14 @@ const main = async () => {
     try {
       results.push(await generateImage(specsToGenerate[i], i, specsToGenerate.length, { dryRun, overwrite, sample }));
     } catch (err: any) {
-      console.error(`  Failed: ${specsToGenerate[i].slug} — ${err.message}`);
+      console.error(`  Failed: ${specsToGenerate[i].slug} - ${err.message}`);
       if (err.message?.includes('429') || err.message?.includes('rate') || err.message?.includes('Resource')) {
         console.log('  Waiting 15s for rate limit...');
         await new Promise(r => setTimeout(r, 15000));
         try {
           results.push(await generateImage(specsToGenerate[i], i, specsToGenerate.length, { dryRun, overwrite, sample }));
         } catch (retryErr: any) {
-          console.error(`  Retry failed: ${specsToGenerate[i].slug} — ${retryErr.message}`);
+          console.error(`  Retry failed: ${specsToGenerate[i].slug} - ${retryErr.message}`);
         }
       }
     }

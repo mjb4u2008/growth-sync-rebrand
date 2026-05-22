@@ -1,5 +1,5 @@
 /**
- * GrowthSync atoms — small, stateless primitives. Grouped into one
+ * GrowthSync atoms - small, stateless primitives. Grouped into one
  * file because they share no state and each is just a few lines.
  *
  *   <Orb />            tangerine 3D orb (logo + nav)

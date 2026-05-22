@@ -1,5 +1,5 @@
 /**
- * <Closer> — premium tangerine CTA panel.
+ * <Closer> - premium tangerine CTA panel.
  *
  *   - Chrome bar above grounds the card as a "system" surface.
  *   - Status pill: "NOW LIVE · ONBOARD IN 4 MINUTES" (green LED).

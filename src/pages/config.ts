@@ -12,4 +12,4 @@ export const CALENDLY_URL = "";
 export const CONTACT_EMAIL = "hello@growthsync.app";
 
 /** Effective date for legal pages. Replace before launch. */
-export const LEGAL_EFFECTIVE_DATE = "TBD — set before launch";
+export const LEGAL_EFFECTIVE_DATE = "TBD. Set before launch";

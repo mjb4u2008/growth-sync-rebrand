@@ -1,4 +1,4 @@
-/* Calculator window — shared between preview card and UI kit.
+/* Calculator window - shared between preview card and UI kit.
    The class names are prefixed with .gscalc-... to avoid collisions. */
 
 .gscalc-app {

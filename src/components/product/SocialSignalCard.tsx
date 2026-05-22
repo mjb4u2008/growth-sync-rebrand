@@ -1,5 +1,5 @@
 /**
- * <SocialSignalCard> — windowed TikTok/IG signal card.
+ * <SocialSignalCard> - windowed TikTok/IG signal card.
  * Image is shown as a 4:5 hero, with handle + LIVE pill underneath and
  * a tangerine "PICK UP →" CTA in the metadata row.
  */

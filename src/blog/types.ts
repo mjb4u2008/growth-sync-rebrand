@@ -1,5 +1,5 @@
 /**
- * GrowthSync blog — data shapes for Phase 1 (fake posts only).
+ * GrowthSync blog - data shapes for Phase 1 (fake posts only).
  *
  * `content` is React so authors can use Y2K callouts and inline components.
  * Posts are imported from `src/blog/data.tsx`.

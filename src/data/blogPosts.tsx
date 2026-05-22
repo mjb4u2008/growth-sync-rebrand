@@ -584,7 +584,7 @@ export const blogPosts = [
   {
     id: 6,
     title: "The TikTok Halo Effect Is Real, and Most Brands Aren't Maximizing It",
-    excerpt: "Brands at the Million Dollar Seller Summit are losing money on TikTok on purpose — because the revenue it drives on Amazon, Shopify, and wholesale is worth multiples more.",
+    excerpt: "Brands are investing in TikTok even when the first sale happens elsewhere. The lift across Amazon, Shopify, and wholesale can be worth far more.",
     category: "Social Commerce",
     author: rodAuthor,
     date: "Mar 26, 2026",
@@ -703,7 +703,7 @@ export const blogPosts = [
   {
     id: 5,
     title: "TikTok Has a Reputation Problem. They're Spending Millions to Fix It.",
-    excerpt: "TikTok's Project Horizon is paying agencies to recruit $10M+ brands onto TikTok Shop. Premium brands are showing up — but the customer experience isn't ready.",
+    excerpt: "TikTok's Project Horizon is paying agencies to recruit $10M+ brands onto TikTok Shop. Premium brands are showing up, but customer experience still needs work.",
     category: "Social Commerce",
     author: rodAuthor,
     date: "Mar 12, 2026",
@@ -907,11 +907,11 @@ export const blogPosts = [
           I was talking to a skincare brand doing about $3 million a year on Instagram. They have a loyal following, great engagement on their posts, and their DMs are constantly full. For months, they were responding to maybe 40 or 50 DMs a day out of the 300-plus they were getting. The rest just sat there.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          Then they committed to responding to everything. They added a team member. They created response templates for common questions. They prioritized speed over perfection. Within two months, their monthly revenue from Instagram was up 34 percent. Not from more followers. Not from more content. From the same audience they already had — they just started actually talking to them.
+          Then they committed to responding to everything. They added a team member. They created response templates for common questions. They prioritized speed over perfection. Within two months, their monthly revenue from Instagram was up 34 percent. Not from more followers. Not from more content. From the same audience they already had, they just started actually talking to them.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The compounding effect</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Here's what surprised them most. When you respond to DMs quickly and helpfully, people start DMing you more. The algorithm rewards it too — Instagram prioritizes accounts that have active, two-way conversations. Their story reply rate went up. Their comment engagement went up. They created a flywheel without intending to.
+          Here's what surprised them most. When you respond to DMs quickly and helpfully, people start DMing you more. The algorithm rewards it too, Instagram prioritizes accounts that have active, two-way conversations. Their story reply rate went up. Their comment engagement went up. They created a flywheel without intending to.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           The founder told me something I think about all the time now. She said responding to every DM didn't feel like customer service. It felt like having a thousand one-on-one sales conversations happening simultaneously. That's exactly what it is.
@@ -921,11 +921,11 @@ export const blogPosts = [
           The math is the problem. Even that skincare brand, at 300 DMs a day, needed to add a full-time person just to keep up. Brands doing live streams or running viral campaigns can see 1,000-plus messages in a single day. No team can handle that volume while maintaining quality and speed.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          But the brands that figure out how to achieve full coverage — whether through team scaling, automation, or both — unlock a revenue stream that their competitors are leaving completely untapped. The inbox isn't a chore. It's the most direct line to revenue you have.
+          But the brands that figure out how to achieve full coverage, whether through team scaling, automation, or both, unlock a revenue stream that their competitors are leaving completely untapped. The inbox isn't a chore. It's the most direct line to revenue you have.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is the future of social selling</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Every brand I talk to knows they should be doing this. The gap isn't awareness. It's capacity. That's exactly the problem we're building GrowthSync to solve — giving every brand the ability to respond to every single interaction, instantly, at scale, without losing the personal touch that makes social commerce work.
+          Every brand I talk to knows they should be doing this. The gap isn't awareness. It's capacity. That's exactly the problem we're building GrowthSync to solve, giving every brand the ability to respond to every single interaction, instantly, at scale, without losing the personal touch that makes social commerce work.
         </p>
       </>
     )
@@ -985,11 +985,11 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          Let me walk through some math that should make every e-commerce executive uncomfortable. If your brand gets 500 DMs per day on Instagram — which is conservative for any brand with a decent following — and you're only responding to 20 percent of them, you're ignoring 400 potential customer conversations. Every single day.
+          Let me walk through some math that should make every e-commerce executive uncomfortable. If your brand gets 500 DMs per day on Instagram, which is conservative for any brand with a decent following, and you're only responding to 20 percent of them, you're ignoring 400 potential customer conversations. Every single day.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The revenue math on ignored DMs</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Not every DM is a buying signal. But industry data suggests that 15 to 25 percent of inbound brand DMs contain explicit purchase intent — questions about pricing, sizing, availability, or direct requests to buy. Let's be conservative and use 10 percent.
+          Not every DM is a buying signal. But industry data suggests that 15 to 25 percent of inbound brand DMs contain explicit purchase intent, questions about pricing, sizing, availability, or direct requests to buy. Let's be conservative and use 10 percent.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           That's 40 high-intent conversations per day going unanswered. If your average order value is $60, and you could convert even 30 percent of those into sales, that's 12 orders per day. $720 per day. $21,600 per month. $259,200 per year. From DMs you're currently ignoring.
@@ -1033,7 +1033,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The perception is lagging the reality</h2>
         <p className="text-lg leading-relaxed mb-8">
-          TikTok Shop's early reputation was built on $5 viral gadgets and impulse buys. That was real. But the platform has been deliberately recruiting premium brands for over a year now. Average order values are climbing. The content quality is rising. And the demographics aren't what most executives assume — TikTok's fastest-growing user segment is adults 25-45 with real disposable income.
+          TikTok Shop's early reputation was built on $5 viral gadgets and impulse buys. That was real. But the platform has been deliberately recruiting premium brands for over a year now. Average order values are climbing. The content quality is rising. And the demographics aren't what most executives assume, TikTok's fastest-growing user segment is adults 25-45 with real disposable income.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What I'm seeing on the ground</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1048,7 +1048,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The customer experience gap</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The one legitimate concern premium brands have is customer experience. When someone DMs you about a $200 product, they expect a premium interaction. Right now, most brands can't deliver that at TikTok's scale. That's a solvable problem — but it needs to be solved with the right infrastructure, not avoided entirely. The brands that figure out how to deliver premium customer experiences on social platforms will own this next wave of commerce.
+          The one legitimate concern premium brands have is customer experience. When someone DMs you about a $200 product, they expect a premium interaction. Right now, most brands can't deliver that at TikTok's scale. That's a solvable problem, but it needs to be solved with the right infrastructure, not avoided entirely. The brands that figure out how to deliver premium customer experiences on social platforms will own this next wave of commerce.
         </p>
       </>
     )
@@ -1056,7 +1056,7 @@ export const blogPosts = [
   {
     id: 29,
     title: "5 Social Commerce Predictions for 2026",
-    excerpt: "AI-powered DM commerce, TikTok Shop doubling, live shopping going mainstream — here are five predictions for social commerce in the year ahead.",
+    excerpt: "Five social commerce predictions for 2026: AI-powered DMs, TikTok Shop growth, and live shopping moving into the mainstream.",
     category: "Predictions",
     author,
     date: "Jan 6, 2026",
@@ -1071,7 +1071,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">1. AI-powered DM commerce becomes the default</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The brands that are winning right now in social commerce are the ones that can respond to every interaction instantly. In 2026, AI-powered conversation agents will become standard tooling for any brand serious about social revenue. Not basic chatbots with scripted flows — genuine conversational AI that understands context, recommends products, and generates checkout links in natural conversation.
+          The brands that are winning right now in social commerce are the ones that can respond to every interaction instantly. In 2026, AI-powered conversation agents will become standard tooling for any brand serious about social revenue. Not basic chatbots with scripted flows, genuine conversational AI that understands context, recommends products, and generates checkout links in natural conversation.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">2. TikTok Shop doubles its US GMV</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1079,11 +1079,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">3. Live commerce goes mainstream in the US</h2>
         <p className="text-lg leading-relaxed mb-8">
-          2025 was the year early adopters proved live commerce works in the US. In 2026, I expect live shopping to move from experimentation to core strategy for mid-market and enterprise brands. The trigger will be better tooling — platforms making it easier to go live, tag products, and capture post-stream engagement automatically.
+          2025 was the year early adopters proved live commerce works in the US. In 2026, I expect live shopping to move from experimentation to core strategy for mid-market and enterprise brands. The trigger will be better tooling, platforms making it easier to go live, tag products, and capture post-stream engagement automatically.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">4. Brands create "social revenue" roles</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Today, social media teams sit under marketing and are measured on engagement. In 2026, forward-thinking brands will create dedicated social revenue roles — people whose KPI is attributed revenue from social interactions. This isn't just a title change. It's a fundamental restructuring of how brands think about social as a sales channel.
+          Today, social media teams sit under marketing and are measured on engagement. In 2026, forward-thinking brands will create dedicated social revenue roles, people whose KPI is attributed revenue from social interactions. This isn't just a title change. It's a fundamental restructuring of how brands think about social as a sales channel.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">5. Attribution models finally include social conversations</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1117,11 +1117,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What the losers did the same</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The brands that underperformed all told me the same story. They created amazing holiday content. They ran campaigns. Engagement was through the roof. And then they pointed people to the link in their bio or their website. The conversion funnel looked like every other month — just with more impressions at the top. They created demand and then leaked it through the same broken checkout process they always use.
+          The brands that underperformed all told me the same story. They created amazing holiday content. They ran campaigns. Engagement was through the roof. And then they pointed people to the link in their bio or their website. The conversion funnel looked like every other month, just with more impressions at the top. They created demand and then leaked it through the same broken checkout process they always use.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The lesson for 2026</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Holiday season proved what I've been saying all year. The gap between engagement and revenue isn't a content problem. It's an infrastructure problem. The brands that can turn social interactions into frictionless purchase experiences will outperform the ones that can't — not by a little, but by multiples. The winners in 2026 will be the ones that start building that infrastructure now.
+          Holiday season proved what I've been saying all year. The gap between engagement and revenue isn't a content problem. It's an infrastructure problem. The brands that can turn social interactions into frictionless purchase experiences will outperform the ones that can't, not by a little, but by multiples. The winners in 2026 will be the ones that start building that infrastructure now.
         </p>
       </>
     )
@@ -1152,7 +1152,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The creator economy became the sales engine</h2>
         <p className="text-lg leading-relaxed mb-8">
-          2025 was the year creators stopped being just content producers and became the primary sales channel for social commerce brands. TikTok's affiliate infrastructure matured. Brands built creator networks specifically for commerce, not just awareness. The best-performing social commerce brands were the ones with the deepest creator relationships — not the biggest ad budgets.
+          2025 was the year creators stopped being just content producers and became the primary sales channel for social commerce brands. TikTok's affiliate infrastructure matured. Brands built creator networks specifically for commerce, not just awareness. The best-performing social commerce brands were the ones with the deepest creator relationships, not the biggest ad budgets.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The infrastructure gap became obvious</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1191,7 +1191,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What the data says about the future</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Black Friday on social proved that when the intent is there and the infrastructure is in place, social commerce can outperform traditional channels on conversion rate and customer acquisition cost. The brands that set up for this — with proper DM automation, live commerce playbooks, and creator networks — are already planning to invest more heavily in 2026. The ones that didn't are scrambling to catch up.
+          Black Friday on social proved that when the intent is there and the infrastructure is in place, social commerce can outperform traditional channels on conversion rate and customer acquisition cost. The brands that set up for this, with proper DM automation, live commerce playbooks, and creator networks, are already planning to invest more heavily in 2026. The ones that didn't are scrambling to catch up.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The lesson</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1203,7 +1203,7 @@ export const blogPosts = [
   {
     id: 25,
     title: "How AI Is Finally Making Social Selling Scalable",
-    excerpt: "Previous automation attempts failed because chatbots felt robotic. Modern conversational AI changes everything — here's why the technology finally matches the need.",
+    excerpt: "Older automation felt robotic. Modern conversational AI now matches the way social selling actually works.",
     category: "AI",
     author,
     date: "Nov 17, 2025",
@@ -1214,15 +1214,15 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          The idea of automating social selling isn't new. Brands have tried chatbots, auto-responders, and keyword-triggered DM flows for years. Most of those attempts failed — not because automation was wrong, but because the technology wasn't ready. Scripted chatbots and decision-tree flows feel robotic. They break when customers say something unexpected. And in social commerce, where authenticity and personal connection drive conversion, robotic feels like the fastest way to lose a customer.
+          The idea of automating social selling isn't new. Brands have tried chatbots, auto-responders, and keyword-triggered DM flows for years. Most of those attempts failed, not because automation was wrong, but because the technology wasn't ready. Scripted chatbots and decision-tree flows feel robotic. They break when customers say something unexpected. And in social commerce, where authenticity and personal connection drive conversion, robotic feels like the fastest way to lose a customer.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why chatbots failed social commerce</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Traditional chatbots work by mapping user inputs to pre-defined responses. "If customer says X, respond with Y." This works fine for FAQ deflection on a website. It fails completely in social commerce because conversations are fluid, context-dependent, and unpredictable. A customer might ask about sizing, then switch to asking about returns, then ask for a product recommendation — all in the same DM thread. Scripted flows can't handle that.
+          Traditional chatbots work by mapping user inputs to pre-defined responses. "If customer says X, respond with Y." This works fine for FAQ deflection on a website. It fails completely in social commerce because conversations are fluid, context-dependent, and unpredictable. A customer might ask about sizing, then switch to asking about returns, then ask for a product recommendation, all in the same DM thread. Scripted flows can't handle that.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What changed: large language models</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Modern conversational AI — built on large language models — doesn't follow scripts. It understands natural language, maintains context across a conversation, and generates responses that feel human. It can recommend products based on what a customer describes wanting, not just what keyword they typed. It can handle follow-up questions, understand nuance, and maintain the brand's voice across thousands of simultaneous conversations.
+          Modern conversational AI, built on large language models, doesn't follow scripts. It understands natural language, maintains context across a conversation, and generates responses that feel human. It can recommend products based on what a customer describes wanting, not just what keyword they typed. It can handle follow-up questions, understand nuance, and maintain the brand's voice across thousands of simultaneous conversations.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The scale problem is solved</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1230,7 +1230,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The timing is right</h2>
         <p className="text-lg leading-relaxed mb-8">
-          For the first time, the technology is sophisticated enough to handle the nuance of social commerce conversations at the speed those conversations happen. Brands no longer have to choose between personal and scalable. AI makes it possible to be both — and the brands that adopt this technology first will have a structural advantage over everyone else.
+          For the first time, the technology is sophisticated enough to handle the nuance of social commerce conversations at the speed those conversations happen. Brands no longer have to choose between personal and scalable. AI makes it possible to be both, and the brands that adopt this technology first will have a structural advantage over everyone else.
         </p>
       </>
     )
@@ -1257,11 +1257,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The brands that are ready</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The ones who have been investing in social commerce infrastructure all year are in the best position. They've built the muscle memory of responding to DMs quickly. They've tested live shopping. They've established creator relationships. They're treating BFCM on social the same way other brands treat email — with segmented strategies, pre-built flows, and revenue targets.
+          The ones who have been investing in social commerce infrastructure all year are in the best position. They've built the muscle memory of responding to DMs quickly. They've tested live shopping. They've established creator relationships. They're treating BFCM on social the same way other brands treat email, with segmented strategies, pre-built flows, and revenue targets.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What to watch this holiday season</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Pay attention to TikTok Shop BFCM numbers. Watch which brands are doing marathon live streams. Look at which brands have instant DM responses during peak shopping moments. The brands that crush this holiday season on social will be the proof point that social commerce isn't a trend — it's the new standard. And the brands that sit this one out will spend January wondering how to catch up.
+          Pay attention to TikTok Shop BFCM numbers. Watch which brands are doing marathon live streams. Look at which brands have instant DM responses during peak shopping moments. The brands that crush this holiday season on social will be the proof point that social commerce isn't a trend, it's the new standard. And the brands that sit this one out will spend January wondering how to catch up.
         </p>
       </>
     )
@@ -1280,11 +1280,11 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          Let me pose a thought experiment. What would it actually take for your brand to respond to every single DM, comment, and story reply in real time? Not eventually. Not within a few hours. In real time — within minutes of each interaction.
+          Let me pose a thought experiment. What would it actually take for your brand to respond to every single DM, comment, and story reply in real time? Not eventually. Not within a few hours. In real time, within minutes of each interaction.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The math on manual response</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Say your brand gets 500 DMs per day. A quality response — one that's personalized, helpful, and drives toward a purchase — takes about 5 minutes when done well. That's 2,500 minutes per day. 42 hours. More than five full-time employees doing nothing but responding to DMs, eight hours a day. And that's just DMs. Add comments, story replies, and live stream interactions, and you're looking at a team of 10-plus people dedicated entirely to social response.
+          Say your brand gets 500 DMs per day. A quality response, one that's personalized, helpful, and drives toward a purchase, takes about 5 minutes when done well. That's 2,500 minutes per day. 42 hours. More than five full-time employees doing nothing but responding to DMs, eight hours a day. And that's just DMs. Add comments, story replies, and live stream interactions, and you're looking at a team of 10-plus people dedicated entirely to social response.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           For most brands, that's not a realistic headcount. So they triage. They respond to the easy questions and ignore the rest. They batch responses at the end of the day. They use generic templates that feel impersonal. The intent is there. The capacity isn't.
@@ -1295,7 +1295,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What real-time, at-scale response requires</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The only way to respond to every interaction in real time without sacrificing quality is AI that can genuinely converse. Not scripts. Not decision trees. An AI agent that understands what the customer is asking, has access to your product catalog, can make personalized recommendations, and can generate checkout links — all within seconds. This is what we're building at GrowthSync, because we believe it's the only path to unlocking the full revenue potential of social commerce.
+          The only way to respond to every interaction in real time without sacrificing quality is AI that can genuinely converse. Not scripts. Not decision trees. An AI agent that understands what the customer is asking, has access to your product catalog, can make personalized recommendations, and can generate checkout links, all within seconds. This is what we're building at GrowthSync, because we believe it's the only path to unlocking the full revenue potential of social commerce.
         </p>
       </>
     )
@@ -1314,7 +1314,7 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          Every day, your customers tell you exactly what they want to buy. They do it in plain language, publicly, on your social channels. They comment "how much?" on your product posts. They reply to your stories with "I need this in my size." They DM asking if you have something in stock. These are intent signals — explicit expressions of purchase intent — and most brands count them as engagement metrics instead of revenue opportunities.
+          Every day, your customers tell you exactly what they want to buy. They do it in plain language, publicly, on your social channels. They comment "how much?" on your product posts. They reply to your stories with "I need this in my size." They DM asking if you have something in stock. These are intent signals, explicit expressions of purchase intent, and most brands count them as engagement metrics instead of revenue opportunities.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The difference between engagement and intent</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1330,7 +1330,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What it looks like to actually listen</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Listening to intent signals means having a system that can identify buying intent in real time — across DMs, comments, story replies, and live streams — and immediately route a personalized response. Not a generic auto-reply. A response that understands what the customer wants and gives them a direct path to purchase. The technology to do this exists now. The brands that adopt it will capture revenue that their competitors don't even know they're losing.
+          Listening to intent signals means having a system that can identify buying intent in real time, across DMs, comments, story replies, and live streams, and immediately route a personalized response. Not a generic auto-reply. A response that understands what the customer wants and gives them a direct path to purchase. The technology to do this exists now. The brands that adopt it will capture revenue that their competitors don't even know they're losing.
         </p>
       </>
     )
@@ -1338,7 +1338,7 @@ export const blogPosts = [
   {
     id: 21,
     title: "Amazon Sellers Are Moving to Social and It Makes Perfect Sense",
-    excerpt: "Rising fees, margin pressure, and zero customer relationships. Amazon sellers are diversifying to social commerce — and finding something Amazon never offered.",
+    excerpt: "Rising fees, margin pressure, and weak customer relationships are pushing Amazon sellers toward social commerce.",
     category: "Social Commerce",
     author: rodAuthor,
     date: "Oct 6, 2025",
@@ -1353,7 +1353,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The Amazon squeeze</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Amazon fees keep rising. Referral fees, FBA fees, advertising costs — they all trend in one direction. A brand that was operating at healthy margins three years ago is now watching those margins shrink every quarter. And the worst part isn't the fees. It's that Amazon owns the customer. You can't email them. You can't DM them. You can't build a relationship. Every sale starts from zero.
+          Amazon fees keep rising. Referral fees, FBA fees, advertising costs, they all trend in one direction. A brand that was operating at healthy margins three years ago is now watching those margins shrink every quarter. And the worst part isn't the fees. It's that Amazon owns the customer. You can't email them. You can't DM them. You can't build a relationship. Every sale starts from zero.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What social commerce offers that Amazon doesn't</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1361,11 +1361,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The transition isn't easy</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Amazon sellers are operationally excellent. They know logistics, supply chain, and listing optimization. What they often don't have is the muscle memory for social. Creating content, engaging with followers, responding to DMs — it's a different skill set. But the ones who invest in building it are finding that social commerce gives them something Amazon never could: a moat built on customer relationships.
+          Amazon sellers are operationally excellent. They know logistics, supply chain, and listing optimization. What they often don't have is the muscle memory for social. Creating content, engaging with followers, responding to DMs, it's a different skill set. But the ones who invest in building it are finding that social commerce gives them something Amazon never could: a moat built on customer relationships.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Where this is heading</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The smartest Amazon sellers I talk to aren't abandoning the platform. They're using TikTok and Instagram as discovery engines that drive revenue across Amazon, Shopify, and their own channels simultaneously. Social becomes the top of the funnel. Amazon remains the cash register for people who prefer to buy there. But the brand relationship — the thing that creates long-term value — that happens on social.
+          The smartest Amazon sellers I talk to aren't abandoning the platform. They're using TikTok and Instagram as discovery engines that drive revenue across Amazon, Shopify, and their own channels simultaneously. Social becomes the top of the funnel. Amazon remains the cash register for people who prefer to buy there. But the brand relationship, the thing that creates long-term value, that happens on social.
         </p>
       </>
     )
@@ -1384,11 +1384,11 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          Every major e-commerce channel is measured by revenue. Email? Klaviyo will tell you exactly how much revenue every campaign, flow, and segment generated. Paid media? Attribution models track every dollar from ad click to purchase. Your website? Shopify analytics show you conversion rates, AOV, and revenue per session. But social media — the channel where your customers are literally telling you what they want to buy — is still measured by likes, follows, and engagement rate.
+          Every major e-commerce channel is measured by revenue. Email? Klaviyo will tell you exactly how much revenue every campaign, flow, and segment generated. Paid media? Attribution models track every dollar from ad click to purchase. Your website? Shopify analytics show you conversion rates, AOV, and revenue per session. But social media, the channel where your customers are literally telling you what they want to buy, is still measured by likes, follows, and engagement rate.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The classification problem</h2>
         <p className="text-lg leading-relaxed mb-8">
-          At most companies, social media sits under marketing. It's classified as a brand awareness and content distribution channel. The metrics that matter are reach, impressions, engagement rate, and follower growth. These are all valuable metrics — for a brand awareness channel. But social is no longer just a brand awareness channel. It's a direct revenue channel. And until companies reclassify it as such, they'll keep under-investing in the infrastructure needed to convert social engagement into revenue.
+          At most companies, social media sits under marketing. It's classified as a brand awareness and content distribution channel. The metrics that matter are reach, impressions, engagement rate, and follower growth. These are all valuable metrics, for a brand awareness channel. But social is no longer just a brand awareness channel. It's a direct revenue channel. And until companies reclassify it as such, they'll keep under-investing in the infrastructure needed to convert social engagement into revenue.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The evidence is overwhelming</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1396,11 +1396,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What reclassification means in practice</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Treating social as a revenue channel means three things. First, giving your social team a revenue KPI. Second, investing in the same caliber of tooling you give your email and paid teams — conversation management, product integration, checkout capabilities, and attribution. Third, measuring social by the same standard as every other revenue channel: how many dollars did it generate, and what was the ROI.
+          Treating social as a revenue channel means three things. First, giving your social team a revenue KPI. Second, investing in the same caliber of tooling you give your email and paid teams, conversation management, product integration, checkout capabilities, and attribution. Third, measuring social by the same standard as every other revenue channel: how many dollars did it generate, and what was the ROI.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The brands that get this right will win</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The brands that reclassify social as a revenue channel — and invest accordingly — will unlock a revenue stream that their competitors don't even know exists. The data is there. The intent is there. The customers are there. The only thing missing is the organizational will to take social commerce as seriously as every other channel. The ones who do it first will have a structural advantage that compounds over time.
+          The brands that reclassify social as a revenue channel, and invest accordingly, will unlock a revenue stream that their competitors don't even know exists. The data is there. The intent is there. The customers are there. The only thing missing is the organizational will to take social commerce as seriously as every other channel. The ones who do it first will have a structural advantage that compounds over time.
         </p>
       </>
     )
@@ -1419,7 +1419,7 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          I've spent the last few months having conversations with brand operators — founders, marketing leads, social media managers — about how they're thinking about social selling. Not the theory. The reality. What's working, what's frustrating, and what they wish existed. After dozens of these conversations, three themes keep coming up.
+          I've spent the last few months having conversations with brand operators, founders, marketing leads, social media managers, about how they're thinking about social selling. Not the theory. The reality. What's working, what's frustrating, and what they wish existed. After dozens of these conversations, three themes keep coming up.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Theme 1: The volume is overwhelming</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1427,7 +1427,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Theme 2: Fear of sounding robotic</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Almost every brand I've talked to has tried some form of automation — ManyChat flows, chatbots, auto-replies. And almost every one has pulled back. The feedback from customers was clear: it felt impersonal. In social, where authenticity drives everything, robotic responses are worse than no response at all. Brands want automation for scale, but they refuse to sacrifice the personal touch that makes social commerce work.
+          Almost every brand I've talked to has tried some form of automation, ManyChat flows, chatbots, auto-replies. And almost every one has pulled back. The feedback from customers was clear: it felt impersonal. In social, where authenticity drives everything, robotic responses are worse than no response at all. Brands want automation for scale, but they refuse to sacrifice the personal touch that makes social commerce work.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Theme 3: No way to measure social revenue</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1435,7 +1435,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What these themes tell me</h2>
         <p className="text-lg leading-relaxed mb-8">
-          These three problems — volume, authenticity, and attribution — are the same problems every brand faces. That tells me the opportunity isn't niche. It's universal. The brand that builds the solution to these three problems will have an enormous market. And from what I'm seeing on the ground, that solution needs to be AI-powered, commerce-integrated, and measurable from day one.
+          These three problems, volume, authenticity, and attribution, are the same problems every brand faces. That tells me the opportunity isn't niche. It's universal. The brand that builds the solution to these three problems will have an enormous market. And from what I'm seeing on the ground, that solution needs to be AI-powered, commerce-integrated, and measurable from day one.
         </p>
       </>
     )
@@ -1443,7 +1443,7 @@ export const blogPosts = [
   {
     id: 18,
     title: "TikTok Shop Did $33 Billion Last Year. What Happens Next?",
-    excerpt: "TikTok Shop's global GMV hit $33 billion in 2024 with the US as its fastest-growing market. The platform is just getting started — here's what's coming.",
+    excerpt: "TikTok Shop's global GMV hit $33 billion in 2024 with the US as its fastest-growing market. The platform is just getting started.",
     category: "TikTok",
     author,
     date: "Sep 8, 2025",
@@ -1462,7 +1462,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What's driving the growth</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Three things are converging. First, TikTok's algorithm is uniquely good at putting products in front of people who want them. The discovery mechanism is the most powerful in social media. Second, the creator affiliate ecosystem is creating a distributed salesforce that scales with the platform. Third, the user behavior is shifting — younger consumers are increasingly comfortable buying products they discover in their feed.
+          Three things are converging. First, TikTok's algorithm is uniquely good at putting products in front of people who want them. The discovery mechanism is the most powerful in social media. Second, the creator affiliate ecosystem is creating a distributed salesforce that scales with the platform. Third, the user behavior is shifting, younger consumers are increasingly comfortable buying products they discover in their feed.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The gap nobody is addressing</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1470,7 +1470,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What happens next</h2>
         <p className="text-lg leading-relaxed mb-8">
-          TikTok Shop is going to get bigger. The question for brands isn't whether to be on the platform — it's how to capture the maximum revenue from the demand TikTok generates. The brands that build the infrastructure to respond to every interaction in real time, with personalized recommendations and frictionless checkout, will capture a disproportionate share of this growing pie.
+          TikTok Shop is going to get bigger. The question for brands isn't whether to be on the platform, it's how to capture the maximum revenue from the demand TikTok generates. The brands that build the infrastructure to respond to every interaction in real time, with personalized recommendations and frictionless checkout, will capture a disproportionate share of this growing pie.
         </p>
       </>
     )
@@ -1493,7 +1493,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Social interactions break the CRM model</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Social commerce interactions are fundamentally different from what CRMs were built to handle. They're real-time — a customer expects a response in minutes, not hours. They're high-volume — hundreds or thousands of interactions per day across DMs, comments, and stories. They're multi-channel — the same customer might comment on a post, then DM you, then reply to a story. And they're conversational — they don't follow a linear pipeline. They're fluid, context-dependent dialogues.
+          Social commerce interactions are fundamentally different from what CRMs were built to handle. They're real-time, a customer expects a response in minutes, not hours. They're high-volume, hundreds or thousands of interactions per day across DMs, comments, and stories. They're multi-channel, the same customer might comment on a post, then DM you, then reply to a story. And they're conversational, they don't follow a linear pipeline. They're fluid, context-dependent dialogues.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The Frankenstein stack</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1532,7 +1532,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The engagement-to-revenue flywheel</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Small brands have figured out something that enterprise hasn't: engagement and revenue are the same flywheel. When you respond to every DM with a personalized product recommendation and a checkout link, you're not doing customer service — you're selling. And the sale creates a customer who engages more, which creates more selling opportunities. The small brands that run this flywheel well are generating more revenue per follower than enterprise brands with 100x their audience.
+          Small brands have figured out something that enterprise hasn't: engagement and revenue are the same flywheel. When you respond to every DM with a personalized product recommendation and a checkout link, you're not doing customer service, you're selling. And the sale creates a customer who engages more, which creates more selling opportunities. The small brands that run this flywheel well are generating more revenue per follower than enterprise brands with 100x their audience.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What enterprise can learn</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1557,7 +1557,7 @@ export const blogPosts = [
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
           When I tell people we're building conversational AI for social commerce, the most common response is "so, a chatbot?" And I have to spend the next five minutes explaining why conversational AI and chatbots are fundamentally different technologies that produce fundamentally different customer experiences. The distinction matters enormously for social commerce.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">How chatbots work — and why they fail</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">How chatbots work, and why they fail</h2>
         <p className="text-lg leading-relaxed mb-8">
           Traditional chatbots are decision trees. They map user inputs to pre-defined responses. If a customer says "sizing," the bot returns the sizing chart. If they say "return," the bot returns the return policy. This works for deflecting simple FAQ questions on a website. It fails catastrophically in social commerce because social conversations are fluid, unpredictable, and context-dependent.
         </p>
@@ -1566,11 +1566,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">How conversational AI is different</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Conversational AI built on large language models doesn't follow scripts. It understands natural language, maintains context across an entire conversation, and generates responses dynamically. It can handle topic switches, follow-up questions, and nuanced requests because it actually understands what the customer is saying — not just pattern-matching keywords.
+          Conversational AI built on large language models doesn't follow scripts. It understands natural language, maintains context across an entire conversation, and generates responses dynamically. It can handle topic switches, follow-up questions, and nuanced requests because it actually understands what the customer is saying, not just pattern-matching keywords.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why this matters for social commerce</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Social commerce lives and dies on the quality of the conversation. When a customer DMs a brand, they expect a natural, helpful interaction. A chatbot that responds with "I didn't understand that. Please choose from the following options:" kills the sale instantly. Conversational AI that responds naturally, recommends the right product, and sends a checkout link — that closes the sale.
+          Social commerce lives and dies on the quality of the conversation. When a customer DMs a brand, they expect a natural, helpful interaction. A chatbot that responds with "I didn't understand that. Please choose from the following options:" kills the sale instantly. Conversational AI that responds naturally, recommends the right product, and sends a checkout link, that closes the sale.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The technology is finally ready</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1593,7 +1593,7 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          There's a study from Harvard Business Review that every sales leader knows. Companies that respond to leads within 5 minutes are 21 times more likely to qualify the lead than companies that respond within 30 minutes. Wait an hour, and the odds of qualification drop by 60 times. This data reshaped how businesses think about response time for web leads. But almost no one is applying this thinking to social commerce — where the response time gap is even more extreme.
+          There's a study from Harvard Business Review that every sales leader knows. Companies that respond to leads within 5 minutes are 21 times more likely to qualify the lead than companies that respond within 30 minutes. Wait an hour, and the odds of qualification drop by 60 times. This data reshaped how businesses think about response time for web leads. But almost no one is applying this thinking to social commerce, where the response time gap is even more extreme.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Social intent decays faster than any other channel</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1601,11 +1601,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The data on social response time</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Brands that respond to social DMs within 5 minutes see conversion rates 3-5x higher than brands that respond within an hour. By the time you get to a 24-hour response time — which is the reality for most brands — the conversion probability approaches zero for that specific interaction. The customer has moved on. They may have already bought from a competitor who responded faster.
+          Brands that respond to social DMs within 5 minutes see conversion rates 3-5x higher than brands that respond within an hour. By the time you get to a 24-hour response time, which is the reality for most brands, the conversion probability approaches zero for that specific interaction. The customer has moved on. They may have already bought from a competitor who responded faster.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The live stream amplifier</h2>
         <p className="text-lg leading-relaxed mb-8">
-          During live streams, the response time window shrinks even further. A viewer who comments about a product during a live is at peak engagement — they're actively watching, emotionally connected, and surrounded by social proof. If they get a DM with a checkout link within 2 minutes of their comment, conversion rates can exceed 20 percent. If you wait until after the stream ends, you've already lost the majority of those potential sales.
+          During live streams, the response time window shrinks even further. A viewer who comments about a product during a live is at peak engagement, they're actively watching, emotionally connected, and surrounded by social proof. If they get a DM with a checkout link within 2 minutes of their comment, conversion rates can exceed 20 percent. If you wait until after the stream ends, you've already lost the majority of those potential sales.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Closing the gap</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1617,7 +1617,7 @@ export const blogPosts = [
   {
     id: 13,
     title: "How the Creator Economy Is Rewriting the Sales Playbook",
-    excerpt: "Creators aren't just making content. They're becoming the most effective salesforce in e-commerce — and brands that build deep creator relationships will win.",
+    excerpt: "Creators are becoming the most effective salesforce in e-commerce. Brands with deep creator relationships will win.",
     category: "Creator Economy",
     author: rodAuthor,
     date: "Jul 7, 2025",
@@ -1632,15 +1632,15 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">From content to commerce</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The creator economy used to be about content and eyeballs. Brands paid creators for reach — put our product in your video, show it to your audience, and we'll pay you a flat fee. The new model is fundamentally different. Creators are becoming commission-based salespeople who earn a percentage of every sale they drive. TikTok's affiliate program has formalized this at scale. The best creators are building real businesses around the products they recommend.
+          The creator economy used to be about content and eyeballs. Brands paid creators for reach, put our product in your video, show it to your audience, and we'll pay you a flat fee. The new model is fundamentally different. Creators are becoming commission-based salespeople who earn a percentage of every sale they drive. TikTok's affiliate program has formalized this at scale. The best creators are building real businesses around the products they recommend.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why creators outsell traditional channels</h2>
         <p className="text-lg leading-relaxed mb-8">
-          A creator recommending a product is fundamentally different from an ad. It comes from a trusted voice. It's wrapped in a story or demonstration. It feels like a friend telling you about something they found. The conversion rates reflect this — creator-driven content consistently outperforms brand-created ads on conversion rate, cost per acquisition, and customer lifetime value.
+          A creator recommending a product is fundamentally different from an ad. It comes from a trusted voice. It's wrapped in a story or demonstration. It feels like a friend telling you about something they found. The conversion rates reflect this, creator-driven content consistently outperforms brand-created ads on conversion rate, cost per acquisition, and customer lifetime value.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The relationship is the moat</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The brands that are building the deepest creator relationships right now are creating a competitive moat. When a creator has a genuine relationship with a brand — when they're part of the product development process, when they get early access, when they have a direct line to the team — they become advocates that can't be poached by a competitor offering a slightly higher commission rate. The relationship is the moat. And social commerce makes that relationship more valuable than ever.
+          The brands that are building the deepest creator relationships right now are creating a competitive moat. When a creator has a genuine relationship with a brand, when they're part of the product development process, when they get early access, when they have a direct line to the team, they become advocates that can't be poached by a competitor offering a slightly higher commission rate. The relationship is the moat. And social commerce makes that relationship more valuable than ever.
         </p>
       </>
     )
@@ -1663,7 +1663,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Engagement is the starting line, not the finish line</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Engagement metrics tell you that people noticed your content. They don't tell you that people bought your product. A like is passive interest. A comment saying "love this" is slightly more active but still non-commercial. The engagement that actually matters for revenue is the engagement that contains buying intent: "how much?", "is this available in my size?", "can I order this?" — and what you do with those signals is what determines whether engagement converts to revenue.
+          Engagement metrics tell you that people noticed your content. They don't tell you that people bought your product. A like is passive interest. A comment saying "love this" is slightly more active but still non-commercial. The engagement that actually matters for revenue is the engagement that contains buying intent: "how much?", "is this available in my size?", "can I order this?", and what you do with those signals is what determines whether engagement converts to revenue.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The conversion gap</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1671,7 +1671,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">What high-converting brands do differently</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The brands that actually convert engagement into revenue do three things. They identify intent signals in comments and DMs. They respond to those signals with personalized product recommendations. And they make the path from conversation to checkout as short as possible — ideally one tap inside the platform. It's not about getting more engagement. It's about doing more with the engagement you already have.
+          The brands that actually convert engagement into revenue do three things. They identify intent signals in comments and DMs. They respond to those signals with personalized product recommendations. And they make the path from conversation to checkout as short as possible, ideally one tap inside the platform. It's not about getting more engagement. It's about doing more with the engagement you already have.
         </p>
       </>
     )
@@ -1702,7 +1702,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why this shift is inevitable</h2>
         <p className="text-lg leading-relaxed mb-8">
-          The platforms are building for this. Instagram's DM commerce features, TikTok Shop's in-app checkout, YouTube's shopping integrations — they're all designed to keep the transaction inside the platform. The link in bio was a workaround for a limitation that no longer exists. The brands still relying on it are voluntarily destroying their conversion rates. The ones that move to conversational commerce will capture 5-8x more revenue from the same audience.
+          The platforms are building for this. Instagram's DM commerce features, TikTok Shop's in-app checkout, YouTube's shopping integrations, they're all designed to keep the transaction inside the platform. The link in bio was a workaround for a limitation that no longer exists. The brands still relying on it are voluntarily destroying their conversion rates. The ones that move to conversational commerce will capture 5-8x more revenue from the same audience.
         </p>
       </>
     )
@@ -1725,7 +1725,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The difference between monitoring and listening</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Monitoring is passive. You watch what people say about your brand and produce weekly reports. Listening — real listening — is active. It means identifying signals that indicate someone is ready to buy and responding before that intent fades. A customer posting "looking for a good serum for oily skin" on their story isn't a brand mention. It's a sales opportunity. A comment saying "does this come in black?" isn't engagement. It's a purchase signal. Most social listening tools track the first type. Almost none of them help you act on the second.
+          Monitoring is passive. You watch what people say about your brand and produce weekly reports. Listening, real listening, is active. It means identifying signals that indicate someone is ready to buy and responding before that intent fades. A customer posting "looking for a good serum for oily skin" on their story isn't a brand mention. It's a sales opportunity. A comment saying "does this come in black?" isn't engagement. It's a purchase signal. Most social listening tools track the first type. Almost none of them help you act on the second.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Social listening as a sales engine</h2>
         <p className="text-lg leading-relaxed mb-8">
@@ -1768,7 +1768,7 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The goldmine is already there</h2>
         <p className="text-lg leading-relaxed mb-8">
-          You don't need more followers. You don't need more content. You don't need a bigger ad budget. The revenue opportunity is already sitting in your inbox, waiting for someone to respond to it. Every day you treat DMs as an afterthought is a day you leave money on the table. The brands that realize this — and build the infrastructure to act on it — will outpace their competition in ways that are hard to recover from.
+          You don't need more followers. You don't need more content. You don't need a bigger ad budget. The revenue opportunity is already sitting in your inbox, waiting for someone to respond to it. Every day you treat DMs as an afterthought is a day you leave money on the table. The brands that realize this, and build the infrastructure to act on it, will outpace their competition in ways that are hard to recover from.
         </p>
       </>
     )
@@ -1811,7 +1811,7 @@ export const blogPosts = [
   {
     id: 7,
     title: "Social Commerce Is Eating Traditional E-Commerce",
-    excerpt: "Social commerce is projected to hit $80 billion in the US by 2027. The shift from browsing to buying on social platforms is accelerating — and most brands aren't ready.",
+    excerpt: "Social commerce is projected to hit $80 billion in the US by 2027. Buying inside social platforms is accelerating, and most brands are not ready.",
     category: "Social Commerce",
     author,
     date: "May 8, 2025",
@@ -1826,11 +1826,11 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The shift from discovery to purchase</h2>
         <p className="text-lg leading-relaxed mb-8">
-          For the last decade, social media has been a discovery channel. People discover products on Instagram and TikTok, then go to a website or Amazon to buy. That model is breaking down. Consumers increasingly want to buy where they discover. They don't want to leave the app. They don't want to go through a multi-step checkout on a mobile browser. They want to see something, ask about it, and buy it — all in the same place.
+          For the last decade, social media has been a discovery channel. People discover products on Instagram and TikTok, then go to a website or Amazon to buy. That model is breaking down. Consumers increasingly want to buy where they discover. They don't want to leave the app. They don't want to go through a multi-step checkout on a mobile browser. They want to see something, ask about it, and buy it, all in the same place.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Why traditional e-commerce can't compete</h2>
         <p className="text-lg leading-relaxed mb-8">
-          Traditional e-commerce is built on a browse-and-buy model. You visit a website, search for what you want, compare options, and check out. It's efficient but impersonal. Social commerce is built on a discover-and-converse model. You see something in your feed that catches your eye. You engage with it — like, comment, DM. And the brand responds, recommends, and makes buying effortless. The experience is fundamentally different. And it's winning.
+          Traditional e-commerce is built on a browse-and-buy model. You visit a website, search for what you want, compare options, and check out. It's efficient but impersonal. Social commerce is built on a discover-and-converse model. You see something in your feed that catches your eye. You engage with it, like, comment, DM. And the brand responds, recommends, and makes buying effortless. The experience is fundamentally different. And it's winning.
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The infrastructure gap</h2>
         <p className="text-lg leading-relaxed mb-8">

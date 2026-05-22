@@ -1,5 +1,5 @@
 /**
- * <ReplyWindow> — Module 02 · REPLY
+ * <ReplyWindow> - Module 02 · REPLY
  *
  * A real-feeling, obviously automated IG-style thread:
  *   signal lands → GrowthSync responds → customer answers → GrowthSync sends

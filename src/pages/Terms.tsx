@@ -1,5 +1,5 @@
 /**
- * <Terms> — launch draft of the terms of service.
+ * <Terms> - launch draft of the terms of service.
  *
  * TODO(founder + counsel): Review and finalize before production launch.
  * Specifically: confirm legal entity, governing law, and the liability
@@ -15,7 +15,7 @@ export function Terms() {
       fileName="terms.txt"
       eyebrow="LEGAL · TERMS OF USE"
       title="Terms."
-      lede="The basic ground rules for using this website. This is the launch draft — final terms for the product itself will be issued at signup."
+      lede="The basic ground rules for using this website. This is the launch draft. Final product terms will be issued at signup."
     >
       <p>
         <strong>Effective date:</strong> {LEGAL_EFFECTIVE_DATE}
@@ -27,7 +27,7 @@ export function Terms() {
 
       <h2>Using the site</h2>
       <ul>
-        <li>This site is provided for informational and demo purposes — for now, no production product is delivered through it.</li>
+        <li>This site is provided for information and demos. For now, no production product is delivered through it.</li>
         <li>Don&apos;t try to break it, scrape it abusively, or use it to harm anyone.</li>
         <li>If you submit information through the intake form, you confirm that information is accurate to the best of your knowledge.</li>
       </ul>
@@ -37,9 +37,9 @@ export function Terms() {
         This site is provided &quot;as is&quot;. We don&apos;t guarantee it
         will be available at any given time, free of bugs, or fit for any
         particular purpose. Demo dashboards, sample inboxes, and case
-        studies are illustrative — they reflect the kinds of outcomes
-        GrowthSync is designed to support, not promises of future
-        performance.
+        studies are illustrative. They reflect the kinds of outcomes
+        GrowthSync is designed to support. They are not promises of
+        future performance.
       </p>
 
       <h2>Intellectual property</h2>
@@ -59,7 +59,7 @@ export function Terms() {
         To the maximum extent allowed by law, we&apos;re not liable for any
         indirect or consequential losses arising from your use of this
         website. Our total liability for anything related to this site is
-        limited to a token amount (e.g. US$100) — the real product will
+        limited to a token amount (e.g. US$100). The real product will
         ship with its own commercial agreement.
       </p>
 

@@ -1,8 +1,8 @@
 /**
- * <SectionHeader> — eyebrow + heavy-grotesk title + lede.
+ * <SectionHeader> - eyebrow + heavy-grotesk title + lede.
  *
  *   emWord  When set AND found in `title`, that word is rendered in
- *           Instrument Serif italic. Use sparingly — most sections use
+ *           Instrument Serif italic. Use sparingly - most sections use
  *           plain Hanken heavy.
  */
 

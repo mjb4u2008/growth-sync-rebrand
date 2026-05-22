@@ -1,5 +1,5 @@
 /**
- * <MetricTile> — bone or tangerine KPI block.
+ * <MetricTile> - bone or tangerine KPI block.
  * Reserve `variant="tangerine"` for the headline KPI in a series; the rest
  * stay on bone.
  */

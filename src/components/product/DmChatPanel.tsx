@@ -1,5 +1,5 @@
 /**
- * <DmChatPanel> — windowed DM conversation. Pass messages as an array of
+ * <DmChatPanel> - windowed DM conversation. Pass messages as an array of
  * { who: "us" | "them", text }. Optional `footer` slot for the input row,
  * status badge, etc.
  */

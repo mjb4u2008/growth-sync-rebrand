@@ -1,5 +1,5 @@
 /**
- * <BlogFileIcon> — tiny old-OS file glyph used as category marker.
+ * <BlogFileIcon> - tiny old-OS file glyph used as category marker.
  * Color tint follows the category so the index doubles as a quick legend.
  */
 

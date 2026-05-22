@@ -1,13 +1,13 @@
 /**
- * <Impressions> — "Find & engage with every social impression" section.
+ * <Impressions> - "Find & engage with every social impression" section.
  *
  * Three framed cards. Each card is a single chromed window:
  *   chrome titlebar + product visual + explainer copy, all inside the
  *   same outer frame.
  *
- *   Card 1 — Instagram post/comment capture (bucket-hat reel, @ribbed_studio)
- *   Card 2 — Instagram DM (header / message bubbles / brand draft / input)
- *   Card 3 — GrowthSync CRM (teal Aria Quan record + voice match + NBA)
+ *   Card 1 - Instagram post/comment capture (bucket-hat reel, @ribbed_studio)
+ *   Card 2 - Instagram DM (header / message bubbles / brand draft / input)
+ *   Card 3 - GrowthSync CRM (teal Aria Quan record + voice match + NBA)
  */
 
 import type { ReactNode } from "react";
@@ -70,7 +70,7 @@ function IgPostVisual() {
         <span style={{ marginLeft: "auto" }}>▭</span>
       </div>
       <div className="gs-ig-post__caption">
-        <strong>ribbed_studio</strong> &nbsp;the heritage cap — twelve pieces, six colors, drop Tuesday ✨
+        <strong>ribbed_studio</strong> &nbsp;the heritage cap: twelve pieces, six colors, drop Tuesday ✨
       </div>
       <div className="gs-ig-post__comments">
         {[
@@ -224,7 +224,7 @@ const CARDS = [
     step: "STEP 02 / ENGAGE",
     title2: "Converse in your voice",
     body:
-      "Drafted replies are pre-approved with shoulders-back, sentence-case, on-brand tone — never canned, never corporate. Watch a draft fly in seconds.",
+      "Drafted replies use your voice. They feel clear, specific, and human. Watch a draft fly in seconds.",
     cta: "Watch a draft fly →",
   },
   {
@@ -233,7 +233,7 @@ const CARDS = [
     step: "STEP 03 / UNDERSTAND",
     title2: "Deeply enrich your CRM, 24/7",
     body:
-      "Every reply syncs back with topic, intent, voice notes, and product cues — a segment-of-one for every buyer they brought.",
+      "Every reply syncs topic, intent, voice notes, and product cues back to one buyer profile.",
     cta: "See the intent engine →",
   },
 ];

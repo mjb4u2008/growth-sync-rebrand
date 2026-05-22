@@ -25,7 +25,7 @@
     <circle cx="50" cy="50" r="47" fill="url(#gs-inset-top)"/>
     <circle cx="50" cy="50" r="47" fill="url(#gs-inset-bot)"/>
   </g>
-  <!-- Wordmark. Hanken Grotesk 900 with system fallback (file is rendered as <img> when imported externally, so the page's webfont may not load — system-ui falls back acceptably for non-app surfaces). -->
+  <!-- Wordmark. Hanken Grotesk 900 with system fallback (file is rendered as <img> when imported externally, so the page's webfont may not load - system-ui falls back acceptably for non-app surfaces). -->
   <text
     x="110"
     y="68"

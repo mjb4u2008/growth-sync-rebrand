@@ -1,5 +1,5 @@
 /**
- * <BrandVoiceComposerWindow> — the "We reply instantly" composer card.
+ * <BrandVoiceComposerWindow> - the "We reply instantly" composer card.
  * Tabbed window with PROMPT/VOICE/MEMORY/SEND, a customer header,
  * the inbound DM, the brand-voice draft, and a Re-draft/Send row.
  */
@@ -26,7 +26,7 @@ export function BrandVoiceComposerWindow({
   customerName = "Maya R.",
   customerMeta = "@maya.r · 2 prior orders · last reply 4m",
   prompt = "Hey! I'm dialed in on this SS25 fit but isn't it too soon for the Tuesday launch?",
-  draft = "Tuesday is on purpose — post-payday + creator pickups peak. We've held two of your size. Want me to drop you the calendar?",
+  draft = "Tuesday is on purpose. Post-payday and creator pickups peak then. We've held two of your size. Want me to drop you the calendar?",
   draftLabel = "BRAND-VOICE DRAFT · 4M TURNAROUND",
   title = "growthsync · brand-voice replies · @maya.r",
   style,

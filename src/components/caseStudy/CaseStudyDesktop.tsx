@@ -1,5 +1,5 @@
 /**
- * <CaseStudyDesktop> — the retro Mac desktop scene.
+ * <CaseStudyDesktop> - the retro Mac desktop scene.
  *
  * Interaction model:
  *   - Starts with NO browser windows open.
@@ -125,7 +125,7 @@ const DOCK_APPS: Array<{ bg: string; g: string }> = [
   { bg: "linear-gradient(180deg, #B0A992, #6E6A60)", g: "▤" },
 ];
 
-/* Layout helper — stagger spawn locations so a fresh open lands in
+/* Layout helper - stagger spawn locations so a fresh open lands in
    a different spot than the previous one. First spawn lands near the
    visual center of the desktop, not pinned to the left rail. */
 const SPAWN_STEP = { x: 38, y: 30 };

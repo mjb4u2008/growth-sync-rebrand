@@ -1,5 +1,5 @@
 /**
- * <BookACall> — production intake for the primary CTA.
+ * <BookACall> - production intake for the primary CTA.
  *
  * The form always posts to `/api/leads`; success is only shown after the
  * server confirms at least one capture destination.
@@ -46,7 +46,7 @@ function validate(form: FormState): Partial<Record<keyof FormState, string>> {
 export function BookACall() {
   useEffect(() => {
     const prev = document.title;
-    document.title = "Book a call — GrowthSync";
+    document.title = "Book a call | GrowthSync";
     return () => { document.title = prev; };
   }, []);
 
@@ -75,7 +75,7 @@ export function BookACallSuccess() {
 
   useEffect(() => {
     const prev = document.title;
-    document.title = "Request received — GrowthSync";
+    document.title = "Request received | GrowthSync";
     return () => { document.title = prev; };
   }, []);
 
@@ -92,7 +92,7 @@ export function BookACallSuccess() {
         <span>REQUEST RECEIVED</span>
       </div>
 
-      <ChromeWindow title="request.received — growthsync">
+      <ChromeWindow title="request.received · growthsync">
         <div className="gs-form-success gs-form-success--page" role="status" aria-live="polite">
           <div className="head">You&apos;re in the queue.</div>
           <div className="sub">
@@ -139,7 +139,7 @@ function Scheduler() {
         Request a call
       </h2>
       <ChromeWindow
-        title="intake.form — intro_call.sheet"
+        title="intake.form · intro_call.sheet"
         contentStyle={{ background: "var(--gs-paper)" }}
       >
         <IntakeForm />

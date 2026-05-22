@@ -1,5 +1,5 @@
 /* =================================================================
-   GrowthSync Relationship Layer — Design Tokens
+   GrowthSync Relationship Layer - Design Tokens
    Visual source of truth: assets/homepage-reference.png
    ================================================================= */
 
@@ -17,18 +17,18 @@
 
 :root {
   /* =============================================================
-     COLOR — Paper & Surface (the canvas)
+     COLOR - Paper & Surface (the canvas)
      The whole product sits on warm "paper". Everything pixels
      read against a cream background, never pure white.
      ============================================================= */
-  --gs-paper:           #F2EADB;   /* page background — warm cream  */
+  --gs-paper:           #F2EADB;   /* page background - warm cream  */
   --gs-paper-warm:      #E9DEC8;   /* deeper cream (footer/dock)    */
   --gs-paper-cool:      #F7F1E4;   /* lifted panels                 */
   --gs-bone:            #FBF7EE;   /* near-white window interior    */
   --gs-bone-edge:       #EDE4D2;   /* hairline between bone & paper */
 
   /* =============================================================
-     COLOR — Ink (text)
+     COLOR - Ink (text)
      ============================================================= */
   --gs-ink:             #0B0B12;   /* primary headline / body       */
   --gs-ink-2:           #2C2A26;   /* secondary copy                */
@@ -40,7 +40,7 @@
   --gs-rule-pinstripe-warm: rgba(11,11,18,0.026);
 
   /* =============================================================
-     COLOR — Tangerine (the brand)
+     COLOR - Tangerine (the brand)
      The CTA + signal color. Used glossy with a top-light shine.
      ============================================================= */
   --gs-tangerine:       #FF6B1A;   /* the "Buy Now" core            */
@@ -50,7 +50,7 @@
   --gs-tangerine-tint:  #FFE4D2;   /* tint background               */
 
   /* =============================================================
-     COLOR — Signal accents (used in social-card backgrounds,
+     COLOR - Signal accents (used in social-card backgrounds,
      brand grid tiles, status pills)
      ============================================================= */
   --gs-coral:           #F4A38A;   /* bucket-hat coral tile         */
@@ -61,7 +61,7 @@
   --gs-rose:            #E8B6BB;   /* dusty rose                    */
 
   /* =============================================================
-     COLOR — Semantic / system
+     COLOR - Semantic / system
      ============================================================= */
   --gs-success:         #1E8E3E;   /* "alive" pill green            */
   --gs-success-hi:      #58C97B;
@@ -70,7 +70,7 @@
   --gs-info:            #3B6EA8;
 
   /* =============================================================
-     COLOR — Window chrome (Aqua / Y2K metallic)
+     COLOR - Window chrome (Aqua / Y2K metallic)
      ============================================================= */
   --gs-chrome-1:        #E6E4DC;   /* top of titlebar               */
   --gs-chrome-2:        #C9C5BA;   /* bottom of titlebar            */
@@ -81,7 +81,7 @@
   --gs-tl-grn:          #28C940;   /* traffic-light green           */
 
   /* =============================================================
-     TYPE — Font families
+     TYPE - Font families
      ============================================================= */
   --gs-font-display:   "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
   --gs-font-sans:      "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -90,7 +90,7 @@
   --gs-font-tech:      "Orbitron", "Space Mono", ui-monospace, monospace;
 
   /* =============================================================
-     TYPE — Scale (base 16, display tracks tight, mono spaced)
+     TYPE - Scale (base 16, display tracks tight, mono spaced)
      ============================================================= */
   --gs-display-1: 900 80px/0.95 var(--gs-font-display);
   --gs-display-2: 900 56px/1.00 var(--gs-font-display);
@@ -107,7 +107,7 @@
   --gs-mono-md:   400 13px/1.40 var(--gs-font-mono);
 
   /* =============================================================
-     LETTER-SPACING — keep display tracking neutral for the production
+     LETTER-SPACING - keep display tracking neutral for the production
      GrowthSync system. Mono labels get generous tracking when set ALL CAPS.
      ============================================================= */
   --gs-tracking-display: 0;
@@ -117,7 +117,7 @@
   --gs-tracking-tech:     0.04em;   /* Orbitron stat numerals          */
 
   /* =============================================================
-     SPACING — 4px base, named for product use
+     SPACING - 4px base, named for product use
      ============================================================= */
   --gs-1:  4px;
   --gs-2:  8px;
@@ -132,7 +132,7 @@
   --gs-11: 120px;
 
   /* =============================================================
-     RADII — Modest. Buttons & pills are pill-shaped; cards &
+     RADII - Modest. Buttons & pills are pill-shaped; cards &
      windows have hairline software-style radii.
      ============================================================= */
   --gs-r-1: 4px;     /* tight tags                                  */
@@ -143,7 +143,7 @@
   --gs-r-pill: 999px;
 
   /* =============================================================
-     SHADOWS — Real, paper-product shadows. No diffuse SaaS blur.
+     SHADOWS - Real, paper-product shadows. No diffuse SaaS blur.
      ============================================================= */
   --gs-shadow-hairline: 0 0 0 1px var(--gs-bone-edge);
   --gs-shadow-card:     0 1px 0 rgba(11,11,18,0.05),
@@ -164,7 +164,7 @@
                         0 -1px 0 rgba(255,255,255,0.18) inset;
 
   /* =============================================================
-     PATTERNS — soft paper pinstripes.
+     PATTERNS - soft paper pinstripes.
      Keep these low-contrast and low-frequency so they read like
      light gray stationery lines on mobile instead of scanline bands.
      ============================================================= */
@@ -206,7 +206,7 @@
 }
 
 /* =================================================================
-   SEMANTIC ELEMENT DEFAULTS — opt in by class .gs-prose, or use
+   SEMANTIC ELEMENT DEFAULTS - opt in by class .gs-prose, or use
    the variables directly on your own elements.
    ================================================================= */
 html, body {
@@ -240,7 +240,7 @@ html, body {
 }
 .gs-code, code.gs-code { font: var(--gs-mono-md); color: var(--gs-ink); }
 
-/* Editorial italic helper — used inline within sentence-case headlines */
+/* Editorial italic helper - used inline within sentence-case headlines */
 .gs-italic, em.gs-italic, i.gs-italic {
   font-family: var(--gs-font-editorial);
   font-style: italic;
@@ -248,7 +248,7 @@ html, body {
   letter-spacing: 0;
 }
 
-/* Tech / LCD helper — large stat numerals, calculator readouts */
+/* Tech / LCD helper - large stat numerals, calculator readouts */
 .gs-tech {
   font-family: var(--gs-font-tech);
   font-weight: 700;

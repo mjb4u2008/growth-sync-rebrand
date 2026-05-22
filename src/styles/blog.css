@@ -1,5 +1,5 @@
 /* =================================================================
-   GrowthSync Blog — Y2K Aqua spreadsheet + desktop reader styles.
+   GrowthSync Blog - Y2K Aqua spreadsheet + desktop reader styles.
    Loaded after global.css; everything is namespaced under .gs-blog-*
    so the marketing site is untouched.
    ================================================================= */
@@ -29,7 +29,7 @@
 }
 
 /* -----------------------------------------------------------------
-   INDEX — signals.psheet window
+   INDEX - signals.psheet window
    ----------------------------------------------------------------- */
 
 .gs-blog-eyebrow-row {
@@ -665,7 +665,7 @@
 }
 
 /* -----------------------------------------------------------------
-   ARTICLE READER (in-shell — Phase 1.1)
+   ARTICLE READER (in-shell - Phase 1.1)
    The article opens INSIDE the same .gs-psheet shell as the table.
    The shell stays the same fixed height; the article column scrolls
    internally; left rail and TOC rail dock as nested in-window sidebars.
@@ -725,7 +725,7 @@
   color: var(--gs-ink-4);
 }
 
-/* The "← Open table" pill — looks like a Y2K toolbar button. */
+/* The "← Open table" pill - looks like a Y2K toolbar button. */
 .gs-psheet-backbtn {
   display: inline-flex;
   align-items: center;
@@ -758,7 +758,7 @@
     inset 0 -1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Reader body — 3-pane internal grid that fills the scroll area. */
+/* Reader body - 3-pane internal grid that fills the scroll area. */
 .gs-psheet-reader {
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr) 220px;
@@ -1203,7 +1203,7 @@
 }
 
 /* -----------------------------------------------------------------
-   LEFT RAIL — latest posts
+   LEFT RAIL - latest posts
    ----------------------------------------------------------------- */
 
 .gs-blog-left-rail {

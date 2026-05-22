@@ -1,5 +1,5 @@
 /**
- * <FooterDock> — cream status bar + dark footer.
+ * <FooterDock> - cream status bar + dark footer.
  *
  *   <CONNECTED · LISTEN › UNDERSTAND › ENGAGE › CONVERT · NETWORK CONNECTED>
  *   <dark>  GrowthSyncLogo + 3 columns + colophon  </dark>

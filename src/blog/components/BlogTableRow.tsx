@@ -1,5 +1,5 @@
 /**
- * <BlogTableRow> — one row of the desktop spreadsheet.
+ * <BlogTableRow> - one row of the desktop spreadsheet.
  * Renders as a real `<a href="/blog/:slug">` so right-click "open in new
  * tab" works and crawlers can follow it. The SPA router intercepts the
  * click for instant in-app navigation.

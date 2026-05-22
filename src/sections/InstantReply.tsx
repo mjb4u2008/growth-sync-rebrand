@@ -1,5 +1,5 @@
 /**
- * <InstantReply> — "We reply instantly" section.
+ * <InstantReply> - "We reply instantly" section.
  * Two-column with the brand-voice reply window + body copy.
  */
 
@@ -7,9 +7,9 @@ import { MonoLabel, RainbowStrip, ReadMore } from "@/components/atoms";
 import { ReplyWindow } from "@/components/product";
 
 const BULLETS = [
-  "Replies to DMs and comments in your brand voice — not robotic, not it-helpdesk-stiff",
-  "Closes sales in real time — invoice cards, product picks, restock pings",
-  "Hand-offs to real support if intent crosses your threshold — never silently broken",
+  "Replies to DMs and comments in your brand voice",
+  "Turns intent into invoice cards, product picks, and restock pings",
+  "Sends sensitive moments to support before anything breaks",
 ];
 
 export function InstantReply() {
@@ -25,9 +25,8 @@ export function InstantReply() {
             turning intent into action
           </h2>
           <p className="gs-lede">
-            GrowthSync joins every relevant DM and comment in your brand toolkit — reading
-            conversations forward, answering questions, sounding (and looking) like a human in
-            your tone.
+            GrowthSync reads the thread, answers the question, and drafts a reply in your
+            tone. The result feels human and stays on brand.
           </p>
           <ul className="gs-checklist">
             {BULLETS.map((b) => (

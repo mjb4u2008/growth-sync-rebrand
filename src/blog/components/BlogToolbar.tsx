@@ -1,5 +1,5 @@
 /**
- * <BlogToolbar> — filter row above the spreadsheet table.
+ * <BlogToolbar> - filter row above the spreadsheet table.
  * Reads as: `where category eq [All] and tags includes [All] and author includes [All]  Sort by [Newest]`
  */
 

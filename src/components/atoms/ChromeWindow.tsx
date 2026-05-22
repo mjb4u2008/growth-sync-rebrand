@@ -1,5 +1,5 @@
 /**
- * <ChromeWindow> — the metallic Y2K window shell.
+ * <ChromeWindow> - the metallic Y2K window shell.
  * Every product panel in the system wraps with this. Pass `tabs` for tabbed
  * windows. Window styles live in src/styles/global.css (.gs-window).
  */

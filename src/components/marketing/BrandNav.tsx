@@ -1,10 +1,10 @@
 /**
- * <BrandNav> — full-width chrome strip nav.
+ * <BrandNav> - full-width chrome strip nav.
  *
  * Layout:
  *   - Orange orb + Hanken wordmark + black v1.0 badge (left)
  *   - Recessed pill rail; a single raised cream pill slides between
- *     tabs. The rail never reflows and the tabs never jump — text and
+ *     tabs. The rail never reflows and the tabs never jump - text and
  *     pill move independently in their own stacking layer.
  *   - Recessed search pill (right)
  *   - Glossy tangerine "Start free" orb (far right)
@@ -84,7 +84,7 @@ const pillStyle: CSSProperties = {
   left: 0,
   height: PILL_HEIGHT,
   borderRadius: 999,
-  // Soft cream pill — less glossy top highlight, subtler depth.
+  // Soft cream pill - less glossy top highlight, subtler depth.
   background: "linear-gradient(180deg, #FBF4DF 0%, #EDE0BE 100%)",
   boxShadow: [
     "inset 0 1px 0 rgba(255,255,255,0.65)",
@@ -223,7 +223,7 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
         href="/"
         className="gs-nav-logo"
         style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", color: "inherit" }}
-        aria-label="GrowthSync — home"
+        aria-label="GrowthSync home"
       >
         <GrowthSyncLogo height={30} />
         <VersionBadge>v1.0</VersionBadge>

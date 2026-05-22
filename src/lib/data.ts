@@ -1,5 +1,5 @@
 /**
- * GrowthSync Design System — single source of truth for content.
+ * GrowthSync Design System - single source of truth for content.
  * All marketing surfaces read from this constant. Swap an entry here
  * and every consumer updates in lockstep.
  */
@@ -47,7 +47,7 @@ export const GS_DATA: GsData = {
   },
 
   calculator: {
-    title: "SOCIAL SIGNAL CALCULATOR — [signals.123 : Sheet1]",
+    title: "SOCIAL SIGNAL CALCULATOR · [signals.123 : Sheet1]",
     ticks: [
       { lbl: "1K",   v: 1_000     },
       { lbl: "10K",  v: 10_000    },
@@ -66,7 +66,7 @@ export const GS_DATA: GsData = {
     resultBody: {
       lb: "SIGNALS / MONTH",
       ti: "This is the conversation happening about your brand.",
-      sub: "Comments, likes, DMs, mentions, and shares across Instagram, TikTok, and YouTube — every month, on average.",
+      sub: "Comments, likes, DMs, mentions, and shares across Instagram, TikTok, and YouTube every month, on average.",
     },
     autosavedAt: "14:02:11",
   },

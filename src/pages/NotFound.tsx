@@ -19,7 +19,7 @@ export function NotFound({ pathname }: { pathname: string }) {
       </ul>
       <p>
         Head back to the <a href="/">homepage</a>, browse the{" "}
-        <a href="/blog">blog</a>, or book a call below — we&apos;ll route you to the
+        <a href="/blog">blog</a>, or book a call below. We&apos;ll route you to the
         right place.
       </p>
     </SimplePage>

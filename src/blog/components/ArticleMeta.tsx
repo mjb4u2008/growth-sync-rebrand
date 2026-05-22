@@ -1,5 +1,5 @@
 /**
- * <ArticleMeta> — author / date / category / read time row sitting
+ * <ArticleMeta> - author / date / category / read time row sitting
  * directly under the article H1. Visually subtle, mono-labeled.
  */
 

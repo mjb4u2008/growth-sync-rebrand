@@ -1,5 +1,5 @@
 /**
- * <Privacy> — launch draft of the privacy policy.
+ * <Privacy> - launch draft of the privacy policy.
  *
  * TODO(founder + counsel): Review and finalize before production launch.
  * Specifically: confirm the legal entity name, jurisdiction, analytics
@@ -15,7 +15,7 @@ export function Privacy() {
       fileName="privacy.txt"
       eyebrow="LEGAL · PRIVACY POLICY"
       title="Privacy."
-      lede="A plain-English summary of what we collect when you use this site, why we collect it, and how we handle it. This is the launch draft — see the note below."
+      lede="A plain-English summary of what we collect, why we collect it, and how we handle it. This is the launch draft."
     >
       <p>
         <strong>Effective date:</strong> {LEGAL_EFFECTIVE_DATE}
@@ -38,7 +38,7 @@ export function Privacy() {
       <ul>
         <li>To reply to your request and schedule a call.</li>
         <li>To answer follow-up questions and provide product support.</li>
-        <li>To improve the product — for example, understanding which use cases come up most often.</li>
+        <li>To improve the product by understanding which use cases come up most often.</li>
       </ul>
 
       <h2>What we don&apos;t do</h2>

@@ -1,5 +1,5 @@
 /**
- * <Hero> — eyebrow + headline + dual CTA + the big dashboard peek window.
+ * <Hero> - eyebrow + headline + dual CTA + the big dashboard peek window.
  *
  * The hero is wrapped in a positioning shell so the console window can
  * push down past the section padding; the <BrandStrip> beneath it clips

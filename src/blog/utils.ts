@@ -1,5 +1,5 @@
 /**
- * Blog helpers — slug lookup, related posts, heading extraction, filters.
+ * Blog helpers - slug lookup, related posts, heading extraction, filters.
  */
 
 import type { BlogFilter, BlogPost } from "./types";

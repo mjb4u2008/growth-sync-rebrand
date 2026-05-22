@@ -1,13 +1,13 @@
 /**
- * GrowthSync — top-level app.
+ * GrowthSync - top-level app.
  *
  * Routes:
- *   /              — marketing homepage (unchanged)
- *   /blog          — signals.psheet index
- *   /blog/:slug    — article reader
- *   /book-a-call   — intake form + Calendly slot
- *   /privacy, /terms, and other footer pages — legal + brochure pages
- *   anything else — 404
+ *   /              - marketing homepage (unchanged)
+ *   /blog          - signals.psheet index
+ *   /blog/:slug    - article reader
+ *   /book-a-call   - intake form + Calendly slot
+ *   /privacy, /terms, and other footer pages - legal + brochure pages
+ *   anything else - 404
  *
  * Routing is a tiny custom SPA layer (see src/blog/router.tsx) so the
  * marketing site doesn't take a router dependency just for two pages.

@@ -1,5 +1,5 @@
 /**
- * <BlogHero> — generated 16:9 Y2K Aqua hero illustration.
+ * <BlogHero> - generated 16:9 Y2K Aqua hero illustration.
  * Drawn entirely in inline SVG so Phase 1 needs zero image assets.
  * Variants tint the dominant chrome to keep posts visually distinct.
  */
@@ -59,7 +59,7 @@ export function BlogHero({
         <rect width="1600" height="900" fill={`url(#${bgId})`} />
         <rect width="1600" height="900" fill={`url(#${stripeId})`} />
 
-        {/* Back panel — large spreadsheet window */}
+        {/* Back panel - large spreadsheet window */}
         <g transform="translate(120 120)">
           <rect width="900" height="660" rx="14" fill="#FBF7EE" stroke="#8E8A7E" />
           <rect width="900" height="42" rx="14" fill={`url(#${tbId})`} />
@@ -89,7 +89,7 @@ export function BlogHero({
           </g>
         </g>
 
-        {/* Floating front panel — DM thread / signal card */}
+        {/* Floating front panel - DM thread / signal card */}
         <g transform="translate(900 360)">
           <rect width="540" height="380" rx="14" fill="#FBF7EE" stroke="#8E8A7E" />
           <rect width="540" height="36" rx="14" fill={`url(#${tbId})`} />
@@ -108,7 +108,7 @@ export function BlogHero({
           <circle cx="510" cy="60" r="8" fill="#FF6B1A" />
         </g>
 
-        {/* File icons — bottom left */}
+        {/* File icons - bottom left */}
         <g transform="translate(80 540)">
           {[0, 1, 2].map((i) => (
             <g key={i} transform={`translate(${i * 90} 0)`}>

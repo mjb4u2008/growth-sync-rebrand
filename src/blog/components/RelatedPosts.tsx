@@ -1,5 +1,5 @@
 /**
- * <RelatedPosts> — three-card row below the article body.
+ * <RelatedPosts> - three-card row below the article body.
  * Cards are intentionally lightweight: date eyebrow, title, one-line excerpt.
  */
 

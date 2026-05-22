@@ -1,8 +1,8 @@
 /**
- * <CaptureWindow> — Module 01 · CAPTURE
+ * <CaptureWindow> - Module 01 · CAPTURE
  *
- * Cascading feed of incoming signals — IG comments, TikTok DMs, story replies,
- * etc. — falling down a list with a soft "ding" rhythm and fading at the
+ * Cascading feed of incoming signals - IG comments, TikTok DMs, story replies,
+ * etc. - falling down a list with a soft "ding" rhythm and fading at the
  * bottom. A subtle intent/sentiment summary below shifts with the topmost
  * active signal.
  */
@@ -135,7 +135,7 @@ const numLine: CSSProperties = {
 
 interface RowProps {
   signal: Signal;
-  /** Index in the visible list — 0 is the freshest at the top. */
+  /** Index in the visible list - 0 is the freshest at the top. */
   position: number;
 }
 
@@ -145,7 +145,7 @@ const VISIBLE = 4;
 
 function Row({ signal, position }: RowProps) {
   const top = position * (ROW_HEIGHT + ROW_GAP);
-  // Top row is freshest — fully opaque. Bottom rows fade.
+  // Top row is freshest - fully opaque. Bottom rows fade.
   const opacity = position === 0 ? 1 : Math.max(0.18, 1 - position * 0.22);
   return (
     <div

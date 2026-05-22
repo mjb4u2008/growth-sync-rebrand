@@ -1,5 +1,5 @@
 /**
- * <ModuleWindow> — shared product window used by the three "How It Works"
+ * <ModuleWindow> - shared product window used by the three "How It Works"
  * visuals so they all read in the same GrowthSync product language.
  *
  *   chrome titlebar (traffic lights · filename · system clock)
@@ -12,7 +12,7 @@ import type { CSSProperties, ReactNode } from "react";
 interface Props {
   title: string;
   eyebrow: string;
-  /** Right-aligned pill in the subbar — e.g. "LIVE · 24 NEW". */
+  /** Right-aligned pill in the subbar - e.g. "LIVE · 24 NEW". */
   status: ReactNode;
   /** Right-aligned text in the titlebar (default: clock). */
   clock?: string;

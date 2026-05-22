@@ -1,5 +1,5 @@
 /**
- * <CaseBrowserWindow> — a single retro browser window inside the
+ * <CaseBrowserWindow> - a single retro browser window inside the
  * Mac-desktop scene. Rendered absolute-positioned by <CaseStudyDesktop>.
  *
  * The titlebar is grabbable: pressing mouse-down anywhere on .tb
@@ -57,7 +57,7 @@ export function CaseBrowserWindow({
           <span className="lt y" />
           <span className="lt g" />
         </div>
-        <div className="tt">{brand} — {tagline}</div>
+        <div className="tt">{brand}: {tagline}</div>
         <div />
       </div>
       <div className="urlbar">
@@ -110,7 +110,7 @@ export function CaseBrowserWindow({
       </div>
       <div className="quote">&ldquo;{quote}&rdquo;</div>
       <div className="ft">
-        <span>© 2003–2004 {brand}. webmaster@{host.replace(/\..*/, "")}.com</span>
+        <span>© 2003-2004 {brand}. webmaster@{host.replace(/\..*/, "")}.com</span>
         <span className="count">{counter}</span>
       </div>
     </div>

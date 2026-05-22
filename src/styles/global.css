@@ -1,4 +1,4 @@
-/* GrowthSync — global stylesheet
+/* GrowthSync - global stylesheet
    CSS imports must precede Tailwind layers for PostCSS/Vite. */
 
 @import "./tokens.css";
@@ -93,7 +93,7 @@ body {
   gap: 16px;
 }
 
-/* Hero console — single wide dashboard that peeks up from bottom of hero
+/* Hero console - single wide dashboard that peeks up from bottom of hero
    and is clipped by the BrandStrip below. Negative bottom margin pulls
    the next section over the bottom 160px of the window. */
 .gs-hero-section { padding-bottom: 0 !important; }
@@ -326,7 +326,7 @@ body {
          transform: translate(calc(-50% + var(--gs-dx, 0px)), calc(-50% + var(--gs-dy, -100px))) rotate(var(--gs-rot, 0)); }
 }
 
-/* Impressions section — three framed cards each containing a (smaller)
+/* Impressions section - three framed cards each containing a (smaller)
    chrome titlebar + product visual + compact caption, all inside the
    same frame. Softer shadows; less "AI mock" feel. */
 .gs-frame-card {
@@ -767,7 +767,7 @@ body {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.30);
 }
 
-/* Green-dot bullet list — replaces the "·" prefix lists in How It Works rows */
+/* Green-dot bullet list - replaces the "·" prefix lists in How It Works rows */
 .gs-checklist {
   padding: 0;
   list-style: none;
@@ -1045,7 +1045,7 @@ body {
   color: var(--gs-ink-3);
 }
 
-/* Responsive — tablet --------------------------------------------- */
+/* Responsive - tablet --------------------------------------------- */
 @media (max-width: 1024px) {
   .gs-page { padding: 0 20px 56px; }
   .gs-section { padding: 50px 0; }
@@ -1057,7 +1057,7 @@ body {
   .gs-hero-window-wrap { grid-template-columns: 1fr; gap: 16px; }
 }
 
-/* Responsive — mobile --------------------------------------------- */
+/* Responsive - mobile --------------------------------------------- */
 @media (max-width: 720px) {
   .gs-page { padding: 0 16px 48px; }
   .gs-section { padding: 38px 0; }
@@ -1116,7 +1116,7 @@ body {
   }
 }
 
-/* Case-study desktop scene — keep the Explorer shell inside the page at
+/* Case-study desktop scene - keep the Explorer shell inside the page at
    resize breakpoints. The internal UI has its own responsive chrome rules. */
 @media (max-width: 900px) {
   .gs-case-studies-scroll {
@@ -1126,7 +1126,7 @@ body {
   }
 }
 
-/* BrandNav collapse — hide tab rail and search on small screens,
+/* BrandNav collapse - hide tab rail and search on small screens,
    keep logo + Start free CTA. */
 @media (max-width: 1100px) {
   .gs-nav {
@@ -1156,7 +1156,7 @@ body {
   }
 }
 
-/* FooterDock — stack columns on tablet/mobile. */
+/* FooterDock - stack columns on tablet/mobile. */
 @media (max-width: 900px) {
   .gs-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
 }
@@ -1174,7 +1174,7 @@ body {
   .gs-footer-colophon { font-size: 9px !important; }
 }
 
-/* Brand-grid mosaic — fewer columns on small screens, keep Nike big tile spanning. */
+/* Brand-grid mosaic - fewer columns on small screens, keep Nike big tile spanning. */
 @media (max-width: 900px) {
   .gs-brand-grid-tiles {
     grid-template-columns: 1fr 1fr 1fr !important;

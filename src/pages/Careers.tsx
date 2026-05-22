@@ -65,7 +65,7 @@ export default function Careers() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      {/* Hero — minimal, left-aligned, typographic */}
+      {/* Hero - minimal, left-aligned, typographic */}
       <section className="pt-32 md:pt-40 pb-12 md:pb-16 border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-4 md:px-12">
           <motion.h1
@@ -87,7 +87,7 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Roles — clean list rows grouped by department */}
+      {/* Roles - clean list rows grouped by department */}
       <section className="py-12 md:py-16">
         <div className="max-w-5xl mx-auto px-4 md:px-12">
           <div className="space-y-12 md:space-y-16">
@@ -108,7 +108,7 @@ export default function Careers() {
 
                 <div className="divide-y divide-gray-100">
                   {dept.roles.map((role, roleIndex) => {
-                    const subject = encodeURIComponent(`GrowthSync — ${role.title}`);
+                    const subject = encodeURIComponent(`GrowthSync: ${role.title}`);
                     const body = encodeURIComponent(`Hi GrowthSync team,\n\nI'm interested in the ${role.title} role (${role.location}).\n\nPlease submit your resume and a brief blurb about yourself here.\n\nThank you!`);
                     return (
                       <a

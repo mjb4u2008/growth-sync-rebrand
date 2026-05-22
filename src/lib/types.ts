@@ -1,5 +1,5 @@
 /**
- * GrowthSync Design System — public type interfaces.
+ * GrowthSync Design System - public type interfaces.
  * Every component's prop type is exported here so consuming apps can
  * `import type { TangerineButtonProps } from "@/lib/types";`
  */
@@ -322,7 +322,7 @@ export interface CaseBrowserWindowProps extends CaseBrowserData {
   z?: number;
   onClick?: () => void;
   onClose?: () => void;
-  /** Begins a drag on the window — called from the titlebar mousedown. */
+  /** Begins a drag on the window - called from the titlebar mousedown. */
   onDragStart?: (e: React.MouseEvent) => void;
 }
 

@@ -1,5 +1,5 @@
 /**
- * <BlogDesktopShell> — the fixed-height "signals.psheet" window shell.
+ * <BlogDesktopShell> - the fixed-height "signals.psheet" window shell.
  * Used by both the table state and the article-reader state, so the
  * article never feels like a separate page; it opens inside this shell.
  *

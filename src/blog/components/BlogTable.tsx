@@ -1,5 +1,5 @@
 /**
- * <BlogTable> — desktop column header + rows. The first row is featured
+ * <BlogTable> - desktop column header + rows. The first row is featured
  * (latest post) so it gets the persistent orange rail without a giant
  * SaaS hero card. Rows are real `<a href>` links that navigate to the
  * full /blog/:slug article.

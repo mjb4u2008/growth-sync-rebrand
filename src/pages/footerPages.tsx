@@ -3,7 +3,7 @@
  *
  * Every footer link resolves here. Each entry maps a SimplePageSlug to a
  * short, intentional content block that uses <SimplePage>. Keep these
- * tight — they exist so footer links aren't dead, not as full marketing
+ * tight - they exist so footer links aren't dead, not as full marketing
  * pages.
  */
 
@@ -47,9 +47,9 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
         heading: "Best for",
         body: (
           <p>
-            Brands and creators whose comments outrun their team — especially during
-            launches and drops, when timing is the difference between a sale and a
-            silent scroll.
+            Brands and creators whose comments outrun their team during launches
+            and drops. Timing is often the difference between a sale and a silent
+            scroll.
           </p>
         ),
       },
@@ -59,13 +59,13 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
     fileName: "customer_memory.product",
     eyebrow: "PRODUCT · CUSTOMER MEMORY",
     title: "Zero-party data, kept warm.",
-    lede: "Turn every comment, DM, and reply into a structured profile — so the next conversation picks up where the last one left off.",
+    lede: "Turn every comment, DM, and reply into a structured profile. The next conversation starts with context.",
     sections: [
       {
         heading: "What it does",
         body: (
           <ul>
-            <li>Builds a profile for every person who interacts — size, color, channel, intent.</li>
+            <li>Builds a profile for every person who interacts: size, color, channel, intent.</li>
             <li>Surfaces history the moment a familiar handle slides into your DMs.</li>
             <li>Exports cleanly to your CRM, ESP, or warehouse.</li>
           </ul>
@@ -75,8 +75,8 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
         heading: "Why it matters",
         body: (
           <p>
-            Social isn&apos;t anonymous — the same hundred people drive most of your drops.
-            Customer memory makes that obvious, and actionable.
+            Social is not anonymous. The same hundred people drive most of your drops.
+            Customer memory makes that obvious and useful.
           </p>
         ),
       },
@@ -86,7 +86,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
     fileName: "brand_voice.product",
     eyebrow: "PRODUCT · BRAND VOICE",
     title: "Replies that sound like you.",
-    lede: "Train GrowthSync on your existing replies, captions, and tone notes. Drafts come back in your voice — not a generic AI rinse.",
+    lede: "Train GrowthSync on your existing replies, captions, and tone notes. Drafts come back in your voice.",
     sections: [
       {
         heading: "What it does",
@@ -103,7 +103,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
         body: (
           <p>
             You set the voice notes; you can require human approval on anything
-            sensitive — refunds, claims, partnerships.
+            sensitive, including refunds, claims, and partnerships.
           </p>
         ),
       },
@@ -120,7 +120,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
         body: (
           <ul>
             <li>Live feed of every comment, DM, and mention as the drop happens.</li>
-            <li>Reply suggestions tuned for the moment — sizes, colors, restock ETA.</li>
+            <li>Reply suggestions tuned for the moment: sizes, colors, restock ETA.</li>
             <li>Captures waitlist intent automatically when stock runs low.</li>
           </ul>
         ),
@@ -143,9 +143,9 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
         heading: "Featured stories",
         body: (
           <ul>
-            <li><strong>Drip Gloss</strong> — grew monthly new net revenue from $7K to $60K after launch.</li>
-            <li><strong>NDA</strong> — launched from zero to $270K in new net revenue across six months.</li>
-            <li><strong>Von Dutch</strong> — converted existing Instagram attention into $12,675/mo in tracked revenue.</li>
+            <li><strong>Drip Gloss</strong>: grew monthly new net revenue from $7K to $60K after launch.</li>
+            <li><strong>NDA</strong>: launched from zero to $270K in new net revenue across six months.</li>
+            <li><strong>Von Dutch</strong>: converted existing Instagram attention into $12,675/mo in tracked revenue.</li>
           </ul>
         ),
       },
@@ -186,7 +186,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
     fileName: "pricing.txt",
     eyebrow: "COMPANY · PRICING",
     title: "Pricing.",
-    lede: "GrowthSync is in private beta. Pricing is custom per brand based on signal volume and team size — and we're honest about the band on a 15-minute call.",
+    lede: "GrowthSync is in private beta. Pricing is custom per brand based on signal volume and team size. We share the range on a 15-minute call.",
     sections: [
       {
         heading: "What to expect",
@@ -208,7 +208,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
     fileName: "careers.txt",
     eyebrow: "COMPANY · CAREERS",
     title: "Working at GrowthSync.",
-    lede: "We're a small team. We hire slowly, for taste and craft, and we ship every week. No open listings right now — but introductions are always welcome.",
+    lede: "We're a small team. We hire slowly, care about taste, and ship every week. No open listings right now, but introductions are welcome.",
     sections: [
       {
         heading: "What we look for",
@@ -232,7 +232,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
     fileName: "brand_voice_library.resource",
     eyebrow: "RESOURCES · BRAND VOICE LIBRARY",
     title: "Brand voice library.",
-    lede: "A growing collection of brand voice notes, reply patterns, and tone guides we've seen work — pulled from the brands using GrowthSync.",
+    lede: "A growing collection of brand voice notes, reply patterns, and tone guides from brands using GrowthSync.",
     sections: [
       {
         heading: "What's inside",
@@ -254,14 +254,14 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
     fileName: "drop_playbook.resource",
     eyebrow: "RESOURCES · DROP PLAYBOOK",
     title: "Drop playbook.",
-    lede: "The 72-hour playbook we've refined with the brands running drops on GrowthSync — from pre-launch capture to post-drop re-engagement.",
+    lede: "The 72-hour playbook we use with brands running drops on GrowthSync, from pre-launch capture to post-drop re-engagement.",
     sections: [
       {
         heading: "The phases",
         body: (
           <ul>
             <li><strong>T-72:</strong> tease + waitlist capture from comments.</li>
-            <li><strong>T-0:</strong> live triage — sizes, colors, restock, fit.</li>
+            <li><strong>T-0:</strong> live triage for sizes, colors, restock, and fit.</li>
             <li><strong>T+48:</strong> re-engagement DMs to high-intent missed customers.</li>
           </ul>
         ),
@@ -298,7 +298,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
     fileName: "sample_inbox.demo",
     eyebrow: "RESOURCES · SAMPLE INBOX",
     title: "Sample inbox.",
-    lede: "A walkthrough of what a working GrowthSync inbox looks like — comments, DMs, customer memory, and voice replies, end to end.",
+    lede: "A walkthrough of a working GrowthSync inbox with comments, DMs, customer memory, and voice replies.",
     sections: [
       {
         heading: "What you'll see",
@@ -312,7 +312,7 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
       },
       {
         heading: "See it live",
-        body: <p>The interactive version opens with a Book a call — we walk it with you.</p>,
+        body: <p>The interactive version opens after you book a call. We walk it with you.</p>,
       },
     ],
   },

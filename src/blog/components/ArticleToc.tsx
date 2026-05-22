@@ -1,5 +1,5 @@
 /**
- * <ArticleToc> — right-side `Jump to:` rail generated from H2 headings.
+ * <ArticleToc> - right-side `Jump to:` rail generated from H2 headings.
  * Tracks active heading via IntersectionObserver. Also exposes a mobile
  * `<details>` variant under 1100px.
  */

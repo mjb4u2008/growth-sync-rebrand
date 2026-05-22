@@ -1,5 +1,5 @@
 /**
- * <SimplePage> — generic Y2K document shell.
+ * <SimplePage> - generic Y2K document shell.
  *
  * Used by Privacy, Terms, all footer pages, and 404. Wraps the body in
  * <ChromeWindow> for the metallic titlebar, with a tangerine eyebrow,

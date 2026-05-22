@@ -1,5 +1,5 @@
 /**
- * <StatusPill> — glossy mono pill for live state, intent, and editorial moments.
+ * <StatusPill> - glossy mono pill for live state, intent, and editorial moments.
  *
  *   variant: "success" | "tangerine" | "warning" | "danger" | "info"
  *   dot:     adds a small LED dot before the label (used with "success")

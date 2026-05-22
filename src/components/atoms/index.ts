@@ -1,5 +1,5 @@
 /**
- * Atomic primitives — re-export surface.
+ * Atomic primitives - re-export surface.
  * Consume `@/components/atoms` rather than reaching into individual files.
  */
 

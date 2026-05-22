@@ -1,5 +1,5 @@
 /**
- * <SignalsFeedWindow> — the hero-right product preview window.
+ * <SignalsFeedWindow> - the hero-right product preview window.
  * "growthsync · signals · tiktok · /pickups" titlebar with a count strip
  * and 5 signal rows. Data lives here because it's the marketing-site
  * preview content, not real product state.
@@ -27,7 +27,7 @@ const DEFAULT_ROWS: SignalsFeedRow[] = [
   { code: "M04", label: "3 new DMs from creators tagged in SS25",                       ts: "1m"  },
   { code: "P12", label: "@vespertine_studio replied to your Folded Atelier reel",      ts: "4m"  },
   { code: "P14", label: "Story mention: \"i had M3 at the early bird ✨\"",            ts: "9m"  },
-  { code: "P22", label: "Comment cluster: 47 replies — Tuesday timing",                ts: "11m" },
+  { code: "P22", label: "Comment cluster: 47 replies about Tuesday timing",             ts: "11m" },
 ];
 
 export function SignalsFeedWindow({

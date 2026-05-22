@@ -1,5 +1,5 @@
 /**
- * <TangerineButton> — the glossy brand CTA.
+ * <TangerineButton> - the glossy brand CTA.
  *
  *   variant: "primary" (tangerine), "ghost" (paper outline), "ink" (black)
  *   size:    "sm" | "md" | "lg" | "orb"

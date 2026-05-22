@@ -1,5 +1,5 @@
 /**
- * <ArticleHero> — slot for the post's hero illustration.
+ * <ArticleHero> - slot for the post's hero illustration.
  * Phase 1: just passes the post's `hero` ReactNode through. The wrapper
  * stays separate so it can later add OG-image generation hooks.
  */

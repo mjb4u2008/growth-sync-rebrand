@@ -1,5 +1,5 @@
 /**
- * <ChatBubble> — single message bubble for DM panels and chat windows.
+ * <ChatBubble> - single message bubble for DM panels and chat windows.
  *   who: "us"  → glossy tangerine
  *   who: "them"→ paper-cool with hairline border
  */

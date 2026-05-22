@@ -1,5 +1,5 @@
 /**
- * BlogApp — the single shell that hosts both blog states.
+ * BlogApp - the single shell that hosts both blog states.
  *
  *   /blog          → spreadsheet/table view inside the shell
  *   /blog/:slug    → article reader inside the same shell
@@ -145,7 +145,7 @@ function BlogSeo({ route, post }: { route: Route; post?: BlogPost }) {
 }
 
 /* -------------------------------------------------------------------------
- * Eyebrow above the shell — shows breadcrumb-ish file path and status pill.
+ * Eyebrow above the shell - shows breadcrumb-ish file path and status pill.
  * ------------------------------------------------------------------------- */
 
 function BlogEyebrow({ route, totalRows, latestDate }: { route: Route; totalRows: number; latestDate: string }) {
@@ -184,7 +184,7 @@ function BlogEyebrow({ route, totalRows, latestDate }: { route: Route; totalRows
 }
 
 /* -------------------------------------------------------------------------
- * TABLE STATE — the signals.psheet inside the shell.
+ * TABLE STATE - the signals.psheet inside the shell.
  * ------------------------------------------------------------------------- */
 
 function TableShell({ all }: { all: BlogPost[] }) {
@@ -239,7 +239,7 @@ function TableShell({ all }: { all: BlogPost[] }) {
 }
 
 /* -------------------------------------------------------------------------
- * READER STATE — article opens inside the same .gs-psheet shell.
+ * READER STATE - article opens inside the same .gs-psheet shell.
  * ------------------------------------------------------------------------- */
 
 function ReaderShell({ slug, all }: { slug: string; all: BlogPost[] }) {
@@ -249,12 +249,12 @@ function ReaderShell({ slug, all }: { slug: string; all: BlogPost[] }) {
 
   useEffect(() => {
     if (!post) {
-      document.title = "Not found — GrowthSync";
+      document.title = "Not found | GrowthSync";
       return;
     }
-    document.title = `${post.title} — GrowthSync`;
+    document.title = `${post.title} | GrowthSync`;
     return () => {
-      document.title = "GrowthSync — The relationship layer for social commerce";
+      document.title = "GrowthSync | The relationship layer for social commerce";
     };
   }, [post]);
 
@@ -356,7 +356,7 @@ function ReaderShell({ slug, all }: { slug: string; all: BlogPost[] }) {
 }
 
 /* -------------------------------------------------------------------------
- * Reader left rail — in-window list of latest posts.
+ * Reader left rail - in-window list of latest posts.
  * (Replaces the older standalone ArticleLeftRail card so it can dock as a
  * pane within the shell.)
  * ------------------------------------------------------------------------- */
@@ -458,7 +458,7 @@ function ReaderNotFound({ slug }: { slug: string }) {
 }
 
 /* -------------------------------------------------------------------------
- * Article CTA strip — pinned to the bottom of the article state only.
+ * Article CTA strip - pinned to the bottom of the article state only.
  * ------------------------------------------------------------------------- */
 
 function ArticleCtaStrip() {

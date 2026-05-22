@@ -1,5 +1,5 @@
 /**
- * <HowItWorks> — "How It Works" + capture-feed window paired with body copy.
+ * <HowItWorks> - "How It Works" + capture-feed window paired with body copy.
  */
 
 import { MonoLabel, RainbowStrip, ReadMore } from "@/components/atoms";
@@ -8,8 +8,8 @@ import { CaptureWindow } from "@/components/product";
 
 const CAPTURE_BULLETS = [
   "24/7 listening across TikTok, Instagram, comments, DMs, and stories",
-  "Sentiment, voice-of-customer themes, and emerging objections — surfaced automatically",
-  "Insights you'll only get by reading every post and mention — without reading them",
+  "Sentiment, customer themes, and objections surfaced automatically",
+  "Insights from every post and mention, without reading them all",
 ];
 
 export function HowItWorks() {
@@ -32,8 +32,8 @@ export function HowItWorks() {
             signal about your brand
           </h2>
           <p className="gs-lede">
-            Every TikTok, Instagram, comment, DM, and story reply about your brand — surfaced in real
-            time and labelled by voice, intent, and product.
+            Every TikTok and Instagram comment, DM, and story reply gets surfaced in real
+            time and labeled by voice, intent, and product.
           </p>
           <ul className="gs-checklist">
             {CAPTURE_BULLETS.map((b) => (

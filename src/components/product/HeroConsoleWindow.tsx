@@ -1,5 +1,5 @@
 /**
- * <HeroConsoleWindow> — coded recreation of the real GrowthSync dashboard
+ * <HeroConsoleWindow> - coded recreation of the real GrowthSync dashboard
  * for the hero peek. Structure: full app shell (sidebar + main) showing
  * Campaigns / Shirt Drop · Activity tab, with an activity list, an open
  * conversation, and a "review before sending" composer.
@@ -9,7 +9,7 @@
  * onto the marketing site's cream / Y2K-aqua / tangerine palette.
  *
  * The brand strip below the hero clips the bottom of this window so
- * it "peeks" — see .gs-hero-console-shell in global.css.
+ * it "peeks" - see .gs-hero-console-shell in global.css.
  */
 
 import type { CSSProperties } from "react";
@@ -879,7 +879,7 @@ export function HeroConsoleWindow() {
                     <span style={{ color: "var(--gs-ink-3)" }}>@kickflip_kai</span>
                   </div>
                   <div style={dmBody}>
-                    We heard you all asking for the popsicle shape — it's back and better. Stoked you're hyped 👍
+                    We heard you all asking for the popsicle shape. It's back and better. Stoked you're hyped 👍
                   </div>
                 </div>
                 <div style={{ ...commentTime, alignSelf: "flex-end" }}>May 20, 2026 · 12:40 PM</div>
@@ -894,7 +894,7 @@ export function HeroConsoleWindow() {
                   <span style={{ color: "var(--gs-ink-3)" }}>118 / 1000</span>
                 </div>
                 <div style={composerBody}>
-                  Yo Kai! We do 8.25 and 8.5 — the 8.5 is perfect for transition. Grab it before the run sells out.
+                  Yo Kai! We do 8.25 and 8.5. The 8.5 is perfect for transition. Grab it before the run sells out.
                   <span
                     aria-hidden
                     style={{

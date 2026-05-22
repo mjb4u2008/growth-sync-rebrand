@@ -1,8 +1,8 @@
 /**
- * <SignalCalculator> — retro spreadsheet/calculator window.
+ * <SignalCalculator> - retro spreadsheet/calculator window.
  *
  * Uncontrolled component. Default value is data.defaultStep (5th tick = 350K).
- * The result number is computed live from `data.formula` — never hardcoded.
+ * The result number is computed live from `data.formula` - never hardcoded.
  *
  * CSS for the spreadsheet chrome lives in src/styles/calculator.css and is
  * imported globally from src/styles/global.css.
@@ -71,7 +71,7 @@ export function SignalCalculator({
         <div className="gscalc-cell">A2</div>
         <div className="gscalc-step">
           <span className="gscalc-hatch" />
-          <span>STEP 1 — INPUT YOUR AUDIENCE</span>
+          <span>STEP 1 · INPUT YOUR AUDIENCE</span>
           <span className="gscalc-hatch" />
           <span className="instr">Instruction: <em>{data.instruction}</em></span>
         </div>
@@ -169,7 +169,7 @@ export function SignalCalculator({
         <div className="gscalc-cell">B9</div>
         <div className="gscalc-step">
           <span className="gscalc-hatch" />
-          <span>STEP 2 — YOUR MONTHLY SIGNALS</span>
+          <span>STEP 2 · YOUR MONTHLY SIGNALS</span>
           <span className="gscalc-hatch" />
           <span className="computed">
             COMPUTED: <em>=B3 × {formatRate(signalRate)}</em>
