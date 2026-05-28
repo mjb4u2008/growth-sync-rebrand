@@ -92,6 +92,8 @@ export function BookACallSuccess() {
         <span>REQUEST RECEIVED</span>
       </div>
 
+      <BookCallSteps currentStep={2} />
+
       <ChromeWindow title="request.received · growthsync">
         <div className="gs-form-success gs-form-success--page" role="status" aria-live="polite">
           <div className="head">Book a time below to get started.</div>
@@ -138,16 +140,7 @@ function Scheduler() {
       <h2 id="bac-scheduler" style={srOnly}>
         Request a call
       </h2>
-      <ol className="gs-bac-steps" aria-label="Book a call steps">
-        <li>
-          <span>1.</span>
-          Step 1: Intake
-        </li>
-        <li>
-          <span>2.</span>
-          Step 2: Schedule a call
-        </li>
-      </ol>
+      <BookCallSteps currentStep={1} />
       <ChromeWindow
         title="intake.form · intro_call.sheet"
         contentStyle={{ background: "var(--gs-paper)" }}
@@ -155,6 +148,30 @@ function Scheduler() {
         <IntakeForm />
       </ChromeWindow>
     </section>
+  );
+}
+
+type BookCallStep = 1 | 2;
+
+function BookCallSteps({ currentStep }: { currentStep: BookCallStep }) {
+  const steps: Array<{ number: BookCallStep; label: string }> = [
+    { number: 1, label: "Step 1: Intake" },
+    { number: 2, label: "Step 2: Schedule a call" },
+  ];
+
+  return (
+    <ol className="gs-bac-steps" aria-label="Book a call steps">
+      {steps.map((step) => (
+        <li
+          key={step.number}
+          className={step.number === currentStep ? "is-active" : undefined}
+          aria-current={step.number === currentStep ? "step" : undefined}
+        >
+          <span>{step.number}.</span>
+          {step.label}
+        </li>
+      ))}
+    </ol>
   );
 }
 

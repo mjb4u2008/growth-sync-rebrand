@@ -132,18 +132,41 @@
   gap: 18px;
   flex-wrap: wrap;
   list-style: none;
-  color: var(--gs-ink);
-  font: 800 12px/1.2 var(--gs-font-sans);
+  color: var(--gs-ink-3);
+  font: 650 12px/1.2 var(--gs-font-sans);
 }
 
 .gs-bac-steps li {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  opacity: 0.58;
+}
+
+.gs-bac-steps li.is-active {
+  color: var(--gs-ink);
+  font-weight: 900;
+  opacity: 1;
+}
+
+.gs-bac-steps li.is-active::after {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--gs-tangerine);
+  content: "";
 }
 
 .gs-bac-steps span {
   color: var(--gs-ink-3);
+}
+
+.gs-bac-steps li.is-active span {
+  color: var(--gs-tangerine-deep);
 }
 
 /* ---- Book a Call split layout ---- */
