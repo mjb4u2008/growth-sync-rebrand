@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import GetStarted from './pages/GetStarted';
+import BookACallSuccess from './pages/BookACallSuccess';
 import PricingPage from './pages/PricingPage';
 import Careers from './pages/Careers';
 import Privacy from './pages/Privacy';
@@ -31,6 +32,8 @@ function AppShell() {
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/book-a-call" element={<GetStarted />} />
+        <Route path="/book-a-call/success" element={<BookACallSuccess />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="/brand" element={<BrandKit />} />

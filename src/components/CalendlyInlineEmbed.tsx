@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { AlertCircle, ArrowUpRight, CalendarDays } from 'lucide-react';
+import { AlertCircle, CalendarDays } from 'lucide-react';
 
 type CalendlyPrefill = {
   name?: string;
@@ -137,7 +137,7 @@ export default function CalendlyInlineEmbed({ url, prefill, onScheduled }: Calen
   }, [onScheduled]);
 
   return (
-    <div className="relative h-[860px] rounded-[28px] border border-gray-200 bg-white overflow-hidden md:h-[920px]">
+    <div className="relative h-[760px] overflow-hidden rounded-lg border border-black/10 bg-white md:h-[860px]">
       {status === 'loading' && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-white/90 px-8 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-700">
@@ -155,18 +155,9 @@ export default function CalendlyInlineEmbed({ url, prefill, onScheduled }: Calen
           <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-50 text-red-600">
             <AlertCircle className="h-7 w-7" />
           </div>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-gray-500">
-            The calendar did not load here. Open it in a new tab and keep moving.
+          <p className="mt-5 max-w-md text-sm font-medium leading-6 text-black/58">
+            The calendar did not load here. Use the scheduling link above to open Calendly in a new tab.
           </p>
-          <a
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-gray-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
-          >
-            Open Calendly
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
         </div>
       ) : (
         <div
