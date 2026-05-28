@@ -94,21 +94,21 @@ export function BookACallSuccess() {
 
       <ChromeWindow title="request.received · growthsync">
         <div className="gs-form-success gs-form-success--page" role="status" aria-live="polite">
-          <div className="head">You&apos;re in the queue.</div>
+          <div className="head">Book a time below to get started.</div>
           <div className="sub">
-            We captured your request and will follow up with the next step. If scheduling is enabled,
-            you can pick a time now.
-          </div>
-          <div className="gs-success-actions">
-            {calendlyUrl ? (
-              <a href={calendlyUrl} target="_blank" rel="noreferrer">
-                <TangerineButton size="md">Pick a time →</TangerineButton>
-              </a>
-            ) : (
-              <span className="hint">Calendly is not configured in this environment.</span>
+            Choose any slot that works for you. We will use your intake to make the first conversation concrete.
+            {calendlyUrl && (
+              <>
+                {" "}
+                If the calendar does not load,{" "}
+                <a className="gs-inline-schedule-link" href={calendlyUrl} target="_blank" rel="noreferrer">
+                  schedule a call here
+                </a>
+                .
+              </>
             )}
-            <a href="/blog?tab=market-studies">Read market studies</a>
           </div>
+          {!calendlyUrl && <span className="hint">Calendly is not configured in this environment.</span>}
           {calendlyEmbedUrl && (
             <iframe
               title="Calendly scheduler"
@@ -138,6 +138,16 @@ function Scheduler() {
       <h2 id="bac-scheduler" style={srOnly}>
         Request a call
       </h2>
+      <ol className="gs-bac-steps" aria-label="Book a call steps">
+        <li>
+          <span>1.</span>
+          Step 1: Intake
+        </li>
+        <li>
+          <span>2.</span>
+          Step 2: Schedule a call
+        </li>
+      </ol>
       <ChromeWindow
         title="intake.form · intro_call.sheet"
         contentStyle={{ background: "var(--gs-paper)" }}

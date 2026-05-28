@@ -125,6 +125,27 @@
   justify-self: end;
 }
 
+.gs-bac-steps {
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  list-style: none;
+  color: var(--gs-ink);
+  font: 800 12px/1.2 var(--gs-font-sans);
+}
+
+.gs-bac-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gs-bac-steps span {
+  color: var(--gs-ink-3);
+}
+
 /* ---- Book a Call split layout ---- */
 
 .gs-bac-split {
@@ -278,6 +299,26 @@
   color: var(--gs-ink-2);
 }
 
+.gs-form-success .hint {
+  font: 700 11px/1.35 var(--gs-font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gs-ink-3);
+}
+
+.gs-inline-schedule-link {
+  color: var(--gs-ink);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--gs-aqua, var(--gs-tangerine));
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.gs-inline-schedule-link:hover {
+  color: var(--gs-tangerine-deep);
+}
+
 .gs-form-success--page {
   padding: 28px 32px 32px;
 }
@@ -341,6 +382,9 @@
   .gs-bac-intake section[aria-labelledby="bac-scheduler"] {
     max-width: none;
     justify-self: stretch;
+  }
+  .gs-bac-steps {
+    justify-content: center;
   }
   .gs-bac-split { grid-template-columns: 1fr; gap: 22px; }
   .gs-form-row { grid-template-columns: 1fr; }
