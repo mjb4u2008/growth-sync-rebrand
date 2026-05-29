@@ -164,6 +164,14 @@ export const GS_DATA: GsData = {
           { label: "Sample inbox", href: "/sample-inbox" },
         ],
       },
+      {
+        heading: "LEGAL",
+        items: [
+          { label: "Privacy Policy", href: "/privacy" },
+          { label: "Terms of Service", href: "/terms-of-service" },
+          { label: "Status", href: "https://growthsync-status.instatus.com/" },
+        ],
+      },
     ],
     colophon: "© GROWTHSYNC 2026 · THE RELATIONSHIP LAYER FOR SOCIAL COMMERCE",
   },
