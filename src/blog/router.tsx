@@ -14,6 +14,7 @@ export type SimplePageSlug =
   // legal
   | "privacy"
   | "terms"
+  | "security"
   // product
   | "inbox"
   | "customer-memory"
@@ -42,6 +43,7 @@ export type Route =
 const SIMPLE_PAGE_SLUGS: ReadonlySet<SimplePageSlug> = new Set<SimplePageSlug>([
   "privacy",
   "terms",
+  "security",
   "inbox",
   "customer-memory",
   "brand-voice",

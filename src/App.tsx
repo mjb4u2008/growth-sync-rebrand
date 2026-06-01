@@ -33,7 +33,7 @@ import { InstantReply } from "@/sections/InstantReply";
 
 import { BlogApp } from "@/blog/BlogApp";
 import { useGlobalLinkInterception, useRoute } from "@/blog/router";
-import { BookACall, BookACallSuccess, FooterPage, NotFound, Privacy, Terms } from "@/pages";
+import { BookACall, BookACallSuccess, FooterPage, NotFound, Privacy, Security, Terms } from "@/pages";
 
 function CalculatorSection() {
   return (
@@ -121,7 +121,8 @@ export default function App() {
       {route.kind === "book-a-call-success" && <BookACallSuccess />}
       {route.kind === "simple-page" && route.slug === "privacy" && <Privacy />}
       {route.kind === "simple-page" && route.slug === "terms" && <Terms />}
-      {route.kind === "simple-page" && route.slug !== "privacy" && route.slug !== "terms" && (
+      {route.kind === "simple-page" && route.slug === "security" && <Security />}
+      {route.kind === "simple-page" && route.slug !== "privacy" && route.slug !== "terms" && route.slug !== "security" && (
         <FooterPage slug={route.slug} />
       )}
       {route.kind === "not-found" && <NotFound pathname={route.pathname} />}
