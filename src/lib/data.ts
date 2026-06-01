@@ -169,6 +169,7 @@ export const GS_DATA: GsData = {
         items: [
           { label: "Privacy Policy", href: "/privacy" },
           { label: "Terms of Service", href: "/terms-of-service" },
+          { label: "Security", href: "/security" },
           { label: "Status", href: "https://growthsync-status.instatus.com/" },
         ],
       },
