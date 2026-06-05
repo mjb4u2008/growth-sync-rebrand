@@ -16,7 +16,7 @@ const footerLinks = {
   ],
   Legal: [
     { label: 'Privacy Policy', to: '/privacy' },
-    { label: 'Terms of Service', to: '/terms-of-service' },
+    { label: 'Terms of Service', to: '/terms' },
     { label: 'Status', href: 'https://growthsync-status.instatus.com/' },
   ],
 };

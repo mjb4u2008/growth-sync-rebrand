@@ -34,6 +34,8 @@ import { InstantReply } from "@/sections/InstantReply";
 import { BlogApp } from "@/blog/BlogApp";
 import { useGlobalLinkInterception, useRoute } from "@/blog/router";
 import { BookACall, BookACallSuccess, FooterPage, NotFound, Privacy, Security, Terms } from "@/pages";
+import { capturePaidAttribution } from "@/utils/attribution";
+import { trackMarketingPageView } from "@/utils/marketingTags";
 
 function CalculatorSection() {
   return (
@@ -109,6 +111,14 @@ function MarketingHome() {
 export default function App() {
   useGlobalLinkInterception();
   const route = useRoute();
+  const attributionRoute = typeof window === "undefined"
+    ? ""
+    : `${window.location.pathname}${window.location.search}`;
+
+  useEffect(() => {
+    capturePaidAttribution();
+    trackMarketingPageView();
+  }, [attributionRoute]);
 
   const onBlog = route.kind === "blog-index" || route.kind === "blog-post";
 

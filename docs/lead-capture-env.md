@@ -22,6 +22,23 @@ If Supabase is missing, webhook or Resend capture can still succeed. Never expos
 keys, but keep them server-side for this API so every public lead request still
 passes through `api/leads.ts` validation.
 
+Paid-media attribution:
+
+- `/book-a-call` preserves allow-listed paid-click fields from the landing URL:
+  `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`,
+  `gclid`, `gbraid`, `wbraid`, `fbclid`, and `msclkid`.
+- The API stores those fields under `metadata.attribution` on
+  `public.book_call_leads`.
+- Browser-side paid measurement can be enabled with public Vite values:
+  `VITE_GOOGLE_TAG_ID`, `VITE_GOOGLE_ADS_CONVERSION_ID`,
+  `VITE_GOOGLE_ADS_LEAD_CONVERSION_LABEL`, and `VITE_META_PIXEL_ID`.
+  When configured, the site fires page views on SPA route changes and fires Google
+  Ads / Meta `Lead` events only after `/api/leads` succeeds.
+- Optional account metadata for operator notes/readiness checks can be recorded as
+  `GOOGLE_ADS_CUSTOMER_ID`, `GOOGLE_ADS_CONVERSION_ACTION`,
+  `META_AD_ACCOUNT_ID`, and `META_PIXEL_ID`. These variables do not enable tags,
+  account mutations, billing, or spend by themselves.
+
 Supabase project used for verification on May 21, 2026:
 
 - Project name: `mjb4u2008's Project`

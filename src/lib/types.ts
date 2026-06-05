@@ -40,6 +40,7 @@ export interface TangerineButtonProps {
   style?: CSSProperties;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export type StatusPillVariant =
