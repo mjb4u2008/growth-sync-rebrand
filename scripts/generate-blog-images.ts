@@ -18,6 +18,10 @@ const COMPOSITION_GUARDRAILS = `Distinct silhouette, avoid repeating a centered 
 
 const imageSpecs: BlogImageSpec[] = [
   {
+    slug: 'the-convergence-is-happening',
+    scene: 'A convergence map where many separate blank social commerce surfaces collapse into one bright operating layer. Around the edges, distinct unlabeled mini scenes made only of shapes: a bar-chart panel, an abstract media tile, a small circular stage, a cluster of empty speech bubbles, a grid of blank product cards, and a glowing checkout pedestal. Each sends glowing teal signal streams inward to a central transparent Aqua control console made of layered glass panes, empty rows, and simple geometric bars. The center feels like a unified commerce operating system, while the outer surfaces remain visibly different. Editorial market-shift composition, diagonal motion toward the center, no people, no logos, no text labels, no title text, no header text, no word-like marks, no central phone, no outer window buttons except three colored status dots in the upper left, no x icons, no square icons, no tiny interface glyphs.',
+  },
+  {
     slug: 'social-commerce-shared-language',
     scene: 'A miniature drafting table where glowing teal social signals are being organized into a clear shared language. On the left, messy unlabeled social shapes float like a thought cloud. On the right, six large blank ceramic cards sit in a clean operating map, each card using only simple geometric bars and dots with no grid, no menu row, no tiny marks, no labels. Thin teal threads connect the messy shapes into the blank cards. Editorial, cerebral, category-building mood, no people, no central phone.',
   },

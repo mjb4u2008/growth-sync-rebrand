@@ -29,6 +29,124 @@ const tannerAuthor = {
 
 export const blogPosts = [
   {
+    id: 39,
+    title: "The Convergence Is Happening",
+    excerpt: "The old ad-to-website growth loop is losing leverage. Social platforms are becoming the place where demand, conversation, and checkout collapse.",
+    category: "Social Commerce",
+    author,
+    date: "Jun 5, 2026",
+    dateISO: "2026-06-05T09:00:00Z",
+    readTime: "6 min read",
+    image: "/blog/the-convergence-is-happening.png",
+    tags: ['Social Commerce', 'DTC', 'TikTok Shop', 'Meta', 'AI Agents'],
+    content: (
+      <>
+        <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
+          Social media is no longer just where brands create awareness before sending people somewhere else to buy. It is becoming the place where discovery, conversation, recommendation, checkout, support, and retention all start to collapse into one buying surface.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          For most of the DTC era, the playbook was simple: buy attention on Meta, send the click to your website, retarget the visitor, capture the email, and hope the unit economics worked. That was ad buying 1.0. The customer journey was basically "go to my site from an ad." It worked because targeting was good, attribution was readable, and traffic was cheap enough that mistakes could hide inside growth.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          That world did not disappear overnight. It just stopped being enough.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The privacy shock broke the old math</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          The obvious turning point was <ContentLink href="https://www.apple.com/newsroom/2021/04/ios-14-5-offers-unlock-iphone-with-apple-watch-diverse-siri-voices-and-more/">Apple's iOS 14.5 release on April 26, 2021</ContentLink>. App Tracking Transparency made apps ask for permission before tracking people across other companies' apps and websites for advertising. Apple was explicit about the change: apps now needed permission to track or access the device's advertising identifier.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Privacy was the consumer story. For brands, the operating story was harder. The clean feedback loop between ad click, website behavior, purchase, retargeting, and reported ROAS got noisier. Paid social did not stop working, but the margin for lazy spend got crushed.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          At the same time, the auction got more expensive. <ContentLink href="https://www.lek.com/insights/direct-selling/fighting-rising-direct-consumer-customer-acquisition-costs">L.E.K. wrote that DTC CACs were moving up</ContentLink> because more brands were fighting for the same online attention. By Q4 2021, social CPMs and search CPCs were up 22% and 23% year over year, and brands were already shifting spend away from Meta toward channels like TikTok and YouTube.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          That is the part people sometimes miss. iOS 14.5 did not create every problem. It revealed how fragile the old model had become. If your business needed cheap clicks, perfect attribution, and a high-converting owned site to make the math work, you were standing on a shrinking island.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Everlane is the warning label</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          The <ContentLink href="https://www.investing.com/news/stock-market-news/shein-to-buy-apparel-retailer-everlane-4707180">Everlane sale to Shein</ContentLink> is not about one privacy update or one bad channel strategy. That would be too neat. Reuters reported on May 22, 2026 that Everlane had agreed to be acquired by Shein, with Puck previously reporting a roughly $100 million valuation and no payout for common shareholders.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          The reason it matters is what Everlane represents. It was one of the cleanest symbols of the millennial DTC promise: build a sharp brand, tell a better story, own the website, acquire customers through digital channels, and compound loyalty over time.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          In 2026, that story is meeting a different machine. Shein is not a prettier website. It is an algorithmic demand engine: product testing, social velocity, price pressure, fast production, and marketplace behavior wrapped into one system. Everlane's sale is a reminder that the old DTC brand stack can have real equity and still lose leverage when distribution economics change underneath it.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          That is why this moment feels bigger than one acquisition. A lot of brands are waking up to the same problem: their awareness engine, performance engine, website, support inbox, and customer database were built as separate systems. The customer stopped behaving that way.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Social became the point of sale</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          The market has already validated the shift. <ContentLink href="https://newsroom.tiktok.com/introducing-tiktok-shop?lang=en">TikTok Shop launched in the US in September 2023</ContentLink> with shoppable videos, LIVE shopping, product showcases, affiliate commissions, shop ads, fulfillment, and checkout inside the app. That is not an awareness product. That is commerce infrastructure.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          The scale is now hard to ignore. <ContentLink href="https://www.retaildive.com/news/tiktok-shop-drives-social-commerce-growth/807665/">Retail Dive, citing EMARKETER</ContentLink>, reported that TikTok Shop made up nearly 20% of US social commerce in 2025, that US social commerce is expected to pass $100 billion in 2026, and that half of US social shoppers are projected to buy on TikTok in 2026.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Whatnot is proving the same behavior from a different angle. <ContentLink href="https://www.greycroft.com/perspectives/reimagining-commerce-leading-whatnots-series-e">Greycroft said Whatnot's Series E valued the company at nearly $5 billion</ContentLink> after the live shopping marketplace surpassed $3 billion in 2024 GMV. eBay saw the same pattern early enough to launch <ContentLink href="https://www.ebayinc.com/stories/news/ebay-launches-live-shopping-for-collectibles/">eBay Live in 2022</ContentLink>, a dedicated live shopping platform built around chat, entertainment, and instant purchasing.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Different formats, same direction. TikTok Shop is feed commerce. Whatnot is community live commerce. eBay Live is marketplace live commerce. Instagram affiliate commerce is creator-led distribution inside an existing social graph. The platforms are not just competing for attention anymore. They are competing to own the transaction.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Meta is saying the quiet part out loud</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          Meta's newest move makes the convergence even clearer. On June 3, 2026, <ContentLink href="https://about.fb.com/news/2026/06/meta-business-agent/">Meta announced Meta Business Agent</ContentLink> across WhatsApp, Messenger, Instagram, and Meta Business Suite. The agent can answer business-specific questions, recommend products from a catalog, book appointments, qualify leads, decide when a human should step in, and close sales.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          That is a huge tell. Meta built the first DTC wave by selling traffic. Now it is building tools that help brands monetize the conversation before the customer leaves the platform. The old product was "we can find your buyer." The new product is "we can help you sell to the buyer while they are already talking to you."
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          This is the step function. Social used to sit at the top of the funnel. It created awareness, taste, and intent, then handed the customer to the website. Now social is trying to become the funnel itself.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">The website is not dead. The website is demoted.</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          The mistake would be to read this as "websites are over." They are not. Owned checkout still matters. First-party data still matters. Brand trust still matters. But the website is no longer the only serious buying surface.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          The customer might discover on TikTok, ask a question in Instagram DMs, watch a creator go live on Whatnot, check reviews on Amazon, and buy from Shopify. Or they might never leave the original app. Either way, the purchase path is no longer a straight line from ad to landing page.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          That means brands need to stop treating social as a media layer and start treating it like a revenue layer. The important unit is not the click. It is the signal: the comment, the DM, the live question, the creator mention, the product tag, the abandoned conversation, the repeat buyer who shows up in a new channel.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          We wrote about this in <ContentLink href="/blog/social-commerce-shared-language">The Language of Social Commerce Is Still Being Built</ContentLink>. The category needs better words because the behavior is different. Engagement is not the same as intent. A platform sale is not the same as an owned sale. A conversation-assisted purchase is not the same as a last-click conversion.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is what we're building at GrowthSync</h2>
+        <p className="text-lg leading-relaxed mb-8">
+          GrowthSync exists because this convergence creates a new operating problem. The customer is everywhere, but the brand's context is scattered. Social teams see engagement. Support teams see tickets. E-commerce teams see sessions. Paid teams see attribution. The customer sees one brand.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          The winners will be the brands that can capture social signals, understand intent, respond with context, route to the right checkout, and keep the relationship after the transaction. That is not a better ad account. That is an operating layer for social commerce.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          If that is the layer you are trying to build, <ContentLink href="/get-started">start with GrowthSync here</ContentLink>.
+        </p>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Sources</h2>
+        <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 mb-8">
+          <p className="text-base leading-relaxed text-gray-600 mb-3">
+            <ContentLink href="https://www.apple.com/newsroom/2021/04/ios-14-5-offers-unlock-iphone-with-apple-watch-diverse-siri-voices-and-more/">Apple: iOS 14.5 and App Tracking Transparency</ContentLink>
+          </p>
+          <p className="text-base leading-relaxed text-gray-600 mb-3">
+            <ContentLink href="https://www.lek.com/insights/direct-selling/fighting-rising-direct-consumer-customer-acquisition-costs">L.E.K.: Fighting rising direct-to-consumer customer acquisition costs</ContentLink>
+          </p>
+          <p className="text-base leading-relaxed text-gray-600 mb-3">
+            <ContentLink href="https://www.investing.com/news/stock-market-news/shein-to-buy-apparel-retailer-everlane-4707180">Reuters: Shein to buy apparel retailer Everlane</ContentLink>
+          </p>
+          <p className="text-base leading-relaxed text-gray-600 mb-3">
+            <ContentLink href="https://www.retaildive.com/news/tiktok-shop-drives-social-commerce-growth/807665/">Retail Dive: TikTok Shop is driving social commerce growth</ContentLink>
+          </p>
+          <p className="text-base leading-relaxed text-gray-600 mb-3">
+            <ContentLink href="https://about.fb.com/news/2026/06/meta-business-agent/">Meta: Be there for every customer with Meta Business Agent</ContentLink>
+          </p>
+          <p className="text-base leading-relaxed text-gray-600">
+            <ContentLink href="/blog/instagram-tiktok-shop-playbook">Related: Instagram Just Copied TikTok Shop's Playbook</ContentLink>
+          </p>
+        </div>
+      </>
+    )
+  },
+  {
     id: 38,
     title: "Why I Joined GrowthSync",
     excerpt: "Tanner joins GrowthSync as Founding Engineer with a lesson from operations-heavy software: understand the work before building the product.",
