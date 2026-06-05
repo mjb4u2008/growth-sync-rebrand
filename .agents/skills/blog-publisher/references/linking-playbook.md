@@ -24,18 +24,20 @@ These are outbound credibility links, not backlinks in the SEO sense. Backlinks 
 
 Every new post should usually include:
 
-- 1 related internal link to another relevant article
-- 1 direct `/demo` link in the GrowthSync tie-back section
+- 1 related internal link to another relevant article, using a slug URL such as `/blog/social-commerce-shared-language`
+- 1 direct `/get-started` link in the GrowthSync tie-back section
+
+Use `/book-a-call` instead of `/get-started` when the sentence specifically says to book a call. Do not use `/demo` unless the route is added back to the app.
 
 If the post can naturally reference another GrowthSync article, link it inline. If not, add it in the `Sources` or closing section.
 
 ## CTA Rule
 
-If the article supports sales, end with a natural sentence that routes the reader to the demo flow. Example pattern:
+If the article supports sales, end with a natural sentence that routes the reader to the current booking flow. Example pattern:
 
 `If that's the problem you're trying to solve, book time with us here.`
 
-Link `book time with us here` to `/demo`.
+Link `book time with us here` to `/book-a-call`, or use `start with GrowthSync here` linked to `/get-started`.
 
 ## Quote Rule
 

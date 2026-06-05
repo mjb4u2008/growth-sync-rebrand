@@ -1,12 +1,12 @@
 # Post Template
 
-New posts are added directly to `src/data/blogPosts.tsx`.
+New posts are added directly to `src/data/blogPosts.tsx`. The live `src/blog/data.tsx` adapter turns these objects into Y2K/Aqua slug routes, tab metadata, signal types, heading IDs, and reader-page data.
 
 Use this structure:
 
 ```tsx
 {
-  id: 35,
+  id: 39,
   title: "TITLE HERE",
   excerpt: "EXCERPT HERE",
   category: "Social Commerce",
@@ -30,7 +30,7 @@ Use this structure:
       </p>
       <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is what we're building at GrowthSync</h2>
       <p className="text-lg leading-relaxed mb-8">
-        Tie the article back to the product and add a <ContentLink href="/demo">demo link</ContentLink>.
+        Tie the article back to the product and add a <ContentLink href="/get-started">current CTA link</ContentLink>.
       </p>
       <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">Sources</h2>
       <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 mb-8">
@@ -38,7 +38,7 @@ Use this structure:
           <ContentLink href="https://example.com">Source title</ContentLink>
         </p>
         <p className="text-base leading-relaxed text-gray-600">
-          <ContentLink href="/blog/6">Related: Internal article title</ContentLink>
+          <ContentLink href="/blog/social-commerce-shared-language">Related: Internal article title</ContentLink>
         </p>
       </div>
     </>
@@ -53,3 +53,6 @@ Use this structure:
 - Keep classes identical unless there is a real design reason to change them.
 - Match `date` and `dateISO`.
 - Use the next available numeric `id`.
+- Prefer slug URLs for internal blog links. The adapter can rewrite old numeric links, but new posts should not add more.
+- Use `imageSource: "supplied-photo"` only for a real supplied photo like a team announcement. Normal market posts use generated Y2K/Aqua images.
+- Confirm the final route in the live app shape: `/blog/<image-slug-or-title-slug>`.

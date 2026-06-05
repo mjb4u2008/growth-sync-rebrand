@@ -1,22 +1,27 @@
 ---
 name: blog-publisher
-description: Use when the user wants to add, publish, format, or update a GrowthSync blog post. Triggers on phrases like "here's today's blog", "publish this post", "use the blog skill", "add this blog to the site", "write or post this article", or "generate the blog image". Handles author assignment for Michael or Rod, GrowthSync blog formatting, title and excerpt cleanup, source links, related links, /demo CTA links, Gemini-based hero image generation, sitemap updates, and final validation before commit.
+description: Use when the user wants to add, publish, format, or update a GrowthSync blog post in the live Y2K/Aqua signals.psheet blog. Triggers on phrases like "here's today's blog", "publish this post", "use the blog skill", "add this blog to the site", "write or post this article", or "generate the blog image". Handles author assignment for Michael, Rod, or Tanner, GrowthSync blog formatting, title and excerpt cleanup, source links, related slug links, /get-started or /book-a-call CTA links, Y2K Aqua Gemini hero image generation, sitemap updates, and final validation before commit.
 metadata:
-  version: 1.0.0
+  version: 2.0.0
 ---
 
 # GrowthSync Blog Publisher
 
-This skill is the chain of command for publishing GrowthSync blog posts.
+This skill is the chain of command for publishing GrowthSync blog posts in the current live Y2K/Aqua blog.
+
+## Live Reality Check
+
+The live blog at `https://www.growthsync.com/blog` is the style arbiter. If local files conflict, inspect the live page and loaded bundle before editing. The current live design is the `signals.psheet` desktop/spreadsheet shell under `src/blog/*`, not the older standalone `src/pages/Blog.tsx` or `src/pages/BlogPost.tsx` pages.
 
 ## Read Order
 
 1. Read [references/process.md](references/process.md) first.
-2. Read [references/writing-style.md](references/writing-style.md).
-3. Read [references/linking-playbook.md](references/linking-playbook.md).
-4. Read [references/post-template.md](references/post-template.md) while editing `src/data/blogPosts.tsx`.
-5. Read [references/image-workflow.md](references/image-workflow.md) before generating or revising hero art.
-6. Read [references/retro-link-refresh-prompt.md](references/retro-link-refresh-prompt.md) when the task is to go back through older posts and apply the new link rules.
+2. Read [references/current-blog-architecture.md](references/current-blog-architecture.md) if you have not already inspected the current refactor in this turn.
+3. Read [references/writing-style.md](references/writing-style.md).
+4. Read [references/linking-playbook.md](references/linking-playbook.md).
+5. Read [references/post-template.md](references/post-template.md) while editing `src/data/blogPosts.tsx`.
+6. Read [references/image-workflow.md](references/image-workflow.md) before generating or revising hero art.
+7. Read [references/retro-link-refresh-prompt.md](references/retro-link-refresh-prompt.md) when the task is to go back through older posts and apply the current link rules.
 
 ## Trigger Phrases
 
@@ -38,16 +43,21 @@ Use this workflow when the user says things like:
 - Ask only for missing information that is truly blocking. Usually that means the article body, the author choice if unclear, or a must-have fact the user wants preserved.
 - Obey GrowthSync writing rules. No em dashes. No generic SEO filler. Keep the post sharp, opinionated, and readable.
 - Use `ContentLink` links inside `src/data/blogPosts.tsx`.
-- Every new sales-oriented post should end with a clear GrowthSync tie-back and a `/demo` link.
+- Every new sales-oriented post should end with a clear GrowthSync tie-back and a `/get-started` link. Use `/book-a-call` when the copy specifically says to book a call.
+- New internal blog links should use slug URLs like `/blog/social-commerce-shared-language`, not numeric legacy URLs.
+- Do not revive clay/morphism image language for blog heroes. Blog images use the current Y2K/Aqua operating-system style.
 - When claims are recent, numeric, or newsy, browse and verify sources before publishing.
 
 ## Files This Skill Owns
 
 - `src/data/blogPosts.tsx`
-- `src/pages/BlogPost.tsx`
-- `src/pages/Blog.tsx`
+- `src/blog/BlogApp.tsx`
+- `src/blog/data.tsx`
+- `src/blog/types.ts`
+- `src/blog/utils.ts`
+- `src/blog/components/*`
+- `src/styles/blog.css`
 - `scripts/generate-blog-images.ts`
-- `blog-image-theme.md`
 - `public/blog/*`
 - `public/sitemap.xml`
 
