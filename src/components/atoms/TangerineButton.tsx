@@ -63,12 +63,20 @@ export function TangerineButton({
   style,
   onClick,
   type = "button",
+  disabled = false,
 }: TangerineButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
-      style={{ ...baseStyle, ...SIZES[size], ...VARIANTS[variant], ...style }}
+      disabled={disabled}
+      style={{
+        ...baseStyle,
+        ...SIZES[size],
+        ...VARIANTS[variant],
+        ...(disabled ? { cursor: "not-allowed", opacity: 0.68, transform: "none" } : {}),
+        ...style,
+      }}
     >
       {children}
     </button>

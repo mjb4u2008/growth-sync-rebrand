@@ -5,12 +5,14 @@
  * server confirms at least one capture destination.
  */
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { navigateTo } from "@/blog/router";
 import { ChromeWindow, TangerineButton } from "@/components/atoms";
+import { getStoredAttribution } from "@/utils/attribution";
 import { buildCalendlyEmbedUrl, getCalendlyUrlFromClientEnv } from "@/utils/calendly";
+import { trackLeadConversion } from "@/utils/marketingTags";
 
 type FormState = {
   name: string;
@@ -192,6 +194,7 @@ function IntakeForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [serverError, setServerError] = useState<string | null>(null);
+  const isSubmittingRef = useRef(false);
 
   const update = (key: keyof FormState) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -203,12 +206,15 @@ function IntakeForm() {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmittingRef.current) return;
+
     const next = validate(form);
     setErrors(next);
     setServerError(null);
 
     if (Object.keys(next).length > 0) return;
 
+    isSubmittingRef.current = true;
     setSubmitState("submitting");
 
     try {
@@ -222,6 +228,7 @@ function IntakeForm() {
           socialHandles: form.social,
           notes: form.notes,
           source: "book-a-call",
+          attribution: getStoredAttribution(),
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -230,17 +237,23 @@ function IntakeForm() {
         throw new Error(data?.error || "Lead capture failed. Please try again.");
       }
 
-      sessionStorage.setItem("growthsync:lastLeadEmail", form.email);
+      try {
+        sessionStorage.setItem("growthsync:lastLeadEmail", form.email);
+      } catch {
+        // Lead capture already succeeded; blocked storage should not block the success flow.
+      }
+      trackLeadConversion();
       navigateTo("/book-a-call/success");
     } catch (error) {
       setServerError(error instanceof Error ? error.message : "Lead capture failed. Please try again.");
     } finally {
+      isSubmittingRef.current = false;
       setSubmitState("idle");
     }
   };
 
   return (
-    <form className="gs-form-grid" onSubmit={onSubmit} noValidate>
+    <form className="gs-form-grid" onSubmit={onSubmit} noValidate aria-busy={submitState === "submitting"}>
       <Field label="Name" name="name" value={form.name} onChange={update("name")} error={errors.name} required autoComplete="name" />
       <Field label="Company" name="company" value={form.company} onChange={update("company")} error={errors.company} required autoComplete="organization" />
       <Field label="Email" name="email" type="email" value={form.email} onChange={update("email")} error={errors.email} required autoComplete="email" />
@@ -252,7 +265,7 @@ function IntakeForm() {
         </div>
       )}
       <div className="gs-form-actions">
-        <TangerineButton size="md" type="submit">
+        <TangerineButton size="md" type="submit" disabled={submitState === "submitting"}>
           {submitState === "submitting" ? "Sending..." : "Request a call →"}
         </TangerineButton>
       </div>

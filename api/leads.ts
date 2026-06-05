@@ -9,6 +9,7 @@ type LeadRequest = {
   message?: unknown;
   notes?: unknown;
   source?: unknown;
+  attribution?: unknown;
 };
 
 type JsonResponse = {
@@ -23,10 +24,105 @@ type VercelRequest = {
   body?: LeadRequest | string;
 };
 
+const attributionKeys = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'gclid',
+  'gbraid',
+  'wbraid',
+  'fbclid',
+  'msclkid',
+] as const;
+
+type AttributionKey = (typeof attributionKeys)[number];
+
+type LeadAttribution = {
+  capturedAt?: string;
+  landingPage?: string;
+  referrer?: string;
+  fields: Partial<Record<AttributionKey, string>>;
+};
+
+type LeadPayload = {
+  name: string;
+  company: string;
+  email: string;
+  socialHandles: string;
+  notes: string;
+  source: string;
+  capturedAt: string;
+  userAgent: string;
+  referrer: string;
+  attribution?: LeadAttribution;
+  attributionSummary: string;
+};
+
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function toText(value: unknown, maxLength = 1000) {
   return String(value ?? '').trim().slice(0, maxLength);
+}
+
+function toAttributionText(value: unknown, maxLength = 240) {
+  return toText(value, maxLength).replace(/[\u0000-\u001F\u007F]/g, '');
+}
+
+function getRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    return null;
+  }
+  return value as Record<string, unknown>;
+}
+
+function sanitizeAttribution(value: unknown): LeadAttribution | undefined {
+  const attribution = getRecord(value);
+  if (!attribution) return undefined;
+
+  const fieldSource = getRecord(attribution.fields) || attribution;
+  const fields: Partial<Record<AttributionKey, string>> = {};
+
+  for (const key of attributionKeys) {
+    const field = toAttributionText(fieldSource[key], 240);
+    if (field) fields[key] = field;
+  }
+
+  const capturedAt = toAttributionText(attribution.capturedAt, 40);
+  const landingPage = toAttributionText(attribution.landingPage, 500);
+  const referrer = toAttributionText(attribution.referrer, 500);
+
+  if (Object.keys(fields).length === 0 && !capturedAt && !landingPage && !referrer) {
+    return undefined;
+  }
+
+  return {
+    ...(capturedAt ? { capturedAt } : {}),
+    ...(landingPage ? { landingPage } : {}),
+    ...(referrer ? { referrer } : {}),
+    fields,
+  };
+}
+
+function summarizeAttribution(attribution?: LeadAttribution) {
+  if (!attribution) return '';
+
+  const fields = attribution.fields;
+  const parts = [
+    fields.utm_source ? `source=${fields.utm_source}` : null,
+    fields.utm_medium ? `medium=${fields.utm_medium}` : null,
+    fields.utm_campaign ? `campaign=${fields.utm_campaign}` : null,
+    fields.utm_content ? `content=${fields.utm_content}` : null,
+    fields.utm_term ? `term=${fields.utm_term}` : null,
+    fields.gclid ? 'gclid=present' : null,
+    fields.gbraid ? 'gbraid=present' : null,
+    fields.wbraid ? 'wbraid=present' : null,
+    fields.fbclid ? 'fbclid=present' : null,
+    fields.msclkid ? 'msclkid=present' : null,
+  ].filter(Boolean);
+
+  return parts.join(' | ');
 }
 
 function parseBody(body: VercelRequest['body']): LeadRequest {
@@ -45,7 +141,7 @@ function parseBody(body: VercelRequest['body']): LeadRequest {
   return body;
 }
 
-async function sendLeadWebhook(payload: Record<string, string>) {
+async function sendLeadWebhook(payload: LeadPayload) {
   const webhookUrl = process.env.GROWTHSYNC_LEAD_WEBHOOK_URL || process.env.LEAD_WEBHOOK_URL || process.env.SLACK_WEBHOOK_URL;
 
   if (!webhookUrl) {
@@ -62,9 +158,10 @@ async function sendLeadWebhook(payload: Record<string, string>) {
           `*Email:* ${payload.email}`,
           `*Social handles:* ${payload.socialHandles || 'Not provided'}`,
           `*Source:* ${payload.source}`,
+          payload.attributionSummary ? `*Attribution:* ${payload.attributionSummary}` : null,
           '',
           payload.notes || 'No notes provided.',
-        ].join('\n'),
+        ].filter(Boolean).join('\n'),
       }
     : payload;
 
@@ -83,7 +180,7 @@ async function sendLeadWebhook(payload: Record<string, string>) {
   return true;
 }
 
-async function sendLeadEmail(payload: Record<string, string>) {
+async function sendLeadEmail(payload: LeadPayload) {
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
@@ -100,9 +197,10 @@ async function sendLeadEmail(payload: Record<string, string>) {
     `Email: ${payload.email}`,
     `Social handles: ${payload.socialHandles || 'Not provided'}`,
     `Source: ${payload.source}`,
+    payload.attributionSummary ? `Attribution: ${payload.attributionSummary}` : null,
     '',
     payload.notes || 'No notes provided.',
-  ];
+  ].filter(Boolean);
 
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -143,7 +241,7 @@ function getSupabaseServerKey() {
     || process.env.SUPABASE_ANON_KEY;
 }
 
-async function storeLeadInSupabase(payload: Record<string, string>) {
+async function storeLeadInSupabase(payload: LeadPayload) {
   const missing = missingSupabaseEnv();
 
   if (missing.length > 0) {
@@ -176,6 +274,7 @@ async function storeLeadInSupabase(payload: Record<string, string>) {
       referrer: payload.referrer,
       metadata: {
         captured_at: payload.capturedAt,
+        ...(payload.attribution ? { attribution: payload.attribution } : {}),
       },
     }),
   });
@@ -233,7 +332,10 @@ export default async function handler(request: VercelRequest, response: JsonResp
     capturedAt: new Date().toISOString(),
     userAgent: toText(request.headers?.['user-agent'], 300),
     referrer: toText(request.headers?.referer ?? request.headers?.referrer, 500),
+    attribution: sanitizeAttribution(body.attribution),
+    attributionSummary: '',
   };
+  payload.attributionSummary = summarizeAttribution(payload.attribution);
 
   if (!payload.name || !payload.company || !payload.socialHandles || !emailPattern.test(payload.email)) {
     response.status(400).json({

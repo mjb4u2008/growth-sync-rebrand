@@ -30,7 +30,8 @@ export function Privacy() {
       <h2>What we collect</h2>
       <ul>
         <li><strong>Intake form submissions.</strong> When you fill out the form on /book-a-call we collect your name, company name, email address, social handles, and any notes you choose to share.</li>
-        <li><strong>Basic site analytics.</strong> We may use privacy-respecting analytics (e.g. page views, referrer, country) to understand which pages are useful. We don&apos;t use ad-tech profiling cookies.</li>
+        <li><strong>Basic site analytics and ads measurement.</strong> We may use privacy-respecting analytics (e.g. page views, referrer, country) to understand which pages are useful. When configured, we may also use Google and Meta measurement tags to understand paid campaign performance and form conversions.</li>
+        <li><strong>Paid campaign attribution.</strong> If you arrive from a paid campaign, the URL may include campaign parameters or platform click IDs. We may keep those allow-listed fields in first-party browser storage for up to 90 days so the source is preserved as you move around the site. When you submit a form, we may store those fields with your request so we can understand which campaigns produced real conversations.</li>
         <li><strong>Scheduling.</strong> If we enable Calendly (or a similar third-party scheduler), the scheduling step happens on their domain under their privacy policy. We receive only the booking details you submit.</li>
       </ul>
 
@@ -39,12 +40,13 @@ export function Privacy() {
         <li>To reply to your request and schedule a call.</li>
         <li>To answer follow-up questions and provide product support.</li>
         <li>To improve the product by understanding which use cases come up most often.</li>
+        <li>To measure paid campaign performance using first-party lead attribution.</li>
       </ul>
 
       <h2>What we don&apos;t do</h2>
       <ul>
         <li>We don&apos;t sell your information.</li>
-        <li>We don&apos;t share it with advertisers.</li>
+        <li>We don&apos;t share raw form details with advertisers for resale or third-party profiling. If paid conversion reporting is enabled, we only send approved attribution or conversion fields needed to measure campaign performance.</li>
         <li>We don&apos;t use it to train third-party AI models.</li>
       </ul>
 
