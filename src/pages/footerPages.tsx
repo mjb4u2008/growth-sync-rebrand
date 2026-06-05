@@ -226,6 +226,33 @@ const REGISTRY: Record<Exclude<SimplePageSlug, "privacy" | "terms">, FooterPageC
       },
     ],
   },
+  security: {
+    fileName: "security.txt",
+    eyebrow: "COMPANY · SECURITY",
+    title: "Security.",
+    lede: "How to report security concerns and what to expect from the GrowthSync team.",
+    sections: [
+      {
+        heading: "Report an issue",
+        body: (
+          <p>
+            Email engineering@growthsync.com with a clear description, reproduction
+            steps, and any relevant screenshots or logs. We review legitimate reports
+            and follow up as quickly as possible.
+          </p>
+        ),
+      },
+      {
+        heading: "Please test responsibly",
+        body: (
+          <p>
+            Do not access, modify, or disrupt data that does not belong to you.
+            If you are unsure whether research is in scope, ask us first.
+          </p>
+        ),
+      },
+    ],
+  },
 
   // ---- Resources ----
   "brand-voice-library": {
