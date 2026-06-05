@@ -101,9 +101,6 @@ export const blogPosts = [
         <p className="text-lg leading-relaxed mb-8">
           Whatnot is proving the same behavior from a different angle. <ContentLink href="https://www.greycroft.com/perspectives/reimagining-commerce-leading-whatnots-series-e">Greycroft said Whatnot's Series E valued the company at nearly $5 billion</ContentLink> after the live shopping marketplace surpassed $3 billion in 2024 GMV. eBay is pushing from the marketplace side. In its Q1 2026 earnings materials, <ContentLink href="https://last10k.com/sec-filings/ebay/0001065088-26-000092.htm">eBay said it expanded eBay Live to France, Italy, and Canada</ContentLink>; on the earnings call, management said eBay Live was operating in seven markets and that its annual GMV run rate was more than 8x higher year over year.
         </p>
-        <p className="text-lg leading-relaxed mb-8">
-          Different formats, same direction. TikTok Shop is feed commerce. Whatnot is community live commerce. eBay Live is marketplace live commerce. Instagram affiliate commerce is creator-led distribution inside an existing social graph. The platforms are not just competing for attention anymore. They are competing to own the transaction.
-        </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is the new mall</h2>
         <p className="text-lg leading-relaxed mb-8">
           E-commerce 1.0 was search, ads, landing pages, carts, checkout, email, and retargeting. E-commerce 2.0 is shop-where-you-scroll.
