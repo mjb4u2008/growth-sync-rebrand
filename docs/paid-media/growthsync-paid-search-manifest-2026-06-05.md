@@ -8,7 +8,7 @@ Approved starter budget: $50/day
 
 ## Decision
 
-`CONTROLLED_PAID_PILOT: NO PASS` until Google Ads account setup, conversion action IDs, account/billing/verification readback, and creative assets are confirmed.
+`CONTROLLED_PAID_PILOT: NO PASS` until Google Ads billing setup and Meta/Google creative assets are confirmed.
 
 This manifest is ready to translate into paused Google Ads drafts once the platform connection exists.
 
@@ -17,10 +17,14 @@ This manifest is ready to translate into paused Google Ads drafts once the platf
 Google Ads:
 
 - Browser account: `mike@growthsync.com`
-- Current state: Google Ads manager signup screen, not a normal campaign workspace.
+- Current state: active Google Ads manager workspace.
 - Visible account/customer label: `920-770-5643`
-- Blocker: Google asks to confirm business information for a new manager account, including settings it says cannot be changed later. Do not submit through the paid-ads operator workflow.
-- Google conversion action/tag IDs: `[NEEDS_ACCOUNT_SETUP_AND_READBACK]`
+- Account display name corrected from `Growthsync` to `GrowthSync` on 2026-06-05.
+- Conversion action: `Book a call lead`, category `Submit lead form`, primary, count `One`, enhanced conversions off.
+- Google tag / conversion ID: `AW-18183231509`
+- Google Ads lead conversion label: `lvkdCKawyrkcEJWwuN5D`
+- Vercel env added: `VITE_GOOGLE_TAG_ID`, `VITE_GOOGLE_ADS_CONVERSION_ID`, and `VITE_GOOGLE_ADS_LEAD_CONVERSION_LABEL` for production, preview, and development.
+- Blocker: no linked payment profile and no billing setup. Google Ads says a billing setup is required to show ads.
 
 Meta:
 
@@ -38,6 +42,7 @@ Meta:
 - First-party join key: lead email plus captured lead timestamp.
 - Click IDs captured: `gclid`, `gbraid`, `wbraid`, `fbclid`, `msclkid`.
 - Browser conversion tags: Google Ads `conversion` and Meta `Lead` fire only after `/api/leads` returns `ok`.
+- Google lead conversion payload: `send_to=AW-18183231509/lvkdCKawyrkcEJWwuN5D`, `value=1.0`, `currency=USD`.
 
 ## UTM Convention
 
@@ -219,9 +224,9 @@ Allowed mutation must be one of:
 ## Current Approval Record
 
 ```text
-Approved action: prepare site measurement, prepare campaign manifest, create paused drafts when a connected account/tool is available, and enable only after account readback + creative review
+Approved action: prepare site measurement, prepare campaign manifest, create paused drafts when a connected account/tool is available, and enable only after account, billing/payment profile, tag, and creative readback
 Platform: Google Ads first, Meta later
-Account: Google Ads [NEEDS_ACCOUNT_SETUP]; Meta ad account 196247430 with Growth Sync dataset 1182775987029382
+Account: Google Ads 920-770-5643; Meta ad account 196247430 with Growth Sync dataset 1182775987029382
 Campaign(s): GS_US_Search_SocialCommerce_LeadGen_20260605
 Objective/conversion: Book-a-call lead
 Budget daily / total / dates: $50/day, $350 first-week guardrail, 7-day starter pilot
@@ -230,7 +235,7 @@ Placements/search network: Google Search only for first pilot
 Creative asset IDs/files: [NEEDS_USER_ASSETS]
 Copy: Safe draft copy in this manifest
 Landing pages: https://growthsync.com/book-a-call
-Allowed mutation: create paused drafts when account access exists; enable approved campaign only after final account/tag/creative readback
+Allowed mutation: create paused drafts when account access exists; enable approved campaign only after final account, billing/payment profile, tag, and creative readback
 Kill rules: Daily cap, $350 no-lead cap, irrelevant-query negatives, manual lead-quality review before scaling
 Approver/date: Michael Broughton, 2026-06-05
 ```

@@ -178,12 +178,15 @@ Evidence:
 - 2026-06-05: no-env in-app browser smoke on `http://localhost:3000/?utm_source=google&utm_medium=cpc&utm_campaign=no-env-smoke&gclid=no-env-gclid` confirmed no `growthsync-google-tag` script, no `growthsync-meta-pixel` script, no `dataLayer`, no `gtag`, and no `fbq`.
 - 2026-06-05: independent audit found two P2s after tag setup: page views could include arbitrary query params in ad-platform measurement URLs, and fast double-submit could duplicate lead/conversion events. Fixed by stripping non-allow-listed query params before page-view measurement and by adding a synchronous submit guard plus disabled submit CTA.
 - 2026-06-05: in-app browser sanitizer smoke loaded `/blog?email=bad@example.com&phone=555&utm_source=google&utm_medium=cpc&utm_campaign=sanitize-smoke&gclid=safe-gclid&tab=tech-corner` and confirmed the live URL was rewritten without `email` or `phone` while preserving `utm_*`, `gclid`, and `tab`.
+- 2026-06-05: Google Ads account display name was corrected to `GrowthSync`; Google conversion action `Book a call lead` was created with tag `AW-18183231509` and label `lvkdCKawyrkcEJWwuN5D`; Vercel Google tag env vars were added for production, preview, and development.
+- 2026-06-05: Google Ads billing readback found no linked payment profile and no billing setup, so Google cannot show ads yet even though conversion setup exists.
 
 ## Launch Approval Required Later
 
 Before enabling spend or creating platform drafts through Google/Meta, collect:
 
 - Google Ads account/customer ID and confirmed login.
+- Google Ads billing setup and linked payment profile readback.
 - Meta ad account, Page, Instagram identity, and Pixel/dataset IDs if Meta is included.
 - Daily/total budget cap and dates.
 - Target geographies and exclusions.
