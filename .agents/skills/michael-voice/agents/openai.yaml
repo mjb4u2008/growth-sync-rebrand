@@ -1,0 +1,4 @@
+interface:
+  display_name: "Michael Voice"
+  short_description: "Write in Michael's sharper founder voice"
+  default_prompt: "Use $michael-voice to rewrite this GrowthSync draft in Michael's voice."
