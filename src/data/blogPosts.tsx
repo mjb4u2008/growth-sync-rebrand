@@ -31,7 +31,7 @@ export const blogPosts = [
   {
     id: 39,
     title: "The Convergence Is Happening",
-    excerpt: "E-commerce 1.0 was ad-to-site. E-commerce 2.0 is shop-where-you-scroll, and the operating layer for that shift is being built now.",
+    excerpt: "Social commerce is becoming this generation's mall, and the public numbers still understate how fast the buying surface is scaling.",
     category: "Social Commerce",
     author,
     date: "Jun 5, 2026",
@@ -84,10 +84,16 @@ export const blogPosts = [
           The market has already validated the shift. <ContentLink href="https://newsroom.tiktok.com/introducing-tiktok-shop?lang=en">TikTok Shop launched in the US in September 2023</ContentLink> with shoppable videos, LIVE shopping, product showcases, affiliate commissions, shop ads, fulfillment, and checkout inside the app. That is not an awareness product. That is commerce infrastructure.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          The scale is already real. <ContentLink href="https://thelowdown.momentum.asia/new-report-tiktok-shop-u-s-gmv-grew-68-to-reach-us15-1b-in-2025/">Momentum Works and Tabcut estimate</ContentLink> that TikTok Shop reached $15.1 billion in US GMV in 2025, up 68% year over year. <ContentLink href="https://newsroom.tiktok.com/tiktok-shop-had-our-biggest-bfcm-weekend-ever">TikTok said its 2025 Black Friday to Cyber Monday weekend exceeded $500 million in sales</ContentLink>. <ContentLink href="https://www.retaildive.com/news/tiktok-shop-drives-social-commerce-growth/807665/">Retail Dive, citing EMARKETER</ContentLink>, reported that US social commerce is expected to pass $100 billion in 2026.
+          The public numbers are the floor. <ContentLink href="https://thelowdown.momentum.asia/new-report-tiktok-shop-u-s-gmv-grew-68-to-reach-us15-1b-in-2025/">Momentum Works and Tabcut estimate</ContentLink> that TikTok Shop reached $15.1 billion in US GMV in 2025, up 68% year over year. <ContentLink href="https://newsroom.tiktok.com/tiktok-shop-had-our-biggest-bfcm-weekend-ever">TikTok said its 2025 Black Friday to Cyber Monday weekend exceeded $500 million in sales</ContentLink>. <ContentLink href="https://www.retaildive.com/news/tiktok-shop-drives-social-commerce-growth/807665/">Retail Dive, citing EMARKETER</ContentLink>, reported that US social commerce is expected to pass $100 billion in 2026.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          None of this should be surprising. China already proved that content and commerce can become one behavior. <ContentLink href="https://www.businesswire.com/news/home/20250509699622/en/China-Social-Commerce-Market-Intelligence-Report-2025-Douyin-and-Xiaohongshu-Leading-the-Integration-of-Social-Interaction-and-Online-Shopping---Future-Growth-Dynamics-to-2030---ResearchAndMarkets.com">ResearchAndMarkets estimated China's social commerce market at $537 billion in 2025</ContentLink>. Other market reports put Chinese live commerce in the multi-trillion-yuan range. The US is not inventing the behavior. It is importing the next version of it.
+          My view is that the market already crossed that line. In conversations with TikTok leaders, operators, and people close to the platform, the number I keep hearing is that TikTok Shop alone did north of $100 billion in US GMV in 2025, with quarterly GMV moving toward $25 billion to $30 billion as Q4 started. That is not public reporting. It is my operator read. But it explains why the public market still feels like it has not priced in what is actually happening.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          You see the same gap at the product level. I am hearing numbers like Pop Mart's Labubu doing roughly $800 million through TikTok, with individual shops moving millions of units a month. Some of that will not show up in public trackers until much later. That is the point. The market is being built faster than the market reports are updating.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          China already proved that content and commerce can become one behavior. <ContentLink href="https://www.businesswire.com/news/home/20250509699622/en/China-Social-Commerce-Market-Intelligence-Report-2025-Douyin-and-Xiaohongshu-Leading-the-Integration-of-Social-Interaction-and-Online-Shopping---Future-Growth-Dynamics-to-2030---ResearchAndMarkets.com">ResearchAndMarkets estimated China's social commerce market at $537 billion in 2025</ContentLink>, and other reports put Chinese live commerce in the multi-trillion-yuan range. In private conversations this week, a TikTok GM described China as a social commerce market operating at 12-trillion-dollar scale. Whether you index the category by third-party reports or by people building inside the platforms, the direction is the same. Content, community, and checkout are becoming one retail behavior.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           Whatnot is proving the same behavior from a different angle. <ContentLink href="https://www.greycroft.com/perspectives/reimagining-commerce-leading-whatnots-series-e">Greycroft said Whatnot's Series E valued the company at nearly $5 billion</ContentLink> after the live shopping marketplace surpassed $3 billion in 2024 GMV. eBay is pushing from the marketplace side. In its Q1 2026 earnings materials, <ContentLink href="https://last10k.com/sec-filings/ebay/0001065088-26-000092.htm">eBay said it expanded eBay Live to France, Italy, and Canada</ContentLink>; on the earnings call, management said eBay Live was operating in seven markets and that its annual GMV run rate was more than 8x higher year over year.
@@ -95,9 +101,12 @@ export const blogPosts = [
         <p className="text-lg leading-relaxed mb-8">
           Different formats, same direction. TikTok Shop is feed commerce. Whatnot is community live commerce. eBay Live is marketplace live commerce. Instagram affiliate commerce is creator-led distribution inside an existing social graph. The platforms are not just competing for attention anymore. They are competing to own the transaction.
         </p>
-        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is e-commerce 2.0</h2>
+        <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is the new mall</h2>
         <p className="text-lg leading-relaxed mb-8">
           E-commerce 1.0 was search, ads, landing pages, carts, checkout, email, and retargeting. E-commerce 2.0 is shop-where-you-scroll.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Social commerce is this generation's mall. The old mall was a place to walk around, see what people were wearing, ask a friend, follow a crowd into a store, and buy because the moment felt social. TikTok, Instagram, Whatnot, and live shopping recreate that behavior inside the feed. The storefront is not a place you go. It is the content you are already watching.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           People are not always looking for a specific product. They are browsing. They are watching someone explain a product. They are reading the comments. They are asking if it works for them. They are buying because the product, the person, the story, and the checkout all showed up in the same moment. <ContentLink href="https://newsroom.tiktok.com/en-us/tiktok-shop-is-where-shoppers-come-to-discover">TikTok calls this discovery e-commerce</ContentLink>, and its own research with GlobalData says 83% of shoppers have discovered a new product on TikTok Shop and 70% have discovered a new brand.
@@ -127,6 +136,9 @@ export const blogPosts = [
         </p>
         <p className="text-lg leading-relaxed mb-8">
           The examples are not theoretical. Mavwicks Fragrances went from roughly $300,000 to $400,000 in annual sales before joining TikTok Shop to $32 million in its first year on the platform, according to Modern Retail. Dani Morgan's Boutique generated $100,000 from a single 15-hour live session using countdown bidding. These are not ad-to-site businesses. They are audience-to-commerce businesses.
+        </p>
+        <p className="text-lg leading-relaxed mb-8">
+          Canvas Beauty made this obvious early. Rod and I were there when Stormi Steele and Canvas Beauty crossed a million-dollar TikTok Live in the US. <ContentLink href="https://peopleofcolorintech.com/articles/black-female-founder-sets-1m-tiktok-live-record/">People of Color in Tech reported</ContentLink> that Steele said she became the first creator to reach $1 million in sales from a single TikTok Live, and <ContentLink href="https://www.blackenterprise.com/belle-collective-stormi-steele-canvas-beauty-brand/">Black Enterprise later wrote</ContentLink> that Canvas generated more than $1 million in roughly four and a half hours. That was not a checkout optimization. It was a live event that became a store.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           Pashion Footwear is another version of the same story. <ContentLink href="https://www.shopify.com/in/blog/pashion-footwear-turning-pain-into-profits">Shopify profiled Haley Pavone's business</ContentLink> as an eight-figure brand fueled by nearly one million TikTok followers, 19% profit margins, and zero ad spend. Her breakthrough came from cutting paid ads and filming TikToks herself. That is e-commerce 2.0 in one sentence.
@@ -163,6 +175,9 @@ export const blogPosts = [
           </p>
           <p className="text-base leading-relaxed text-gray-600 mb-3">
             <ContentLink href="https://www.modernretail.co/operations/tiktok-shop-says-sales-from-u-s-small-businesses-climbed-66-in-2025/">Modern Retail: TikTok Shop small business sales climbed 66% in 2025</ContentLink>
+          </p>
+          <p className="text-base leading-relaxed text-gray-600 mb-3">
+            <ContentLink href="https://peopleofcolorintech.com/articles/black-female-founder-sets-1m-tiktok-live-record/">People of Color in Tech: Canvas Beauty founder sets $1M TikTok Live record</ContentLink>
           </p>
           <p className="text-base leading-relaxed text-gray-600 mb-3">
             <ContentLink href="https://about.fb.com/news/2026/06/meta-business-agent/">Meta: Be there for every customer with Meta Business Agent</ContentLink>
