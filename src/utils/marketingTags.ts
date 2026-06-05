@@ -164,6 +164,8 @@ export function trackLeadConversion() {
   if (tagId && conversionId && conversionLabel) {
     window.gtag?.("event", "conversion", {
       send_to: `${conversionId}/${conversionLabel}`,
+      value: 1.0,
+      currency: "USD",
     });
   }
 
