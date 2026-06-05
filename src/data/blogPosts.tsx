@@ -103,10 +103,10 @@ export const blogPosts = [
         </p>
         <h2 className="text-3xl font-display font-bold text-gray-950 mt-16 mb-6">This is the new mall</h2>
         <p className="text-lg leading-relaxed mb-8">
-          E-commerce 1.0 was search, ads, landing pages, carts, checkout, email, and retargeting. E-commerce 2.0 is shop-where-you-scroll.
+          E-commerce 1.0 was search, ads, email, and retargeting, all pulling people away from the surface they were already on and into an owned site. E-commerce 2.0 is shop-where-you-scroll.
         </p>
         <p className="text-lg leading-relaxed mb-8">
-          Social commerce is this generation's mall. The old mall was a place to walk around, see what people were wearing, ask a friend, follow a crowd into a store, and buy because the moment felt social. TikTok, Instagram, Whatnot, and live shopping recreate that behavior inside the feed. The storefront is not a place you go. It is the content you are already watching.
+          Social commerce is this generation's mall. The mall was a place to walk around, see what people were wearing, ask a friend, follow a crowd into a store, and buy because the moment felt social. TikTok, Instagram, Whatnot, and live shopping recreate that behavior inside the feed. The storefront is not a place you go. It is the content you are already watching.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           People are not always looking for a specific product. They are browsing. They are watching someone explain a product. They are reading the comments. They are asking if it works for them. They are buying because the product, the person, the story, and the checkout all showed up in the same moment. <ContentLink href="https://newsroom.tiktok.com/en-us/tiktok-shop-is-where-shoppers-come-to-discover">TikTok calls this discovery e-commerce</ContentLink>, and its own research with GlobalData says 83% of shoppers have discovered a new product on TikTok Shop and 70% have discovered a new brand.
