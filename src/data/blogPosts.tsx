@@ -42,7 +42,7 @@ export const blogPosts = [
     content: (
       <>
         <p className="text-xl leading-relaxed mb-8 text-gray-600 font-medium">
-          It is becoming the place where discovery, conversation, shopping, and retention all collapse into one buying surface.
+          Social media is no longer just where brands create awareness. It is becoming the place where discovery, conversation, shopping, and retention all collapse into one buying surface.
         </p>
         <p className="text-lg leading-relaxed mb-8">
           For most of the DTC era, the playbook was simple. Buy attention on Meta. Send that attention to your website. Use hundreds of tools to retarget, capture email, recover carts, and hope the economics worked.
