@@ -1,28 +1,26 @@
 /**
- * <HowItWorks> - the three-part operating sequence as sticky "stacking"
- * parts.
+ * <HowItWorks> - the three-part operating sequence (Capture -> Analyze ->
+ * Engage) as three plain stacked feature rows.
  *
- * Each part (Capture -> Analyze -> Engage) pins to the top of the viewport
- * and the next part slides up and overlays it - the same reveal the section
- * that follows (Case Studies) uses over How It Works. This is pure CSS: the
- * parts are sticky siblings with increasing z-index and opaque backgrounds,
- * so a later part covers the earlier one as it scrolls into place. A trailing
- * spacer lets the last part dwell so Case Studies can reveal up over it.
- *
- * Below 720px the pin is dropped and the three parts stack normally.
+ * Each row pairs the step's product visual with its copy and a small step
+ * marker; rows alternate which side the visual sits on. The section scrolls
+ * normally - there is no scroll pinning or scroll-driven animation. (The
+ * individual visuals animate on their own, each gated by its own
+ * IntersectionObserver.)
  */
+
+import type { ReactNode } from "react";
 
 import { RainbowStrip, ReadMore } from "@/components/atoms";
 import { SectionHeader } from "@/components/marketing";
 import { CaptureOrganizeScene, EngageAgentScene, InsightsDashboardWindow } from "@/components/product";
-import { Fragment, useEffect, useRef, useState } from "react";
 
 interface Part {
   step: string;
   title: string;
   lede: string;
   bullets: string[];
-  window: React.ReactNode;
+  window: ReactNode;
   flip?: boolean;
 }
 
@@ -66,33 +64,25 @@ const PARTS: Part[] = [
   },
 ];
 
-function useIsNarrow(): boolean {
-  const [narrow, setNarrow] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return;
-    const mq = window.matchMedia("(max-width: 720px)");
-    const on = () => setNarrow(mq.matches);
-    on();
-    mq.addEventListener("change", on);
-    return () => mq.removeEventListener("change", on);
-  }, []);
-  return narrow;
-}
-
-function useReducedMotion(): boolean {
-  const ref = useRef(false);
-  if (typeof window !== "undefined" && window.matchMedia) {
-    ref.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-  return ref.current;
-}
-
-function PanelBody({ part }: { part: Part }) {
+function PanelBody({ part, index }: { part: Part; index: number }) {
   return (
     <div className={`gs-two-col${part.flip ? " gs-two-col-flip" : ""}`}>
       {part.window}
       <div>
         <RainbowStrip />
+        <div
+          style={{
+            marginTop: 10,
+            marginBottom: 2,
+            font: "700 11px/1 var(--gs-font-mono)",
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+          }}
+        >
+          <span style={{ color: "var(--gs-tangerine-deep)" }}>0{index + 1}</span>
+          <span style={{ color: "var(--gs-ink-4)", margin: "0 8px" }}>·</span>
+          <span style={{ color: "var(--gs-ink-3)" }}>{part.step}</span>
+        </div>
         <h2 className="gs-section-title" style={{ marginTop: 8 }}>
           {part.title}
         </h2>
@@ -110,108 +100,22 @@ function PanelBody({ part }: { part: Part }) {
   );
 }
 
-/** The step rail up top of each pinned part, with the current step lit. */
-function StepRail({ activeIndex }: { activeIndex: number }) {
-  return (
-    <div className="hiw-steps">
-      {PARTS.map((p, j) => (
-        <div
-          key={p.step}
-          className={`hiw-step${activeIndex === j ? " is-active" : ""}${j < activeIndex ? " is-done" : ""}`}
-        >
-          <span className="hiw-step__idx">0{j + 1}</span>
-          <span className="hiw-step__name">{p.step}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export function HowItWorks() {
-  const narrow = useIsNarrow();
-  const reduced = useReducedMotion();
-  const partRefs = useRef<(HTMLElement | null)[]>([]);
-
-  // Fade each part in as it rises into place (instead of an opaque hard wipe).
-  // Opacity is driven by the part's top position, but only over the last
-  // FADE_RANGE of the slide, so the incoming part stays hidden for most of the
-  // rise and dissolves in near the end - keeping the double-content window
-  // short. Part 0 stays solid (nothing to dissolve over).
-  useEffect(() => {
-    if (narrow || reduced || typeof window === "undefined") return;
-    const FADE_RANGE = 0.25; // fraction of a viewport the dissolve spans
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const vh = window.innerHeight || 1;
-      const span = vh * FADE_RANGE;
-      const parts = partRefs.current;
-      for (let i = 1; i < parts.length; i++) {
-        const el = parts[i];
-        if (!el) continue;
-        const top = el.getBoundingClientRect().top;
-        el.style.opacity = String(Math.max(0, Math.min(1, 1 - top / span)));
-      }
-    };
-    const onScroll = () => {
-      if (!raf) raf = window.requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) window.cancelAnimationFrame(raf);
-    };
-  }, [narrow, reduced]);
-
-  // Mobile / small screens: no pin, just stack the three parts.
-  if (narrow) {
-    return (
-      <section id="how-it-works" className="gs-band gs-band-bone">
-        <div className="gs-band-inner">
-          <div className="gs-center">
-            <SectionHeader
-              title="How It Works"
-              lede="A three-part operating sequence: pull in every interaction, turn it into insight, and let AI campaigns engage for you."
-            />
-          </div>
-          <div style={{ display: "grid", gap: 44, marginTop: 40 }}>
-            {PARTS.map((part) => (
-              <PanelBody key={part.step} part={part} />
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <div id="how-it-works" className="hiw-stack">
-      {PARTS.map((part, i) => (
-        <Fragment key={part.step}>
-          <section
-            ref={(el) => {
-              partRefs.current[i] = el;
-            }}
-            className={`hiw-part${i > 0 ? " hiw-part--over" : ""}`}
-            style={{ zIndex: i + 1 }}
-          >
-            <div className="hiw-part__inner gs-band-inner">
-              <div className="hiw-part__head">
-                <span className="gs-eyebrow">How It Works</span>
-                <StepRail activeIndex={i} />
-              </div>
-              <PanelBody part={part} />
-            </div>
-          </section>
-          {/* dwell: keeps the pinned part on screen longer before the next
-              part rises over it, so the section doesn't scroll by too fast */}
-          {i < PARTS.length - 1 && <div className="hiw-part-gap" aria-hidden />}
-        </Fragment>
-      ))}
-      <div className="hiw-stack__spacer" aria-hidden />
-    </div>
+    <section id="how-it-works" className="gs-band gs-band-tint">
+      <div className="gs-band-inner">
+        <div className="gs-center">
+          <SectionHeader
+            title="How It Works"
+            lede="A three-part operating sequence: pull in every interaction, turn it into insight, and let AI campaigns engage for you."
+          />
+        </div>
+        <div style={{ display: "grid", gap: "clamp(56px, 8vw, 104px)", marginTop: 48 }}>
+          {PARTS.map((part, i) => (
+            <PanelBody key={part.step} part={part} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

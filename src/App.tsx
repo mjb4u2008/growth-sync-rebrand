@@ -54,7 +54,7 @@ function CalculatorSection() {
 
 function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="gs-band gs-band-bone hiw-reveal-next">
+    <section id="case-studies" className="gs-band gs-band-bone">
       <div className="gs-band-inner">
         <div className="gs-center">
           <SectionHeader
@@ -97,8 +97,8 @@ function MarketingHome() {
       {/* Impressions owns its own near-white band (id="signals"). */}
       <Impressions />
 
-      {/* How It Works is a full-bleed, scroll-pinned scroller that owns
-          id="how-it-works" and the three parts (Capture / Analyze / Engage). */}
+      {/* How It Works owns id="how-it-works" — three stacked feature rows
+          (Capture / Analyze / Engage), plain scroll, no pinning. */}
       <HowItWorks />
 
       <CaseStudiesSection />
