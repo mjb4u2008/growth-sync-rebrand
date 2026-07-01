@@ -3,8 +3,7 @@
  * Two-column with the brand-voice reply window + body copy.
  */
 
-import { MonoLabel, RainbowStrip, ReadMore } from "@/components/atoms";
-import { SectionDivider } from "@/components/marketing";
+import { RainbowStrip, ReadMore } from "@/components/atoms";
 import { ReplyWindow } from "@/components/product";
 
 const BULLETS = [
@@ -17,11 +16,9 @@ export function InstantReply() {
   return (
     <section className="gs-band gs-band-bone">
       <div className="gs-band-inner">
-        <SectionDivider num="02" label="Instant Reply" meta="Brand Voice" />
         <div className="gs-two-col">
         <div>
           <RainbowStrip />
-          <MonoLabel>Reply</MonoLabel>
           <h2 className="gs-section-title" style={{ marginTop: 8 }}>
             We reply instantly,
             <br />

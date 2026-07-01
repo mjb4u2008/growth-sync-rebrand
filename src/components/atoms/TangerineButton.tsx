@@ -27,6 +27,7 @@ const VARIANT_CLASS: Record<TangerineButtonVariant, string> = {
   ghost: "gs-tbtn--ghost",
   destructive: "gs-tbtn--destructive",
   ai: "gs-tbtn--ai",
+  ink: "gs-tbtn--ink",
 };
 
 export function TangerineButton({

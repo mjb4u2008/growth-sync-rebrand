@@ -43,14 +43,6 @@ body {
   margin: 32px 0 24px;
   text-wrap: balance;
 }
-/* Editorial serif accent on the brand word — the hero's character. */
-.gs-hero .em {
-  font-family: var(--gs-font-editorial);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.005em;
-  color: var(--gs-tangerine-deep);
-}
 .gs-hero-copy-mobile { display: none; }
 .gs-section-title {
   font: 800 clamp(28px, 3.4vw, 44px)/1.04 var(--gs-font-display);
@@ -289,6 +281,20 @@ body {
 }
 .gs-tbtn--ghost:hover { background: var(--gs-paper-warm); }
 
+/* Ink — solid near-black pill that warms to tangerine on hover. The quiet,
+   editorial CTA: lets the brand orange stay a hover reward instead of
+   shouting from rest. */
+.gs-tbtn--ink {
+  color: #FFFBF2;
+  background: var(--gs-ink);
+  border-color: var(--gs-ink);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.gs-tbtn--ink:hover {
+  background: var(--gs-tangerine);
+  border-color: var(--gs-tangerine-deep);
+}
+
 /* Destructive — red wash. */
 .gs-tbtn--destructive {
   color: var(--gs-danger);
@@ -398,6 +404,149 @@ body {
   }
 }
 
+/* ===================================================================
+   HERO — "Quiet Editorial" (Variant A)
+   Full-bleed bone canvas, left-aligned two-column: headline + ink CTA
+   on the left, one clean DM card on the right. Replaces the centered
+   console-peek. The calm bone band + real card shadow do the work the
+   window chrome used to; restraint reads as product, not hobby.
+   =================================================================== */
+.gs-hero-a {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  background: var(--gs-bone);
+  border-bottom: 1px solid var(--gs-rule);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  padding-block: clamp(52px, 6vw, 96px);
+}
+.gs-hero-a-inner {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.gs-hero-a-copy { text-align: left; }
+.gs-hero-a .gs-hero { margin: 0 0 22px; text-wrap: balance; }
+.gs-hero-a-lede {
+  margin: 0 0 32px;
+  max-width: 42ch;
+  color: var(--gs-ink-3);
+}
+.gs-hero-a-ctas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+/* Hero CTAs sit chunkier than the in-page pill default. */
+.gs-hero-a-ctas .gs-tbtn {
+  height: 50px;
+  padding: 0 26px;
+  font-size: 15px;
+  font-weight: 800;
+}
+/* Secondary is a quiet text link with an underline that grows on hover. */
+.gs-hero-a-link {
+  font: 700 15px/1 var(--gs-font-sans);
+  color: var(--gs-ink-2);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.gs-hero-a-link:hover { color: var(--gs-ink); border-bottom-color: var(--gs-tangerine); }
+
+/* --- the clean DM card --- */
+.gs-hero-a-card {
+  background: var(--gs-bone);
+  border: 1px solid var(--gs-bone-edge);
+  border-radius: var(--gs-r-5);
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(11, 11, 18, 0.05),
+    0 8px 20px -8px rgba(11, 11, 18, 0.14),
+    0 40px 80px -40px rgba(11, 11, 18, 0.30);
+}
+.gs-hero-a-card-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--gs-bone-edge);
+}
+.gs-hero-a-av {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  background: conic-gradient(from 210deg, var(--gs-tangerine), var(--gs-rose), var(--gs-lilac), var(--gs-tangerine));
+}
+.gs-hero-a-name { font: 800 14px/1.2 var(--gs-font-display); color: var(--gs-ink); }
+.gs-hero-a-meta { font: 600 12px/1.3 var(--gs-font-sans); color: var(--gs-ink-4); }
+.gs-hero-a-live {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 10px/1 var(--gs-font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gs-success-ink);
+}
+.gs-hero-a-live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gs-success);
+  box-shadow: 0 0 0 3px rgba(79, 178, 69, 0.18);
+}
+.gs-hero-a-body { padding: 18px; }
+.gs-hero-a-thread { display: flex; flex-direction: column; gap: 9px; }
+.gs-hero-a-row { display: flex; }
+.gs-hero-a-row.me { justify-content: flex-end; }
+.gs-hero-a-bub {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font: 600 14px/1.4 var(--gs-font-sans);
+}
+.gs-hero-a-bub.them {
+  background: #fff;
+  color: var(--gs-ink);
+  border-bottom-left-radius: 5px;
+  box-shadow: var(--gs-shadow-hairline);
+}
+.gs-hero-a-bub.me {
+  background: var(--gs-tangerine);
+  color: #fff;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 1px 2px rgba(224, 79, 10, 0.30);
+}
+.gs-hero-a-bub.link {
+  background: #fff;
+  color: var(--gs-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 13px;
+  box-shadow: var(--gs-shadow-hairline);
+}
+
+@media (max-width: 860px) {
+  .gs-hero-a-inner { grid-template-columns: 1fr; }
+  .gs-hero-a-copy { text-align: left; }
+}
+@keyframes gs-hero-a-rise {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .gs-hero-a-card { animation: gs-hero-a-rise 700ms cubic-bezier(.2,.7,.1,1) both; }
+}
+
 /* Brand strip marquee.
    - Wide gaps + bigger letter spacing read more premium.
    - Slight `padding-left` ensures the first wordmark sits inside the
@@ -449,6 +598,8 @@ body {
   .gs-marquee { animation-duration: 0s; }
   .gs-pulse, .gs-capture-fresh,
   .gs-chat-bubble, .gs-crm__live-row, .gs-crm__head-anim { animation: none !important; }
+  .gs-so-ring, .gs-so-flow, .gs-so-reply { animation: none !important; }
+  [style*="gs-so-bar"] { animation: none !important; }
   .gs-hero-console-shell { animation: none !important; }
   [style*="gs-crm-bump"], [style*="gs-crm-row"], [style*="gs-crm-glow"],
   [style*="gs-crm-floater"], [style*="gs-crm-confetti"],
@@ -572,6 +723,143 @@ body {
   12%  { opacity: 1; }
   100% { opacity: 0;
          transform: translate(calc(-50% + var(--gs-dx, 0px)), calc(-50% + var(--gs-dy, -100px))) rotate(var(--gs-rot, 0)); }
+}
+
+/* ---- Signal Organizer — the "Find & engage" section visual ---- */
+/* a score bar filling from empty to its value */
+@keyframes gs-so-bar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(var(--gs-so-v, 1)); }
+}
+
+/* the GrowthSync mark pulses a ring on each processed impression */
+@keyframes gs-so-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(242,107,31,0.45); opacity: 1; }
+  100% { box-shadow: 0 0 0 16px rgba(242,107,31,0); opacity: 0; }
+}
+.gs-so-ring { animation: gs-so-ring 900ms ease-out both; }
+
+/* flow chevrons marching toward the feed (motion-safe only) */
+@keyframes gs-so-flow { 0%, 100% { opacity: 0.22; } 50% { opacity: 1; } }
+.gs-so-flow { animation: gs-so-flow 1.5s ease-in-out infinite; }
+
+/* the auto-reply generated on the record and sent back out to the customer.
+   Positioned at the record via inline left/top; this only slides it leftward. */
+@keyframes gs-so-reply-fly {
+  0%   { transform: translate(14px, 6px) scale(0.94); opacity: 0; }
+  18%  { opacity: 1; }
+  68%  { transform: translate(-140px, -6px) scale(1); opacity: 1; }
+  100% { transform: translate(-210px, -14px) scale(0.98); opacity: 0; }
+}
+.gs-so-reply { animation: gs-so-reply-fly 1500ms cubic-bezier(.2,.7,.1,1) both; }
+
+/* Engage agent — the little worker that scans the queue and replies.
+   Eyes blink on a slow cycle; the head ring reuses gs-so-ring on each reply. */
+@keyframes gs-agent-blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95%           { transform: scaleY(0.12); }
+}
+
+/* =================================================================
+   How It Works — sticky "stacking" parts. Each part pins to the
+   viewport; the next part slides up and overlays it (the same reveal
+   the following section uses over How It Works). Pure CSS; the mobile
+   fallback stacks the parts normally.
+   ================================================================= */
+.hiw-stack { position: relative; }
+/* lets the last part dwell so the next section can reveal up over it */
+.hiw-stack__spacer { height: 100vh; }
+/* extra scroll between parts so each one holds longer before the next rises */
+.hiw-part-gap { height: 80vh; }
+
+.hiw-part {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  background: var(--gs-bone);
+  border-top: 1px solid var(--gs-rule);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* parts 2+ slide up over the previous part — give them a lifted top edge */
+.hiw-part--over {
+  border-top-left-radius: 26px;
+  border-top-right-radius: 26px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 -28px 54px -26px rgba(11, 11, 18, 0.3);
+}
+.hiw-part__inner {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(84px, 12vh, 120px);
+  padding-bottom: 40px;
+}
+.hiw-part__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(18px, 3vh, 38px);
+}
+.hiw-steps { display: flex; align-items: center; gap: clamp(10px, 1.6vw, 22px); flex-shrink: 0; }
+.hiw-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0.4;
+  transition: opacity 0.35s ease;
+}
+.hiw-step.is-active { opacity: 1; }
+.hiw-step.is-done { opacity: 0.62; }
+.hiw-step__idx {
+  font: 700 11px/1 var(--gs-font-mono);
+  letter-spacing: 0.06em;
+  color: var(--gs-tangerine-deep);
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px rgba(200, 79, 14, 0.3);
+  transition: background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+}
+.hiw-step.is-active .hiw-step__idx {
+  background: linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine));
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 10px -4px rgba(200, 79, 14, 0.5);
+}
+.hiw-step__name { font: 700 13px/1 var(--gs-font-display); color: var(--gs-ink); }
+@media (max-width: 720px) {
+  .hiw-part { position: static; min-height: 0; border-radius: 0; box-shadow: none; }
+}
+
+/* The section after How It Works rises up and overlays the pinned frame.
+   It is pulled up by one viewport (matching the extra viewport of scroll in
+   .hiw-wrap) and floats above on a solid surface with a lifted top edge. */
+.hiw-reveal-next {
+  position: relative;
+  z-index: 5;
+  margin-top: -100vh;
+  border-top-left-radius: 26px;
+  border-top-right-radius: 26px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 -28px 54px -26px rgba(11, 11, 18, 0.32);
+}
+@media (max-width: 720px) {
+  /* On mobile How It Works is not pinned, so drop the overlap entirely. */
+  .hiw-reveal-next {
+    margin-top: 0;
+    border-radius: 0;
+    z-index: auto;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
 }
 
 /* Impressions section - a modern feature trio. Each product mock is a

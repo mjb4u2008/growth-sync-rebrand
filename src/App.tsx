@@ -21,16 +21,13 @@ import {
   BrandNav,
   BrandStrip,
   FooterDock,
-  SectionDivider,
   SectionHeader,
 } from "@/components/marketing";
 
 import { Closer } from "@/sections/Closer";
-import { CrmSection } from "@/sections/CrmSection";
 import { Hero } from "@/sections/Hero";
 import { HowItWorks } from "@/sections/HowItWorks";
 import { Impressions } from "@/sections/Impressions";
-import { InstantReply } from "@/sections/InstantReply";
 
 import { BlogApp } from "@/blog/BlogApp";
 import { useGlobalLinkInterception, useRoute } from "@/blog/router";
@@ -42,7 +39,6 @@ function CalculatorSection() {
   return (
     <section id="calculator" className="gs-band gs-band-tint">
       <div className="gs-band-inner">
-        <SectionDivider label="Calculator" meta="Live Estimate" />
         <div className="gs-center">
           <SectionHeader
             title={"97% of Brand & Creators are\nignoring their audience"}
@@ -58,9 +54,8 @@ function CalculatorSection() {
 
 function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="gs-band gs-band-bone">
+    <section id="case-studies" className="gs-band gs-band-bone hiw-reveal-next">
       <div className="gs-band-inner">
-        <SectionDivider label="Case Studies" meta="Social Commerce Proof" />
         <div className="gs-center">
           <SectionHeader
             title="Explore Our Case Studies"
@@ -94,7 +89,7 @@ function MarketingHome() {
 
   return (
     <div className="gs-home">
-      <main className="gs-page" id="home">
+      <main className="gs-page" id="home" style={{ paddingBottom: 0 }}>
         <Hero />
       </main>
       <BrandStrip />
@@ -102,13 +97,9 @@ function MarketingHome() {
       {/* Impressions owns its own near-white band (id="signals"). */}
       <Impressions />
 
-      {/* paddingBottom:0 so the dark CRM band meets the next band cleanly,
-          instead of leaving a greige sliver between two full-bleed bands. */}
-      <main className="gs-page" id="how-it-works" style={{ paddingBottom: 0 }}>
-        <HowItWorks />
-        <InstantReply />
-        <CrmSection />
-      </main>
+      {/* How It Works is a full-bleed, scroll-pinned scroller that owns
+          id="how-it-works" and the three parts (Capture / Analyze / Engage). */}
+      <HowItWorks />
 
       <CaseStudiesSection />
       <CalculatorSection />

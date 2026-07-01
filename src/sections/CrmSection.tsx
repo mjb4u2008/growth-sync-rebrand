@@ -3,8 +3,7 @@
  * Two-column flip with the CRM window on the right.
  */
 
-import { MonoLabel, RainbowStrip, ReadMore } from "@/components/atoms";
-import { SectionDivider } from "@/components/marketing";
+import { RainbowStrip, ReadMore } from "@/components/atoms";
 import { SocialCrmWindow } from "@/components/product";
 
 const BULLETS = [
@@ -17,11 +16,9 @@ export function CrmSection() {
   return (
     <section className="gs-band gs-band-dark">
       <div className="gs-band-inner">
-        <SectionDivider num="03" label="Social CRM" meta="Zero-Party Data" />
         <div className="gs-two-col gs-two-col-flip">
         <div>
           <RainbowStrip />
-          <MonoLabel color="var(--gs-tangerine-hi)">CRM Enrichment</MonoLabel>
           <h2 className="gs-section-title" style={{ marginTop: 8 }}>
             We turn interactions
             <br />

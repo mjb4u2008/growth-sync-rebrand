@@ -34,7 +34,7 @@ export interface LogoWordmarkProps {
 // legacy aliases (they map onto the spec sizes) so existing call sites
 // keep compiling without a sweep.
 export type TangerineButtonSize = "xs" | "sm" | "default" | "lg" | "md" | "orb";
-export type TangerineButtonVariant = "default" | "outline" | "ghost" | "destructive" | "ai";
+export type TangerineButtonVariant = "default" | "outline" | "ghost" | "destructive" | "ai" | "ink";
 
 export interface TangerineButtonProps {
   children: ReactNode;

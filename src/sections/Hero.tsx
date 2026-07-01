@@ -1,15 +1,15 @@
 /**
- * <Hero> - eyebrow + headline + dual CTA + the big dashboard peek window.
+ * <Hero> - "Quiet Editorial" jumbotron (Variant A).
  *
- * The hero is wrapped in a positioning shell so the console window can
- * push down past the section padding; the <BrandStrip> beneath it clips
- * the bottom of the window to create the "peek" effect.
+ * Left-aligned two-column layout on a full-bleed bone canvas: headline +
+ * lede + ink CTA on the left, one clean DM card on the right. Replaces the
+ * old centered console-peek — the calm surface and a single real card do the
+ * work the window chrome used to, so the page reads as product, not hobby.
  */
 
 import type { MouseEvent } from "react";
 
-import { StatusPill, TangerineButton } from "@/components/atoms";
-import { HeroConsoleWindow } from "@/components/product";
+import { TangerineButton } from "@/components/atoms";
 
 /**
  * Scroll the secondary CTA into the first live product section rather than
@@ -28,47 +28,54 @@ function scrollToSignals(e: MouseEvent<HTMLAnchorElement>) {
 
 export function Hero() {
   return (
-    <section
-      className="gs-section gs-center gs-hero-section"
-      style={{ position: "relative", paddingBottom: 0 }}
-    >
-      <span className="gs-hero-grid" aria-hidden="true" />
+    <section className="gs-hero-a">
+      <div className="gs-hero-a-inner">
+        <div className="gs-hero-a-copy">
+          <h1 className="gs-hero">
+            The relationship layer for social commerce.
+          </h1>
+          <p className="gs-lede gs-hero-a-lede">
+            Most brands answer 30% of their DMs. GrowthSync answers all of them,
+            in your voice, capturing permissioned customer data while you sleep.
+          </p>
+          <div className="gs-hero-a-ctas">
+            <a href="/book-a-call" style={{ textDecoration: "none" }}>
+              <TangerineButton size="lg" variant="ink">
+                Book a call →
+              </TangerineButton>
+            </a>
+            <a href="#signals" onClick={scrollToSignals} className="gs-hero-a-link">
+              See how it works
+            </a>
+          </div>
+        </div>
 
-      <div className="gs-hero-status">
-        <StatusPill variant="success">
-          <span className="led-dot" />
-          Real-time DM replies
-        </StatusPill>
-        <span className="by">Replying to DMs for 40+ social-first brands</span>
-      </div>
-
-      <h1 className="gs-hero" aria-label="The relationship layer for social commerce.">
-        <span className="gs-hero-copy-desktop" aria-hidden="true">
-          The <span className="em">relationship</span> layer
-          <br />
-          for social commerce.
-        </span>
-        <span className="gs-hero-copy-mobile" aria-hidden="true">
-          <span>The <span className="em">relationship</span></span>
-          <span>layer for social</span>
-          <span>commerce.</span>
-        </span>
-      </h1>
-      <p className="gs-lede gs-lede-center gs-lede-hero">
-        Most brands answer 30% of their DMs. GrowthSync answers all of them, in your voice, in minutes.
-      </p>
-
-      <div className="gs-hero-ctas" style={{ marginTop: 22 }}>
-        <a href="/book-a-call" style={{ textDecoration: "none" }}>
-          <TangerineButton size="lg">Book a call</TangerineButton>
-        </a>
-        <a href="#signals" onClick={scrollToSignals} style={{ textDecoration: "none" }}>
-          <TangerineButton size="lg" variant="outline">See it work ↓</TangerineButton>
-        </a>
-      </div>
-
-      <div className="gs-hero-console-shell">
-        <HeroConsoleWindow />
+        <div className="gs-hero-a-card" aria-hidden="true">
+          <div className="gs-hero-a-card-head">
+            <span className="gs-hero-a-av" />
+            <div>
+              <div className="gs-hero-a-name">alex.fitcheck</div>
+              <div className="gs-hero-a-meta">Instagram · DM</div>
+            </div>
+            <span className="gs-hero-a-live">Live</span>
+          </div>
+          <div className="gs-hero-a-body">
+            <div className="gs-hero-a-thread">
+              <div className="gs-hero-a-row">
+                <span className="gs-hero-a-bub them">Is the hoodie back in the medium?</span>
+              </div>
+              <div className="gs-hero-a-row me">
+                <span className="gs-hero-a-bub me">It is — want me to hold one for 10 min?</span>
+              </div>
+              <div className="gs-hero-a-row me">
+                <span className="gs-hero-a-bub link">growthsync.fit/hold-medium</span>
+              </div>
+              <div className="gs-hero-a-row">
+                <span className="gs-hero-a-bub them">yes please 🙌</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
