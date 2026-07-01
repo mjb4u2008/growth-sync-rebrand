@@ -83,7 +83,7 @@ const intentChip = (intent: number): CSSProperties => ({
     ? "linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine))"
     : "var(--gs-bone)",
   color: intent >= 75 ? "#fff" : "var(--gs-tangerine-deep)",
-  boxShadow: intent >= 75 ? "inset 0 1px 0 rgba(255,255,255,0.4)" : "inset 0 0 0 1px rgba(224,79,10,0.30)",
+  boxShadow: intent >= 75 ? "inset 0 1px 0 rgba(255,255,255,0.4)" : "inset 0 0 0 1px rgba(200,79,14,0.30)",
   font: "700 8.5px/1 var(--gs-font-mono)",
   letterSpacing: "0.08em",
   flexShrink: 0,
@@ -120,9 +120,11 @@ const bar: CSSProperties = {
 const barFill = (pct: number, color: string): CSSProperties => ({
   display: "block",
   height: "100%",
-  width: `${pct}%`,
+  width: "100%",
+  transformOrigin: "left center",
+  transform: `scaleX(${Math.max(0, Math.min(100, pct)) / 100})`,
   background: color,
-  transition: "width 700ms cubic-bezier(.6,.2,.2,1)",
+  transition: "transform 700ms cubic-bezier(.6,.2,.2,1)",
 });
 
 const numLine: CSSProperties = {
@@ -164,7 +166,7 @@ function Row({ signal, position }: RowProps) {
         background: "#fff",
         boxShadow:
           position === 0
-            ? "0 0 0 1px rgba(224,79,10,0.28), 0 8px 18px -12px rgba(224,79,10,0.30)"
+            ? "0 0 0 1px rgba(200,79,14,0.28), 0 8px 18px -12px rgba(200,79,14,0.30)"
             : "0 0 0 1px var(--gs-bone-edge)",
         opacity,
         transition: "top 480ms cubic-bezier(.6,.2,.2,1), opacity 480ms ease",
@@ -215,6 +217,7 @@ export function CaptureWindow() {
 
   return (
     <ModuleWindow
+      frame="tab"
       title="growthsync · capture · live"
       eyebrow="LISTENING 24/7"
       status={<ModuleStatusPill>CAPTURING</ModuleStatusPill>}
@@ -244,10 +247,10 @@ export function CaptureWindow() {
             <div style={summaryLabel}>SENTIMENT · LIVE</div>
             <div style={numLine}>
               <span>positive</span>
-              <span style={{ color: "var(--gs-success)" }}>{active.sentiment}%</span>
+              <span style={{ color: "var(--gs-success-ink)" }}>{active.sentiment}%</span>
             </div>
             <div style={{ ...bar, marginTop: 8 }}>
-              <span style={barFill(active.sentiment, "linear-gradient(90deg, #1F8E80, #58C97B)")} />
+              <span style={barFill(active.sentiment, "linear-gradient(90deg, #1F8E80, #4ADB5C)")} />
             </div>
           </div>
         </div>

@@ -28,11 +28,11 @@ export function Orb({ size = 22, style }: OrbProps) {
         height: size,
         borderRadius: 999,
         background:
-          "radial-gradient(circle at 32% 28%, #FFC79A 0%, #FF8847 35%, #E04F0A 75%, #9A3000 100%)",
+          "radial-gradient(circle at 32% 28%, #FFC79A 0%, #FF8847 35%, #C84F0E 75%, #9A3000 100%)",
         boxShadow: [
           "0 1px 0 rgba(255,255,255,0.45) inset",
           "0 -1px 0 rgba(0,0,0,0.2) inset",
-          "0 3px 6px -2px rgba(224,79,10,0.55)",
+          "0 3px 6px -2px rgba(200,79,14,0.55)",
         ].join(","),
         ...style,
       }}
@@ -120,7 +120,7 @@ export function ReadMore({ children = "Read more →", href = "/book-a-call", on
         font: "700 11px/1 var(--gs-font-mono)",
         letterSpacing: "0.08em",
         textTransform: "uppercase",
-        color: "var(--gs-tangerine-deep)",
+        color: "var(--gs-link)",
         cursor: "pointer",
         textDecoration: "none",
         ...style,

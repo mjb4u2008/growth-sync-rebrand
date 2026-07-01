@@ -27,32 +27,51 @@ body {
 }
 
 .gs-page { max-width: 1180px; margin: 0 auto; padding: 0 28px 72px; }
-.gs-section { padding: 68px 0; }
+/* Section rhythm: fluid so full-bleed bands breathe on wide screens
+   (modern landing air) and stay compact on small ones. */
+.gs-section { padding: clamp(64px, 7vw, 96px) 0; }
 .gs-section-tight { padding: 48px 0; }
 .gs-center { text-align: center; }
 
 .gs-hero {
-  font: 900 clamp(88px, 6.7vw, 108px)/0.98 var(--gs-font-display);
-  letter-spacing: -0.04em;
+  /* One smooth fluid scale across all widths — no breakpoint jumps.
+     Weight 800 (not black 900) per the design system; the Instrument
+     Serif accent carries the character, not sheer weight. */
+  font: 800 clamp(42px, 6.2vw, 84px)/1.04 var(--gs-font-display);
+  letter-spacing: -0.035em;
   color: var(--gs-ink);
   margin: 32px 0 24px;
   text-wrap: balance;
 }
+/* Editorial serif accent on the brand word — the hero's character. */
+.gs-hero .em {
+  font-family: var(--gs-font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--gs-tangerine-deep);
+}
 .gs-hero-copy-mobile { display: none; }
 .gs-section-title {
-  font: 800 40px/1.04 var(--gs-font-display);
-  letter-spacing: var(--gs-tracking-display);
+  font: 800 clamp(28px, 3.4vw, 44px)/1.04 var(--gs-font-display);
+  letter-spacing: -0.035em;
   color: var(--gs-ink);
   margin: 14px 0 10px;
   text-wrap: balance;
   white-space: pre-line;
 }
+/* The serif italic word is the brand accent. The font switch (heavy Hanken
+   → Instrument Serif italic) carries the emphasis; a single solid tangerine
+   completes it. (Gradient-clipped text was removed — decorative, and it
+   muddies the glyph edges at display size.) */
 .gs-section-title .em {
   font-family: var(--gs-font-editorial);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;
+  color: var(--gs-tangerine-deep);
 }
+.gs-band-dark .gs-section-title .em { color: var(--gs-tangerine-hi); }
 .gs-subhead {
   font: 700 26px/1.14 var(--gs-font-display);
   letter-spacing: -0.02em;
@@ -85,6 +104,216 @@ body {
 .gs-two-col-flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); }
 .gs-two-col-flip > :first-child { order: 2; }
 
+/* Full-bleed section bands -------------------------------------------------
+   Break a section out of the centered .gs-page column so alternating
+   sections get their own surface (warm cream / ink) instead of every
+   section reading as the same paper. Pairs with .gs-band-inner to
+   re-center the content. */
+.gs-band {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-block: clamp(64px, 7vw, 96px);
+}
+.gs-band-inner {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 28px;
+}
+/* GRAY band — the single warm-greige surface. Full-bleed version of the
+   page's base canvas; seams delineate it from neighbouring white/orange. */
+.gs-band-tint {
+  background: var(--gs-paper);
+  border-block: 1px solid var(--gs-seam);
+}
+/* WHITE band — near-white bone (the brand never uses pure white). Lifts a
+   section off the greige canvas so product shots read as a raised surface. */
+.gs-band-bone {
+  background: var(--gs-bone);
+  border-block: 1px solid var(--gs-rule);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.gs-band-dark {
+  background: radial-gradient(120% 90% at 82% 0%, #1b2230 0%, var(--gs-ink) 72%);
+  color: var(--gs-bone);
+}
+.gs-band-dark .gs-section-title { color: var(--gs-bone); }
+.gs-band-dark .gs-lede { color: rgba(251, 247, 238, 0.72); }
+.gs-band-dark .gs-checklist li { color: rgba(251, 247, 238, 0.82); }
+.gs-band-dark .gs-checklist li::before {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 0 8px rgba(40, 201, 64, 0.4);
+}
+@media (max-width: 720px) {
+  .gs-band { padding-block: 44px; }
+  .gs-band-inner { padding-inline: 16px; }
+}
+
+/* Chapter divider — the spec-sheet "section opener". A numbered mono
+   kicker on a rule that spans the column. This is the workhorse for
+   section distinction + read order: it tells the eye where a section
+   starts and anchors the eyebrow → title → lede hierarchy beneath it. */
+.gs-divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 36px;
+  text-align: left;
+}
+.gs-divider-num {
+  font: 700 12px/1 var(--gs-font-mono);
+  letter-spacing: 0.12em;
+  color: var(--gs-tangerine-deep);
+}
+.gs-divider-label {
+  font: 700 12px/1 var(--gs-font-mono);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gs-ink-3);
+  white-space: nowrap;
+}
+.gs-divider-rule { flex: 1; height: 1px; background: var(--gs-rule); }
+.gs-divider-meta {
+  font: 700 11px/1 var(--gs-font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gs-ink-3); /* AA on paper — ink-4 (#989485) was ~2.3:1 */
+  white-space: nowrap;
+}
+.gs-band-dark .gs-divider-rule { background: rgba(255, 255, 255, 0.16); }
+.gs-band-dark .gs-divider-label { color: rgba(251, 247, 238, 0.7); }
+.gs-band-dark .gs-divider-num { color: var(--gs-tangerine-hi); }
+.gs-band-dark .gs-divider-meta { color: rgba(251, 247, 238, 0.5); }
+.gs-closer .gs-divider-rule { background: rgba(255, 255, 255, 0.34); }
+.gs-closer .gs-divider-num,
+.gs-closer .gs-divider-label { color: rgba(255, 255, 255, 0.92); }
+.gs-closer .gs-divider-meta { color: rgba(255, 255, 255, 0.68); }
+@media (max-width: 640px) {
+  .gs-divider { gap: 12px; margin-bottom: 26px; }
+  .gs-divider-meta { display: none; }
+}
+
+/* Hero status row — a live capability pill + a one-line credibility
+   note. Adds energy without a version/changelog feel. */
+.gs-hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.gs-hero-status .by {
+  font: 500 12.5px/1 var(--gs-font-sans);
+  color: var(--gs-ink-3);
+}
+/* Faint signal grid behind the headline — energy, masked to fade out. */
+.gs-hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(11, 11, 18, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 11, 18, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(70% 52% at 50% 16%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(70% 52% at 50% 16%, #000 0%, transparent 72%);
+}
+.gs-hero-status .led-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #0a3014;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .gs-hero-status .led-dot { animation: gs-led-pulse 2.4s ease-in-out infinite; }
+}
+@keyframes gs-led-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* ===================================================================
+   CTA buttons (.gs-tbtn) — the canonical GrowthSync pill.
+   Driven by <TangerineButton>. Shape: full pill, 500 weight, transition-all.
+   =================================================================== */
+.gs-tbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  font-family: var(--gs-font-sans);
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  transition: filter 120ms ease, background-color 120ms ease,
+              color 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+.gs-tbtn:disabled { opacity: 0.5; pointer-events: none; }
+
+/* Sizes */
+.gs-tbtn--sz-xs      { height: 24px; padding: 0 10px; font-size: 12px; }
+.gs-tbtn--sz-sm      { height: 28px; padding: 0 12px; font-size: 13px; }
+.gs-tbtn--sz-default { height: 32px; padding: 0 12px; font-size: 14px; }
+.gs-tbtn--sz-lg      { height: 36px; padding: 0 14px; font-size: 14px; }
+
+/* Primary (default) — tangerine gradient with a 1px deep-tangerine border
+   and a single inner highlight. */
+.gs-tbtn--default {
+  color: #FFFBF2;
+  background: linear-gradient(180deg, #FF8F3F 0%, #F26B1F 50%, #C84F0E 100%);
+  border-color: #C84F0E;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.gs-tbtn--default:hover { filter: brightness(1.04); }
+
+/* Outline — transparent with a hairline rule. */
+.gs-tbtn--outline {
+  color: var(--gs-ink);
+  background: transparent;
+  border-color: var(--gs-rule-soft);
+}
+.gs-tbtn--outline:hover { background: var(--gs-paper-warm); }
+
+/* Ghost — transparent, no border, fills on hover. */
+.gs-tbtn--ghost {
+  color: var(--gs-ink);
+  background: transparent;
+  border-color: transparent;
+}
+.gs-tbtn--ghost:hover { background: var(--gs-paper-warm); }
+
+/* Destructive — red wash. */
+.gs-tbtn--destructive {
+  color: var(--gs-danger);
+  background: rgba(229, 75, 54, 0.10);
+  border-color: transparent;
+}
+.gs-tbtn--destructive:hover { background: rgba(229, 75, 54, 0.16); }
+
+/* AI — cyan-pale. */
+.gs-tbtn--ai {
+  color: #285054;
+  background: rgba(125, 176, 180, 0.14);
+  border-color: var(--gs-info);
+}
+.gs-tbtn--ai:hover { background: rgba(125, 176, 180, 0.22); }
+
+/* Focus ring — 3px tangerine @20%, 2px offset. Scoped copy under .gs-home
+   wins the specificity battle against the global marketing focus rule. */
+.gs-tbtn:focus-visible,
+.gs-home .gs-tbtn:focus-visible {
+  outline: 3px solid rgba(242, 107, 31, 0.2);
+  outline-offset: 2px;
+  border-radius: 9999px;
+}
+
 .gs-hero-ctas { display: flex; gap: 10px; justify-content: center; align-items: center; }
 .gs-hero-window-wrap {
   margin-top: 48px;
@@ -96,7 +325,12 @@ body {
 /* Hero console - single wide dashboard that peeks up from bottom of hero
    and is clipped by the BrandStrip below. Negative bottom margin pulls
    the next section over the bottom 160px of the window. */
-.gs-hero-section { padding-bottom: 0 !important; }
+.gs-hero-section {
+  padding-bottom: 0 !important;
+  background:
+    radial-gradient(62% 48% at 50% 28%, rgba(242,107,31,0.07), transparent 70%),
+    radial-gradient(46% 42% at 50% 38%, rgba(100,170,180,0.05), transparent 72%);
+}
 .gs-hero-section .gs-hero-ctas { margin-top: 26px !important; }
 .gs-hero-console-shell {
   position: relative;
@@ -215,27 +449,41 @@ body {
   .gs-marquee { animation-duration: 0s; }
   .gs-pulse, .gs-capture-fresh,
   .gs-chat-bubble, .gs-crm__live-row, .gs-crm__head-anim { animation: none !important; }
+  .gs-hero-console-shell { animation: none !important; }
   [style*="gs-crm-bump"], [style*="gs-crm-row"], [style*="gs-crm-glow"],
   [style*="gs-crm-floater"], [style*="gs-crm-confetti"],
   [style*="gs-crm-row-in"], [style*="gs-crm-row-out"] { animation: none !important; }
 }
 
+/* Keyboard focus — visible on every interactive element of the marketing
+   surface. The nav tabs previously set outline:none with no replacement,
+   leaving keyboard users with no focus indicator (WCAG 2.4.7). */
+.gs-home a:focus-visible,
+.gs-home button:focus-visible {
+  outline: 2px solid var(--gs-tangerine-deep);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+.gs-home :focus:not(:focus-visible) { outline: none; }
+/* On the tangerine drench, the orange ring would disappear — use cream. */
+.gs-closer a:focus-visible { outline-color: #FFF6E6; }
+
 /* Small UI animations used by How It Works visuals */
 @keyframes gs-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(224,79,10,0.45), inset 0 1px 0 rgba(255,255,255,0.4); }
-  70%  { box-shadow: 0 0 0 8px rgba(224,79,10,0),   inset 0 1px 0 rgba(255,255,255,0.4); }
-  100% { box-shadow: 0 0 0 0 rgba(224,79,10,0),    inset 0 1px 0 rgba(255,255,255,0.4); }
+  0%   { box-shadow: 0 0 0 0 rgba(200,79,14,0.45), inset 0 1px 0 rgba(255,255,255,0.4); }
+  70%  { box-shadow: 0 0 0 8px rgba(200,79,14,0),   inset 0 1px 0 rgba(255,255,255,0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(200,79,14,0),    inset 0 1px 0 rgba(255,255,255,0.4); }
 }
 .gs-pulse { animation: gs-pulse 1.8s ease-out infinite; }
 
 @keyframes gs-capture-fresh {
-  0%   { background: rgba(255,107,26,0.18); }
-  100% { background: rgba(255,107,26,0.04); }
+  0%   { background: rgba(242,107,31,0.18); }
+  100% { background: rgba(242,107,31,0.04); }
 }
 .gs-capture-fresh { animation: gs-capture-fresh 2.4s ease-out infinite; }
 
 @keyframes gs-cap-ding {
-  0%   { transform: translateY(-10px) scale(0.98); box-shadow: 0 0 0 1px rgba(224,79,10,0.45), 0 14px 28px -10px rgba(224,79,10,0.45); }
+  0%   { transform: translateY(-10px) scale(0.98); box-shadow: 0 0 0 1px rgba(200,79,14,0.45), 0 14px 28px -10px rgba(200,79,14,0.45); }
   60%  { transform: translateY(0) scale(1.005); }
   100% { transform: translateY(0) scale(1); }
 }
@@ -264,7 +512,7 @@ body {
   border-radius: 18px 18px 4px 18px;
   background: linear-gradient(180deg, #FFB37A 0%, #FF7E36 100%);
   color: #220A00;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 4px 10px -8px rgba(224,79,10,0.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 4px 10px -8px rgba(200,79,14,0.28);
 }
 .gs-chat-bubble.them + .gs-chat-bubble.them { border-top-left-radius: 6px; margin-top: -1px; }
 .gs-chat-bubble.us + .gs-chat-bubble.us     { border-top-right-radius: 6px; margin-top: -1px; }
@@ -326,75 +574,37 @@ body {
          transform: translate(calc(-50% + var(--gs-dx, 0px)), calc(-50% + var(--gs-dy, -100px))) rotate(var(--gs-rot, 0)); }
 }
 
-/* Impressions section - three framed cards each containing a (smaller)
-   chrome titlebar + product visual + compact caption, all inside the
-   same frame. Softer shadows; less "AI mock" feel. */
-.gs-frame-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--gs-bone);
-  border-radius: 14px;
-  overflow: hidden;
-  height: 100%;
-  box-shadow:
-    0 1px 0 rgba(255,255,255,0.5) inset,
-    0 0 0 1px rgba(11,11,18,0.06),
-    0 10px 22px -14px rgba(11,11,18,0.18),
-    0 22px 48px -32px rgba(11,11,18,0.20);
-}
-.gs-frame-card .gs-frame-visual {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-}
-.gs-frame-card .gs-frame-visual > * {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+/* Impressions section - a modern feature trio. Each product mock is a
+   self-framed shot standing on the page canvas (no OS-window wrapper),
+   with the step + copy beneath. The chrome metaphor is retired here and
+   kept for the diegetic surfaces (hero, case-study desktop, calculator). */
 .gs-impressions-grid { align-items: stretch; }
-.gs-frame-card .gs-frame-titlebar {
-  display: grid;
-  grid-template-columns: 52px 1fr 52px;
-  align-items: center;
-  height: 22px;
-  padding: 0 9px;
-  background: linear-gradient(180deg, #ECE5D0, #D6CCB1);
-  border-bottom: 1px solid rgba(11,11,18,0.12);
+.gs-impression {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.gs-frame-card .gs-frame-titlebar .lights { display: flex; gap: 4px; }
-.gs-frame-card .gs-frame-titlebar .lights span {
-  width: 9px; height: 9px; border-radius: 999px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 0.5px rgba(0,0,0,0.22);
+.gs-impression__visual {
+  flex: 1;
+  display: flex;
+  margin-bottom: 20px;
 }
-.gs-frame-card .gs-frame-titlebar .name {
-  text-align: center;
-  font: 700 9px/1 var(--gs-font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gs-ink-3);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.gs-impression__visual > * {
+  flex: 1;
 }
-.gs-frame-card > .gs-frame-visual {
-  background: var(--gs-paper-cool);
-  border-bottom: 1px solid var(--gs-bone-edge);
-  padding: 10px;
-}
-.gs-frame-card .gs-frame-caption {
-  padding: 14px 16px 16px;
-}
-.gs-frame-card .gs-frame-caption h3 {
-  font: 800 18px/1.22 var(--gs-font-display);
+.gs-impression__copy h3 {
+  font: 700 19px/1.24 var(--gs-font-display);
   letter-spacing: -0.02em;
   color: var(--gs-ink);
-  margin: 0 0 4px;
+  margin: 10px 0 6px;
+  text-wrap: balance;
 }
-.gs-frame-card .gs-frame-caption p {
-  font: 13px/1.45 var(--gs-font-sans);
+.gs-impression__copy p {
+  font: 14px/1.5 var(--gs-font-sans);
   color: var(--gs-ink-2);
-  margin: 0 0 8px;
+  margin: 0 0 12px;
+  max-width: 40ch;
+  text-wrap: pretty;
 }
 
 /* --- Card 1: Instagram post ---------------------------------- */
@@ -402,7 +612,7 @@ body {
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(11,11,18,0.08), 0 4px 10px -6px rgba(11,11,18,0.14);
+  box-shadow: 0 0 0 1px rgba(11,11,18,0.08), var(--gs-shadow-card);
 }
 .gs-ig-post__head {
   display: flex; align-items: center; gap: 8px;
@@ -468,7 +678,7 @@ body {
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(11,11,18,0.08), 0 4px 10px -6px rgba(11,11,18,0.14);
+  box-shadow: 0 0 0 1px rgba(11,11,18,0.08), var(--gs-shadow-card);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -553,7 +763,7 @@ body {
   color: #220A00;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.55),
-    0 4px 10px -8px rgba(224,79,10,0.28);
+    0 4px 10px -8px rgba(200,79,14,0.28);
 }
 .gs-ig-dm__bubble.us + .gs-ig-dm__bubble.us {
   border-top-right-radius: 6px;
@@ -621,7 +831,7 @@ body {
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.7),
     0 0 0 1px rgba(11,11,18,0.08),
-    0 4px 10px -6px rgba(11,11,18,0.14);
+    var(--gs-shadow-card);
   display: flex; flex-direction: column;
   flex: 1;
   min-height: 360px;
@@ -639,7 +849,7 @@ body {
   padding: 3px 8px; border-radius: 999px;
   background: var(--gs-bone);
   color: var(--gs-tangerine-deep);
-  box-shadow: inset 0 0 0 1px rgba(224,79,10,0.25);
+  box-shadow: inset 0 0 0 1px rgba(200,79,14,0.25);
 }
 .gs-crm__head {
   display: grid;
@@ -662,7 +872,7 @@ body {
   padding: 5px 9px; border-radius: 999px;
   background: linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine));
   color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 4px 10px -6px rgba(224,79,10,0.45);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 4px 10px -6px rgba(200,79,14,0.45);
 }
 .gs-crm__rows {
   display: grid;
@@ -805,7 +1015,7 @@ body {
   grid-template-columns: 70px 1fr 70px;
   align-items: center;
   padding: 0 14px;
-  background: linear-gradient(180deg, #ECE5D0, #C9C0A6);
+  background: linear-gradient(180deg, var(--gs-chrome-1), var(--gs-chrome-2));
   border-radius: 14px 14px 0 0;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 -1px 0 rgba(11,11,18,0.06);
 }
@@ -844,22 +1054,31 @@ body {
 .gs-marble {
   position: absolute; width: 28px; height: 28px; border-radius: 999px;
   background: radial-gradient(circle at 35% 30%, #FFB48A, var(--gs-tangerine) 60%, var(--gs-tangerine-deep) 100%);
-  box-shadow: 0 8px 16px -6px rgba(224,79,10,0.5);
+  box-shadow: 0 8px 16px -6px rgba(200,79,14,0.5);
 }
 
+/* Full-bleed tangerine finale band. */
+.gs-closer-band {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
 .gs-closer {
   background:
-    radial-gradient(120% 80% at 50% 0%, rgba(255,196,148,0.55), transparent 60%),
+    radial-gradient(90% 90% at 50% 0%, rgba(255,196,148,0.5), transparent 62%),
     linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine) 50%, var(--gs-tangerine-deep));
-  border-radius: 22px;
-  padding: 44px 48px 44px;
+  border-radius: 0;
+  padding: clamp(72px, 9vw, 116px) 28px;
   text-align: center;
   box-shadow:
     0 1px 0 rgba(255,255,255,0.45) inset,
-    0 -1px 0 rgba(0,0,0,0.22) inset,
-    0 20px 50px -20px rgba(224,79,10,0.55);
+    0 -1px 0 rgba(0,0,0,0.22) inset;
   position: relative;
   overflow: hidden;
+}
+.gs-closer-inner {
+  max-width: 760px;
+  margin-inline: auto;
+  position: relative;
 }
 .gs-closer::before {
   content: "";
@@ -874,13 +1093,45 @@ body {
   mix-blend-mode: overlay;
   opacity: 0.45;
 }
+.gs-closer-sphere {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  margin: 0 auto 18px;
+  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.98) 0%, rgba(255,246,230,0.82) 46%, rgba(255,220,180,0.65) 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.95),
+    inset 0 -2px 5px rgba(0,0,0,0.12),
+    0 0 0 8px rgba(255,255,255,0.10),
+    0 0 0 18px rgba(255,255,255,0.05),
+    0 8px 24px rgba(0,0,0,0.16);
+  flex-shrink: 0;
+}
+.gs-closer-sphere::after {
+  content: "";
+  position: absolute;
+  top: 14%;
+  left: 16%;
+  width: 42%;
+  height: 34%;
+  border-radius: 999px;
+  background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.85), rgba(255,255,255,0) 70%);
+}
+
 .gs-closer h2 {
-  font: 900 68px/0.98 var(--gs-font-display);
+  font: 800 clamp(34px, 5.2vw, 66px)/1.02 var(--gs-font-display);
   letter-spacing: var(--gs-tracking-display);
   color: #FFF6E6;
   margin: 14px 0 12px;
   text-wrap: balance;
   text-shadow: 0 2px 0 rgba(0,0,0,0.08);
+}
+.gs-closer h2 .em {
+  font-family: var(--gs-font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 .gs-closer-sub {
   font-family: var(--gs-font-editorial);
@@ -1048,10 +1299,8 @@ body {
 /* Responsive - tablet --------------------------------------------- */
 @media (max-width: 1024px) {
   .gs-page { padding: 0 20px 56px; }
-  .gs-section { padding: 50px 0; }
-  .gs-hero { font-size: 64px; }
-  .gs-section-title { font-size: 34px; }
-  .gs-closer h2 { font-size: 50px; }
+  /* Display type is governed by fluid clamps (.gs-hero, .gs-section-title,
+     .gs-closer h2) — no per-breakpoint font-size overrides needed. */
   .gs-two-col { grid-template-columns: 1fr; gap: 30px; }
   .gs-two-col-flip > :first-child { order: 0; }
   .gs-hero-window-wrap { grid-template-columns: 1fr; gap: 16px; }
@@ -1062,8 +1311,6 @@ body {
   .gs-page { padding: 0 16px 48px; }
   .gs-section { padding: 38px 0; }
   .gs-hero {
-    font-size: 43px;
-    line-height: 1.04;
     margin: 22px 0 16px;
     letter-spacing: -0.035em;
   }
@@ -1072,12 +1319,10 @@ body {
     display: grid;
     gap: 0;
   }
-  .gs-section-title { font-size: 26px; line-height: 1.08; }
   .gs-subhead { font-size: 21px; }
   .gs-lede { font-size: 14.5px; line-height: 1.45; }
   .gs-lede-hero { font-size: 15.5px; line-height: 1.38; max-width: 34ch; }
-  .gs-closer { padding: 36px 22px 36px; border-radius: 18px; }
-  .gs-closer h2 { font-size: 34px; line-height: 1.04; }
+  .gs-closer { padding: 64px 22px; }
   .gs-closer-sub { font-size: 16px; }
   .gs-closer-actions { flex-direction: column; gap: 12px; }
   .gs-closer-stats { gap: 24px; flex-wrap: wrap; margin-top: 18px; padding-top: 14px; }
@@ -1127,27 +1372,113 @@ body {
 }
 
 /* BrandNav collapse - hide tab rail and search on small screens,
-   keep logo + Start free CTA. */
+   keep logo + Start free CTA, and expose the section nav via a drawer.
+   z-index order (local scale): sticky nav 50 > drawer 46 > backdrop 45. */
 @media (max-width: 1100px) {
-  .gs-nav {
-    grid-template-columns: 220px minmax(0, 1fr) 140px !important;
-  }
   .gs-nav-blog { display: none !important; }
 }
 @media (max-width: 900px) {
   .gs-nav {
-    grid-template-columns: 1fr auto !important;
     padding: 0 16px !important;
     height: 56px !important;
   }
   .gs-nav-logo {
     min-width: 0;
   }
-  .gs-nav-cta {
-    grid-column: 2 !important;
-  }
   .gs-nav-tabs,
   .gs-nav-blog { display: none !important; }
+}
+
+/* Hamburger trigger — only present where the tab rail collapses. */
+.gs-nav-burger { display: none; }
+@media (max-width: 900px) {
+  .gs-nav-burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 1px solid var(--gs-rule-soft);
+    border-radius: 12px;
+    background: var(--gs-bone);
+    color: var(--gs-ink);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: background 120ms ease;
+  }
+  .gs-nav-burger:active { background: var(--gs-paper-warm); }
+}
+
+.gs-nav-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: rgba(11,11,18,0.32);
+  animation: gs-nav-fade 200ms ease-out;
+}
+.gs-nav-menu {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 46;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 14px 16px;
+  background: var(--gs-paper);
+  background-image: var(--gs-pinstripe-y2k);
+  border-bottom: 1px solid var(--gs-rule-soft);
+  box-shadow: 0 20px 44px -18px rgba(11,11,18,0.45);
+  outline: none;
+  animation: gs-nav-slide 240ms cubic-bezier(.2,.7,.1,1);
+}
+.gs-nav-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 12px;
+  font: 700 16px/1 var(--gs-font-sans);
+  letter-spacing: -0.01em;
+  color: var(--gs-ink);
+  text-align: left;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.gs-nav-menu-item:active { background: var(--gs-paper-warm); }
+.gs-nav-menu-item.active { color: var(--gs-link); }
+.gs-nav-menu-sep {
+  height: 1px;
+  margin: 8px 4px;
+  background: var(--gs-rule-soft);
+}
+.gs-nav-menu-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  min-height: 52px;
+  border-radius: 999px;
+  font: 800 15px/1 var(--gs-font-sans);
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid var(--gs-tangerine-deep);
+  background: linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine) 55%, var(--gs-tangerine-deep));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 14px -6px rgba(200,79,14,0.5);
+}
+@keyframes gs-nav-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes gs-nav-slide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gs-nav-menu, .gs-nav-menu-backdrop { animation: none; }
 }
 @media (max-width: 430px) {
   .gs-nav {

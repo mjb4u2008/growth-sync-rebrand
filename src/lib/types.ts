@@ -30,8 +30,11 @@ export interface LogoWordmarkProps {
   color?: string;
 }
 
-export type TangerineButtonSize = "sm" | "md" | "lg" | "orb";
-export type TangerineButtonVariant = "primary" | "ghost" | "ink";
+// Spec scale is xs / sm / default / lg. "md" and "orb" are retained as
+// legacy aliases (they map onto the spec sizes) so existing call sites
+// keep compiling without a sweep.
+export type TangerineButtonSize = "xs" | "sm" | "default" | "lg" | "md" | "orb";
+export type TangerineButtonVariant = "default" | "outline" | "ghost" | "destructive" | "ai";
 
 export interface TangerineButtonProps {
   children: ReactNode;

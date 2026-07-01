@@ -16,7 +16,7 @@ function renderTitle(title: string, emWord?: string): ReactNode {
   return (
     <>
       {title.slice(0, idx)}
-      <span style={{ fontFamily: "var(--gs-font-editorial)", fontStyle: "italic", fontWeight: 400 }}>
+      <span className="em">
         {emWord}
       </span>
       {title.slice(idx + emWord.length)}

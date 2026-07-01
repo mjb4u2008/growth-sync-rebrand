@@ -9,21 +9,10 @@
 
 export function Closer() {
   return (
-    <section className="gs-section">
-      <div className="gs-closer-shell">
-        <div className="gs-closer-chrome">
-          <span className="lights">
-            <span style={{ background: "var(--gs-tl-red)" }} />
-            <span style={{ background: "var(--gs-tl-yel)" }} />
-            <span style={{ background: "var(--gs-tl-grn)" }} />
-          </span>
-          <span className="name">growthsync · system · ready</span>
-          <span style={{ textAlign: "right", font: "700 10px/1 var(--gs-font-mono)", color: "var(--gs-ink-3)", letterSpacing: "0.08em" }}>
-            04:21 PM
-          </span>
-        </div>
-
-        <div className="gs-closer" style={{ borderRadius: "0 0 22px 22px" }}>
+    <section className="gs-closer-band">
+      <div className="gs-closer">
+        <div className="gs-closer-inner">
+          <span className="gs-closer-sphere" aria-hidden="true" style={{ position: "relative" }} />
           <span className="gs-closer-status">
             <span className="led" />
             PRIVATE BETA · INSTAGRAM-FIRST
@@ -31,7 +20,7 @@ export function Closer() {
           <h2>
             Your next customer is
             <br />
-            already in your comments.
+            <span className="em">already</span> in your comments.
           </h2>
           <p className="gs-closer-sub">
             Capture the signal, understand the intent, draft in your voice, and route the right next action while the buyer still cares.

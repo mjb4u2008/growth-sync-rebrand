@@ -3,7 +3,7 @@
  */
 
 import { MonoLabel, RainbowStrip, ReadMore } from "@/components/atoms";
-import { SectionHeader } from "@/components/marketing";
+import { SectionDivider, SectionHeader } from "@/components/marketing";
 import { CaptureWindow } from "@/components/product";
 
 const CAPTURE_BULLETS = [
@@ -15,17 +15,18 @@ const CAPTURE_BULLETS = [
 export function HowItWorks() {
   return (
     <section className="gs-section">
+      <SectionDivider num="01" label="The Sequence" meta="Capture → Reply → CRM" />
       <div className="gs-center">
         <SectionHeader
           title="How It Works"
           lede="A three-part operating sequence for listening, understanding, and converting every social impression."
         />
       </div>
-      <div style={{ marginTop: 36 }} className="gs-two-col">
+      <div style={{ marginTop: 40 }} className="gs-two-col">
         <CaptureWindow />
         <div>
           <RainbowStrip />
-          <MonoLabel>MODULE · 01 · CAPTURE</MonoLabel>
+          <MonoLabel>Capture</MonoLabel>
           <h2 className="gs-section-title" style={{ marginTop: 8 }}>
             We capture every social
             <br />
@@ -40,7 +41,7 @@ export function HowItWorks() {
               <li key={b}>{b}</li>
             ))}
           </ul>
-          <div style={{ marginTop: 18 }}>
+          <div style={{ marginTop: 20 }}>
             <ReadMore />
           </div>
         </div>

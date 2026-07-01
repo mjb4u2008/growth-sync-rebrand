@@ -11,7 +11,7 @@
 .gscs-tabs {
   display: flex; align-items: flex-end; gap: 2px;
   padding: 6px 10px 0;
-  background: linear-gradient(180deg, #ECE5D0, #D9D0B5);
+  background: linear-gradient(180deg, #E9E8E4, #D2D0C9);
   height: 36px;
 }
 .gscs-tab {
@@ -41,7 +41,7 @@
 .gscs-url .arrows { display: flex; gap: 6px; }
 .gscs-url .arr {
   width: 28px; height: 24px; border-radius: 999px;
-  background: linear-gradient(180deg, #FBF7EE, #DDD3B7);
+  background: linear-gradient(180deg, #FAFAF8, #D6D4CD);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 0 0 1px rgba(11,11,18,0.18);
   display: flex; align-items: center; justify-content: center;
   font: 600 12px/1 var(--gs-font-mono); color: var(--gs-ink);
@@ -58,15 +58,15 @@
 .gscs-url .orb {
   justify-self: end;
   width: 22px; height: 22px; border-radius: 999px;
-  background: radial-gradient(circle at 32% 28%, #FFC79A 0%, #FF8847 35%, #E04F0A 75%, #9A3000 100%);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 -1px 0 rgba(0,0,0,0.2) inset, 0 3px 6px -2px rgba(224,79,10,0.55);
+  background: radial-gradient(circle at 32% 28%, #FFC79A 0%, #FF8847 35%, #C84F0E 75%, #9A3000 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.45) inset, 0 -1px 0 rgba(0,0,0,0.2) inset, 0 3px 6px -2px rgba(200,79,14,0.55);
 }
 
 /* Menu strip */
 .gscs-menu {
   display: flex; align-items: center; gap: 14px;
   height: 30px; padding: 0 14px;
-  background: linear-gradient(180deg, #F2EBDA, #E2D9C2);
+  background: linear-gradient(180deg, #EDECE8, #DCDAD3);
   font: 500 12px/1 var(--gs-font-sans); color: var(--gs-ink);
   box-shadow: inset 0 -1px 0 rgba(11,11,18,0.12);
 }
@@ -92,7 +92,7 @@
 }
 .gscs-icon {
   width: 44px; height: 54px; position: relative;
-  background: linear-gradient(180deg, #FBF7EE 0%, #E5DDC4 100%);
+  background: linear-gradient(180deg, #FAFAF8 0%, #DEDCD5 100%);
   border-radius: 4px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 0 0 1px rgba(11,11,18,0.45), 0 2px 4px rgba(0,0,0,0.3);
   display: flex; align-items: flex-end; justify-content: center;
@@ -103,7 +103,7 @@
 .gscs-icon::after {
   content: ""; position: absolute; top: 0; right: 0;
   width: 14px; height: 14px;
-  background: linear-gradient(135deg, #D9D0B5 50%, #B0A992 50%);
+  background: linear-gradient(135deg, #D2D0C9 50%, #ABA99F 50%);
   box-shadow: inset 1px -1px 0 rgba(11,11,18,0.18);
   border-radius: 0 4px 0 4px;
 }
@@ -143,7 +143,7 @@
 .gscs-bw .tb {
   height: 26px; display: grid; grid-template-columns: 72px 1fr 72px;
   align-items: center; padding: 0 10px;
-  background: linear-gradient(180deg, #E5DDC4 0%, #C0B79E 100%);
+  background: linear-gradient(180deg, #DEDCD5 0%, #B8B6AC 100%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), inset 0 -1px 0 rgba(0,0,0,0.18);
 }
 .gscs-bw .lights { display: flex; gap: 6px; align-items: center; }
@@ -163,12 +163,12 @@
 
 .gscs-bw .urlbar { display: grid; grid-template-columns: 36px 1fr 60px; gap: 6px; padding: 4px 6px; background: var(--gs-bone); border-bottom: 1px solid rgba(11,11,18,0.10); align-items: center; }
 .gscs-bw .urlbar .arr-row { display: flex; gap: 2px; }
-.gscs-bw .urlbar .arr { width: 14px; height: 16px; border-radius: 4px; background: linear-gradient(180deg, #FBF7EE, #D9D0B5); display: flex; align-items: center; justify-content: center; font: 700 8px/1 var(--gs-font-mono); color: var(--gs-ink-2); box-shadow: 0 0 0 1px rgba(11,11,18,0.2); }
+.gscs-bw .urlbar .arr { width: 14px; height: 16px; border-radius: 4px; background: linear-gradient(180deg, #FAFAF8, #D2D0C9); display: flex; align-items: center; justify-content: center; font: 700 8px/1 var(--gs-font-mono); color: var(--gs-ink-2); box-shadow: 0 0 0 1px rgba(11,11,18,0.2); }
 .gscs-bw .urlbar .u { display: flex; align-items: center; gap: 6px; height: 18px; padding: 0 8px; border-radius: 3px; background: var(--gs-paper-cool); font: 10px/1 var(--gs-font-mono); color: var(--gs-ink); box-shadow: inset 0 1px 1px rgba(11,11,18,0.12); }
 .gscs-bw .urlbar .u .star { color: var(--gs-ink-3); }
 .gscs-bw .urlbar .goo {
   display: flex; align-items: center; gap: 4px;
-  background: linear-gradient(180deg, #FBF7EE, #D9D0B5);
+  background: linear-gradient(180deg, #FAFAF8, #D2D0C9);
   height: 18px; padding: 0 6px; border-radius: 999px;
   font: 700 9px/1 var(--gs-font-sans); color: #3A6BA3;
   box-shadow: 0 0 0 1px rgba(11,11,18,0.15);
@@ -204,7 +204,7 @@
 .gscs-bw .pr {
   display: flex; align-items: center; justify-content: center; gap: 4px;
   height: 30px; padding: 0 10px; border-radius: 4px;
-  background: linear-gradient(180deg, #FF9159, #E15A1B);
+  background: linear-gradient(180deg, #FF8F3F, #E15A1B);
   font: italic 400 11px/1 var(--gs-font-editorial); color: #fff;
   text-decoration: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px rgba(0,0,0,0.18);

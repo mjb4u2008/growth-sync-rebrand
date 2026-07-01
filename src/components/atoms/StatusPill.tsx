@@ -15,11 +15,11 @@ interface VariantStyle {
 }
 
 const VARIANTS: Record<StatusPillVariant, VariantStyle> = {
-  success:   { color: "#06340F",                 background: "linear-gradient(180deg, #58C97B, #1E8E3E)", dotColor: "#0a3014" },
-  tangerine: { color: "var(--gs-tangerine-ink)", background: "linear-gradient(180deg, #FF9159, #FF6B1A)", dotColor: "var(--gs-tangerine-ink)" },
+  success:   { color: "#06340F",                 background: "linear-gradient(180deg, #4ADB5C, #4FB245)", dotColor: "#0a3014" },
+  tangerine: { color: "var(--gs-tangerine-ink)", background: "linear-gradient(180deg, #FF8F3F, #F26B1F)", dotColor: "var(--gs-tangerine-ink)" },
   warning:   { color: "#3A2700",                 background: "linear-gradient(180deg, #FFD480, #E2A124)", dotColor: "#3A2700" },
-  danger:    { color: "#fff",                    background: "linear-gradient(180deg, #FF8E88, #C7372F)", dotColor: "#fff" },
-  info:      { color: "#fff",                    background: "linear-gradient(180deg, #7DAFE6, #3B6EA8)", dotColor: "#fff" },
+  danger:    { color: "#fff",                    background: "linear-gradient(180deg, #FF8E88, #E54B36)", dotColor: "#fff" },
+  info:      { color: "#fff",                    background: "linear-gradient(180deg, #7DAFE6, #7DB0B4)", dotColor: "#fff" },
 };
 
 const pillStyle: CSSProperties = {

@@ -80,11 +80,10 @@ const ROWS: ActivityRow[] = [
 const root: CSSProperties = {
   position: "relative",
   width: "100%",
-  borderRadius: 16,
+  borderRadius: "var(--gs-r-5)",
   background: "var(--gs-bone)",
   overflow: "hidden",
-  boxShadow:
-    "inset 0 1px 0 rgba(255,255,255,0.6), 0 0 0 1px var(--gs-chrome-edge), 0 30px 60px -22px rgba(11,11,18,0.32), 0 60px 120px -60px rgba(11,11,18,0.35)",
+  boxShadow: "var(--gs-shadow-window)",
 };
 
 const titlebar: CSSProperties = {
@@ -93,8 +92,10 @@ const titlebar: CSSProperties = {
   gridTemplateColumns: "76px minmax(0, 1fr) 76px",
   alignItems: "center",
   padding: "0 12px",
-  background: "linear-gradient(180deg, #ECE5D0, #C9C0A6)",
-  borderBottom: "1px solid #8E8A7E",
+  background:
+    "linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0) 46%), linear-gradient(180deg, var(--gs-chrome-1), var(--gs-chrome-2))",
+  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.85)",
+  borderBottom: "1px solid var(--gs-chrome-edge)",
 };
 
 const trafficLight = (bg: string): CSSProperties => ({
@@ -169,7 +170,7 @@ const navItem = (active?: boolean): CSSProperties => ({
     ? "linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine))"
     : "transparent",
   boxShadow: active
-    ? "inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18), 0 6px 14px -8px rgba(224,79,10,0.55)"
+    ? "inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18), 0 6px 14px -8px rgba(200,79,14,0.55)"
     : "none",
   cursor: "default",
 });
@@ -398,7 +399,7 @@ const statePill = (state: RowState): CSSProperties => ({
 
 const stateDot = (state: RowState): CSSProperties => ({
   width: 5, height: 5, borderRadius: 999,
-  background: state === "pending" ? "#C98A1A" : "#1E8E3E",
+  background: state === "pending" ? "#F0B027" : "#4FB245",
 });
 
 const rowTime: CSSProperties = {
@@ -572,7 +573,7 @@ const sendBtn: CSSProperties = {
   color: "#fff",
   font: "700 12px/1 var(--gs-font-sans)",
   boxShadow:
-    "inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18), 0 6px 14px -6px rgba(224,79,10,0.55)",
+    "inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18), 0 6px 14px -6px rgba(200,79,14,0.55)",
   cursor: "default",
 };
 

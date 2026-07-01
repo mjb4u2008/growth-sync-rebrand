@@ -140,6 +140,7 @@ export function ReplyWindow() {
 
   return (
     <ModuleWindow
+      frame="tab"
       title="growthsync · reply · @maya.r"
       eyebrow="AUTO REPLY · BRAND VOICE"
       status={<ModuleStatusPill>SENT</ModuleStatusPill>}

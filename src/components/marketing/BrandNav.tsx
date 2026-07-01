@@ -11,7 +11,7 @@
  */
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { GrowthSyncLogo, TangerineButton, VersionBadge } from "@/components/atoms";
+import { GrowthSyncLogo, TangerineButton } from "@/components/atoms";
 import { GS_DATA } from "@/lib/data";
 import type { BrandNavProps } from "@/lib/types";
 
@@ -24,15 +24,15 @@ const bar: CSSProperties = {
   position: "sticky",
   top: 0,
   zIndex: 50,
-  display: "grid",
-  gridTemplateColumns: "minmax(220px, 1fr) minmax(220px, 260px) 140px",
+  display: "flex",
   alignItems: "center",
   gap: 16,
   height: 64,
   padding: "0 28px",
-  background: "linear-gradient(180deg, #F2EBDA 0%, #E5DCC4 55%, #D6CCB1 100%)",
+  background: "linear-gradient(180deg, #FCFBF9 0%, #EFEDE7 100%)",
+  borderBottom: "1px solid rgba(11,11,18,0.14)",
   boxShadow:
-    "inset 0 1px 0 rgba(255,255,255,0.85), inset 0 -1px 0 rgba(11,11,18,0.18), 0 1px 0 rgba(11,11,18,0.06)",
+    "inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 0 rgba(11,11,18,0.04), 0 8px 24px -18px rgba(11,11,18,0.5)",
 };
 
 const RAIL_PAD = 5;
@@ -41,22 +41,21 @@ const RAIL_HEIGHT = 36;
 const PILL_HEIGHT = RAIL_HEIGHT - RAIL_PAD * 2; // 26
 
 const railStyle: CSSProperties = {
-  position: "absolute",
-  left: "50%",
-  top: "50%",
-  transform: "translate(-50%, -50%)",
+  position: "relative",
+  flexShrink: 0,
   display: "flex",
   alignItems: "center",
   gap: TAB_GAP,
   height: RAIL_HEIGHT,
   padding: `0 ${RAIL_PAD}px`,
   borderRadius: 999,
-  // Softer recessed cream: less contrast top→bottom, no glossy edge.
-  background: "linear-gradient(180deg, #D6CBB0 0%, #E2D9C2 60%, #DAD0B6 100%)",
+  // Recessed track — a hair lighter/cooler so the raised cream pill reads
+  // as genuinely raised, with a deeper inset to sell the recess.
+  background: "linear-gradient(180deg, #D8D5CD 0%, #E6E3DC 70%, #DDDAD2 100%)",
   boxShadow: [
-    "inset 0 1px 2px rgba(11,11,18,0.16)",
-    "inset 0 -1px 0 rgba(255,255,255,0.35)",
-    "inset 0 0 0 1px rgba(11,11,18,0.06)",
+    "inset 0 2px 3px rgba(11,11,18,0.18)",
+    "inset 0 -1px 0 rgba(255,255,255,0.5)",
+    "inset 0 0 0 1px rgba(11,11,18,0.05)",
   ].join(","),
 };
 
@@ -77,7 +76,6 @@ const tabBase: CSSProperties = {
   color: "var(--gs-ink-2)",
   transition: "color 220ms ease",
   whiteSpace: "nowrap",
-  outline: "none",
 };
 
 const pillStyle: CSSProperties = {
@@ -86,13 +84,13 @@ const pillStyle: CSSProperties = {
   left: 0,
   height: PILL_HEIGHT,
   borderRadius: 999,
-  // Soft cream pill - less glossy top highlight, subtler depth.
-  background: "linear-gradient(180deg, #FBF4DF 0%, #EDE0BE 100%)",
+  // Bright cream pill — crisp top highlight so the active tab pops off
+  // the recessed track.
+  background: "linear-gradient(180deg, #FFFFFF 0%, #F1EFEA 100%)",
   boxShadow: [
-    "inset 0 1px 0 rgba(255,255,255,0.65)",
-    "inset 0 -1px 0 rgba(11,11,18,0.06)",
-    "0 0 0 1px rgba(11,11,18,0.14)",
-    "0 1px 2px rgba(11,11,18,0.10)",
+    "inset 0 1px 0 rgba(255,255,255,0.9)",
+    "0 0 0 1px rgba(11,11,18,0.13)",
+    "0 1px 3px rgba(11,11,18,0.16)",
   ].join(","),
   transition: "transform 380ms cubic-bezier(.2,.7,.1,1), width 380ms cubic-bezier(.2,.7,.1,1)",
   pointerEvents: "none",
@@ -101,28 +99,15 @@ const pillStyle: CSSProperties = {
 };
 
 const blogStyle: CSSProperties = {
-  gridColumn: 2,
-  justifySelf: "end",
   display: "inline-flex",
   alignItems: "center",
-  gap: 10,
-  width: "100%",
-  maxWidth: 260,
+  gap: 6,
   height: 36,
-  padding: "0 16px 0 14px",
-  borderRadius: 999,
+  padding: "0 6px",
   textDecoration: "none",
-  background: "linear-gradient(180deg, #FBF4DF 0%, #EAE0BE 55%, #F1E7CB 100%)",
-  boxShadow: [
-    "inset 0 1px 0 rgba(255,255,255,0.80)",
-    "inset 0 -1px 0 rgba(11,11,18,0.10)",
-    "0 0 0 1px rgba(11,11,18,0.18)",
-    "0 1px 2px rgba(11,11,18,0.10)",
-  ].join(","),
-  color: "var(--gs-ink)",
-  font: "800 12px/1 var(--gs-font-sans)",
-  letterSpacing: "0.02em",
-  textTransform: "uppercase",
+  color: "var(--gs-ink-2)",
+  font: "700 12px/1 var(--gs-font-sans)",
+  letterSpacing: "-0.005em",
   whiteSpace: "nowrap",
 };
 
@@ -131,6 +116,11 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const [pillRect, setPillRect] = useState<{ x: number; w: number } | null>(null);
+  // Mobile drawer: at ≤900px the tab rail collapses, so the section nav
+  // lives behind a hamburger instead of vanishing entirely.
+  const [menuOpen, setMenuOpen] = useState(false);
+  const burgerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   // User clicks "win" briefly so scroll-spy doesn't override the selection
   // while the page is still smooth-scrolling to the target.
   const userClickTimer = useRef<number | null>(null);
@@ -153,9 +143,38 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
     return () => window.removeEventListener("resize", r);
   }, [recalc]);
 
+  // While the drawer is open: lock body scroll, close on Escape, and
+  // collapse it if the viewport grows back to desktop. Focus moves into
+  // the panel on open and returns to the trigger on close.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    menuRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    const onResize = () => {
+      if (window.innerWidth > 900) setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    burgerRef.current?.focus();
+  };
+
   /** Smooth-scroll to the tab's section. */
   const handleTabClick = (label: string) => {
     setActiveTab(label);
+    setMenuOpen(false);
     if (userClickTimer.current) window.clearTimeout(userClickTimer.current);
     // Suppress scroll-spy for ~900ms after click.
     userClickTimer.current = window.setTimeout(() => {
@@ -221,12 +240,14 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
   }, [data.tabs, data.activeTab]);
 
   return (
+    <>
     <nav className="gs-nav" style={bar}>
       <a
         href="/"
         className="gs-nav-logo"
         style={{
-          gridColumn: 1,
+          flex: "1 1 0",
+          minWidth: 0,
           display: "flex",
           alignItems: "center",
           gap: 6,
@@ -235,8 +256,7 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
         }}
         aria-label="GrowthSync home"
       >
-        <GrowthSyncLogo height={30} style={{ marginRight: -34 }} />
-        <VersionBadge>v1.0</VersionBadge>
+        <GrowthSyncLogo height={30} />
       </a>
 
       <div ref={wrapRef} className="gs-nav-tabs" style={railStyle}>
@@ -263,10 +283,10 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
               style={{
                 ...tabBase,
                 color: active
-                  ? "var(--gs-ink)"
+                  ? "var(--gs-tangerine-deep)"
                   : accent
                   ? "var(--gs-tangerine-deep)"
-                  : "var(--gs-ink-2)",
+                  : "var(--gs-ink-3)",
                 fontWeight: active ? 800 : 700,
               }}
             >
@@ -276,35 +296,77 @@ export function BrandNav({ data = GS_DATA.nav }: BrandNavProps) {
         })}
       </div>
 
-      <a className="gs-nav-blog" href="/blog" style={blogStyle}>
-        <span
-          aria-hidden
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 22,
-            height: 22,
-            borderRadius: 6,
-            background: "linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine))",
-            color: "#fff",
-            font: "800 12px/1 var(--gs-font-display)",
-            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px rgba(11,11,18,0.10)",
-          }}
-        >
-          ✦
-        </span>
-        <span style={{ flex: 1 }}>Read the Blog</span>
-        <span style={{ color: "var(--gs-tangerine-deep)", font: "700 13px/1 var(--gs-font-mono)" }}>›</span>
-      </a>
-
-      <div className="gs-nav-cta" style={{ gridColumn: 3, justifySelf: "end" }}>
-        <a href={data.ctaHref} style={{ textDecoration: "none" }}>
-          <TangerineButton size="orb">
-            {data.cta} <span style={{ marginLeft: 6, opacity: 0.9 }}>›</span>
-          </TangerineButton>
+      <div
+        className="gs-nav-right"
+        style={{ flex: "1 1 0", minWidth: 0, display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 16 }}
+      >
+        <a className="gs-nav-blog" href="/blog" style={blogStyle}>
+          <span>Blog</span>
+          <span aria-hidden style={{ color: "var(--gs-ink-4)", font: "700 13px/1 var(--gs-font-mono)" }}>›</span>
         </a>
+
+        <div className="gs-nav-cta">
+          <a href={data.ctaHref} style={{ textDecoration: "none" }}>
+            <TangerineButton size="orb">
+              {data.cta} <span style={{ marginLeft: 6, opacity: 0.9 }}>›</span>
+            </TangerineButton>
+          </a>
+        </div>
+
+        <button
+          ref={burgerRef}
+          type="button"
+          className="gs-nav-burger"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="gs-nav-mobile-menu"
+          onClick={() => (menuOpen ? closeMenu() : setMenuOpen(true))}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            {menuOpen ? (
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            ) : (
+              <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            )}
+          </svg>
+        </button>
       </div>
     </nav>
+
+    {menuOpen && (
+      <>
+        <div className="gs-nav-menu-backdrop" onClick={closeMenu} aria-hidden="true" />
+        <div
+          id="gs-nav-mobile-menu"
+          ref={menuRef}
+          className="gs-nav-menu"
+          role="navigation"
+          aria-label="Site"
+          tabIndex={-1}
+        >
+          {data.tabs.map((t) => (
+            <button
+              key={t}
+              type="button"
+              className={`gs-nav-menu-item${t === activeTab ? " active" : ""}`}
+              aria-current={t === activeTab ? "true" : undefined}
+              onClick={() => handleTabClick(t)}
+            >
+              {t}
+              <span aria-hidden="true" style={{ color: "var(--gs-ink-4)" }}>›</span>
+            </button>
+          ))}
+          <span className="gs-nav-menu-sep" aria-hidden="true" />
+          <a className="gs-nav-menu-item" href="/blog" onClick={closeMenu}>
+            Blog
+            <span aria-hidden="true" style={{ color: "var(--gs-ink-4)" }}>›</span>
+          </a>
+          <a className="gs-nav-menu-cta" href={data.ctaHref} onClick={closeMenu}>
+            {data.cta} <span aria-hidden="true" style={{ opacity: 0.9 }}>›</span>
+          </a>
+        </div>
+      </>
+    )}
+    </>
   );
 }

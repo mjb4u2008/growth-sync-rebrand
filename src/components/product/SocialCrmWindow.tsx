@@ -181,7 +181,7 @@ const chipHot: CSSProperties = {
   background: "linear-gradient(180deg, var(--gs-tangerine-hi), var(--gs-tangerine))",
   color: "#fff",
   whiteSpace: "nowrap",
-  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45), 0 4px 10px -6px rgba(224,79,10,0.45)",
+  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45), 0 4px 10px -6px rgba(200,79,14,0.45)",
 };
 
 const sectionLabel: CSSProperties = {
@@ -303,7 +303,7 @@ function StatCard({ label, value, glowKey = 0, floater, style, children }: StatP
             right: 12,
             top: 6,
             font: "800 10px/1 var(--gs-font-mono)",
-            color: "var(--gs-success)",
+            color: "var(--gs-success-ink)",
             letterSpacing: "0.04em",
             animation: "gs-crm-floater 1000ms ease-out forwards",
             pointerEvents: "none",
@@ -331,7 +331,7 @@ const CONFETTI_COLORS = [
   "var(--gs-tangerine)",
   "var(--gs-tangerine-hi)",
   "#25F4EE",
-  "#58C97B",
+  "#4ADB5C",
   "#FD1D1D",
   "#FCAF45",
 ];
@@ -517,6 +517,7 @@ export function SocialCrmWindow() {
 
   return (
     <ModuleWindow
+      frame="ledger"
       title="growthsync · crm · @maya.r"
       eyebrow="SEGMENT OF ONE · ENRICHED"
       status={<ModuleStatusPill>SYNCED</ModuleStatusPill>}
@@ -556,9 +557,11 @@ export function SocialCrmWindow() {
                     style={{
                       display: "block",
                       height: "100%",
-                      width: `${intentDisplay}%`,
+                      width: "100%",
+                      transformOrigin: "left center",
+                      transform: `scaleX(${Math.max(0, Math.min(100, intentDisplay)) / 100})`,
                       background: "linear-gradient(90deg, var(--gs-tangerine-deep), var(--gs-tangerine))",
-                      transition: "width 600ms cubic-bezier(.2,.7,.1,1)",
+                      transition: "transform 600ms cubic-bezier(.2,.7,.1,1)",
                     }}
                   />
                 </div>

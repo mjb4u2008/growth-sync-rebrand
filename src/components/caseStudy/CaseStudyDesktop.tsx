@@ -79,7 +79,7 @@ function FileIcon({ letter, name, open, onOpen }: FileIconProps) {
           font: "400 10px/1.1 var(--gs-font-mono)",
           letterSpacing: "0.04em",
           textShadow: "0 1px 2px rgba(0,0,0,0.6)",
-          background: open ? "rgba(255,107,26,0.85)" : "transparent",
+          background: open ? "rgba(242,107,31,0.85)" : "transparent",
           borderRadius: 3,
           padding: open ? "1px 4px" : 0,
         }}
@@ -117,12 +117,12 @@ function FeatureTile({ lab, ti, c1, c2, ic, tan }: CaseFeatureTileData) {
 
 const DOCK_APPS: Array<{ bg: string; g: string }> = [
   { bg: "linear-gradient(180deg, #F36321, #B83F0A)", g: "✕" },
-  { bg: "linear-gradient(180deg, #FF9159, #E15A1B)", g: "✉" },
+  { bg: "linear-gradient(180deg, #FF8F3F, #E15A1B)", g: "✉" },
   { bg: "linear-gradient(180deg, #5D9CD7, #2C5E9D)", g: "♪" },
   { bg: "linear-gradient(180deg, #C9C0E3, #8C7BC0)", g: "◷" },
-  { bg: "linear-gradient(180deg, #58C97B, #1E8E3E)", g: "✓" },
+  { bg: "linear-gradient(180deg, #4ADB5C, #4FB245)", g: "✓" },
   { bg: "linear-gradient(180deg, #FFD27A, #E2A124)", g: "★" },
-  { bg: "linear-gradient(180deg, #B0A992, #6E6A60)", g: "▤" },
+  { bg: "linear-gradient(180deg, #B0A992, #65615A)", g: "▤" },
 ];
 
 /* Layout helper - stagger spawn locations so a fresh open lands in

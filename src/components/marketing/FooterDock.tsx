@@ -92,7 +92,7 @@ export function FooterDock({ data = GS_DATA.footer }: FooterDockProps) {
         <div className="gs-page" style={{ padding: "44px 28px 28px" }}>
           <div className="gs-footer-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1fr 1fr", gap: 40 }}>
             <div>
-              <GrowthSyncLogo height={42} color="#FBF7EE" />
+              <GrowthSyncLogo height={42} color="#FFFBF2" />
               <div
                 style={{
                   marginTop: 12,

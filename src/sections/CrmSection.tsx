@@ -4,6 +4,7 @@
  */
 
 import { MonoLabel, RainbowStrip, ReadMore } from "@/components/atoms";
+import { SectionDivider } from "@/components/marketing";
 import { SocialCrmWindow } from "@/components/product";
 
 const BULLETS = [
@@ -14,11 +15,13 @@ const BULLETS = [
 
 export function CrmSection() {
   return (
-    <section className="gs-section">
-      <div className="gs-two-col gs-two-col-flip">
+    <section className="gs-band gs-band-dark">
+      <div className="gs-band-inner">
+        <SectionDivider num="03" label="Social CRM" meta="Zero-Party Data" />
+        <div className="gs-two-col gs-two-col-flip">
         <div>
           <RainbowStrip />
-          <MonoLabel>MODULE · 03 · CRM ENRICHMENT</MonoLabel>
+          <MonoLabel color="var(--gs-tangerine-hi)">CRM Enrichment</MonoLabel>
           <h2 className="gs-section-title" style={{ marginTop: 8 }}>
             We turn interactions
             <br />
@@ -33,11 +36,12 @@ export function CrmSection() {
               <li key={b}>{b}</li>
             ))}
           </ul>
-          <div style={{ marginTop: 18 }}>
-            <ReadMore />
+          <div style={{ marginTop: 20 }}>
+            <ReadMore style={{ color: "var(--gs-tangerine-hi)" }} />
           </div>
         </div>
         <SocialCrmWindow />
+        </div>
       </div>
     </section>
   );

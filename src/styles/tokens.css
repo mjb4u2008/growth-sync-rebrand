@@ -21,21 +21,29 @@
      The whole product sits on warm "paper". Everything pixels
      read against a cream background, never pure white.
      ============================================================= */
-  --gs-paper:           #F2EADB;   /* page background - warm cream  */
-  --gs-paper-warm:      #E9DEC8;   /* deeper cream (footer/dock)    */
-  --gs-paper-cool:      #F7F1E4;   /* lifted panels                 */
-  --gs-bone:            #FBF7EE;   /* near-white window interior    */
-  --gs-bone-edge:       #EDE4D2;   /* hairline between bone & paper */
+  /* Surfaces — greige value ladder. Base canvas sits deeper so the
+     near-white "raised" bands and the darker "recessed" tint read as
+     genuinely distinct surfaces instead of one continuous greige wash. */
+  /* Section surfaces rotate between exactly four: GRAY (--gs-paper),
+     WHITE (--gs-bone), BLACK (.gs-band-dark), ORANGE (.gs-closer).
+     --gs-paper-warm/-cool are component-internal off-whites (hover fills,
+     product-window chrome), not section backgrounds. */
+  --gs-paper:           #E8E6DF;   /* GRAY — base canvas + gray band */
+  --gs-paper-warm:      #E7E6E1;   /* hover / selected neutral fill */
+  --gs-paper-cool:      #F1F1ED;   /* product-window off-white (DESIGN.md --cream-alt) */
+  --gs-bone:            #FBFBF9;   /* WHITE — raised near-white band */
+  --gs-bone-edge:       #DCDAD4;   /* hairline between bone & paper */
 
   /* =============================================================
      COLOR - Ink (text)
      ============================================================= */
-  --gs-ink:             #0B0B12;   /* primary headline / body       */
-  --gs-ink-2:           #2C2A26;   /* secondary copy                */
-  --gs-ink-3:           #6E6A60;   /* tertiary / mono labels        */
-  --gs-ink-4:           #A6A092;   /* placeholder / disabled        */
-  --gs-rule:            #1E1B14;   /* hairline rules on paper       */
-  --gs-rule-soft:       rgba(11,11,18,0.10);
+  --gs-ink:             #0B0B12;   /* DESIGN.md --ink               */
+  --gs-ink-2:           #2A2A30;   /* DESIGN.md --ink-soft          */
+  --gs-ink-3:           #65615A;   /* DESIGN.md --ink-mute (AA-tuned) */
+  --gs-ink-4:           #989485;   /* DESIGN.md --ink-faint         */
+  --gs-rule:            #C7C4BB;   /* hairline (strengthened)       */
+  --gs-seam:            rgba(11,11,18,0.14);   /* band seam — stronger than rule */
+  --gs-rule-soft:       rgba(17,17,12,0.10);  /* DESIGN.md --rule-soft */
   --gs-rule-pinstripe:  rgba(11,11,18,0.035); /* soft paper lines    */
   --gs-rule-pinstripe-warm: rgba(11,11,18,0.026);
 
@@ -43,38 +51,44 @@
      COLOR - Tangerine (the brand)
      The CTA + signal color. Used glossy with a top-light shine.
      ============================================================= */
-  --gs-tangerine:       #FF6B1A;   /* the "Buy Now" core            */
-  --gs-tangerine-deep:  #E04F0A;   /* gradient bottom               */
-  --gs-tangerine-hi:    #FF9159;   /* gradient top highlight        */
+  /* Brand tangerine — aligned to the canonical DESIGN.md §6 values
+     (was #FF6B1A/#E04F0A; the doc + the source mockups use these). */
+  --gs-tangerine:       #F26B1F;   /* the "Buy Now" core            */
+  --gs-tangerine-deep:  #C84F0E;   /* gradient bottom / borders     */
+  --gs-tangerine-hi:    #FF8F3F;   /* gradient top highlight        */
   --gs-tangerine-ink:   #5A1E00;   /* readable ink on tangerine     */
-  --gs-tangerine-tint:  #FFE4D2;   /* tint background               */
+  --gs-tangerine-tint:  #F6E0D2;   /* calm-orange pale tint         */
+  --gs-link:            #A83800;   /* AA-readable orange for text links */
 
   /* =============================================================
      COLOR - Signal accents (used in social-card backgrounds,
      brand grid tiles, status pills)
      ============================================================= */
+  /* Pastel accent tiles — marketing-only (social cards, avatars);
+     not part of DESIGN.md §6, so left as the brand kit's extras. */
   --gs-coral:           #F4A38A;   /* bucket-hat coral tile         */
-  --gs-lilac:           #C9C0E3;   /* lavender tile                 */
+  --gs-lilac:           #C8C5E8;   /* DESIGN.md --lilac             */
   --gs-sky:             #B7CEE4;   /* sky-blue tile                 */
   --gs-mint:            #B7D8B2;   /* gentle mint                   */
   --gs-butter:          #F2D58B;   /* butter yellow                 */
   --gs-rose:            #E8B6BB;   /* dusty rose                    */
 
   /* =============================================================
-     COLOR - Semantic / system
+     COLOR - Semantic / system (DESIGN.md §6)
      ============================================================= */
-  --gs-success:         #1E8E3E;   /* "alive" pill green            */
-  --gs-success-hi:      #58C97B;
-  --gs-warning:         #C98A1A;
-  --gs-danger:          #C7372F;
-  --gs-info:            #3B6EA8;
+  --gs-success:         #4FB245;   /* DESIGN.md --green-deep        */
+  --gs-success-hi:      #4ADB5C;   /* DESIGN.md --green (LED bright) */
+  --gs-success-ink:     #1F5A26;   /* readable green for TEXT (mockup --green-ink) */
+  --gs-warning:         #F0B027;   /* DESIGN.md --amber             */
+  --gs-danger:          #E54B36;   /* DESIGN.md --red               */
+  --gs-info:            #7DB0B4;   /* DESIGN.md --cyan-deep         */
 
   /* =============================================================
-     COLOR - Window chrome (Aqua / Y2K metallic)
+     COLOR - Window chrome (Aqua / Y2K metallic) → DESIGN.md metal
      ============================================================= */
-  --gs-chrome-1:        #E6E4DC;   /* top of titlebar               */
-  --gs-chrome-2:        #C9C5BA;   /* bottom of titlebar            */
-  --gs-chrome-edge:     #8E8A7E;   /* 1px chrome outline            */
+  --gs-chrome-1:        #E9E8E4;   /* DESIGN.md --metal-top         */
+  --gs-chrome-2:        #C3C1B9;   /* DESIGN.md --metal-bot         */
+  --gs-chrome-edge:     #ACAAA0;   /* DESIGN.md --metal-line        */
   --gs-chrome-shadow:   rgba(11,11,18,0.18);
   --gs-tl-red:          #FF6058;   /* traffic-light red             */
   --gs-tl-yel:          #FFBE2E;   /* traffic-light yellow          */
@@ -203,6 +217,12 @@
   --gs-font-editorial: "Instrument Serif", "Times New Roman", Georgia, serif;
   --gs-tracking-display: -0.03em;
   --gs-tracking-tight:   -0.015em;
+
+  /* Colors are now the DESIGN.md §6 greige system at :root, so the home
+     surface inherits them directly — no per-surface overrides needed.
+     It only paints its own canvas so the page bg is explicit. */
+  background: var(--gs-paper);
+  background-image: var(--gs-pinstripe-y2k);
 }
 
 /* =================================================================

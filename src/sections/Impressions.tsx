@@ -12,31 +12,25 @@
 
 import type { ReactNode } from "react";
 import { MonoLabel, ReadMore } from "@/components/atoms";
-import { SectionHeader } from "@/components/marketing";
+import { SectionDivider, SectionHeader } from "@/components/marketing";
 
 const BUCKET_HAT = "/assets/social-signal-bucket-hat.png";
 
-/* ---------- Outer chrome card --------------------------------------- */
+/* ---------- Feature column -----------------------------------------
+   The product mock stands on its own (each visual is self-framed); the
+   step label + copy sit beneath it on the page canvas. No OS-window
+   chrome here — the chrome is reserved for the genuinely diegetic
+   surfaces (the hero dashboard, the case-study desktop, the calculator). */
 
-function FrameCard({ title, children, caption }: {
-  title: string;
+function FeatureColumn({ children, caption }: {
   children: ReactNode;
   caption: ReactNode;
 }) {
   return (
-    <div className="gs-frame-card">
-      <div className="gs-frame-titlebar">
-        <span className="lights">
-          <span style={{ background: "var(--gs-tl-red)" }} />
-          <span style={{ background: "var(--gs-tl-yel)" }} />
-          <span style={{ background: "var(--gs-tl-grn)" }} />
-        </span>
-        <span className="name">{title}</span>
-        <span />
-      </div>
-      <div className="gs-frame-visual">{children}</div>
-      <div className="gs-frame-caption">{caption}</div>
-    </div>
+    <article className="gs-impression">
+      <div className="gs-impression__visual">{children}</div>
+      <div className="gs-impression__copy">{caption}</div>
+    </article>
   );
 }
 
@@ -210,7 +204,6 @@ function CrmRecordVisual() {
 
 const CARDS = [
   {
-    title: "growthsync · capture · ribbed_studio.reel",
     visual: <IgPostVisual />,
     step: "STEP 01 / CONNECT",
     title2: "Track interactions across socials",
@@ -219,7 +212,6 @@ const CARDS = [
     cta: "Connect your channels →",
   },
   {
-    title: "growthsync · engage · @maya.r",
     visual: <IgDmVisual />,
     step: "STEP 02 / ENGAGE",
     title2: "Converse in your voice",
@@ -228,7 +220,6 @@ const CARDS = [
     cta: "Watch a draft fly →",
   },
   {
-    title: "growthsync · crm · @ariaq · record #00428",
     visual: <CrmRecordVisual />,
     step: "STEP 03 / UNDERSTAND",
     title2: "Deeply enrich your CRM, 24/7",
@@ -240,7 +231,9 @@ const CARDS = [
 
 export function Impressions() {
   return (
-    <section className="gs-section gs-center">
+    <section id="signals" className="gs-band gs-band-bone gs-center">
+      <div className="gs-band-inner">
+      <SectionDivider label="Signals" meta="TikTok + Instagram" />
       <SectionHeader
         title={"Find & engage with every social impression\nacross TikTok and Instagram"}
       />
@@ -250,18 +243,17 @@ export function Impressions() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 18,
-          marginTop: 36,
+          gap: 28,
+          marginTop: 40,
           textAlign: "left",
         }}
       >
         {CARDS.map((c) => (
-          <FrameCard
-            key={c.title}
-            title={c.title}
+          <FeatureColumn
+            key={c.step}
             caption={
               <>
-                <MonoLabel color="var(--gs-tangerine-deep)" style={{ display: "block", marginBottom: 6 }}>
+                <MonoLabel color="var(--gs-link)" style={{ display: "block", marginBottom: 8 }}>
                   {c.step}
                 </MonoLabel>
                 <h3>{c.title2}</h3>
@@ -271,8 +263,9 @@ export function Impressions() {
             }
           >
             {c.visual}
-          </FrameCard>
+          </FeatureColumn>
         ))}
+      </div>
       </div>
     </section>
   );

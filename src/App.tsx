@@ -21,6 +21,7 @@ import {
   BrandNav,
   BrandStrip,
   FooterDock,
+  SectionDivider,
   SectionHeader,
 } from "@/components/marketing";
 
@@ -39,14 +40,17 @@ import { trackMarketingPageView } from "@/utils/marketingTags";
 
 function CalculatorSection() {
   return (
-    <section id="calculator" className="gs-section">
-      <div className="gs-center">
-        <SectionHeader
-          title={"97% of Brand & Creators are\nignoring their audience"}
-        />
-      </div>
-      <div style={{ marginTop: 36 }}>
-        <SignalCalculator />
+    <section id="calculator" className="gs-band gs-band-tint">
+      <div className="gs-band-inner">
+        <SectionDivider label="Calculator" meta="Live Estimate" />
+        <div className="gs-center">
+          <SectionHeader
+            title={"97% of Brand & Creators are\nignoring their audience"}
+          />
+        </div>
+        <div style={{ marginTop: 40 }}>
+          <SignalCalculator />
+        </div>
       </div>
     </section>
   );
@@ -54,15 +58,18 @@ function CalculatorSection() {
 
 function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="gs-section">
-      <div className="gs-center">
-        <SectionHeader
-          title="Explore Our Case Studies"
-          lede="Open the desktop files below to read how brands are using GrowthSync."
-        />
-      </div>
-      <div style={{ marginTop: 28 }} className="gs-case-studies-scroll">
-        <CaseStudyDesktop />
+    <section id="case-studies" className="gs-band gs-band-bone">
+      <div className="gs-band-inner">
+        <SectionDivider label="Case Studies" meta="Social Commerce Proof" />
+        <div className="gs-center">
+          <SectionHeader
+            title="Explore Our Case Studies"
+            lede="Open the desktop files below to read how brands are using GrowthSync."
+          />
+        </div>
+        <div style={{ marginTop: 40 }} className="gs-case-studies-scroll">
+          <CaseStudyDesktop />
+        </div>
       </div>
     </section>
   );
@@ -91,19 +98,23 @@ function MarketingHome() {
         <Hero />
       </main>
       <BrandStrip />
-      <main className="gs-page">
-        <section id="signals">
-          <Impressions />
-        </section>
-        <section id="how-it-works">
-          <HowItWorks />
-          <InstantReply />
-          <CrmSection />
-        </section>
-        <CaseStudiesSection />
-        <CalculatorSection />
-        <Closer />
+
+      {/* Impressions owns its own near-white band (id="signals"). */}
+      <Impressions />
+
+      {/* paddingBottom:0 so the dark CRM band meets the next band cleanly,
+          instead of leaving a greige sliver between two full-bleed bands. */}
+      <main className="gs-page" id="how-it-works" style={{ paddingBottom: 0 }}>
+        <HowItWorks />
+        <InstantReply />
+        <CrmSection />
       </main>
+
+      <CaseStudiesSection />
+      <CalculatorSection />
+
+      {/* Closer is a full-bleed tangerine band — the page's final note. */}
+      <Closer />
     </div>
   );
 }
