@@ -6,6 +6,7 @@
  *   /blog          - signals.psheet index
  *   /blog/:slug    - article reader
  *   /book-a-call   - intake form + Calendly slot
+ *   /socialcommercesummit - alias for /book-a-call (campaign landing page)
  *   /privacy, /terms, and other footer pages - legal + brochure pages
  *   anything else - 404
  *

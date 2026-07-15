@@ -65,7 +65,16 @@ function pathToRoute(pathnameWithSearch: string): Route {
   const blogMatch = pathname.match(/^\/blog\/([a-z0-9-]+)\/?$/i);
   if (blogMatch) return { kind: "blog-post", slug: blogMatch[1] };
   if (pathname === "/book-a-call/success" || pathname === "/book-a-call/success/") return { kind: "book-a-call-success" };
-  if (pathname === "/book-a-call" || pathname === "/book-a-call/" || pathname === "/get-started" || pathname === "/get-started/") return { kind: "book-a-call" };
+  if (
+    pathname === "/book-a-call" ||
+    pathname === "/book-a-call/" ||
+    pathname === "/get-started" ||
+    pathname === "/get-started/" ||
+    pathname === "/socialcommercesummit" ||
+    pathname === "/socialcommercesummit/"
+  ) {
+    return { kind: "book-a-call" };
+  }
   const simpleMatch = pathname.match(/^\/([a-z0-9-]+)\/?$/);
   if (simpleMatch) {
     const slug = simpleMatch[1] as SimplePageSlug;
