@@ -37,6 +37,7 @@ export type Route =
   | { kind: "blog-post"; slug: string }
   | { kind: "book-a-call" }
   | { kind: "book-a-call-success" }
+  | { kind: "social-commerce-summit" }
   | { kind: "simple-page"; slug: SimplePageSlug }
   | { kind: "not-found"; pathname: string };
 
@@ -69,11 +70,12 @@ function pathToRoute(pathnameWithSearch: string): Route {
     pathname === "/book-a-call" ||
     pathname === "/book-a-call/" ||
     pathname === "/get-started" ||
-    pathname === "/get-started/" ||
-    pathname === "/socialcommercesummit" ||
-    pathname === "/socialcommercesummit/"
+    pathname === "/get-started/"
   ) {
     return { kind: "book-a-call" };
+  }
+  if (pathname === "/socialcommercesummit" || pathname === "/socialcommercesummit/") {
+    return { kind: "social-commerce-summit" };
   }
   const simpleMatch = pathname.match(/^\/([a-z0-9-]+)\/?$/);
   if (simpleMatch) {
