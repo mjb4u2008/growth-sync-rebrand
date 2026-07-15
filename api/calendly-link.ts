@@ -1,4 +1,4 @@
-import { pickCalendlyUrl } from '../src/utils/calendly';
+import { DEFAULT_CALENDLY_URL } from '../src/utils/calendly';
 
 type JsonResponse = {
   setHeader: (name: string, value: string) => void;
@@ -7,7 +7,7 @@ type JsonResponse = {
 };
 
 export default function handler(_request: unknown, response: JsonResponse) {
-  const calendlyUrl = pickCalendlyUrl(process.env);
+  const calendlyUrl = DEFAULT_CALENDLY_URL;
 
   response.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=86400');
 

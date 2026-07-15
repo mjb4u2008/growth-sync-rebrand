@@ -13,6 +13,8 @@ export const CALENDLY_ENV_KEYS = [
   'SCHEDULING_URL',
 ] as const;
 
+export const DEFAULT_CALENDLY_URL = 'https://calendly.com/mike-growthsync/30min?primary_color=f26b1f';
+
 const CALENDLY_EMBED_PARAMS = {
   hide_event_type_details: '1',
   hide_gdpr_banner: '1',
@@ -21,7 +23,6 @@ const CALENDLY_EMBED_PARAMS = {
 const CALENDLY_THEME_PARAMS = [
   'background_color',
   'text_color',
-  'primary_color',
 ] as const;
 
 export type DemoLeadDetails = {
@@ -92,7 +93,7 @@ export function pickCalendlyUrl(source: Record<string, string | undefined>) {
 }
 
 export function getCalendlyUrlFromClientEnv() {
-  return pickCalendlyUrl(import.meta.env as Record<string, string | undefined>);
+  return DEFAULT_CALENDLY_URL;
 }
 
 export function getVolumeLabel(volume: string) {
