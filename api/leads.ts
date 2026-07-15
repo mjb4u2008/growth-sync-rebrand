@@ -224,18 +224,29 @@ async function sendLeadEmail(payload: LeadPayload) {
   return true;
 }
 
+const BOOK_A_CALL_SOURCE = 'book-a-call';
 const SOCIAL_COMMERCE_SUMMIT_SOURCE = 'social-commerce-summit';
 const DEFAULT_SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzezgdr';
 
+const FORMSPREE_DESTINATIONS: Record<string, { endpoint: string; subjectLabel: string }> = {
+  [BOOK_A_CALL_SOURCE]: {
+    endpoint: 'https://formspree.io/f/mkodogar',
+    subjectLabel: 'Book a Call',
+  },
+  [SOCIAL_COMMERCE_SUMMIT_SOURCE]: {
+    endpoint: process.env.SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT || DEFAULT_SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT,
+    subjectLabel: 'Social Commerce Summit',
+  },
+};
+
 async function sendLeadToFormspree(payload: LeadPayload) {
-  if (payload.source !== SOCIAL_COMMERCE_SUMMIT_SOURCE) {
+  const destination = FORMSPREE_DESTINATIONS[payload.source];
+
+  if (!destination) {
     return false;
   }
 
-  const endpoint = process.env.SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT
-    || DEFAULT_SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT;
-
-  const response = await fetch(endpoint, {
+  const response = await fetch(destination.endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -248,7 +259,7 @@ async function sendLeadToFormspree(payload: LeadPayload) {
       phone: payload.socialHandles,
       notes: payload.notes,
       source: payload.source,
-      _subject: `GrowthSync lead: ${payload.name} (Social Commerce Summit)`,
+      _subject: `GrowthSync lead: ${payload.name} (${destination.subjectLabel})`,
     }),
   });
 
