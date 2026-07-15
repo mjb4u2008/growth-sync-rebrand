@@ -224,6 +224,41 @@ async function sendLeadEmail(payload: LeadPayload) {
   return true;
 }
 
+const SOCIAL_COMMERCE_SUMMIT_SOURCE = 'social-commerce-summit';
+const DEFAULT_SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzezgdr';
+
+async function sendLeadToFormspree(payload: LeadPayload) {
+  if (payload.source !== SOCIAL_COMMERCE_SUMMIT_SOURCE) {
+    return false;
+  }
+
+  const endpoint = process.env.SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT
+    || DEFAULT_SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT;
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      name: payload.name,
+      company: payload.company,
+      email: payload.email,
+      phone: payload.socialHandles,
+      notes: payload.notes,
+      source: payload.source,
+      _subject: `GrowthSync lead: ${payload.name} (Social Commerce Summit)`,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Formspree submission failed with ${response.status}`);
+  }
+
+  return true;
+}
+
 function missingSupabaseEnv() {
   const missing: string[] = [];
   if (!process.env.SUPABASE_URL) {
@@ -346,23 +381,26 @@ export default async function handler(request: VercelRequest, response: JsonResp
   }
 
   try {
-    const [databaseSettled, webhookSettled, emailSettled] = await Promise.allSettled([
+    const [databaseSettled, webhookSettled, emailSettled, formspreeSettled] = await Promise.allSettled([
       storeLeadInSupabase(payload),
       sendLeadWebhook(payload),
       sendLeadEmail(payload),
+      sendLeadToFormspree(payload),
     ]);
     const databaseResult = databaseSettled.status === 'fulfilled'
       ? databaseSettled.value
       : { configured: true, stored: false, missing: [] as string[] };
     const webhookSent = webhookSettled.status === 'fulfilled' ? webhookSettled.value : false;
     const emailSent = emailSettled.status === 'fulfilled' ? emailSettled.value : false;
+    const formspreeSent = formspreeSettled.status === 'fulfilled' ? formspreeSettled.value : false;
 
-    if (!databaseResult.stored && !webhookSent && !emailSent) {
+    if (!databaseResult.stored && !webhookSent && !emailSent && !formspreeSent) {
       const notification = notificationEnvStatus();
       const failed = [
         databaseSettled.status === 'rejected' ? 'supabase' : null,
         webhookSettled.status === 'rejected' ? 'webhook' : null,
         emailSettled.status === 'rejected' ? 'email' : null,
+        formspreeSettled.status === 'rejected' ? 'formspree' : null,
       ].filter(Boolean);
 
       if (failed.length > 0) {
@@ -387,11 +425,13 @@ export default async function handler(request: VercelRequest, response: JsonResp
         supabase: databaseResult.stored,
         webhook: webhookSent,
         email: emailSent,
+        formspree: formspreeSent,
       },
       warnings: [
         databaseSettled.status === 'rejected' ? 'Supabase insert failed; notification capture succeeded.' : null,
         webhookSettled.status === 'rejected' ? 'Webhook notification failed.' : null,
         emailSettled.status === 'rejected' ? 'Email notification failed.' : null,
+        formspreeSettled.status === 'rejected' ? 'Formspree submission failed.' : null,
       ].filter(Boolean),
       missing: {
         supabase: databaseResult.missing,
