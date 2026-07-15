@@ -14,11 +14,14 @@ import { getStoredAttribution } from "@/utils/attribution";
 import { buildCalendlyEmbedUrl, getCalendlyUrlFromClientEnv } from "@/utils/calendly";
 import { trackLeadConversion } from "@/utils/marketingTags";
 
+type FormVariant = "standard" | "summit";
+
 type FormState = {
   name: string;
   company: string;
   email: string;
   social: string;
+  phone: string;
   notes: string;
 };
 
@@ -29,18 +32,26 @@ const INITIAL_FORM: FormState = {
   company: "",
   email: "",
   social: "",
+  phone: "",
   notes: "",
 };
 
-const REQUIRED: Array<keyof FormState> = ["name", "company", "email", "social"];
+function getRequiredFields(variant: FormVariant): Array<keyof FormState> {
+  return variant === "summit"
+    ? ["name", "company", "email", "phone"]
+    : ["name", "company", "email", "social"];
+}
 
-function validate(form: FormState): Partial<Record<keyof FormState, string>> {
+function validate(form: FormState, variant: FormVariant): Partial<Record<keyof FormState, string>> {
   const errors: Partial<Record<keyof FormState, string>> = {};
-  for (const key of REQUIRED) {
+  for (const key of getRequiredFields(variant)) {
     if (!form[key].trim()) errors[key] = "Required";
   }
   if (form.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
     errors.email = "Use a real email";
+  }
+  if (variant === "summit" && form.phone.trim() && !/^[\d()+\-.\s]{7,}$/.test(form.phone.trim())) {
+    errors.phone = "Use a real phone number";
   }
   return errors;
 }
@@ -65,7 +76,33 @@ export function BookACall() {
 
       <div className="gs-bac-intake">
         <Pitch />
-        <Scheduler />
+        <Scheduler variant="standard" />
+      </div>
+    </main>
+  );
+}
+
+export function SocialCommerceSummitBookACall() {
+  useEffect(() => {
+    const prev = document.title;
+    document.title = "Book a call | Social Commerce Summit | GrowthSync";
+    return () => { document.title = prev; };
+  }, []);
+
+  return (
+    <main className="gs-pagewrap gs-pagewrap--wide" id="social-commerce-summit">
+      <Helmet>
+        <title>Book a Call | Social Commerce Summit | GrowthSync</title>
+        <meta
+          name="description"
+          content="Book a GrowthSync intro call with the Social Commerce Summit team to see how impressions become customer memory and revenue action."
+        />
+        <link rel="canonical" href="https://growthsync.com/socialcommercesummit" />
+      </Helmet>
+
+      <div className="gs-bac-intake">
+        <Pitch />
+        <Scheduler variant="summit" />
       </div>
     </main>
   );
@@ -136,18 +173,18 @@ function Pitch() {
   );
 }
 
-function Scheduler() {
+function Scheduler({ variant }: { variant: FormVariant }) {
   return (
     <section aria-labelledby="bac-scheduler">
       <h2 id="bac-scheduler" style={srOnly}>
         Request a call
       </h2>
-      <BookCallSteps currentStep={1} />
+      {variant === "standard" && <BookCallSteps currentStep={1} />}
       <ChromeWindow
         title="intake.form · intro_call.sheet"
         contentStyle={{ background: "var(--gs-paper)" }}
       >
-        <IntakeForm />
+        <IntakeForm variant={variant} />
       </ChromeWindow>
     </section>
   );
@@ -189,11 +226,12 @@ const srOnly: React.CSSProperties = {
   border: 0,
 };
 
-function IntakeForm() {
+function IntakeForm({ variant }: { variant: FormVariant }) {
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [serverError, setServerError] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
   const isSubmittingRef = useRef(false);
 
   const update = (key: keyof FormState) => (
@@ -208,7 +246,7 @@ function IntakeForm() {
     e.preventDefault();
     if (isSubmittingRef.current) return;
 
-    const next = validate(form);
+    const next = validate(form, variant);
     setErrors(next);
     setServerError(null);
 
@@ -216,6 +254,8 @@ function IntakeForm() {
 
     isSubmittingRef.current = true;
     setSubmitState("submitting");
+
+    const source = variant === "summit" ? "social-commerce-summit" : "book-a-call";
 
     try {
       const res = await fetch("/api/leads", {
@@ -225,9 +265,9 @@ function IntakeForm() {
           name: form.name,
           company: form.company,
           email: form.email,
-          socialHandles: form.social,
+          socialHandles: variant === "summit" ? form.phone : form.social,
           notes: form.notes,
-          source: "book-a-call",
+          source,
           attribution: getStoredAttribution(),
         }),
       });
@@ -243,7 +283,12 @@ function IntakeForm() {
         // Lead capture already succeeded; blocked storage should not block the success flow.
       }
       trackLeadConversion();
-      navigateTo("/book-a-call/success");
+
+      if (variant === "summit") {
+        setSubmitted(true);
+      } else {
+        navigateTo("/book-a-call/success");
+      }
     } catch (error) {
       setServerError(error instanceof Error ? error.message : "Lead capture failed. Please try again.");
     } finally {
@@ -252,12 +297,25 @@ function IntakeForm() {
     }
   };
 
+  if (submitted) {
+    return (
+      <div className="gs-form-success" role="status" aria-live="polite">
+        <div className="head">Thanks — we&apos;ve got your request.</div>
+        <div className="sub">Our team will text or call you shortly to find a time that works.</div>
+      </div>
+    );
+  }
+
   return (
     <form className="gs-form-grid" onSubmit={onSubmit} noValidate aria-busy={submitState === "submitting"}>
       <Field label="Name" name="name" value={form.name} onChange={update("name")} error={errors.name} required autoComplete="name" />
       <Field label="Company" name="company" value={form.company} onChange={update("company")} error={errors.company} required autoComplete="organization" />
       <Field label="Email" name="email" type="email" value={form.email} onChange={update("email")} error={errors.email} required autoComplete="email" />
-      <Field label="Instagram / TikTok" name="social" value={form.social} onChange={update("social")} error={errors.social} required placeholder="@brand, @founder, @creator" />
+      {variant === "summit" ? (
+        <Field label="Phone Number" name="phone" type="tel" value={form.phone} onChange={update("phone")} error={errors.phone} required placeholder="(555) 555-5555" autoComplete="tel" />
+      ) : (
+        <Field label="Instagram / TikTok" name="social" value={form.social} onChange={update("social")} error={errors.social} required placeholder="@brand, @founder, @creator" />
+      )}
       <TextArea label="Notes" name="notes" value={form.notes} onChange={update("notes")} error={errors.notes} placeholder="Biggest social workflow, launch timing, or what you'd want to see." />
       {serverError && (
         <div className="gs-form-server-error" role="alert">

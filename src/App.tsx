@@ -6,6 +6,8 @@
  *   /blog          - signals.psheet index
  *   /blog/:slug    - article reader
  *   /book-a-call   - intake form + Calendly slot
+ *   /socialcommercesummit - single-step Book a Call variant with a phone
+ *                            field instead of Instagram/TikTok, no Calendly step
  *   /privacy, /terms, and other footer pages - legal + brochure pages
  *   anything else - 404
  *
@@ -33,7 +35,7 @@ import { InstantReply } from "@/sections/InstantReply";
 
 import { BlogApp } from "@/blog/BlogApp";
 import { useGlobalLinkInterception, useRoute } from "@/blog/router";
-import { BookACall, BookACallSuccess, FooterPage, NotFound, Privacy, Security, Terms } from "@/pages";
+import { BookACall, BookACallSuccess, FooterPage, NotFound, Privacy, Security, SocialCommerceSummitBookACall, Terms } from "@/pages";
 import { capturePaidAttribution } from "@/utils/attribution";
 import { trackMarketingPageView } from "@/utils/marketingTags";
 
@@ -129,6 +131,7 @@ export default function App() {
       {onBlog && <BlogApp />}
       {route.kind === "book-a-call" && <BookACall />}
       {route.kind === "book-a-call-success" && <BookACallSuccess />}
+      {route.kind === "social-commerce-summit" && <SocialCommerceSummitBookACall />}
       {route.kind === "simple-page" && route.slug === "privacy" && <Privacy />}
       {route.kind === "simple-page" && route.slug === "terms" && <Terms />}
       {route.kind === "simple-page" && route.slug === "security" && <Security />}
