@@ -26,7 +26,9 @@ The journal, article and legal page contents retain their existing styling and p
 
 ## Journal, approved direction November 1
 
-The homepage's simplicity carries into the journal: one unadorned dated list, low-contrast dividing rules, a few text filters and a small search field. No windows, file icons, status bars, category pills or cards. The reader is one comfortable text column with an optional contents disclosure and simple related links. Hanken Grotesk stays consistent with the homepage; existing article text and source links remain intact.
+The homepage's simplicity carries into the journal: one unadorned dated list, low-contrast dividing rules, a few text filters and a small search field. No windows, file icons, status bars, category pills or cards. The reader is one comfortable text column with an optional contents disclosure and simple related links. Hanken Grotesk stays consistent with the homepage.
+
+The editorial reset keeps eight substantial pieces. Show a short excerpt in the index so readers can choose an argument, with compact Perspectives, Studies and Team filters. Case studies distinguish reported investment from our interpretation. Source links sit with the claim and in a plain source list; adapted personal essays carry a quiet provenance note.
 
 ## Selected hero — November 1
 

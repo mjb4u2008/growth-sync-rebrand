@@ -1,7 +1,5 @@
 /**
- * GrowthSync blog - data shapes for Phase 1 (fake posts only).
- *
- * `content` is React so authors can use Y2K callouts and inline components.
+ * GrowthSync journal metadata and rich article content.
  * Posts are imported from `src/blog/data.tsx`.
  */
 
@@ -48,6 +46,8 @@ export type BlogPost = {
   hero?: ReactNode;
   /** Article body (React) */
   content: ReactNode;
+  /** Provenance for an adapted or revised essay, displayed to readers. */
+  editorialNote?: string;
   /** Optional sources rendered in the source box */
   sources?: BlogSource[];
   /** Post freshness signal dot color. Defaults from `dateISO`. */

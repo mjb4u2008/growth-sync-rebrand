@@ -4,6 +4,7 @@
 
 import type { BlogFilter, BlogPost } from "./types";
 import { BLOG_POSTS } from "./data";
+import { JOURNAL_REDIRECTS } from './journal/legacyRedirects';
 
 export function getAllPosts(): BlogPost[] {
   return [...BLOG_POSTS].sort(
@@ -12,13 +13,14 @@ export function getAllPosts(): BlogPost[] {
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug || String(p.id) === slug);
+  const currentSlug = JOURNAL_REDIRECTS[slug] || slug;
+  return BLOG_POSTS.find((p) => p.slug === currentSlug || String(p.id) === currentSlug);
 }
 
 export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
   const target = getPostBySlug(slug);
   if (!target) return [];
-  return BLOG_POSTS.filter((p) => p.slug !== slug)
+  return BLOG_POSTS.filter((p) => p.slug !== target.slug)
     .map((p) => {
       let score = 0;
       if (p.category === target.category) score += 3;
