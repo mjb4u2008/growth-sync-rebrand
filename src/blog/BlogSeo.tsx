@@ -56,11 +56,12 @@ export function BlogSeo({ post, tab = 'All', missing = false }: { post?: BlogPos
     link.href = canonical;
     if (post) {
       meta('property', 'article:published_time', post.dateISO);
+      if (post.updatedDateISO) meta('property', 'article:modified_time', post.updatedDateISO);
       meta('property', 'article:author', post.author.name);
       const data = [{
         '@context': 'https://schema.org', '@type': 'BlogPosting',
         headline: post.title, description: post.excerpt, image: [image],
-        datePublished: post.dateISO, dateModified: post.dateISO,
+        datePublished: post.dateISO, dateModified: post.updatedDateISO || post.dateISO,
         author: [{ '@type': post.author.name === 'GrowthSync' ? 'Organization' : 'Person', name: post.author.name, ...(post.author.name === 'GrowthSync' ? {} : { jobTitle: post.author.role }) }],
         url: canonical, mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
         publisher: { '@type': 'Organization', name: 'GrowthSync', logo: { '@type': 'ImageObject', url: `${SITE_URL}/growthsync-logo.png` } },

@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const memoryEssay: JournalEssay = {
   slug: 'your-companys-memory-should-belong-to-your-company',
-  title: 'Your company’s memory should belong to your company',
+  title: 'A company that remembers',
   excerpt: 'Connecting documents is not enough. Useful business memory needs sources, freshness, permissions, and a clear distinction between facts and guesses.',
   category: 'Perspectives',
   tags: ['Business context', 'Data ownership', 'AI infrastructure'],

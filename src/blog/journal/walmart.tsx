@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const walmartEssay: JournalEssay = {
   slug: 'walmart-company-context-operating-capability',
-  title: 'Walmart is turning company context into operating capability',
+  title: 'One business, shared context',
   excerpt: 'From product data to merchant workflows, Walmart shows why AI needs business context, reusable infrastructure and a path to action.',
   category: 'Case studies',
   tags: ['Commerce', 'Enterprise AI', 'Company context'],

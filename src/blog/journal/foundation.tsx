@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const foundationEssay: JournalEssay = {
   slug: 'a-new-foundation-for-business',
-  title: 'A new foundation for business',
+  title: 'A new foundation',
   excerpt: 'AI can change more than the tools a company uses. Our thesis is that it will change the capabilities a company can build, keep, and improve.',
   category: 'Perspectives',
   tags: ['Company thesis', 'AI infrastructure', 'Core'],

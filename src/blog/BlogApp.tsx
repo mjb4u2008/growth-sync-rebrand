@@ -103,7 +103,7 @@ function JournalArticle({ post }: { post: BlogPost }) {
     <RouterLink to="/blog" className="journal-back"><ArrowLeft size={16} aria-hidden="true" />All notes</RouterLink>
     <header className="journal-article-head">
       <h1>{post.title}</h1>
-      <p className="journal-byline">{post.author.name}{' '}<span aria-hidden="true">·</span>{' '}<time dateTime={post.dateISO}>{post.date}</time>{' '}<span aria-hidden="true">·</span>{' '}{post.readTime}</p>
+      <p className="journal-byline">{post.author.name}{' '}<span aria-hidden="true">·</span>{' '}<time dateTime={post.dateISO}>{post.date}</time>{' '}<span aria-hidden="true">·</span>{' '}{post.readTime}{post.updatedDateISO && <><span aria-hidden="true">·</span><span>Updated <time dateTime={post.updatedDateISO}>{post.updatedDate}</time></span></>}</p>
     </header>
     {post.editorialNote && <p className="journal-editorial-note">{post.editorialNote}</p>}
     {headings.length > 2 && <details className="journal-contents">

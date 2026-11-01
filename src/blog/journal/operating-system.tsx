@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const operatingSystemEssay: JournalEssay = {
   slug: 'the-model-is-not-the-operating-system',
-  title: 'The model is not the operating system',
+  title: 'Beyond the model',
   excerpt:
     'Becoming AI-native takes a maintained foundation of company context, permissions, tools, execution, and evaluation. That is the work ahead.',
   category: 'Perspectives',

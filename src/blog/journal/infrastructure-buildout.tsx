@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const infrastructureEssay: JournalEssay = {
   slug: 'capacity-is-not-a-business-capability',
-  title: 'Capacity is not a business capability',
+  title: 'The next buildout',
   excerpt: 'The AI infrastructure buildout is real. Turning that capacity into useful work still depends on business context, permissions, and maintenance.',
   category: 'Case studies',
   tags: ['AI infrastructure', 'Business context', 'Core'],
