@@ -1,114 +1,11 @@
-/**
- * GrowthSync - top-level app.
- *
- * Routes:
- *   /              - marketing homepage (unchanged)
- *   /blog          - signals.psheet index
- *   /blog/:slug    - article reader
- *   /book-a-call   - intake form + Calendly slot
- *   /socialcommercesummit - single-step Book a Call variant with a phone
- *                            field instead of Instagram/TikTok, no Calendly step
- *   /privacy, /terms, and other footer pages - legal + brochure pages
- *   anything else - 404
- *
- * Routing is a tiny custom SPA layer (see src/blog/router.tsx) so the
- * marketing site doesn't take a router dependency just for two pages.
- */
-
-import { useEffect } from "react";
-
-import { SignalCalculator } from "@/components/calculator";
-import { CaseStudyDesktop } from "@/components/caseStudy";
-import {
-  BrandNav,
-  BrandStrip,
-  FooterDock,
-  SectionHeader,
-} from "@/components/marketing";
-
-import { Closer } from "@/sections/Closer";
-import { CrmSection } from "@/sections/CrmSection";
-import { Hero } from "@/sections/Hero";
-import { HowItWorks } from "@/sections/HowItWorks";
-import { Impressions } from "@/sections/Impressions";
-import { InstantReply } from "@/sections/InstantReply";
-
-import { BlogApp } from "@/blog/BlogApp";
+import { lazy, Suspense, useEffect } from "react";
 import { useGlobalLinkInterception, useRoute } from "@/blog/router";
-import { BookACall, BookACallSuccess, FooterPage, NotFound, Privacy, Security, SocialCommerceSummitBookACall, Terms } from "@/pages";
 import { capturePaidAttribution } from "@/utils/attribution";
 import { trackMarketingPageView } from "@/utils/marketingTags";
+import CoreHome from "@/pages/CoreHome";
 
-function CalculatorSection() {
-  return (
-    <section id="calculator" className="gs-section">
-      <div className="gs-center">
-        <SectionHeader
-          title={"97% of Brand & Creators are\nignoring their audience"}
-        />
-      </div>
-      <div style={{ marginTop: 36 }}>
-        <SignalCalculator />
-      </div>
-    </section>
-  );
-}
-
-function CaseStudiesSection() {
-  return (
-    <section id="case-studies" className="gs-section">
-      <div className="gs-center">
-        <SectionHeader
-          title="Explore Our Case Studies"
-          lede="Open the desktop files below to read how brands are using GrowthSync."
-        />
-      </div>
-      <div style={{ marginTop: 28 }} className="gs-case-studies-scroll">
-        <CaseStudyDesktop />
-      </div>
-    </section>
-  );
-}
-
-function MarketingHome() {
-  // On mount, if the URL carries a hash like /#signals, scroll to it.
-  // This is how the in-nav scroll-spy tabs work after a route bounce
-  // back from /blog or /blog/:slug.
-  useEffect(() => {
-    const hash = window.location.hash.replace(/^#/, "");
-    if (!hash) return;
-    const id = setTimeout(() => {
-      const el = document.getElementById(hash);
-      if (!el) return;
-      const navH = 64;
-      const y = el.getBoundingClientRect().top + window.scrollY - navH - 8;
-      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
-    }, 40);
-    return () => clearTimeout(id);
-  }, []);
-
-  return (
-    <div className="gs-home">
-      <main className="gs-page" id="home">
-        <Hero />
-      </main>
-      <BrandStrip />
-      <main className="gs-page">
-        <section id="signals">
-          <Impressions />
-        </section>
-        <section id="how-it-works">
-          <HowItWorks />
-          <InstantReply />
-          <CrmSection />
-        </section>
-        <CaseStudiesSection />
-        <CalculatorSection />
-        <Closer />
-      </main>
-    </div>
-  );
-}
+const ConceptStudio = import.meta.env.DEV ? lazy(() => import("@/pages/ConceptStudio")) : null;
+const SupportingRoutes = lazy(() => import("@/pages/SupportingRoutes"));
 
 export default function App() {
   useGlobalLinkInterception();
@@ -122,24 +19,13 @@ export default function App() {
     trackMarketingPageView();
   }, [attributionRoute]);
 
-  const onBlog = route.kind === "blog-index" || route.kind === "blog-post";
+  if (ConceptStudio && route.kind === "not-found" && route.pathname === "/concepts") {
+    return <Suspense fallback={<main className="core-route-loading" role="status">Loading studies…</main>}><ConceptStudio /></Suspense>;
+  }
 
-  return (
-    <>
-      <BrandNav />
-      {route.kind === "home" && <MarketingHome />}
-      {onBlog && <BlogApp />}
-      {route.kind === "book-a-call" && <BookACall />}
-      {route.kind === "book-a-call-success" && <BookACallSuccess />}
-      {route.kind === "social-commerce-summit" && <SocialCommerceSummitBookACall />}
-      {route.kind === "simple-page" && route.slug === "privacy" && <Privacy />}
-      {route.kind === "simple-page" && route.slug === "terms" && <Terms />}
-      {route.kind === "simple-page" && route.slug === "security" && <Security />}
-      {route.kind === "simple-page" && route.slug !== "privacy" && route.slug !== "terms" && route.slug !== "security" && (
-        <FooterPage slug={route.slug} />
-      )}
-      {route.kind === "not-found" && <NotFound pathname={route.pathname} />}
-      <FooterDock />
-    </>
+  return route.kind === "home" ? <CoreHome /> : (
+    <Suspense fallback={<main className="core-route-loading" role="status">Loading…</main>}>
+      <SupportingRoutes route={route} />
+    </Suspense>
   );
 }

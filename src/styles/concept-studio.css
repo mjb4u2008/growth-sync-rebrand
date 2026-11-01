@@ -1,0 +1,27 @@
+.concept-studio { display: grid; grid-template-columns: minmax(0, 1fr) 300px; min-height: 100svh; background: #fafafa; }
+.concept-preview { min-width: 0; }
+.concept-controls { padding: 32px 26px; border-left: 1px solid #dedede; color: #18191b; background: #f5f5f5; font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif; height: 100svh; overflow-y: auto; }
+.concept-back { display: inline-flex; gap: 8px; align-items: center; color: #595a5d; text-decoration: none; font-size: 12px; min-height: 24px; }
+.concept-controls h2 { font-size: 27px; line-height: 1.15; font-weight: 500; letter-spacing: -0.025em; margin: 24px 0 10px; }
+.concept-intro { margin: 0 0 28px; color: #595a5d; font-size: 14px; line-height: 1.6; }
+.concept-controls fieldset { border: 0; padding: 0; margin: 0 0 28px; }
+.concept-controls legend, .concept-headline-label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+.concept-forms { display: flex; flex-direction: column; gap: 8px; }
+.concept-forms button { text-align: left; background: transparent; border: 1px solid #d0d0d0; border-radius: 5px; padding: 11px 12px; font: inherit; color: inherit; cursor: pointer; }
+.concept-forms button[aria-pressed=true] { background: #fff; border-color: #202124; }
+.concept-forms button span { font-size: 14px; font-weight: 500; display: block; margin-bottom: 3px; }
+.concept-forms button small { font-size: 12px; line-height: 1.4; color: #595a5d; display: block; }
+.concept-controls select { width: 100%; min-width: 0; font: inherit; font-size: 13px; min-height: 42px; padding: 8px; background: #fff; border: 1px solid #9b9b9b; border-radius: 4px; color: #18191b; }
+.concept-copy-note { font-size: 12px; line-height: 1.6; color: #595a5d; min-height: 38px; margin: 10px 0 22px; }
+.concept-expand, .concept-reopen { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 12px; border: 0; border-radius: 4px; background: #18191b; color: white; min-height: 38px; padding: 8px 12px; cursor: pointer; }
+.concept-footnote { font-size: 11px; line-height: 1.5; color: #595a5d; margin: 14px 0 0; }
+.concept-controls :focus-visible, .concept-reopen:focus-visible { outline: 2px solid #d35c31; outline-offset: 4px; }
+.concept-studio.is-expanded { display: block; }
+.concept-reopen { position: fixed; z-index: 5; bottom: 24px; left: 50%; transform: translateX(-50%); }
+@media (max-width: 900px) {
+  .concept-studio { display: flex; flex-direction: column; }
+  .concept-controls { height: auto; border-left: 0; border-top: 1px solid #dedede; padding: 24px; }
+  .concept-forms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .concept-reopen { bottom: 70px; }
+  .concept-controls select { font-size: 16px; }
+}

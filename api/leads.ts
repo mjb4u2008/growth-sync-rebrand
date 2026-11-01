@@ -2,6 +2,7 @@ type LeadRequest = {
   name?: unknown;
   company?: unknown;
   email?: unknown;
+  website?: unknown;
   handle?: unknown;
   social?: unknown;
   socialHandles?: unknown;
@@ -21,7 +22,7 @@ type JsonResponse = {
 type VercelRequest = {
   method?: string;
   headers?: Record<string, string | string[] | undefined>;
-  body?: LeadRequest | string;
+  body?: unknown;
 };
 
 const attributionKeys = [
@@ -51,6 +52,7 @@ type LeadPayload = {
   company: string;
   email: string;
   socialHandles: string;
+  website?: string;
   notes: string;
   source: string;
   capturedAt: string;
@@ -61,6 +63,7 @@ type LeadPayload = {
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CAPTURE_TIMEOUT_MS = 8000;
 
 function toText(value: unknown, maxLength = 1000) {
   return String(value ?? '').trim().slice(0, maxLength);
@@ -126,19 +129,25 @@ function summarizeAttribution(attribution?: LeadAttribution) {
 }
 
 function parseBody(body: VercelRequest['body']): LeadRequest {
-  if (!body) {
-    return {};
-  }
-
   if (typeof body === 'string') {
     try {
-      return JSON.parse(body) as LeadRequest;
+      return getRecord(JSON.parse(body)) || {};
     } catch {
       return {};
     }
   }
 
-  return body;
+  return getRecord(body) || {};
+}
+
+function isWebsite(value: string) {
+  if (!/^https?:\/\//i.test(value)) return false;
+  try {
+    const url = new URL(value);
+    return (url.protocol === 'http:' || url.protocol === 'https:') && Boolean(url.hostname);
+  } catch {
+    return false;
+  }
 }
 
 async function sendLeadWebhook(payload: LeadPayload) {
@@ -152,11 +161,11 @@ async function sendLeadWebhook(payload: LeadPayload) {
   const body = isSlackWebhook
     ? {
         text: [
-          '*New GrowthSync book-a-call request*',
+          payload.website ? '*New GrowthSync brand inquiry*' : '*New GrowthSync book-a-call request*',
           `*Name:* ${payload.name}`,
           `*Company:* ${payload.company}`,
           `*Email:* ${payload.email}`,
-          `*Social handles:* ${payload.socialHandles || 'Not provided'}`,
+          payload.website ? `*Website:* ${payload.website}` : `*Social handles:* ${payload.socialHandles || 'Not provided'}`,
           `*Source:* ${payload.source}`,
           payload.attributionSummary ? `*Attribution:* ${payload.attributionSummary}` : null,
           '',
@@ -167,6 +176,7 @@ async function sendLeadWebhook(payload: LeadPayload) {
 
   const response = await fetch(webhookUrl, {
     method: 'POST',
+    signal: AbortSignal.timeout(CAPTURE_TIMEOUT_MS),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -190,12 +200,12 @@ async function sendLeadEmail(payload: LeadPayload) {
   const to = process.env.LEAD_NOTIFICATION_EMAIL || 'hello@growthsync.com';
   const from = process.env.LEAD_NOTIFICATION_FROM || 'GrowthSync <leads@growthsync.com>';
   const lines = [
-    'New GrowthSync book-a-call request',
+    payload.website ? 'New GrowthSync brand inquiry' : 'New GrowthSync book-a-call request',
     '',
     `Name: ${payload.name}`,
     `Company: ${payload.company}`,
     `Email: ${payload.email}`,
-    `Social handles: ${payload.socialHandles || 'Not provided'}`,
+    payload.website ? `Website: ${payload.website}` : `Social handles: ${payload.socialHandles || 'Not provided'}`,
     `Source: ${payload.source}`,
     payload.attributionSummary ? `Attribution: ${payload.attributionSummary}` : null,
     '',
@@ -204,6 +214,7 @@ async function sendLeadEmail(payload: LeadPayload) {
 
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
+    signal: AbortSignal.timeout(CAPTURE_TIMEOUT_MS),
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
@@ -225,6 +236,7 @@ async function sendLeadEmail(payload: LeadPayload) {
 }
 
 const BOOK_A_CALL_SOURCE = 'book-a-call';
+const BRAND_INQUIRY_SOURCE = 'brand-inquiry';
 const SOCIAL_COMMERCE_SUMMIT_SOURCE = 'social-commerce-summit';
 const DEFAULT_SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT = 'https://formspree.io/f/xvzezgdr';
 
@@ -232,6 +244,10 @@ const FORMSPREE_DESTINATIONS: Record<string, { endpoint: string; subjectLabel: s
   [BOOK_A_CALL_SOURCE]: {
     endpoint: 'https://formspree.io/f/mkodogar',
     subjectLabel: 'Book a Call',
+  },
+  [BRAND_INQUIRY_SOURCE]: {
+    endpoint: 'https://formspree.io/f/mkodogar',
+    subjectLabel: 'Brand Inquiry',
   },
   [SOCIAL_COMMERCE_SUMMIT_SOURCE]: {
     endpoint: process.env.SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT || DEFAULT_SOCIAL_COMMERCE_SUMMIT_FORMSPREE_ENDPOINT,
@@ -248,6 +264,7 @@ async function sendLeadToFormspree(payload: LeadPayload) {
 
   const response = await fetch(destination.endpoint, {
     method: 'POST',
+    signal: AbortSignal.timeout(CAPTURE_TIMEOUT_MS),
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -256,7 +273,7 @@ async function sendLeadToFormspree(payload: LeadPayload) {
       name: payload.name,
       company: payload.company,
       email: payload.email,
-      phone: payload.socialHandles,
+      ...(payload.website ? { website: payload.website } : { phone: payload.socialHandles }),
       notes: payload.notes,
       source: payload.source,
       _subject: `GrowthSync lead: ${payload.name} (${destination.subjectLabel})`,
@@ -303,6 +320,7 @@ async function storeLeadInSupabase(payload: LeadPayload) {
 
   const response = await fetch(`${baseUrl}/rest/v1/book_call_leads`, {
     method: 'POST',
+    signal: AbortSignal.timeout(CAPTURE_TIMEOUT_MS),
     headers: {
       apikey: supabaseKey,
       Authorization: `Bearer ${supabaseKey}`,
@@ -320,6 +338,7 @@ async function storeLeadInSupabase(payload: LeadPayload) {
       referrer: payload.referrer,
       metadata: {
         captured_at: payload.capturedAt,
+        ...(payload.website ? { website: payload.website } : {}),
         ...(payload.attribution ? { attribution: payload.attribution } : {}),
       },
     }),
@@ -366,15 +385,18 @@ export default async function handler(request: VercelRequest, response: JsonResp
   }
 
   const body = parseBody(request.body);
-  const socialHandles = toText(body.socialHandles ?? body.social_handles ?? body.social ?? body.handle, 280);
+  const source = toText(body.source, 120) || BOOK_A_CALL_SOURCE;
+  const website = source === BRAND_INQUIRY_SOURCE ? toText(body.website, 280) : undefined;
+  const socialHandles = website ?? toText(body.socialHandles ?? body.social_handles ?? body.social ?? body.handle, 280);
   const notes = toText(body.notes ?? body.message, 2400);
   const payload = {
     name: toText(body.name, 160),
     company: toText(body.company, 180),
     email: toText(body.email, 240).toLowerCase(),
     socialHandles,
+    ...(website ? { website } : {}),
     notes,
-    source: toText(body.source, 120) || 'book-a-call',
+    source,
     capturedAt: new Date().toISOString(),
     userAgent: toText(request.headers?.['user-agent'], 300),
     referrer: toText(request.headers?.referer ?? request.headers?.referrer, 500),
@@ -383,10 +405,13 @@ export default async function handler(request: VercelRequest, response: JsonResp
   };
   payload.attributionSummary = summarizeAttribution(payload.attribution);
 
-  if (!payload.name || !payload.company || !payload.socialHandles || !emailPattern.test(payload.email)) {
+  if (!payload.name || !payload.company || !payload.socialHandles || !emailPattern.test(payload.email)
+    || (source === BRAND_INQUIRY_SOURCE && !isWebsite(website || ''))) {
     response.status(400).json({
       ok: false,
-      error: 'Please include a valid name, company, email, and social handles.',
+      error: source === BRAND_INQUIRY_SOURCE
+        ? 'Please include a valid name, company, email, and website URL beginning with https:// or http://.'
+        : 'Please include a valid name, company, email, and social handles.',
     });
     return;
   }
