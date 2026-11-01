@@ -35,3 +35,7 @@ For UI authoring, `npm run dev` serves Vite at port 3000. Vite alone does not ho
 This is a replacement candidate from the React repository, not the currently deployed website. Current growthsync.com is served by Framer; an exact production source/project link has not been established. No deployment or DNS changes are authorized.
 
 Before release, choose and verify the deployment project/platform; confirm the actual lead destination/account and delivery; review existing legal drafts (their effective dates remain TBD). Confirm the legacy entry points and actual hosting rewrite behavior on an authorized staging deployment. The current site remains available until Mike authorizes replacement.
+
+## Motion and headline studies
+
+Mike requested more active alternatives to the orange/black woven loop and new headline wordplay, while preserving the approved homepage. A local-only `/concepts` studio runs under `npm run dev` on port 3000. It compares the original with Ribbon, Orbit and Tide and offers six headline choices. Controls can be hidden to inspect a combination in the actual homepage layout. The route and study modules are excluded from default production builds; no permanent homepage choice has been made.

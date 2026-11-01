@@ -4,6 +4,7 @@ import { capturePaidAttribution } from "@/utils/attribution";
 import { trackMarketingPageView } from "@/utils/marketingTags";
 import CoreHome from "@/pages/CoreHome";
 
+const ConceptStudio = import.meta.env.DEV ? lazy(() => import("@/pages/ConceptStudio")) : null;
 const SupportingRoutes = lazy(() => import("@/pages/SupportingRoutes"));
 
 export default function App() {
@@ -17,6 +18,10 @@ export default function App() {
     capturePaidAttribution();
     trackMarketingPageView();
   }, [attributionRoute]);
+
+  if (ConceptStudio && route.kind === "not-found" && route.pathname === "/concepts") {
+    return <Suspense fallback={<main className="core-route-loading" role="status">Loading studies…</main>}><ConceptStudio /></Suspense>;
+  }
 
   return route.kind === "home" ? <CoreHome /> : (
     <Suspense fallback={<main className="core-route-loading" role="status">Loading…</main>}>
