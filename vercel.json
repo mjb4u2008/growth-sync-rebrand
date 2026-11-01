@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/legals/privacy-policy", "destination": "/privacy", "permanent": true },
+    { "source": "/legals/terms-of-service", "destination": "/terms", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!api/.*|assets|blog/.*\\.png|mascots|favicon\\.png|growthsync-logo.*|michael-broughton\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }
   ],

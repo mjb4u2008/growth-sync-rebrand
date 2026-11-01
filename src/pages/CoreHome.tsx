@@ -26,19 +26,19 @@ export default function CoreHome({ headline = ['The shape of', 'what’s next.']
     <div className="core-home">
       <Helmet>
         <title>{title}</title>
-        <meta name="description" content="AI infrastructure for the way businesses will run. Meet GrowthSync." />
+        <meta name="description" content="Meet Core, GrowthSync’s AI foundation for your business." />
         <meta property="og:title" content={title} />
-        <meta property="og:description" content="AI infrastructure for the way businesses will run." />
+        <meta property="og:description" content="Meet Core, GrowthSync’s AI foundation for your business." />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content="AI infrastructure for the way businesses will run." />
+        <meta name="twitter:description" content="Meet Core, GrowthSync’s AI foundation for your business." />
       </Helmet>
       <CoreHeader home />
       <main className="core-main">
         <div className="core-art">{renderSculpture ? renderSculpture(paused || inquiryOpen) : <CoreMotionStudy kind="orbit" paused={paused || inquiryOpen} />}</div>
         <div className="core-message">
           <h1>{headline[0]}<br />{headline[1]}</h1>
-          <p>AI infrastructure for the way businesses will run.</p>
-          <button type="button" className="core-cta" onClick={() => setInquiryOpen(true)} aria-haspopup="dialog">Introduce your business <ArrowUpRight size={19} aria-hidden="true" /></button>
+          <p>Meet Core. An AI foundation that grows with your business.</p>
+          <button type="button" className="core-cta" onClick={() => setInquiryOpen(true)} aria-haspopup="dialog">Book a call <ArrowUpRight size={19} aria-hidden="true" /></button>
         </div>
       </main>
       <CoreFooter>

@@ -12,7 +12,7 @@ Mike confirmed he loves the homepage's simplicity and asked that the blog match 
 - Sculpture: 30 fps canvas; deterministic particle seeds, DPR cap; pointer tilt, drag/arrow-key rotation and click/Enter reshape. Motion pauses while hidden, offscreen, dialog open, paused or reduced-motion is preferred. Touch can drag horizontally or tap; vertical page scrolling remains available.
 - Journal: all 39 posts, All/Market studies/Tech corner filters, case-insensitive local search, meaningful empty state, natural document scrolling. Articles preserve original React content, headings, source links, related writing and numeric aliases. Direct section hashes work after lazy loading.
 - Chrome: shared Home/Journal header and minimal legal footer; obsolete homepage section navigation is removed from public routes.
-- Intake: required name, email, company, HTTP(S) website and optional context. Dedicated `brand-inquiry` source, server validation, schema-compatible storage, explicit website notifications, bounded upstream requests, disabled pending state and retained input after failure. Success requires `ok: true` and `captured: true`. Analytics failure cannot reverse a captured result.
+- Intake: required name, email, company, HTTP(S) website and optional context. Dedicated `brand-inquiry` source, server validation, schema-compatible storage, explicit website notifications, bounded upstream requests, disabled pending state and retained input after failure. Success requires `ok: true` and `captured: true`. Analytics failure cannot reverse a captured result. The confirmed inquiry then opens the verified Calendly introduction event, prefilled with name/email; a booking is confirmed only after a trusted iframe event.
 - Supporting pages are loaded separately to keep the initial homepage JavaScript small. Old journal window styles are no longer loaded.
 
 ## Local verification
@@ -30,11 +30,13 @@ npm run preview:fixture
 
 For UI authoring, `npm run dev` serves Vite at port 3000. Vite alone does not host the production lead API.
 
-## Release boundary
+## Release and rollback
 
-This is a replacement candidate from the React repository, not the currently deployed website. Current growthsync.com is served by Framer; an exact production source/project link has not been established. No deployment or DNS changes are authorized.
+Mike authorized migrating growthsync.com from Framer to this custom build on November 1, 2026. The intended hosting project is the existing RM Growth / newsite Vercel project linked to the growth-sync-rebrand repository. Stage with production environment values and `--skip-domain`, verify it, then promote and change only the website DNS records at Namecheap. Keep the Framer project intact for rollback and preserve email/API/subdomain records.
 
-Before release, choose and verify the deployment project/platform; confirm the actual lead destination/account and delivery; review existing legal drafts (their effective dates remain TBD). Confirm the legacy entry points and actual hosting rewrite behavior on an authorized staging deployment. The current site remains available until Mike authorizes replacement.
+The live Framer legal documents have been carried over, with the privacy notice updated for actual inquiry fields, storage/notifications and attribution. `/legals/privacy-policy` and `/legals/terms-of-service` redirect to the corresponding preserved legal pages.
+
+The active scheduling event is `https://calendly.com/mike-rmgrowth/intro-michael-broughton`, a 20-minute introduction verified through the existing account API. No test appointment needs to be created for release validation.
 
 ## Motion and headline studies
 

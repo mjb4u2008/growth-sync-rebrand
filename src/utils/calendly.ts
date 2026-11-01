@@ -13,7 +13,7 @@ export const CALENDLY_ENV_KEYS = [
   'SCHEDULING_URL',
 ] as const;
 
-export const DEFAULT_CALENDLY_URL = 'https://calendly.com/mike-growthsync/30min?primary_color=f26b1f';
+export const DEFAULT_CALENDLY_URL = 'https://calendly.com/mike-rmgrowth/intro-michael-broughton?primary_color=f26b1f';
 
 const CALENDLY_EMBED_PARAMS = {
   hide_event_type_details: '1',

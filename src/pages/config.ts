@@ -8,8 +8,11 @@
  */
 export const CALENDLY_URL = "";
 
-/** Replace before launch. */
-export const CONTACT_EMAIL = "hello@growthsync.app";
+/** Support contact used by the published GrowthSync policies. */
+export const CONTACT_EMAIL = "support@growthsync.com";
 
-/** Effective date for legal pages. Replace before launch. */
-export const LEGAL_EFFECTIVE_DATE = "TBD. Set before launch";
+/** Original published terms; their substantive wording is unchanged. */
+export const LEGAL_EFFECTIVE_DATE = "July 16, 2026";
+
+/** Factual website intake, processor, and attribution disclosure update. */
+export const PRIVACY_EFFECTIVE_DATE = "November 1, 2026";

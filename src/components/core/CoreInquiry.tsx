@@ -1,11 +1,15 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { ArrowUpRight, Check, X } from 'lucide-react';
+import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
+import { ArrowUpRight, X } from 'lucide-react';
 import { getStoredAttribution } from '@/utils/attribution';
 import { trackLeadConversion } from '@/utils/marketingTags';
+import { CoreBooking } from './CoreBooking';
 
 export function CoreInquiry({ open, onClose }: { open: boolean; onClose: () => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
+  const descriptionId = useId();
   const [state, setState] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [capturedLead, setCapturedLead] = useState<{ name: string; email: string } | null>(null);
   const [error, setError] = useState('');
   const submitting = useRef(false);
   const abortRef = useRef<AbortController | null>(null);
@@ -55,6 +59,7 @@ export function CoreInquiry({ open, onClose }: { open: boolean; onClose: () => v
       });
       const result = await response.json();
       if (!response.ok || result.ok !== true || result.captured !== true) throw new Error('unconfirmed');
+      setCapturedLead({ name: payload.name, email: payload.email });
       setState('sent');
       try { trackLeadConversion(); } catch { /* Capture is complete even if measurement fails. */ }
     } catch {
@@ -70,27 +75,22 @@ export function CoreInquiry({ open, onClose }: { open: boolean; onClose: () => v
   return (
     <dialog
       ref={dialogRef}
-      className="core-dialog"
-      aria-labelledby="core-inquiry-title"
-      aria-describedby="core-inquiry-description"
+      className={`core-dialog${state === 'sent' ? ' core-dialog--booking' : ''}`}
+      aria-labelledby={titleId}
+      aria-describedby={descriptionId}
       onCancel={onClose}
       onClose={onClose}
       onClick={event => { if (event.target === event.currentTarget) onClose(); }}
     >
-      <div className="core-inquiry">
+      <div className={`core-inquiry${state === 'sent' ? ' core-inquiry--booking' : ''}`}>
         <button type="button" className="core-close" aria-label="Close inquiry" onClick={onClose}><X size={21} /></button>
-        <span className="core-inquiry-mark" aria-hidden="true">↗</span>
-        {state === 'sent' ? (
-          <div className="core-confirmation" role="status">
-            <span className="core-success-icon"><Check size={27} /></span>
-            <h2 id="core-inquiry-title">A good place to start.</h2>
-            <p id="core-inquiry-description">Your request is with our team. We’ll be in touch at the email you shared.</p>
-            <button className="core-submit" type="button" onClick={onClose}>Back to GrowthSync <ArrowUpRight size={18} /></button>
-          </div>
+        {state === 'sent' && capturedLead ? (
+          <CoreBooking lead={capturedLead} active={open} titleId={titleId} descriptionId={descriptionId} onClose={onClose} />
         ) : (
           <>
-            <h2 id="core-inquiry-title">Let’s build<br />what comes next.</h2>
-            <p id="core-inquiry-description">Tell us about your business and what you have in mind.</p>
+            <span className="core-inquiry-mark" aria-hidden="true">↗</span>
+            <h2 id={titleId}>Let’s build<br />what comes next.</h2>
+            <p id={descriptionId}>Tell us about your business, then choose a time to meet.</p>
             <form onSubmit={submit} onInput={event => {
               const field = event.target;
               if (field instanceof HTMLInputElement) field.setCustomValidity('');
@@ -106,7 +106,7 @@ export function CoreInquiry({ open, onClose }: { open: boolean; onClose: () => v
               <label>What would you like to make possible? <span className="core-optional">Optional</span><textarea name="notes" rows={3} maxLength={2400} placeholder="A workflow, a problem, a bigger idea…" /></label>
               </fieldset>
               {error && <p className="core-error" role="alert">{error}</p>}
-              <button type="submit" className="core-submit" disabled={state === 'sending'}>{state === 'sending' ? 'Sending…' : 'Start a conversation'}<ArrowUpRight size={18} /></button>
+              <button type="submit" className="core-submit" disabled={state === 'sending'}>{state === 'sending' ? 'Saving…' : 'Continue to calendar'}<ArrowUpRight size={18} /></button>
               <p className="core-form-privacy">We’ll use these details to respond to your inquiry. <a href="/privacy">Privacy</a></p>
             </form>
           </>

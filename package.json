@@ -17,7 +17,8 @@
     "blog:link-audit": "tsx scripts/audit-blog-links.ts",
     "sitemap": "tsx scripts/generate-sitemap.ts",
     "test:leads": "node --import tsx --test tests/core-leads.test.ts",
-    "preview:fixture": "node --import tsx scripts/core-preview-fixture.ts"
+    "preview:fixture": "node --import tsx scripts/core-preview-fixture.ts",
+    "test:booking": "node --import tsx --test tests/core-booking.test.ts"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
