@@ -6,10 +6,10 @@ const SITE_URL = 'https://growthsync.com';
 
 export function BlogSeo({ post, tab = 'All', missing = false }: { post?: BlogPost; tab?: JournalFilter; missing?: boolean }) {
   const title = post ? `${post.title} | GrowthSync Journal` : missing ? 'Note not found | GrowthSync' : 'Journal | GrowthSync';
-  const description = post?.excerpt || 'How businesses become AI-native: perspectives, enterprise case studies, and the people building GrowthSync.';
+  const description = post?.excerpt || 'Our thinking on AI, the future of business, and the infrastructure we’re building with Core.';
   const suffix = tab === 'All' ? '' : `?tab=${tab.toLowerCase().replace(/ /g, '-')}`;
   const canonical = post ? `${SITE_URL}/blog/${post.slug}` : `${SITE_URL}/blog${suffix}`;
-  const image = post ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image}`) : `${SITE_URL}/growthsync-logo.png`;
+  const image = post ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image}`) : `${SITE_URL}/journal/a-new-kind-of-company.jpg`;
   useEffect(() => {
     // Update the static HTML fallback tags instead of adding a second canonical
     // or description. Each route restores the fallback before its successor runs.
@@ -36,6 +36,7 @@ export function BlogSeo({ post, tab = 'All', missing = false }: { post?: BlogPos
     meta('property', 'og:title', title);
     meta('property', 'og:description', description);
     meta('property', 'og:image', image);
+    meta('property', 'og:image:alt', post?.imageAlt || 'An expanding graphite structure connected by one continuous orange thread.');
     meta('name', 'twitter:card', 'summary_large_image');
     meta('name', 'twitter:title', title);
     meta('name', 'twitter:description', description);

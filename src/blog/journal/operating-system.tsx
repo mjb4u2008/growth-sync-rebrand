@@ -1,166 +1,49 @@
 import type { JournalEssay } from './types';
+import { JournalDiagram } from './JournalDiagram';
 
 export const operatingSystemEssay: JournalEssay = {
   slug: 'the-model-is-not-the-operating-system',
-  title: 'Beyond the model',
-  excerpt:
-    'Becoming AI-native takes a maintained foundation of company context, permissions, tools, execution, and evaluation. That is the work ahead.',
+  title: 'Beyond the session',
+  excerpt: 'A company’s work lasts longer than a conversation with a model. The next operating foundation has to own what happens in between.',
   category: 'Perspectives',
-  tags: ['AI infrastructure', 'Core', 'Company context'],
-  content: (
-    <>
-      <p>
-        A company becomes AI-native when useful work can move through it with AI
-        as a dependable participant. That requires a foundation: an understanding
-        of the business, access to the right systems, clear authority to act, and
-        a way to judge the result. A capable model supplies part of the
-        intelligence. The company still needs somewhere for that intelligence to
-        operate.
-      </p>
-      <p>
-        This distinction matters most after the first successful experiment.
-        Producing a good answer once is encouraging. Making the same work
-        reliable across people, changing conditions, and repeated use is a
-        different responsibility. Someone has to own the conditions that make
-        success repeatable.
-      </p>
-
-      <h2 id="what-stripe-built-around-the-model">What Stripe built around the model</h2>
-      <p>
-        Stripe offers a concrete engineering reference in its account of{' '}
-        <a
-          href="https://stripe.dev/blog/meet-stripes-knowledge-ai-platform"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Kai, its internal Knowledge AI Platform
-        </a>
-        . Stripe describes three layers: APIs that support different interfaces,
-        an Agent Studio where domain teams manage agents and skills, and shared
-        execution infrastructure. Its execution environment includes a
-        per-session sandbox, a virtual filesystem, orchestration, and access
-        controls. Domain owners can inspect usage and quality signals alongside
-        the assets they maintain.
-      </p>
-      <p>
-        One detail is especially instructive. Stripe says a person may have
-        legitimate access to two customer contexts while still being prohibited
-        from combining them in one analysis. The permission boundary therefore
-        depends on the task, as well as the person. Stripe also describes further
-        work on state management, collaboration, and a quality improvement loop.
-      </p>
-      <p>
-        Our reading is that the surrounding system deserves sustained
-        engineering attention. Stripe's implementation serves Stripe's needs;
-        it is a useful reference for thinking about the problem, not a blueprint
-        that every business should reproduce.
-      </p>
-
-      <h2 id="company-context-needs-an-owner">Company context needs an owner</h2>
-      <p>
-        Company context includes both information and interpretation. A product
-        catalog contains facts. Knowing which products can be promoted together,
-        which claims need review, and which stock levels should change a plan
-        requires decisions about how the business operates. An agent needs a way
-        to find those decisions and understand which ones still apply.
-      </p>
-      <p>
-        Uploading a folder creates a starting point. Maintaining usable context
-        means identifying the authoritative source, preserving the reason behind
-        a decision, and resolving disagreement when two documents say different
-        things. It also means giving someone responsibility for retiring guidance
-        that has become stale. More information can make an answer worse when
-        the system cannot distinguish current policy from old discussion.
-      </p>
-      <p>
-        The practical question is ownership. Who updates the agent's understanding
-        when pricing changes? Who can approve a new interpretation of the brand?
-        Who notices when the answer has quietly drifted away from the business?
-      </p>
-
-      <h2 id="authority-has-to-travel-with-the-task">Authority has to travel with the task</h2>
-      <p>
-        Access to a tool and authority to use it are separate decisions. Reading
-        campaign performance, preparing a recommendation, and changing a live
-        budget carry different consequences. A useful operating foundation makes
-        those boundaries legible before work begins. It can specify the accounts
-        involved, the permitted actions, the limits, and the point where a person
-        must make a decision.
-      </p>
-      <p>
-        This gives a business room to expand responsibility deliberately. A team
-        can begin with analysis, inspect the evidence, and authorize a narrower
-        action once it trusts the process. Permission becomes something the
-        system can enforce and explain, rather than a warning buried in a prompt.
-      </p>
-
-      <h2 id="execution-needs-a-finish-line">Execution needs a finish line</h2>
-      <p>
-        Connecting tools is necessary, but a connection does not define completed
-        work. A task needs an intended outcome, a record of the actions taken,
-        and an observable finish line. Otherwise, a fluent explanation can hide
-        an incomplete operation.
-      </p>
-      <p>
-        For a proposed catalog change, the finish line might include validation
-        against source data, approval from the responsible person, and a check
-        that the intended update appears in the destination system. If one step
-        fails, the system should preserve enough information to resume safely or
-        hand the work back. These are design requirements, even when the task
-        looks simple on screen.
-      </p>
-      <p>
-        Evaluation belongs inside that process. The business needs to know
-        whether the result was accurate, whether the action respected its
-        authority, and whether the outcome was useful. A completed tool call
-        answers only one part of those questions.
-      </p>
-
-      <h2 id="staying-ai-native-is-maintenance">Staying AI-native is maintenance</h2>
-      <p>
-        Becoming AI-native is an ongoing operating commitment. The business
-        changes around the system: people join, products launch, priorities
-        shift, and policies evolve. The tools and models change too. Each change
-        can alter assumptions that previously made a workflow dependable.
-      </p>
-      <p>
-        A maintained foundation gives that change a process. Important workflows
-        have examples of acceptable results. Failures can be traced to the
-        information, instructions, tool behavior, or judgment that produced
-        them. Proposed improvements can be checked before they become the new
-        default. Someone remains accountable for deciding what better means.
-      </p>
-      <p>
-        This work is easy to overlook because much of its value appears as
-        continuity: fewer repeated explanations, fewer ambiguous handoffs, and
-        confidence that an approved process still means what the business
-        intended. Continuity is part of the product.
-      </p>
-
-      <h2 id="why-we-are-starting-with-commerce">Why we are starting with commerce</h2>
-      <p>
-        GrowthSync's thesis is that smaller businesses should be able to access
-        this foundation without assembling and maintaining an internal AI
-        platform team. Core is our direction for making company context,
-        permissions, tools, execution, and evaluation work together as a
-        maintained system.
-      </p>
-      <p>
-        We are starting with commerce because it provides concrete work to design
-        around. Products, inventory, campaigns, customer communication, and
-        performance are connected. A decision in one area can change what makes
-        sense in another. That creates a useful test: can the system carry the
-        relevant business understanding through the whole task, while keeping
-        responsibility clear?
-      </p>
-      <p>
-        This is the ambition we are building toward. Its credibility will come
-        from the work a business can repeatedly trust it to complete. The model
-        will keep improving. Our job is to build and maintain the conditions
-        that let a business put that improvement to use.
-      </p>
-    </>
-  ),
+  tags: ['AI infrastructure', 'Core', 'Execution'],
+  cover: {
+    src: '/journal/beyond-the-session.jpg',
+    alt: 'A continuous orange line bridges separated graphite structures.',
+    caption: 'The worker can change. The commitment continues.',
+  },
+  content: <>
+    <p>Friday, 4:58 p.m. A purchase order is submitted. The supplier's system times out.</p>
+    <p>In this imagined situation, the order might have failed. It might also have succeeded just before the connection broke. Submitting it again could buy twice as much stock. Doing nothing could leave the business without the stock it needs. The person watching closes their laptop. A chat session ends. Monday is coming either way.</p>
+    <p>This is where we think an important part of the AI opportunity lives. A company needs something that can remain responsible for work after the conversation is over.</p>
+    <h2 id="the-job-outlives-the-worker">The job outlives the worker</h2>
+    <p>We would want that purchase order to exist as a durable job with an identity of its own. It needs the intended result, current owner, approved scope, attempted action, and the evidence still missing. The next useful step is to establish what happened at the supplier. A fresh agent should be able to pick up the job without reconstructing Friday from a conversational summary.</p>
+    <p>This changes the role of the model. It can reason about the situation, select a useful check, or prepare a response to a new constraint. The surrounding system must retain the commitment and its state. A worker can fail, a process can restart, and a newer model can take its place. None should make the order disappear.</p>
+    <p>We think agents should become replaceable more quickly than the responsibilities entrusted to them. A business can improve its intelligence without losing track of what it owes.</p>
+    <h2 id="unknown-is-a-real-state">Unknown is a real state</h2>
+    <p>Our Friday order exposes a distinction that polished demos rarely linger on. “Attempted” and “confirmed” mean different things. So does “unknown.” A failed network response does not necessarily mean a failed business action.</p>
+    <p>If the supplier supports an idempotency key, the system can use a stable key to avoid repeating the same effect. Where that protection is unavailable, it needs another way to reconcile: a supplier order identifier, a status query, an acknowledgment, or a person who can verify receipt. The recovery depends on the actual service. A generic retry loop can create a very specific problem.</p>
+    <p>The same principle applies to customer messages and budget changes. Some effects can be reversed; others have already reached another person. A system that announces completion because it called a tool has stopped one step too early. We want a record of the effect the business can verify, with unresolved uncertainty still visible.</p>
+    <p>That record is useful beyond debugging. It lets an operator distinguish work that is finished from work that is merely quiet.</p>
+    <h2 id="authority-can-change-while-work-waits">Authority can change while work waits</h2>
+    <p>On Monday, the supplier confirms that it never received the order. Meanwhile, the owner has lowered the purchasing limit. Friday's proposed order now exceeds it.</p>
+    <p>The job should remember the original approval and check the current authority before trying again. Remembering permission forever would be a serious design mistake. The world can change while an agent waits: prices, stock, account access, customer requests, and the instructions of the person who delegated the work.</p>
+    <p>This is why we want consequential actions to cross an enforced boundary. The model proposes an action. The runtime checks the permitted account, operation, limits, and material preconditions against current state. A generated script must pass through that same boundary. Creating a new tool cannot create a new purchasing allowance.</p>
+    <p>A useful system will sometimes return with a smaller question: the supplier has no order, but the amount now needs approval. It can preserve all the work already done and ask for the decision that actually matters.</p>
+    <JournalDiagram kind="continuity" />
+    <h2 id="a-platform-beneath-the-surfaces">A platform beneath the surfaces</h2>
+    <p>There are early signs of this architectural shift in large companies. In its account of <a href="https://stripe.dev/blog/meet-stripes-knowledge-ai-platform" target="_blank" rel="noreferrer">Kai, Stripe's Knowledge AI Platform</a>, Stripe describes shared APIs across interfaces, tools for domain owners to govern agents and skills, and execution infrastructure with sandboxes and access controls. Stripe also identifies a subtle permission problem: access to two customer contexts separately does not imply permission to combine them in one task.</p>
+    <p>We read that as a useful direction. The interface can move while the operating rules remain coherent. Stripe's platform serves its own organization; our question is how to make a maintained foundation accessible to a much wider range of businesses.</p>
+    <p>A merchant might start a job in a message, approve it in an app, and receive the result somewhere else. There should still be one job, one current state, and a clear account of who was allowed to do what.</p>
+    <h2 id="learning-has-to-reach-the-next-job">Learning has to reach the next job</h2>
+    <p>Once the order is resolved, the system has encountered a useful failure: a timeout left a consequential action unresolved. This time, the supplier confirmed that no order existed. Next time, the request could succeed before its response is lost. We would want the next job to handle either outcome.</p>
+    <p>One possible improvement is a reconciliation step before any retry. It should be tested against a duplicate acknowledgment, an unavailable status endpoint, a changed order, and a restart in the middle. A versioned procedure can then be introduced deliberately, with evidence that it handles those cases. A lesson becomes operating capability when it can survive the next unfamiliar situation.</p>
+    <p>Automatically adding “always retry” to a prompt would learn exactly the wrong lesson. Likewise, one merchant's exception should not silently become every merchant's rule. We want a system that can propose and develop better capabilities while keeping the business's authority and private knowledge where they belong.</p>
+    <h2 id="the-work-between-turns">The work between turns</h2>
+    <p>None of this requires a model to think continuously through the weekend. The job can wait for a supplier event, a scheduled check, or a human decision. It should wake when there is useful work to do, with the relevant evidence ready. Cheap checks and explicit wake-up conditions matter if this is going to work for ordinary businesses.</p>
+    <p>Core is our work toward that operating foundation. Commerce gives us demanding places to start: transactions, customer promises, changing stock, and work that crosses company boundaries. The ambition is a business that can take on more without making its owner the memory, router, and recovery mechanism for every system it uses.</p>
+    <p>For the owner, Monday's useful message is simple: the supplier confirmed no order was placed; the new purchasing limit requires your approval; here is the prepared order and what happens next. Everything beneath that message exists to make it true.</p>
+  </>,
   sources: [
     {
       label: "Stripe Engineering — Meet Stripe's Knowledge AI Platform",

@@ -10,14 +10,22 @@ The journal makes a specific argument, examines actual enterprise behavior, and 
 
 ## Eight pieces
 
-1. A new foundation for business — the company thesis.
-2. JPMorgan's technology investment — shared capability, not an AI-spend headline.
-3. Walmart's operating infrastructure — context and execution across a real business.
-4. What the infrastructure buildout means — separate compute capacity from operating capability.
-5. The model is not the operating system — Stripe's Kai as a concrete platform reference.
-6. Your company's memory should belong to your company — usable context and control.
-7. From buying software to building capability — economics, migration, and Core.
-8. Why Tanner joined: start with the work — an attributed editorial adaptation of the existing joining essay, without invented first-person beliefs.
+1. A new kind of company — a smaller organization gaining more operating range.
+2. The advantage underneath — JPMorgan and a wider permission to build.
+3. One business, many clocks — Walmart and decisions across different operating timescales.
+4. After the buildout — abundant intelligence and the remaining company-level constraint.
+5. Beyond the session — durable responsibility, uncertainty, and execution.
+6. The end of starting over — decisions and promises that survive changing tools.
+7. The second job — reusable preparation as the test of a platform.
+8. Start with the work — Tanner's source-backed inventory story and the engineering standard it sets.
+
+## Founder-led reading experience
+
+Each essay opens with a consequential belief or a concrete situation, develops a mechanism, and examines a condition under which it could fail. The pieces are approximately 950–1,080 words each. Imagined scenarios are identified as such. Enterprise studies use distinct situations rather than repeating the same small-business example.
+
+The index features the company thesis once and keeps the other seven essays in chronological order. Filters and search expose the full catalog without duplicating or losing the featured essay. The reader has original artwork, semantic explanatory figures, visible revision dates, and a separate invitation to book a call through the existing intake. The inquiry is portaled into its own themed container to preserve mobile styles.
+
+Artwork generation, source provenance, and final prompts are recorded in [journal-artwork.md](journal-artwork.md). The homepage, legacy redirects, intake API, calendar logic, and DNS are unchanged by this revision.
 
 ## Evidence and publication rules
 

@@ -1,0 +1,255 @@
+.journal-diagram {
+  --diagram-ink: #161719;
+  --diagram-muted: #57595c;
+  --diagram-line: #c7c8c9;
+  --diagram-accent: #f26b1f;
+  margin: 42px 0;
+  width: 100%;
+  color: var(--diagram-ink);
+  font-family: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  overflow-wrap: normal;
+}
+.journal-diagram .journal-diagram-canvas {
+  padding: clamp(24px, 4vw, 42px);
+  background: #f0f1f1;
+  font-size: 15px;
+  line-height: 1.45;
+}
+.journal-diagram figcaption {
+  max-width: 66ch;
+  margin-top: 14px;
+  color: var(--diagram-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.journal-diagram .journal-diagram-heading {
+  margin: 0 0 30px;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.journal-diagram .journal-diagram-label {
+  display: block;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--diagram-muted);
+}
+.journal-diagram .journal-diagram-detail {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--diagram-muted);
+}
+.journal-diagram .journal-diagram-principle {
+  margin: 28px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--diagram-line);
+  font-size: 14px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.journal-diagram .journal-diagram-foundation {
+  padding: 25px 20px;
+  text-align: center;
+  background: var(--diagram-ink);
+  color: #fff;
+}
+.journal-diagram-foundation strong {
+  display: block;
+  margin: 5px 0 0;
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.journal-diagram .journal-diagram-foundation .journal-diagram-label,
+.journal-diagram .journal-diagram-foundation .journal-diagram-detail {
+  color: #d4d5d6;
+}
+.journal-diagram .journal-diagram-branches {
+  display: block;
+  width: 100%;
+  height: 48px;
+  fill: none;
+  stroke: var(--diagram-ink);
+  stroke-width: 1;
+  overflow: visible;
+}
+.journal-diagram .journal-diagram-branch-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.journal-diagram .journal-diagram-branch-list li {
+  margin: 0;
+  padding: 0 3px;
+  text-align: center;
+}
+.journal-diagram .journal-diagram-branch-list strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.journal-diagram .journal-diagram-branch-list li > span {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--diagram-muted);
+  line-height: 1.5;
+}
+.journal-diagram .journal-diagram-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--diagram-ink);
+}
+.journal-diagram .journal-diagram-dot-accent { background: var(--diagram-accent); }
+.journal-diagram .journal-diagram-memory-records { margin: 0; }
+.journal-diagram .journal-diagram-memory-records > div {
+  display: grid;
+  grid-template-columns: 95px minmax(0, 1fr);
+  column-gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--diagram-line);
+  font-size: 15px;
+}
+.journal-diagram-memory-records dt { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.journal-diagram-memory-records dd { margin: 0; }
+.journal-diagram-memory-records dd > span {
+  display: block;
+  margin-top: 4px;
+  color: var(--diagram-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.journal-diagram .journal-diagram-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.journal-diagram-timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  border-top: 1px solid var(--diagram-line);
+}
+.journal-diagram .journal-diagram-timeline li { position: relative; min-width: 0; padding: 0; margin: 0; }
+.journal-diagram .journal-diagram-timeline-marker {
+  position: relative;
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin: 0 0 18px;
+  background: var(--diagram-ink);
+  border: 3px solid #f0f1f1;
+  border-radius: 50%;
+}
+.journal-diagram .journal-diagram-wait .journal-diagram-timeline-marker {
+  background: var(--diagram-accent);
+}
+.journal-diagram .journal-diagram-timeline strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+.journal-diagram .journal-diagram-timeline li > span:last-child {
+  display: block;
+  max-width: 18ch;
+  margin-top: 7px;
+  color: var(--diagram-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.journal-diagram .journal-diagram-continuity-rule {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 30px;
+  padding: 12px 0;
+  border-top: 1px solid var(--diagram-ink);
+  font-size: 13px;
+  color: var(--diagram-muted);
+}
+.journal-diagram-continuity-rule span:last-child { color: var(--diagram-ink); text-align: right; }
+.journal-diagram .journal-diagram-continuity .journal-diagram-principle { margin-top: 12px; }
+.journal-diagram .journal-diagram-reuse {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 1fr) minmax(0, 1fr);
+  gap: 30px;
+  align-items: center;
+}
+.journal-diagram .journal-diagram-job { position: relative; font-size: 15px; line-height: 1.4; }
+.journal-diagram .journal-diagram-job strong { display: block; margin-top: 8px; font-size: 19px; font-weight: 500; line-height: 1.25; text-wrap: balance; }
+.journal-diagram .journal-diagram-reuse-foundation {
+  position: relative;
+  padding: 16px 0;
+  border-top: 1px solid var(--diagram-ink);
+  border-bottom: 1px solid var(--diagram-ink);
+}
+.journal-diagram-reuse-foundation::before,
+.journal-diagram-reuse-foundation::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 19px;
+  border-top: 1px solid var(--diagram-ink);
+}
+.journal-diagram-reuse-foundation::before { left: -25px; }
+.journal-diagram-reuse-foundation::after { right: -25px; }
+.journal-diagram .journal-diagram-reuse-foundation ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.journal-diagram .journal-diagram-reuse-foundation li { margin: 5px 0; padding: 0; }
+.journal-diagram .journal-diagram-reuse .journal-diagram-principle { grid-column: 1 / -1; margin-top: 0; }
+.journal-diagram .journal-diagram-event { text-align: center; font-size: 18px; line-height: 1.3; }
+.journal-diagram-event .journal-diagram-dot { display: block; margin: 0 auto 12px; }
+.journal-diagram-event strong { display: block; font-weight: 500; }
+.journal-diagram-event > span:last-child { display: block; margin-top: 7px; font-size: 13px; color: var(--diagram-muted); }
+
+@media (max-width: 560px) {
+  .journal-diagram .journal-diagram-canvas { padding: 25px 22px; }
+  .journal-diagram .journal-diagram-heading { font-size: 20px; }
+  .journal-diagram .journal-diagram-foundation { padding: 22px 14px; }
+  .journal-diagram .journal-diagram-foundation .journal-diagram-detail { font-size: 13px; }
+  .journal-diagram .journal-diagram-branches { display: none; }
+  .journal-diagram .journal-diagram-branch-list { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 22px; }
+  .journal-diagram .journal-diagram-branch-list li { text-align: left; padding: 16px 0; border-top: 1px solid var(--diagram-line); }
+  .journal-diagram .journal-diagram-branch-list li > span { margin-top: 5px; font-size: 14px; }
+  .journal-diagram .journal-diagram-memory-records > div { grid-template-columns: minmax(0, 1fr); gap: 9px; }
+  .journal-diagram-memory-records dd { padding-left: 20px; }
+  .journal-diagram .journal-diagram-timeline { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .journal-diagram-timeline::before { top: 7px; bottom: 45px; left: 6px; right: auto; border-top: 0; border-left: 1px solid var(--diagram-line); }
+  .journal-diagram .journal-diagram-timeline li { padding-left: 30px; }
+  .journal-diagram .journal-diagram-timeline-marker { position: absolute; top: 5px; left: 0; margin: 0; }
+  .journal-diagram .journal-diagram-timeline li > span:last-child { max-width: none; margin-top: 4px; font-size: 14px; }
+  .journal-diagram .journal-diagram-continuity-rule { gap: 18px; }
+  .journal-diagram .journal-diagram-reuse { grid-template-columns: minmax(0, 1fr); gap: 25px; }
+  .journal-diagram .journal-diagram-reuse-foundation { padding: 20px 0; }
+  .journal-diagram-reuse-foundation::before,
+  .journal-diagram-reuse-foundation::after { top: auto; right: auto; left: 0; width: 0; height: 17px; border-top: 0; border-left: 1px solid var(--diagram-ink); }
+  .journal-diagram-reuse-foundation::before { top: -22px; }
+  .journal-diagram-reuse-foundation::after { bottom: -22px; }
+  .journal-diagram .journal-diagram-reuse-foundation ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; }
+  .journal-diagram .journal-diagram-reuse .journal-diagram-principle { margin-top: 2px; }
+}

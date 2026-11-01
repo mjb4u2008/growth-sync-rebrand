@@ -33,3 +33,7 @@ The editorial reset keeps eight substantial pieces. Show a short excerpt in the 
 ## Selected hero — November 1
 
 The homepage uses Orbit: a moving field of black and orange particles, with the two-line headline “The shape of / what’s next.” This supersedes the woven loop and foundation headline as the default. Keep the same restraint, whitespace, typography, inquiry action, and motion accessibility behavior.
+
+## Founder journal revision
+
+The index leads with one illustrated thesis, then the chronological list. Retain the restrained palette and Hanken Grotesk. Original graphite-and-orange sculptural artwork explores connection, memory, and continuity; the existing Tanner portrait supplies the human element. Figures explain operating mechanisms with readable labels, not simulated product UI. The reader has a generous title, a short deck, visible original/revision dates, and a 720px text column; art can extend wider. The existing inquiry is offered separately after the argument and portaled outside journal styles.

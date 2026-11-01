@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import React, { type ReactNode } from 'react';
 import { BLOG_POSTS } from '../src/blog/data';
 import { getAllPosts, getHeadingsFromPost, getPostBySlug, getRelatedPosts } from '../src/blog/utils';
@@ -58,5 +58,17 @@ test('the editorial timeline spans the year and preserves the real revision date
     assert.equal(post.updatedDateISO, '2026-11-01');
     assert.ok(Date.parse(post.dateISO) <= Date.parse(post.updatedDateISO!));
     assert.ok(post.title.length <= 40, 'Titles stay concise');
+  }
+});
+
+test('editorial covers ship locally with descriptions and bounded payloads', () => {
+  const covers = BLOG_POSTS.filter(post => post.cover);
+  assert.equal(covers.length, 4);
+  for (const post of covers) {
+    assert.equal(post.image, post.cover!.src, 'Social image matches the visible artwork');
+    assert.ok(post.cover!.alt.length > 30, 'Artwork has a useful description');
+    const asset = new URL(`../public${post.cover!.src}`, import.meta.url);
+    assert.ok(statSync(asset).size > 1000, 'Cover exists as a real local asset');
+    assert.ok(statSync(asset).size < 400_000, 'Cover stays within the image payload budget');
   }
 });
