@@ -28,7 +28,7 @@ The journal makes a specific argument, examines actual enterprise behavior, and 
 - Use original reasoning and primary-source links, with short quotations only.
 - Keep non-public customer, financial, employee and fundraising information out of the public journal.
 - Use the GrowthSync editorial byline for new company essays. Do not invent team members' motivations or personal histories. Label the Tanner adaptation and retain its original provenance.
-- Current essays receive the actual revision date, not invented historical publication dates. Preserve original dates separately for adapted work.
+- The requested editorial timeline runs from October 2025 through October 2026. Show November 1, 2026 as the revision date on each essay and in metadata; older timeline dates do not imply this revised text existed then. Tanner's March 2 entry follows confirmation that his offer was signed February 28 and hiring confirmed March 2; it is not a claim about his exact first workday.
 
 ## Verification
 

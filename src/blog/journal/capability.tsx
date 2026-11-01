@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const capabilityEssay: JournalEssay = {
   slug: 'from-buying-software-to-building-capability',
-  title: 'From buying software to building capability',
+  title: 'From tools to work',
   excerpt: 'Cheaper code changes the build-versus-buy decision. The useful unit of comparison is a reliable business outcome, including the work of keeping it reliable.',
   category: 'Perspectives',
   tags: ['Operating economics', 'Core', 'Workflows'],

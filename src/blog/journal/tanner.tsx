@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const tannerEssay: JournalEssay = {
   slug: 'why-tanner-joined-growthsync',
-  title: 'Why Tanner joined: start with the work',
+  title: 'Start with the work',
   excerpt: 'An inventory application taught Tanner that working software can solve the wrong problem. That lesson belongs at the center of how we build AI infrastructure.',
   category: 'Inside GrowthSync',
   tags: ['Team', 'Product engineering', 'Operations'],

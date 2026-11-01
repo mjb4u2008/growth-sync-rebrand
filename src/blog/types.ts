@@ -37,6 +37,9 @@ export type BlogPost = {
   date: string;
   /** ISO 8601 date string */
   dateISO: string;
+  /** Actual revision date, separate from the journal's editorial timeline. */
+  updatedDateISO?: string;
+  updatedDate?: string;
   /** e.g. "6 min" */
   readTime: string;
   tags: string[];

@@ -12,7 +12,8 @@ type SitemapEntry = {
 const SITE_URL = 'https://growthsync.com';
 const OUTPUT_PATH = join(process.cwd(), 'public', 'sitemap.xml');
 
-const latestBlogDate = BLOG_POSTS[0]?.dateISO.slice(0, 10) ?? new Date().toISOString().slice(0, 10);
+const latestBlogDate = BLOG_POSTS.map(post => post.updatedDateISO || post.dateISO).sort().at(-1)?.slice(0, 10)
+  ?? new Date().toISOString().slice(0, 10);
 
 const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/`, lastmod: latestBlogDate, changefreq: 'weekly', priority: '1.0' },
@@ -46,7 +47,7 @@ const footerEntries: SitemapEntry[] = footerPages.map((slug) => ({
 
 const blogPages: SitemapEntry[] = BLOG_POSTS.map((post, index) => ({
   loc: `${SITE_URL}/blog/${post.slug}`,
-  lastmod: post.dateISO.slice(0, 10),
+  lastmod: (post.updatedDateISO || post.dateISO).slice(0, 10),
   changefreq: 'monthly',
   priority: index < 7 ? '0.7' : '0.6',
 }));

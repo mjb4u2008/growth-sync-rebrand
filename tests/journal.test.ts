@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import React, { type ReactNode } from 'react';
 import { BLOG_POSTS } from '../src/blog/data';
-import { getHeadingsFromPost, getPostBySlug, getRelatedPosts } from '../src/blog/utils';
+import { getAllPosts, getHeadingsFromPost, getPostBySlug, getRelatedPosts } from '../src/blog/utils';
 import { JOURNAL_REDIRECTS } from '../src/blog/journal/legacyRedirects';
 
 function textOf(node: ReactNode): string {
@@ -46,4 +46,17 @@ test('new company essays do not impersonate team members', () => {
   const tanner = getPostBySlug('why-tanner-joined-growthsync');
   assert.match(tanner?.editorialNote || '', /May 16, 2026/);
   assert.match(tanner?.editorialNote || '', /Adapted by GrowthSync/);
+});
+
+test('the editorial timeline spans the year and preserves the real revision date', () => {
+  const posts = getAllPosts();
+  assert.equal(posts[0].dateISO, '2026-10-30');
+  assert.equal(posts.at(-1)?.dateISO, '2025-10-23');
+  assert.equal(new Set(posts.map(post => post.dateISO)).size, 8);
+  assert.equal(getPostBySlug('why-tanner-joined-growthsync')?.dateISO, '2026-03-02');
+  for (const post of posts) {
+    assert.equal(post.updatedDateISO, '2026-11-01');
+    assert.ok(Date.parse(post.dateISO) <= Date.parse(post.updatedDateISO!));
+    assert.ok(post.title.length <= 40, 'Titles stay concise');
+  }
 });

@@ -2,7 +2,7 @@ import type { JournalEssay } from './types';
 
 export const jpmorganEssay: JournalEssay = {
   slug: 'what-jpmorgans-technology-budget-is-building',
-  title: 'What JPMorgan’s $19.8 billion technology budget is building',
+  title: 'The infrastructure advantage',
   excerpt: 'The useful lesson from JPMorgan is how governed data, shared infrastructure and AI become a repeatable operating capability.',
   category: 'Case studies',
   tags: ['Enterprise AI', 'Operating infrastructure', 'Company context'],
