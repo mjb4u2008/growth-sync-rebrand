@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ArrowUpRight, Pause, Play } from 'lucide-react';
-import { CoreSculpture } from '@/components/core/CoreSculpture';
+import { CoreMotionStudy } from '@/components/core/CoreMotionStudy';
 import { CoreFooter } from '@/components/core/CoreFooter';
 import { CoreHeader } from '@/components/core/CoreHeader';
 import { CoreInquiry } from '@/components/core/CoreInquiry';
@@ -12,10 +12,10 @@ type CoreHomeProps = {
   renderSculpture?: (paused: boolean) => ReactNode;
 };
 
-export default function CoreHome({ headline, renderSculpture }: CoreHomeProps = {}) {
+export default function CoreHome({ headline = ['The shape of', 'what’s next.'], renderSculpture }: CoreHomeProps = {}) {
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const [paused, setPaused] = useState(false);
-  const title = `GrowthSync — ${headline ? headline.join(' ').replace(/\.$/, '') : 'A new foundation for business'}`;
+  const title = `GrowthSync — ${headline.join(' ').replace(/\.$/, '')}`;
   useEffect(() => {
     document.title = title;
     document.body.classList.add('core-home-active');
@@ -34,9 +34,9 @@ export default function CoreHome({ headline, renderSculpture }: CoreHomeProps = 
       </Helmet>
       <CoreHeader home />
       <main className="core-main">
-        <div className="core-art">{renderSculpture ? renderSculpture(paused || inquiryOpen) : <CoreSculpture paused={paused || inquiryOpen} />}</div>
+        <div className="core-art">{renderSculpture ? renderSculpture(paused || inquiryOpen) : <CoreMotionStudy kind="orbit" paused={paused || inquiryOpen} />}</div>
         <div className="core-message">
-          <h1>{headline ? <>{headline[0]}<br />{headline[1]}</> : <>A new foundation<br />for business.</>}</h1>
+          <h1>{headline[0]}<br />{headline[1]}</h1>
           <p>AI infrastructure for the way businesses will run.</p>
           <button type="button" className="core-cta" onClick={() => setInquiryOpen(true)} aria-haspopup="dialog">Introduce your business <ArrowUpRight size={19} aria-hidden="true" /></button>
         </div>

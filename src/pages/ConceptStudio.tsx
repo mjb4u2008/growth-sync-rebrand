@@ -1,18 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, Maximize2, PanelRightOpen } from 'lucide-react';
 import CoreHome from './CoreHome';
+import { CoreSculpture } from '@/components/core/CoreSculpture';
 import { CoreMotionStudy, type MotionStudyKind } from '@/components/core/CoreMotionStudy';
 import '@/styles/concept-studio.css';
 
 const forms = [
-  { id: 'original', label: 'Original', note: 'The woven loop you liked.' },
+  { id: 'original', label: 'Original', note: 'The previous woven loop.' },
   { id: 'ribbon', label: 'Ribbon', note: 'A continuous form, turning inside out.' },
   { id: 'orbit', label: 'Orbit', note: 'Particles gathering into something larger.' },
   { id: 'tide', label: 'Tide', note: 'A surface that never stops becoming.' },
 ] as const;
 
 const headlines = [
-  { lines: ['A new foundation', 'for business.'], note: 'Current. Calm and clear.' },
+  { lines: ['A new foundation', 'for business.'], note: 'The earlier foundation direction.' },
   { lines: ['A new way', 'to run.'], note: 'The clearest expression of a new operating model.' },
   { lines: ['The shape of', 'what’s next.'], note: 'The most intriguing match for a changing sculpture.' },
   { lines: ['Built to', 'become more.'], note: 'Speaks to capabilities that keep expanding.' },
@@ -24,8 +25,8 @@ type FormKind = 'original' | MotionStudyKind;
 
 /** Local design exploration. Excluded from production by App's DEV gate. */
 export default function ConceptStudio() {
-  const [form, setForm] = useState<FormKind>('ribbon');
-  const [headline, setHeadline] = useState(0);
+  const [form, setForm] = useState<FormKind>('orbit');
+  const [headline, setHeadline] = useState(2);
   const [expanded, setExpanded] = useState(false);
   const hideRef = useRef<HTMLButtonElement>(null);
   const showRef = useRef<HTMLButtonElement>(null);
@@ -38,7 +39,7 @@ export default function ConceptStudio() {
     <div className="concept-preview">
       <CoreHome
         headline={headlines[headline].lines}
-        renderSculpture={form === 'original' ? undefined : paused => <CoreMotionStudy key={form} kind={form} paused={paused} />}
+        renderSculpture={paused => form === 'original' ? <CoreSculpture paused={paused} /> : <CoreMotionStudy key={form} kind={form} paused={paused} />}
       />
     </div>
     {!expanded && <aside className="concept-controls" aria-label="Design studies">

@@ -27,3 +27,7 @@ The journal, article and legal page contents retain their existing styling and p
 ## Journal, approved direction November 1
 
 The homepage's simplicity carries into the journal: one unadorned dated list, low-contrast dividing rules, a few text filters and a small search field. No windows, file icons, status bars, category pills or cards. The reader is one comfortable text column with an optional contents disclosure and simple related links. Hanken Grotesk stays consistent with the homepage; existing article text and source links remain intact.
+
+## Selected hero — November 1
+
+The homepage uses Orbit: a moving field of black and orange particles, with the two-line headline “The shape of / what’s next.” This supersedes the woven loop and foundation headline as the default. Keep the same restraint, whitespace, typography, inquiry action, and motion accessibility behavior.
