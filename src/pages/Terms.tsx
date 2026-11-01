@@ -10,11 +10,13 @@ import '@/styles/legal.css';
 
 export function Terms() {
   useEffect(() => {
+    const previousTitle = document.title;
     document.title = 'Terms of service | GrowthSync';
     const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     const previous = canonical?.getAttribute('href');
     canonical?.setAttribute('href', 'https://growthsync.com/terms');
     return () => {
+      document.title = previousTitle;
       if (canonical && previous !== null && previous !== undefined) canonical.setAttribute('href', previous);
     };
   }, []);
