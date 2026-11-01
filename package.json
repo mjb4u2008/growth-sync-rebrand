@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "quality": "npm run lint && npm run blog:check && npm run build",
+    "quality": "npm run lint && npm run blog:check && npm run test:journal && npm run build",
     "deploy:check": "npm run quality",
     "generate:mascots": "tsx scripts/generate-mascots.ts",
     "blog:images": "tsx scripts/generate-blog-images.ts",
@@ -18,7 +18,8 @@
     "sitemap": "tsx scripts/generate-sitemap.ts",
     "test:leads": "node --import tsx --test tests/core-leads.test.ts",
     "preview:fixture": "node --import tsx scripts/core-preview-fixture.ts",
-    "test:booking": "node --import tsx --test tests/core-booking.test.ts"
+    "test:booking": "node --import tsx --test tests/core-booking.test.ts",
+    "test:journal": "node --import tsx --test tests/journal.test.ts"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",

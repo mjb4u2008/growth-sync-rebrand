@@ -1,32 +1,454 @@
 {
   "redirects": [
-    { "source": "/legals/privacy-policy", "destination": "/privacy", "permanent": true },
-    { "source": "/legals/terms-of-service", "destination": "/terms", "permanent": true }
+    {
+      "source": "/legals/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/legals/terms-of-service",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/blog/1",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/2",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/3",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/4",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/5",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/6",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/7",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/8",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/9",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/10",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/11",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/12",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/13",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/14",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/15",
+      "destination": "/blog/the-model-is-not-the-operating-system",
+      "permanent": true
+    },
+    {
+      "source": "/blog/16",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/17",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/18",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/19",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/20",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/21",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/22",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/23",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/24",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/25",
+      "destination": "/blog/the-model-is-not-the-operating-system",
+      "permanent": true
+    },
+    {
+      "source": "/blog/26",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/27",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/28",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/29",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/30",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/31",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/32",
+      "destination": "/blog/the-model-is-not-the-operating-system",
+      "permanent": true
+    },
+    {
+      "source": "/blog/33",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/34",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/35",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/36",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/37",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/38",
+      "destination": "/blog/why-tanner-joined-growthsync",
+      "permanent": true
+    },
+    {
+      "source": "/blog/39",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-convergence-is-happening",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-i-joined-growthsync",
+      "destination": "/blog/why-tanner-joined-growthsync",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-commerce-shared-language",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-led-distribution-market",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-commerce-better-definition",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/instagram-tiktok-shop-playbook",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiktok-halo-effect",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/introducing-growthsync",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiktok-premium-play",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dm-problem",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/live-commerce",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-salesperson",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/brand-responds-every-dm",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/infrastructure-social-selling",
+      "destination": "/blog/the-model-is-not-the-operating-system",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cost-ignoring-social-conversations",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/premium-brands-tiktok",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-commerce-predictions-2026",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/holiday-winners-common-thread",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-commerce-2025-review",
+      "destination": "/blog/a-new-foundation-for-business",
+      "permanent": true
+    },
+    {
+      "source": "/blog/black-friday-social-data",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-social-selling-scalable",
+      "destination": "/blog/the-model-is-not-the-operating-system",
+      "permanent": true
+    },
+    {
+      "source": "/blog/holiday-social-commerce-proof",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/respond-every-dm-realtime",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/intent-signals-everywhere",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/amazon-sellers-moving-social",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-media-revenue-channel",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/brands-social-selling-field-notes",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiktok-shop-33-billion",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/crm-not-built-social",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/small-brands-beating-enterprise",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/conversational-ai-not-chatbot",
+      "destination": "/blog/the-model-is-not-the-operating-system",
+      "permanent": true
+    },
+    {
+      "source": "/blog/response-time-gap",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-economy-sales-playbook",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/instagram-engagement-wrong",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/link-in-bio-era-over",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-listening-sales-channel",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/brand-dms-goldmine",
+      "destination": "/blog/your-companys-memory-should-belong-to-your-company",
+      "permanent": true
+    },
+    {
+      "source": "/blog/decade-in-ecommerce",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    },
+    {
+      "source": "/blog/social-commerce-eating-ecommerce",
+      "destination": "/blog/from-buying-software-to-building-capability",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/((?!api/.*|assets|blog/.*\\.png|mascots|favicon\\.png|growthsync-logo.*|michael-broughton\\.png|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!api/.*|assets|blog/.*\\.png|mascots|favicon\\.png|growthsync-logo.*|michael-broughton\\.png|robots\\.txt|sitemap\\.xml).*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml" },
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
       ]
     },
     {
       "source": "/robots.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain" },
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
       ]
     }
   ]

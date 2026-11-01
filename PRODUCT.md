@@ -10,7 +10,7 @@ Prospective customer brands, SMB founders and investors arriving to understand t
 
 ## Product Purpose
 
-Introduce GrowthSync as the company building a maintained AI operating foundation for businesses. Core is the first product; commerce is the starting market. One short hero and one brand inquiry action, with the existing journal and legal routes preserved.
+Introduce GrowthSync as the company building a maintained AI operating foundation for businesses. Core is the first product; commerce is the starting market. One short hero and one brand inquiry action, with a focused journal and preserved legal routes.
 
 ## Brand Personality
 
@@ -34,4 +34,6 @@ WCAG AA text/control contrast, standard cursor, visible keyboard focus, native d
 
 ## November 1 refinement
 
-Mike explicitly approved the simplicity of the homepage and requested that the blog become minimal too. Carry the same restrained visual language into both the journal index and the article reader, preserving the writing and its URLs.
+Mike explicitly approved the simplicity of the homepage and requested that the blog become minimal too. Carry the same restrained visual language into the journal index and article reader.
+
+The subsequent editorial reset replaces the 39-piece social-commerce catalog with eight detailed essays about AI infrastructure, enterprise investment, business capability, and the team. Preserve incoming links through relevant redirects. New pieces use the GrowthSync editorial byline; personal histories must remain source-backed and adaptations clearly labeled.

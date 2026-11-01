@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
-import type { BlogPost, BlogTab } from './types';
+import type { BlogPost } from './types';
+import type { JournalFilter } from './journal/types';
 
 const SITE_URL = 'https://growthsync.com';
 
-export function BlogSeo({ post, tab = 'All', missing = false }: { post?: BlogPost; tab?: 'All' | BlogTab; missing?: boolean }) {
+export function BlogSeo({ post, tab = 'All', missing = false }: { post?: BlogPost; tab?: JournalFilter; missing?: boolean }) {
   const title = post ? `${post.title} | GrowthSync Journal` : missing ? 'Note not found | GrowthSync' : 'Journal | GrowthSync';
-  const description = post?.excerpt || 'Ideas, field notes, and perspectives from GrowthSync.';
-  const suffix = tab === 'All' ? '' : `?tab=${tab === 'Tech Corner' ? 'tech-corner' : 'market-studies'}`;
+  const description = post?.excerpt || 'How businesses become AI-native: perspectives, enterprise case studies, and the people building GrowthSync.';
+  const suffix = tab === 'All' ? '' : `?tab=${tab.toLowerCase().replace(/ /g, '-')}`;
   const canonical = post ? `${SITE_URL}/blog/${post.slug}` : `${SITE_URL}/blog${suffix}`;
   const image = post ? (post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image}`) : `${SITE_URL}/growthsync-logo.png`;
   useEffect(() => {
@@ -60,7 +61,7 @@ export function BlogSeo({ post, tab = 'All', missing = false }: { post?: BlogPos
         '@context': 'https://schema.org', '@type': 'BlogPosting',
         headline: post.title, description: post.excerpt, image: [image],
         datePublished: post.dateISO, dateModified: post.dateISO,
-        author: [{ '@type': 'Person', name: post.author.name, jobTitle: post.author.role }],
+        author: [{ '@type': post.author.name === 'GrowthSync' ? 'Organization' : 'Person', name: post.author.name, ...(post.author.name === 'GrowthSync' ? {} : { jobTitle: post.author.role }) }],
         url: canonical, mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
         publisher: { '@type': 'Organization', name: 'GrowthSync', logo: { '@type': 'ImageObject', url: `${SITE_URL}/growthsync-logo.png` } },
       }, {

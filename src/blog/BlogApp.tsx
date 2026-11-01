@@ -2,15 +2,18 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Search, X } from 'lucide-react';
 import { BlogSeo } from './BlogSeo';
 import { RouterLink, navigateTo, useRoute } from './router';
-import type { BlogPost, BlogTab } from './types';
+import type { BlogPost } from './types';
+import type { JournalFilter } from './journal/types';
 import { getAllPosts, getHeadingsFromPost, getPostBySlug, getRelatedPosts } from './utils';
 import '@/styles/journal.css';
 
-type JournalTab = 'All' | BlogTab;
+type JournalTab = JournalFilter;
 
 function tabFromSearch(search: string): JournalTab {
   const value = new URLSearchParams(search).get('tab');
-  return value === 'tech-corner' ? 'Tech Corner' : value === 'market-studies' ? 'Market Studies' : 'All';
+  if (value === 'tech-corner' || value === 'perspectives') return 'Perspectives';
+  if (value === 'market-studies' || value === 'case-studies') return 'Case studies';
+  return value === 'inside-growthsync' ? 'Inside GrowthSync' : 'All';
 }
 
 export function BlogApp() {
@@ -19,6 +22,12 @@ export function BlogApp() {
   const post = route.kind === 'blog-post' ? getPostBySlug(route.slug) : undefined;
   const tab = route.kind === 'blog-index' ? tabFromSearch(route.search) : 'All';
   const missing = route.kind === 'blog-post' && !post;
+
+  useEffect(() => {
+    if (route.kind === 'blog-post' && post && route.slug !== post.slug) {
+      navigateTo(`/blog/${post.slug}${window.location.search}${window.location.hash}`, { replace: true });
+    }
+  }, [post, route]);
 
   useEffect(() => {
     document.title = post ? `${post.title} | GrowthSync Journal` : missing ? 'Note not found | GrowthSync' : 'Journal | GrowthSync';
@@ -42,21 +51,21 @@ function JournalIndex({ posts, tab }: { posts: BlogPost[]; tab: JournalTab }) {
   const searchRef = useRef<HTMLInputElement>(null);
   const filtered = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase();
-    return posts.filter(post => (tab === 'All' || post.tab === tab) && (!needle || [post.title, post.excerpt, post.author.name, post.category, ...post.tags].join(' ').toLocaleLowerCase().includes(needle)));
+    return posts.filter(post => (tab === 'All' || post.category === tab) && (!needle || [post.title, post.excerpt, post.author.name, post.category, ...post.tags].join(' ').toLocaleLowerCase().includes(needle)));
   }, [posts, tab, query]);
 
   function selectTab(next: JournalTab) {
-    navigateTo(next === 'All' ? '/blog' : `/blog?tab=${next === 'Tech Corner' ? 'tech-corner' : 'market-studies'}`);
+    navigateTo(next === 'All' ? '/blog' : `/blog?tab=${next.toLowerCase().replace(/ /g, '-')}`);
   }
 
   return <div className="journal-index">
     <div className="journal-intro">
       <h1>Journal</h1>
-      <p>Ideas from the work in progress.</p>
+      <p>How businesses become AI-native. What comes next.</p>
     </div>
     <div className="journal-tools">
       <div className="journal-filters" role="group" aria-label="Filter journal">
-        {(['All', 'Market Studies', 'Tech Corner'] as const).map(value => <button key={value} type="button" aria-pressed={tab === value} onClick={() => selectTab(value)}>{value === 'All' ? 'All notes' : value === 'Market Studies' ? 'Market studies' : 'Tech corner'}</button>)}
+        {(['All', 'Perspectives', 'Case studies', 'Inside GrowthSync'] as const).map(value => <button key={value} type="button" aria-pressed={tab === value} onClick={() => selectTab(value)}>{value === 'All' ? 'All' : value === 'Perspectives' ? 'Perspectives' : value === 'Case studies' ? 'Studies' : 'Team'}</button>)}
       </div>
       <div className="journal-search">
         <Search size={16} aria-hidden="true" />
@@ -79,6 +88,7 @@ function JournalRow({ post }: { post: BlogPost }) {
       <time dateTime={post.dateISO}>{post.date}</time>
       <div className="journal-row-copy">
         <h2>{post.title}</h2>
+        <p className="journal-row-excerpt">{post.excerpt}</p>
         <p>{post.author.name}{' '}<span aria-hidden="true">·</span>{' '}<span>{post.readTime}</span></p>
       </div>
       <ArrowRight className="journal-row-arrow" size={19} aria-hidden="true" />
@@ -95,6 +105,7 @@ function JournalArticle({ post }: { post: BlogPost }) {
       <h1>{post.title}</h1>
       <p className="journal-byline">{post.author.name}{' '}<span aria-hidden="true">·</span>{' '}<time dateTime={post.dateISO}>{post.date}</time>{' '}<span aria-hidden="true">·</span>{' '}{post.readTime}</p>
     </header>
+    {post.editorialNote && <p className="journal-editorial-note">{post.editorialNote}</p>}
     {headings.length > 2 && <details className="journal-contents">
       <summary>In this article</summary>
       <nav aria-label="Article sections"><ol>{headings.map(heading => <li key={heading.id}><a href={`#${heading.id}`}>{heading.text}</a></li>)}</ol></nav>
