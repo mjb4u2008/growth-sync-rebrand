@@ -27,6 +27,9 @@ type RunOptions = {
 /** Every upstream is intercepted, including when the local shell has real credentials. */
 async function run(body: unknown, options: RunOptions = {}) {
   const oldFetch = globalThis.fetch;
+  const oldConsoleError = console.error;
+  const logs: unknown[][] = [];
+  console.error = (...args: unknown[]) => { logs.push(args); };
   const oldEnv = Object.fromEntries(notificationVariables.map(key => [key, process.env[key]]));
   notificationVariables.forEach(key => { delete process.env[key]; });
   Object.assign(process.env, options.env || {});
@@ -46,9 +49,13 @@ async function run(body: unknown, options: RunOptions = {}) {
   };
   try {
     await handler({ method: options.method || 'POST', body, headers: { 'user-agent': 'isolated-test' } }, response);
-    return { status, result, outbound, headers };
+    return { status, result, outbound, headers, logs: logs.map(args => {
+      assert.equal(args.length, 1, 'Operational logs contain one structured record only');
+      return JSON.parse(String(args[0]));
+    }) };
   } finally {
     globalThis.fetch = oldFetch;
+    console.error = oldConsoleError;
     notificationVariables.forEach(key => {
       if (oldEnv[key] === undefined) delete process.env[key]; else process.env[key] = oldEnv[key];
     });
@@ -68,6 +75,7 @@ test('brand inquiry reaches the existing capture destination with explicit websi
   assert.equal(result.outbound[0].body.phone, undefined);
   assert.equal(result.outbound[0].body.source, 'brand-inquiry');
   assert.equal(result.outbound[0].body.notes, inquiry.notes);
+  assert.deepEqual(result.logs, []);
 });
 
 test('brand website survives webhook, email and schema-compatible database capture', async () => {
@@ -128,6 +136,53 @@ test('partial destination failure still confirms the destination that captured t
   assert.equal(result.result.destinations.webhook, false);
   assert.equal(result.result.destinations.formspree, true);
   assert.deepEqual(result.result.warnings, ['Webhook notification failed.']);
+  assert.deepEqual(result.logs, [{
+    event: 'lead-capture-destination-failure',
+    failed: { supabase: false, webhook: true, email: false, formspree: false },
+    configured: { supabase: false, webhook: true, email: false, formspree: true },
+  }]);
+});
+
+test('storage-only capture remains successful and logs failed notification delivery without private data', async () => {
+  const result = await run({
+    ...inquiry,
+    notes: 'private-notes-token',
+    attribution: { fields: { utm_campaign: 'private-attribution-token' } },
+  }, {
+    env: allDestinations,
+    respond: call => {
+      if (call.url.includes('/rest/v1/')) return new Response('{}', { status: 201 });
+      throw new Error(`Private upstream error: ${call.url} secret-token`);
+    },
+  });
+  assert.equal(result.status, 200);
+  assert.equal(result.result.captured, true);
+  assert.deepEqual(result.result.destinations, { supabase: true, webhook: false, email: false, formspree: false });
+  assert.deepEqual(result.logs, [{
+    event: 'lead-capture-destination-failure',
+    failed: { supabase: false, webhook: true, email: true, formspree: true },
+    configured: { supabase: true, webhook: true, email: true, formspree: true },
+  }, {
+    event: 'lead-capture-no-notification-delivery',
+    configured: { supabase: true, webhook: true, email: true, formspree: true },
+  }]);
+  const logText = JSON.stringify(result.logs);
+  for (const privateValue of [inquiry.name, inquiry.company, inquiry.email, inquiry.website,
+    'private-notes-token', 'private-attribution-token', 'secret-token', ...Object.values(allDestinations)]) {
+    assert.equal(logText.includes(privateValue), false, 'Logs must not contain lead fields, environment values, or upstream errors');
+  }
+});
+
+test('storage-only capture logs when notification destinations are not configured', async () => {
+  const result = await run({ ...inquiry, source: 'custom-source', socialHandles: '@example' }, {
+    env: { SUPABASE_URL: allDestinations.SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY: allDestinations.SUPABASE_SERVICE_ROLE_KEY },
+  });
+  assert.equal(result.status, 200);
+  assert.equal(result.result.captured, true);
+  assert.deepEqual(result.logs, [{
+    event: 'lead-capture-no-notification-delivery',
+    configured: { supabase: true, webhook: false, email: false, formspree: false },
+  }]);
 });
 
 test('all unavailable capture destinations never return a success receipt', async () => {

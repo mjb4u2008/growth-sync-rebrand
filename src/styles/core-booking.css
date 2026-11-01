@@ -35,6 +35,11 @@
 .core-booking-calendar[data-status='loading'] > .core-booking-feedback { pointer-events: none; }
 .core-booking-calendar[data-status='error'] .core-booking-widget { height: 250px; min-height: 250px; }
 .core-booking-retry { border: 1px solid currentColor; border-radius: 4px; color: var(--core-ink); background: transparent; padding: 10px 16px; font: inherit; cursor: pointer; }
+.core-booking-recovery { padding: 16px 24px; border-top: 1px solid oklch(0.87 0 0); color: var(--core-muted); font-size: 14px; line-height: 1.6; }
+.core-booking-recovery p { margin: 0 0 10px; }
+.core-booking-recovery > div { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.core-booking-recovery a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--core-ink); text-underline-offset: 3px; }
+.core-booking-recovery .core-booking-retry { min-height: 44px; }
 .core-booking-footer { padding: 20px 32px 24px; border-top: 1px solid oklch(0.87 0 0); }
 .core-booking-footer a { display: inline-flex; gap: 6px; align-items: center; min-height: 32px; color: var(--core-ink); font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
 .core-booking-footer p { color: var(--core-muted); font-size: 12px; line-height: 1.6; margin: 8px 0 0; }

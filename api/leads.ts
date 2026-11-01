@@ -429,23 +429,33 @@ export default async function handler(request: VercelRequest, response: JsonResp
     const webhookSent = webhookSettled.status === 'fulfilled' ? webhookSettled.value : false;
     const emailSent = emailSettled.status === 'fulfilled' ? emailSettled.value : false;
     const formspreeSent = formspreeSettled.status === 'fulfilled' ? formspreeSettled.value : false;
+    const notification = notificationEnvStatus();
+    const failed = {
+      supabase: databaseSettled.status === 'rejected',
+      webhook: webhookSettled.status === 'rejected',
+      email: emailSettled.status === 'rejected',
+      formspree: formspreeSettled.status === 'rejected',
+    };
+    const configured = {
+      supabase: databaseResult.configured,
+      webhook: notification.hasWebhook,
+      email: notification.hasResend,
+      formspree: Boolean(FORMSPREE_DESTINATIONS[payload.source]),
+    };
+    const hasFailure = Object.values(failed).some(Boolean);
+
+    // Keep operational failures observable without logging lead data or upstream errors.
+    if (hasFailure) {
+      console.error(JSON.stringify({ event: 'lead-capture-destination-failure', failed, configured }));
+    }
+    if (databaseResult.stored && !webhookSent && !emailSent && !formspreeSent) {
+      console.error(JSON.stringify({ event: 'lead-capture-no-notification-delivery', configured }));
+    }
 
     if (!databaseResult.stored && !webhookSent && !emailSent && !formspreeSent) {
-      const notification = notificationEnvStatus();
-      const failed = [
-        databaseSettled.status === 'rejected' ? 'supabase' : null,
-        webhookSettled.status === 'rejected' ? 'webhook' : null,
-        emailSettled.status === 'rejected' ? 'email' : null,
-        formspreeSettled.status === 'rejected' ? 'formspree' : null,
-      ].filter(Boolean);
-
-      if (failed.length > 0) {
-        console.error(`Lead capture failed for destinations: ${failed.join(', ')}`);
-      }
-
       response.status(503).json({
         ok: false,
-        error: failed.length > 0 ? 'Lead capture destinations failed.' : 'Lead capture is not configured.',
+        error: hasFailure ? 'Lead capture destinations failed.' : 'Lead capture is not configured.',
         missing: {
           supabase: databaseResult.missing,
           notification: notification.missing,
