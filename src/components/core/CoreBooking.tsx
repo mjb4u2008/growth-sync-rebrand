@@ -80,7 +80,6 @@ export function CoreBooking({ lead, active, titleId, descriptionId, onClose }: {
     const container = containerRef.current;
     if (!active || scheduled || !container || !schedulingUrl) return;
     let cancelled = false;
-    let removeFrameListener = () => {};
     setStatus('loading');
     container.replaceChildren();
     iframeRef.current = null;
@@ -95,15 +94,13 @@ export function CoreBooking({ lead, active, titleId, descriptionId, onClose }: {
     const attachFrame = () => {
       const iframe = container.querySelector('iframe');
       if (!iframe || iframe === iframeRef.current) return;
-      removeFrameListener();
       iframeRef.current = iframe;
       iframe.title = 'Choose a time for your GrowthSync introduction';
       iframe.setAttribute('referrerpolicy', 'no-referrer');
-      iframe.addEventListener('load', ready, { once: true });
-      removeFrameListener = () => iframe.removeEventListener('load', ready);
     };
     const observer = new MutationObserver(attachFrame);
     observer.observe(container, { childList: true, subtree: true });
+    // A loaded iframe can still be blank; wait for Calendly to confirm its UI is ready.
     const onMessage = (message: MessageEvent) => {
       const event = getCoreCalendlyEvent(message, iframeRef.current?.contentWindow);
       if (!event || cancelled) return;
@@ -130,7 +127,6 @@ export function CoreBooking({ lead, active, titleId, descriptionId, onClose }: {
       cancelled = true;
       window.clearTimeout(timeout);
       observer.disconnect();
-      removeFrameListener();
       window.removeEventListener('message', onMessage);
       iframeRef.current = null;
       container.replaceChildren();
@@ -146,6 +142,15 @@ export function CoreBooking({ lead, active, titleId, descriptionId, onClose }: {
           ? 'Your introduction is scheduled. Look for the calendar invitation at the email you shared.'
           : 'Your details are with our team. Pick a time below to meet GrowthSync.'}</p>
       </div>
+      {!scheduled && status === 'slow' && schedulingUrl && (
+        <div className="core-booking-recovery" role="status">
+          <p>The calendar is taking longer to load.</p>
+          <div>
+            <button type="button" className="core-booking-retry" onClick={() => setAttempt(value => value + 1)}>Reload calendar</button>
+            <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">Open in a new tab <ArrowUpRight size={15} aria-hidden="true" /></a>
+          </div>
+        </div>
+      )}
       {scheduled ? (
         <div className="core-booking-complete">
           <button className="core-submit" type="button" onClick={onClose}>Back to GrowthSync <ArrowUpRight size={18} aria-hidden="true" /></button>
@@ -163,7 +168,6 @@ export function CoreBooking({ lead, active, titleId, descriptionId, onClose }: {
             )}
           </div>
           <div className="core-booking-footer">
-            {status === 'slow' && <p role="status">The calendar is taking longer to load. You can also open it in a new tab.</p>}
             {schedulingUrl && <a href={schedulingUrl} target="_blank" rel="noopener noreferrer">Open calendar in a new tab <ArrowUpRight size={15} aria-hidden="true" /></a>}
             <p>Your appointment is confirmed when you complete the booking in Calendly.</p>
           </div>
