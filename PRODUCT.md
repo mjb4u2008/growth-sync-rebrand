@@ -37,3 +37,5 @@ WCAG AA text/control contrast, standard cursor, visible keyboard focus, native d
 Mike explicitly approved the simplicity of the homepage and requested that the blog become minimal too. Carry the same restrained visual language into the journal index and article reader.
 
 The subsequent editorial reset replaces the 39-piece social-commerce catalog with eight detailed essays about AI infrastructure, enterprise investment, business capability, and the team. Preserve incoming links through relevant redirects. New pieces use the GrowthSync editorial byline; personal histories must remain source-backed and adaptations clearly labeled.
+
+The founder-led revision makes each essay a distinct argument about the future: a concrete situation, a consequential belief, the mechanism beneath it, and a serious condition the belief must survive. Convey ambition through specificity. Use original editorial imagery and explanatory figures while keeping the reading experience quiet. Aspirations use future tense; enterprise numbers and individual histories stay source-backed.

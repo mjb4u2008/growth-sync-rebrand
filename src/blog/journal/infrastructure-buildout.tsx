@@ -2,80 +2,56 @@ import type { JournalEssay } from './types';
 
 export const infrastructureEssay: JournalEssay = {
   slug: 'capacity-is-not-a-business-capability',
-  title: 'The next buildout',
-  excerpt: 'The AI infrastructure buildout is real. Turning that capacity into useful work still depends on business context, permissions, and maintenance.',
+  title: 'After the buildout',
+  excerpt: 'The world is building extraordinary capacity for intelligence. The next constraint is turning it into a dependable capability inside an ordinary business.',
   category: 'Case studies',
   tags: ['AI infrastructure', 'Business context', 'Core'],
   content: <>
-    <p>
-      The largest technology companies are spending heavily on the infrastructure behind AI. For a smaller business, those numbers can create an understandable sense of urgency: something important is being built, and waiting may feel like falling behind. But a data center investment and a useful business system answer different questions. One concerns the capacity to run software. The other concerns whether that software can do a particular job correctly, inside a particular company.
-    </p>
-    <p>
-      The distinction matters more as the infrastructure gets better. Access to capable models gives more businesses the opportunity to build useful systems. It does not supply their operating knowledge, settle their permissions, or prove that an automated workflow earns its cost.
-    </p>
+    <p>Imagine that tomorrow’s models are dramatically better, fast enough to use throughout the day and affordable enough for an ordinary business. They can reason through difficult problems, write useful software and operate a growing range of tools. What is still missing?</p>
+    <p>They still need to know which customer was promised an exception, which supplier has become unreliable and which decision the owner is willing to delegate. Abundant intelligence makes those questions more important. More work becomes possible; more of it depends on understanding the particular company in which it happens.</p>
+    <p>That is our bet about the infrastructure buildout: as the supply of intelligence expands, the ability to put it to work inside a business becomes a larger opportunity.</p>
 
-    <h2 id="read-the-spending-carefully">Read the spending carefully</h2>
-    <p>
-      The disclosures available by November 1, 2026 show the scale of the buildout. For the quarter ended September 30, <a href="https://www.microsoft.com/en-us/investor/events/fy-2027/earnings-fy-2027-q1">Microsoft reported</a> $45.2 billion in capital expenditures, including $7.4 billion of finance leases recognized at commencement. Cash paid for property and equipment was a different measure: $39.4 billion. This was Microsoft's first quarter of fiscal 2027, despite falling in calendar 2026.
-    </p>
-    <p>
-      <a href="https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm">Amazon reported</a> $75.9 billion of cash capital expenditures for the same three-month period. Its filing describes technology infrastructure, primarily supporting AWS growth, alongside additional fulfillment capacity. <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm">Alphabet reported</a> $51.4 billion of capital expenditures for that quarter, primarily for technical infrastructure. Neither description makes the entire amount an AI-only spending figure.
-    </p>
-    <p>
-      <a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx">Meta reported</a> $34.91 billion for the quarter under a measure that includes principal payments on finance leases. Its cash-flow tables separately show $33.942 billion of property and equipment purchases and $964 million of finance-lease principal payments. Those payments are different from Microsoft's recognition of a lease's principal value when it begins.
-    </p>
-    <p>
-      These are reported quarterly amounts, not annual forecasts. Adding them together under an “AI spending” headline would conceal both their accounting differences and their broader uses. The sound conclusion is narrower: major providers are committing substantial resources to infrastructure. That is evidence of a buildout, not evidence that a particular retailer's next automation will pay for itself.
-    </p>
+    <h2 id="the-scale-is-already-visible">The scale is already visible</h2>
+    <p>The latest public disclosures show the physical scale of the investment. The figures below all concern the <strong>quarter ended September 30, 2026</strong>. They are reported amounts, not annual forecasts, and the companies use different capital expenditure measures.</p>
+    <p className="journal-table-hint">Scroll to read the full comparison.</p>
+    <div className="journal-table-scroll" role="region" aria-label="Quarterly capital expenditure comparison" tabIndex={0}>
+      <table>
+        <caption>Reported capital expenditure measures · quarter ended September 30, 2026</caption>
+        <thead><tr><th scope="col">Company</th><th scope="col">Amount</th><th scope="col">What the measure includes</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="https://www.microsoft.com/en-us/investor/events/fy-2027/earnings-fy-2027-q1">Microsoft</a></th><td>$45.2B</td><td>Capital expenditures, including $7.4B of finance leases recognized at commencement. Cash paid for property and equipment was $39.4B.</td></tr>
+          <tr><th scope="row"><a href="https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm">Amazon</a></th><td>$75.9B</td><td>Cash capital expenditures, primarily technology infrastructure supporting AWS growth and additional fulfillment capacity.</td></tr>
+          <tr><th scope="row"><a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm">Alphabet</a></th><td>$51.4B</td><td>Capital expenditures, primarily investments in technical infrastructure.</td></tr>
+          <tr><th scope="row"><a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx">Meta</a></th><td>$34.91B</td><td>Capital expenditures including principal payments on finance leases.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Microsoft’s period is its first quarter of fiscal 2027. Lease recognition at commencement differs from lease principal paid during a period. These totals also support activities beyond AI, so adding them into a single “AI spending” number would misrepresent the disclosures.</p>
+    <p>Even with those distinctions intact, the conclusion is striking. The world’s largest technology companies are committing extraordinary resources to the capacity on which the next generation of software will run. Their spending tells us something about their expectations. It does not tell us which businesses will use that capacity well.</p>
 
-    <h2 id="the-product-direction-is-revealing">The product direction is revealing</h2>
-    <p>
-      Product documentation offers a more practical signal. <a href="https://devblogs.microsoft.com/microsoft365dev/work-iq-retrieve-october-2026/">Microsoft's October 2026 description of Work IQ's retrieval tool</a> explains how agents can search work information, return supporting citations, and respect the requesting user's access. It separates retrieving evidence from asking another agent to act. The distinction is useful: finding a customer record and changing that record are separate responsibilities.
-    </p>
-    <p>
-      <a href="https://docs.cloud.google.com/gemini/enterprise/docs/connectors/introduction-to-connectors-and-data-stores">Google's Gemini Enterprise documentation</a> distinguishes retrieving information directly from a source from copying it into an index. It also describes separate synchronization of business records and identity information. <a href="https://aws.amazon.com/blogs/business-intelligence/reimagine-business-intelligence-amazon-quicksight-evolves-to-amazon-quick-suite/">AWS's Quick Suite announcement</a> similarly puts a shared knowledge base, research, and workflow automation alongside its analytics capabilities.
-    </p>
-    <p>
-      These are descriptions of products and mechanisms, not independent proof of customer returns. Their common direction is nevertheless instructive. Useful agents need access to company information and a controlled way to act on it. Model capability sits inside that system; it does not replace the system.
-    </p>
+    <h2 id="abundance-moves-the-constraint">Abundance moves the constraint</h2>
+    <p>When a capability is scarce, access commands attention. When it becomes widely available, the interesting questions move downstream. What can people make with it? Which old constraints remain? Which new ones become visible?</p>
+    <p>In a business, one stubborn constraint is the distance between knowing something and doing something about it. A delayed shipment is known to a supplier. An order promise is known to sales. Cash availability is known to finance. The owner often becomes the person who assembles these facts and decides what they mean together.</p>
+    <p>A more capable model can help with that reasoning. It cannot make a missing record current merely by thinking harder. It cannot infer authority from the confidence of its own recommendation. Someone still has to establish which sources matter, which actions are permitted and what counts as completion.</p>
+    <p>This is why we expect better models to increase demand for business infrastructure. The more capable the reasoning, the more valuable it becomes to give that reasoning dependable access to the company.</p>
 
-    <h2 id="a-connection-is-not-shared-understanding">A connection is not shared understanding</h2>
-    <p>
-      Consider a shop asking which products to promote next week. An agent might need stock availability, expected deliveries, contribution margin, previous campaign performance, and the owner's constraints. Reading five applications is only the beginning. It must understand whether “available” excludes reserved stock, whether margin includes shipping, and which promotion already has approval.
-    </p>
-    <p>
-      That understanding needs an explicit home. Otherwise every new assistant recreates it through another conversation, with another opportunity to miss an exception. A maintained product definition or decision rule can serve many workflows. A correction left inside one chat may never reach the next workflow that needs it.
-    </p>
-    <p>
-      Open connection standards help. <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro">Model Context Protocol</a>, for example, specifies a way for AI applications to connect to external tools and information. But connection compatibility does not make business meaning portable. A business also needs usable exports, stable identifiers, documented definitions, and a way to move its operating instructions. Buying access should not require surrendering the ability to change providers later.
-    </p>
+    <h2 id="a-different-kind-of-small-company">A different kind of small company</h2>
+    <p>Picture a specialist equipment business with a small team. This is an imagined future, not a description of a deployed GrowthSync customer. A customer asks for a configuration the company has never sold before. Today, accepting the job means interrupting several people to investigate parts, compatibility, delivery, pricing and service obligations.</p>
+    <p>In the future we are working toward, the team could ask for a feasible proposal. Software would assemble relevant records, test the configuration against known constraints and expose the assumptions requiring judgment. A person could approve the offer with an understanding of what was verified and what remained uncertain.</p>
+    <p>After acceptance, the same decision could inform purchasing, fulfillment and support. The business would retain what it learned about this configuration for the next request. People would still own the customer relationship and the commercial risk. Less of their time would disappear into reconstructing the company’s own knowledge.</p>
+    <p>The interesting change is the kind of work the business can take on. A small team could become more specialized and more ambitious at once: serving a narrow market with an operating capability that previously demanded a much larger organization.</p>
 
-    <h2 id="maintenance-is-part-of-the-product">Maintenance is part of the product</h2>
-    <p>
-      Permissions require equal attention. Someone permitted to read sales totals may not be permitted to view individual customer details. Someone allowed to prepare a campaign may still need approval to publish it. Those boundaries should survive the move from a familiar application into a conversational interface.
-    </p>
-    <p>
-      Then the business changes. A supplier misses a delivery. A product is discontinued. An employee leaves. A connector expires. A promotion rule is revised. A useful operating system needs someone responsible for keeping those changes reflected in the information and actions available to its agents.
-    </p>
-    <p>
-      This is why maintenance belongs in the buying decision. Ask who notices a failed connection, who updates the rules, how a mistake is traced to its source, and how work continues when the agent cannot finish. A polished demonstration cannot answer those questions on its own.
-    </p>
+    <h2 id="the-cloud-will-move-up-the-stack">The cloud will move up the stack</h2>
+    <p>The obvious objection is that the companies funding the buildout will supply this layer themselves. They already own models, infrastructure and widely used business applications. They have every reason to connect them.</p>
+    <p>They are doing exactly that. Microsoft’s October 2026 Work IQ retrieval documentation describes finding work information with supporting citations while respecting the requesting user’s access. Google’s Gemini Enterprise connector documentation distinguishes searching a source directly from indexing its records, including the need to synchronize identity information. AWS’s Quick Suite combines knowledge, research and workflow capabilities. <a href="https://devblogs.microsoft.com/microsoft365dev/work-iq-retrieve-october-2026/">Microsoft</a>, <a href="https://docs.cloud.google.com/gemini/enterprise/docs/connectors/introduction-to-connectors-and-data-stores">Google</a> and <a href="https://aws.amazon.com/blogs/business-intelligence/reimagine-business-intelligence-amazon-quicksight-evolves-to-amazon-quick-suite/">AWS</a> are all approaching the problem from substantial positions.</p>
+    <p>That raises the standard for everyone building here. A new company needs to own a meaningful operating problem, not merely put a different interface in front of a model. It must make the whole job work across the tools, exceptions and changing conditions its customers actually have.</p>
+    <p>We think there is room for a product relationship built around that responsibility. Businesses do not stop changing once the first integration works. Their needs expand; the infrastructure has to keep up.</p>
 
-    <h2 id="measure-the-job-not-the-model">Measure the job, not the model</h2>
-    <p>
-      A sensible starting point is one repeated decision with a clear owner. Establish how the work happens today, what a correct result requires, and where a human should intervene. Then compare the new workflow against that baseline, including review time, exceptions, operating costs, and the consequences of errors.
-    </p>
-    <p>
-      For the shop, an initial result might be a stock-aware promotion recommendation with its evidence attached. Publishing can remain a separate approval. The question is whether this produces a better, faster decision with acceptable effort. The size of a cloud provider's capital budget cannot answer it.
-    </p>
-
-    <h2 id="the-foundation-below-the-interface">The foundation below the interface</h2>
-    <p>
-      GrowthSync is building a maintained AI operating foundation through Core, with commerce as our first market. That focus follows from the gap between available intelligence and useful work. A business needs its context, connections, responsibilities, and operating rules to persist as models and interfaces change.
-    </p>
-    <p>
-      The infrastructure buildout expands what may become possible. The work closer to the business determines what becomes dependable. For a smaller company, progress should be visible in a decision made well, a task completed correctly, and an operating foundation that remains understandable to the people responsible for it.
-    </p>
+    <h2 id="the-question-after-access">The question after access</h2>
+    <p>There is also a risk in our thesis: connecting more work can spread a mistaken assumption further. An inaccurate stock figure can become an incorrect offer and then an expensive commitment. A company needs ways to challenge the underlying evidence, interrupt execution and recover from failure.</p>
+    <p>Those requirements make this a difficult product to build. They also make it worth building. Reliable capability has value precisely because a business cannot afford to treat every working day as an experiment.</p>
+    <p>Core is our first product in that direction, beginning with commerce. The ambition is a maintained foundation that gives a business more room to act as its technology improves.</p>
+    <p>The question after the buildout will be what an ordinary company can now do that it could not do before. That is where we intend to spend our time.</p>
   </>,
   sources: [
     { label: 'Microsoft FY2027 Q1 earnings call, October 28, 2026', href: 'https://www.microsoft.com/en-us/investor/events/fy-2027/earnings-fy-2027-q1' },
@@ -85,6 +61,5 @@ export const infrastructureEssay: JournalEssay = {
     { label: 'Microsoft: Work IQ retrieval, October 20, 2026', href: 'https://devblogs.microsoft.com/microsoft365dev/work-iq-retrieve-october-2026/' },
     { label: 'Google: Gemini Enterprise connectors and data stores', href: 'https://docs.cloud.google.com/gemini/enterprise/docs/connectors/introduction-to-connectors-and-data-stores' },
     { label: 'AWS: Introducing Amazon Quick Suite, October 9, 2025', href: 'https://aws.amazon.com/blogs/business-intelligence/reimagine-business-intelligence-amazon-quicksight-evolves-to-amazon-quick-suite/' },
-    { label: 'Model Context Protocol introduction, July 28, 2026 specification', href: 'https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro' },
   ],
 };

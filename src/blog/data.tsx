@@ -48,6 +48,6 @@ export const BLOG_POSTS: BlogPost[] = essays.map((essay, index) => ({
   updatedDateISO,
   updatedDate: dateFormat.format(new Date(updatedDateISO)),
   readTime: `${Math.max(1, Math.ceil(textOf(essay.content).trim().split(/\s+/).length / 200))} min read`,
-  image: '/growthsync-logo.png',
-  imageAlt: 'GrowthSync wordmark with the orange brand dot.',
+  image: essay.cover?.src || '/growthsync-logo.png',
+  imageAlt: essay.cover?.alt || 'GrowthSync wordmark with the orange brand dot.',
 }));

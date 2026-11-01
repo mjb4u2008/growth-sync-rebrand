@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { BlogSource } from '../types';
+import type { BlogCover, BlogSource } from '../types';
 
 export type JournalTopic = 'Perspectives' | 'Case studies' | 'Inside GrowthSync';
 export type JournalFilter = 'All' | JournalTopic;
@@ -12,5 +12,6 @@ export type JournalEssay = {
   tags: string[];
   content: ReactNode;
   sources: BlogSource[];
+  cover?: BlogCover;
   editorialNote?: string;
 };

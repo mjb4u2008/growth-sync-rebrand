@@ -24,6 +24,13 @@ export type BlogSource = {
   href: string;
 };
 
+export type BlogCover = {
+  src: string;
+  alt: string;
+  caption?: string;
+  portrait?: boolean;
+};
+
 export type BlogPost = {
   id?: number;
   slug: string;
@@ -45,6 +52,8 @@ export type BlogPost = {
   tags: string[];
   image: string;
   imageAlt: string;
+  /** Original editorial artwork or an existing, attributed team portrait. */
+  cover?: BlogCover;
   /** Optional SVG/component fallback when a post does not have an image. */
   hero?: ReactNode;
   /** Article body (React) */
