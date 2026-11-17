@@ -8,6 +8,9 @@
  */
 export const CALENDLY_URL = "";
 
+/** Existing authenticated app; lets current sessions enter without a forced sign-in. */
+export const LOGIN_URL = "https://app.growthsync.com";
+
 /** Support contact used by the published GrowthSync policies. */
 export const CONTACT_EMAIL = "support@growthsync.com";
 

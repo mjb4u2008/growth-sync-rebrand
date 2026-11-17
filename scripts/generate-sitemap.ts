@@ -17,6 +17,7 @@ const latestBlogDate = BLOG_POSTS.map(post => post.updatedDateISO || post.dateIS
 
 const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/`, lastmod: latestBlogDate, changefreq: 'weekly', priority: '1.0' },
+  { loc: `${SITE_URL}/grow`, lastmod: '2026-11-17', changefreq: 'monthly', priority: '0.9' },
   { loc: `${SITE_URL}/blog`, lastmod: latestBlogDate, changefreq: 'weekly', priority: '0.8' },
   { loc: `${SITE_URL}/book-a-call`, lastmod: latestBlogDate, changefreq: 'monthly', priority: '0.9' },
   { loc: `${SITE_URL}/pricing`, lastmod: latestBlogDate, changefreq: 'monthly', priority: '0.7' },
