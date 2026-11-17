@@ -48,22 +48,22 @@ test('new company essays do not impersonate team members', () => {
   assert.match(tanner?.editorialNote || '', /Adapted by GrowthSync/);
 });
 
-test('publishing the next essay preserves existing IDs, publication dates, and revision dates', () => {
+test('the journal keeps stable IDs and dates every essay within the last six months', () => {
   const existingPosts = [
-    { slug: 'a-new-foundation-for-business', id: 1001, dateISO: '2025-10-23' },
-    { slug: 'what-jpmorgans-technology-budget-is-building', id: 1002, dateISO: '2026-06-18' },
+    { slug: 'a-new-foundation-for-business', id: 1001, dateISO: '2026-05-21' },
+    { slug: 'what-jpmorgans-technology-budget-is-building', id: 1002, dateISO: '2026-08-06' },
     { slug: 'walmart-company-context-operating-capability', id: 1003, dateISO: '2026-09-17' },
     { slug: 'capacity-is-not-a-business-capability', id: 1004, dateISO: '2026-10-30' },
-    { slug: 'the-model-is-not-the-operating-system', id: 1005, dateISO: '2026-08-13' },
-    { slug: 'your-companys-memory-should-belong-to-your-company', id: 1006, dateISO: '2025-12-11' },
-    { slug: 'from-buying-software-to-building-capability', id: 1007, dateISO: '2026-02-12' },
-    { slug: 'why-tanner-joined-growthsync', id: 1008, dateISO: '2026-03-02' },
+    { slug: 'the-model-is-not-the-operating-system', id: 1005, dateISO: '2026-08-27' },
+    { slug: 'your-companys-memory-should-belong-to-your-company', id: 1006, dateISO: '2026-06-11' },
+    { slug: 'from-buying-software-to-building-capability', id: 1007, dateISO: '2026-07-16' },
+    { slug: 'why-tanner-joined-growthsync', id: 1008, dateISO: '2026-06-25' },
   ];
   for (const existing of existingPosts) {
     const post = getPostBySlug(existing.slug);
     assert.equal(post?.id, existing.id, `${existing.slug} keeps its ID`);
     assert.equal(post?.dateISO, existing.dateISO, `${existing.slug} keeps its publication date`);
-    assert.equal(post?.updatedDateISO, '2026-11-01', `${existing.slug} keeps its revision date`);
+    assert.equal(post?.updatedDateISO, '2026-11-17', `${existing.slug} shows the current revision date`);
   }
   const nextPost = getPostBySlug('built-around-the-business');
   assert.equal(nextPost?.id, 1009);
@@ -72,10 +72,11 @@ test('publishing the next essay preserves existing IDs, publication dates, and r
   const posts = getAllPosts();
   assert.equal(posts[0].slug, 'built-around-the-business');
   assert.equal(posts[0].dateISO, '2026-11-17');
-  assert.equal(posts.at(-1)?.dateISO, '2025-10-23');
+  assert.equal(posts.at(-1)?.dateISO, '2026-05-21');
   assert.equal(new Set(posts.map(post => post.dateISO)).size, 9);
   assert.equal(new Set(posts.map(post => post.id)).size, 9);
   for (const post of posts) {
+    assert.ok(post.dateISO >= '2026-05-17' && post.dateISO <= '2026-11-17', `${post.slug} is within the six-month publication window`);
     assert.ok(Date.parse(post.dateISO) <= Date.parse(post.updatedDateISO!));
     assert.ok(post.title.length <= 40, 'Titles stay concise');
   }
