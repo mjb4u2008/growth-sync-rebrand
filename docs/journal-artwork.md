@@ -6,6 +6,7 @@ Three original editorial images were generated with the built-in image-generatio
 - `public/journal/the-end-of-starting-over.jpg`: translucent layers connected by a continuous orange thread. Used for the memory essay.
 - `public/journal/beyond-the-session.jpg`: a continuous orange line across separated graphite structures. Used for the execution essay.
 - `public/journal/tanner.jpg`: JPEG encoding of the already-published, supplied Tanner photograph from `public/blog/why-i-joined-growthsync.png`. The article uses a CSS crop; no facial or identity edits.
+- `public/journal/built-around-the-business.jpg`: generated November 17, 2026. Graphite and glass structures fitted around a continuous orange thread; a conceptual illustration of software shaped around a business. Optimized to 1600 × 900, 172 KB.
 
 ## Final prompts
 
@@ -20,6 +21,10 @@ Original wide editorial art for a thoughtful founder essay about a company retai
 ### Beyond the session
 
 Original wide editorial art for a thoughtful startup engineering essay about work continuing across the end of an AI session. A sophisticated small physical sculpture photographed on a bright neutral-white studio floor: two separated low platforms of dark graphite, with a third narrow dark island in the gap, and a single vivid orange tensioned cable or thin tubular path traversing the entire distance, continuing confidently across open space. The first platform supports an intricate small cluster of angular folded graphite forms, the last supports a different larger arrangement; the orange line stays continuous though the forms change. Precise engineering, architectural model, unexpected beautiful sculptural composition. Strong lateral visual movement, viewpoint slightly above, soft clear daylight with long delicate shadows, materials tactile and physically credible. Restrained graphite, orange, neutral-white palette. Landscape 16:9, full bleed but generous breathing space. No text, lettering, numbers, people, arrows, logos, UI, glowing neon, gradients, spaceships, data-center cliches. Make it feel like original art commissioned by an ambitious, thoughtful technology founder.
+
+### Built around the business
+
+Create a wide 16:9 editorial art photograph in the existing GrowthSync journal's material language: graphite, smoked glass, warm orange, and a pale neutral studio background. A solid central graphite form is surrounded by precisely fitted open frames and folded planes, each shaped to meet it, while one orange filament connects the whole assembly. A few unused standard frames sit farther away as a quiet secondary detail. The composition expresses software built around the shape of a business. Architectural model scale, tactile materials, careful physical construction, soft directional daylight and generous negative space. No text, lettering, logo, UI, people, neon, or circuit-board imagery. The existing journal covers were supplied as visual references.
 
 ## Reading figures
 

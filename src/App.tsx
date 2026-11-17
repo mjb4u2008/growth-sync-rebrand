@@ -6,6 +6,7 @@ import CoreHome from "@/pages/CoreHome";
 
 const ConceptStudio = import.meta.env.DEV ? lazy(() => import("@/pages/ConceptStudio")) : null;
 const SupportingRoutes = lazy(() => import("@/pages/SupportingRoutes"));
+const GrowLanding = lazy(() => import("@/pages/GrowLanding"));
 
 export default function App() {
   useGlobalLinkInterception();
@@ -25,7 +26,7 @@ export default function App() {
 
   return route.kind === "home" ? <CoreHome /> : (
     <Suspense fallback={<main className="core-route-loading" role="status">Loading…</main>}>
-      <SupportingRoutes route={route} />
+      {route.kind === "grow" ? <GrowLanding /> : <SupportingRoutes route={route} />}
     </Suspense>
   );
 }

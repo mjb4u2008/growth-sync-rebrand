@@ -100,6 +100,10 @@ body.core-dialog-open { overflow: hidden; }
 }
 
 .core-nav { display: flex; align-items: center; gap: 24px; font-size: 14px; }
+.core-login { display: inline-flex; align-items: center; min-height: 32px; white-space: nowrap; }
+.core-login:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 600px) { .core-nav-home { display: none; } }
+@media (max-width: 400px) { .core-nav { gap: 14px; font-size: 12px; } .core-journal { font-size: 12px; gap: 5px; } }
 .core-support .core-header { background: var(--core-paper); }
 .core-support .core-header a { color: var(--core-ink); text-decoration: none; }
 .core-support .core-header :focus-visible { outline: 2px solid var(--core-accent); outline-offset: 5px; }

@@ -4,7 +4,7 @@ import { getStoredAttribution } from '@/utils/attribution';
 import { trackLeadConversion } from '@/utils/marketingTags';
 import { CoreBooking } from './CoreBooking';
 
-export function CoreInquiry({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function CoreInquiry({ open, onClose, intent = 'core' }: { open: boolean; onClose: () => void; intent?: 'core' | 'growth' }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   const descriptionId = useId();
@@ -89,8 +89,8 @@ export function CoreInquiry({ open, onClose }: { open: boolean; onClose: () => v
         ) : (
           <>
             <span className="core-inquiry-mark" aria-hidden="true">↗</span>
-            <h2 id={titleId}>Let’s build<br />what comes next.</h2>
-            <p id={descriptionId}>Tell us about your business, then choose a time to meet.</p>
+            <h2 id={titleId}>{intent === 'growth' ? <>See GrowthSync<br />in action.</> : <>Let’s build<br />what comes next.</>}</h2>
+            <p id={descriptionId}>{intent === 'growth' ? 'Tell us about your brand, then choose a time for a demo.' : 'Tell us about your business, then choose a time to meet.'}</p>
             <form onSubmit={submit} onInput={event => {
               const field = event.target;
               if (field instanceof HTMLInputElement) field.setCustomValidity('');
@@ -103,7 +103,7 @@ export function CoreInquiry({ open, onClose }: { open: boolean; onClose: () => v
                 <label>Company or brand<input autoComplete="organization" name="company" required maxLength={180} placeholder="Company name" /></label>
                 <label>Website<input autoComplete="url" type="url" name="website" pattern="https?://.+" title="Use a website beginning with https:// or http://" required maxLength={280} placeholder="https://company.com" /></label>
               </div>
-              <label>What would you like to make possible? <span className="core-optional">Optional</span><textarea name="notes" rows={3} maxLength={2400} placeholder="A workflow, a problem, a bigger idea…" /></label>
+              <label>{intent === 'growth' ? 'What would you like to improve?' : 'What would you like to make possible?'} <span className="core-optional">Optional</span><textarea name="notes" rows={3} maxLength={2400} placeholder={intent === 'growth' ? 'Comments, DMs, creator campaigns…' : 'A workflow, a problem, a bigger idea…'} /></label>
               </fieldset>
               {error && <p className="core-error" role="alert">{error}</p>}
               <button type="submit" className="core-submit" disabled={state === 'sending'}>{state === 'sending' ? 'Saving…' : 'Continue to calendar'}<ArrowUpRight size={18} /></button>

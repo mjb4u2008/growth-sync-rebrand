@@ -33,6 +33,7 @@ export type SimplePageSlug =
 
 export type Route =
   | { kind: "home" }
+  | { kind: "grow" }
   | { kind: "blog-index"; search: string }
   | { kind: "blog-post"; slug: string }
   | { kind: "book-a-call" }
@@ -59,9 +60,10 @@ const SIMPLE_PAGE_SLUGS: ReadonlySet<SimplePageSlug> = new Set<SimplePageSlug>([
   "sample-inbox",
 ]);
 
-function pathToRoute(pathnameWithSearch: string): Route {
+export function pathToRoute(pathnameWithSearch: string): Route {
   const [pathname, search = ""] = pathnameWithSearch.split("?");
   if (pathname === "/" || pathname === "") return { kind: "home" };
+  if (pathname === "/grow" || pathname === "/grow/") return { kind: "grow" };
   if (pathname === "/legals/privacy-policy" || pathname === "/legals/privacy-policy/") return { kind: "simple-page", slug: "privacy" };
   if (pathname === "/legals/terms-of-service" || pathname === "/legals/terms-of-service/") return { kind: "simple-page", slug: "terms" };
   if (pathname === "/blog" || pathname === "/blog/") return { kind: "blog-index", search };
